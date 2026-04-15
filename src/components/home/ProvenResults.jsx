@@ -58,7 +58,7 @@ const ProvenResults = () => {
                     {/* Left Content */}
                     <div className="lg:w-1/2 space-y-8 z-10">
                         <div className="inline-block border border-yellow-500/50 rounded-full px-4 py-1.5">
-                            <span className="text-yellow-400 text-xs font-bold tracking-widest uppercase">Trusted Since 2006</span>
+                            <span className="text-yellow-400 text-xs font-bold tracking-widest uppercase">Trusted Since 2003</span>
                         </div>
 
                         <h2 className="text-5xl md:text-6xl font-serif text-yellow-500 italic leading-tight">
@@ -108,8 +108,7 @@ const ProvenResults = () => {
                                     <div className="relative max-w-sm mx-auto">
                                         {/* Product/Result Image in Arch */}
                                         <div className="relative rounded-t-[200px] rounded-b-lg overflow-hidden h-[450px] shadow-2xl border-4 border-white/10">
-                                            <img
-                                                src={item.image}
+                                            <img loading="lazy" src={item.image}
                                                 alt="Result"
                                                 className="w-full h-full object-cover"
                                             />

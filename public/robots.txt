@@ -1,15 +1,23 @@
-# Robots.txt for The Karan Singh Vaidh - Ancient Ayurvedas
-# https://thekaransinghvaidh.com
-
 User-agent: *
+
+# Allow all important pages
 Allow: /
-Disallow: /admin/
+
+# Block admin & system pages
+Disallow: /admin
+Disallow: /api
+
+# Block transactional pages
 Disallow: /checkout
-Disallow: /account
 Disallow: /cart
+Disallow: /account
+Disallow: /login
+Disallow: /register
+Disallow: /forgot-password
+Disallow: /order-success
+
+# Allow query URLs (IMPORTANT FIX)
+# (Remove /*? blocking)
 
 # Sitemap
 Sitemap: https://thekaransinghvaidh.com/sitemap.xml
-
-# Crawl delay (optional, helps prevent server overload)
-Crawl-delay: 1

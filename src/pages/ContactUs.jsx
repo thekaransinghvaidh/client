@@ -31,23 +31,23 @@ const ContactUs = () => {
         {
             icon: Phone,
             title: 'Phone Numbers',
-            details: '8894772187 / 8091134027',
-            link: 'tel:+918894772187',
+            details: '82196 58454',
+            link: 'tel:+918219658454',
             color: 'text-emerald-600',
             bg: 'bg-emerald-50'
         },
         {
             icon: Mail,
             title: 'Email',
-            details: 'thekaransinghvaidh@gmail.com',
-            link: 'mailto:thekaransinghvaidh@gmail.com',
+            details: 'info@thekaransinghvaidh.com',
+            link: 'mailto:info@thekaransinghvaidh.com',
             color: 'text-blue-600',
             bg: 'bg-blue-50'
         },
         {
             icon: MapPin,
-            title: 'Address',
-            details: 'Hospital Road, Kotlanala, Solan, HP - 173212',
+            title: 'Hospital Address',
+            details: 'Anji, Radhasoami Satsang Road, Reboun P.O. Solan, Himachal Pradesh – 173211',
             link: '#map',
             color: 'text-ayur-green',
             bg: 'bg-ayur-beige/30'
@@ -64,7 +64,7 @@ const ContactUs = () => {
                             Get In Touch
                         </span>
                     </div>
-                    <h1 className="text-5xl md:text-6xl font-serif font-bold text-ayur-green mb-6">Contact Us</h1>
+                    <h1 className="text-3xl md:text-6xl font-serif font-bold text-ayur-green mb-6">Contact Us</h1>
                     <p className="text-xl text-gray-600 leading-relaxed">
                         Have questions about our Ayurvedic products or need personalized wellness guidance? We're here to help you on your journey to holistic health.
                     </p>
@@ -198,20 +198,21 @@ const ContactUs = () => {
                             <div className="relative z-10">
                                 <h3 className="text-2xl font-serif font-bold mb-4">Patient Care Centre</h3>
                                 <p className="text-white/90 mb-6 leading-relaxed font-medium">
-                                    Corporate Office & Information
+                                    Corporate Office / Patient Care & Information Centre
+
                                 </p>
                                 <div className="space-y-4">
                                     <div className="flex items-start gap-3 text-white">
                                         <MapPin size={20} className="flex-shrink-0 mt-1" />
-                                        <span className="font-medium">Hospital Road, Kotlanala, Solan, Himachal Pradesh – 173212</span>
+                                        <span className="font-medium"> Near Apex Hospital, Kotlanala, Solan, Himachal Pradesh – 173212</span>
                                     </div>
-                                    <a href="tel:+918894772187" className="flex items-center gap-3 text-white hover:text-ayur-gold transition-colors">
+                                    <a href="tel:+918219658454" className="flex items-center gap-3 text-white hover:text-ayur-gold transition-colors">
                                         <Phone size={20} />
-                                        <span className="font-semibold">8894772187 / 8091134027</span>
+                                        <span className="font-semibold">82196 58454</span>
                                     </a>
-                                    <a href="mailto:thekaransinghvaidh@gmail.com" className="flex items-center gap-3 text-white hover:text-ayur-gold transition-colors">
+                                    <a href="mailto:info@thekaransinghvaidh.com" className="flex items-center gap-3 text-white hover:text-ayur-gold transition-colors">
                                         <Mail size={20} />
-                                        <span className="font-semibold">thekaransinghvaidh@gmail.com</span>
+                                        <span className="font-semibold">info@thekaransinghvaidh.com</span>
                                     </a>
                                 </div>
                             </div>

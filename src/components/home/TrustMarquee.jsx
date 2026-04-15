@@ -8,13 +8,13 @@ const trustItems = [
     { icon: <Ban size={18} className="text-red-400" />, text: "No Added Sugar" },
     { icon: <TestTube size={18} className="text-purple-400" />, text: "No Extracts Used" },
     { icon: <Recycle size={18} className="text-emerald-400" />, text: "BPA Free Packaging" },
-    { icon: <Award size={18} className="text-yellow-500" />, text: "Best in Quality – Trusted Since 2006" },
+    { icon: <Award size={18} className="text-yellow-500" />, text: "Best in Quality – Trusted Since 2003" },
     { icon: <Stethoscope size={18} className="text-white" />, text: "Doctor Recommended Formulas" }
 ];
 
 const TrustMarquee = () => {
     return (
-        <div className="bg-[#0d2e1b] py-4 overflow-hidden border-y border-yellow-500/20 relative z-20">
+        <div className="bg-[#0d2e1b] py-4 overflow-hidden w-full border-y border-yellow-500/20 relative z-20">
             <div className="flex w-max animate-marquee hover:pause-animation">
                 {/* Original Set */}
                 <div className="flex items-center gap-12 px-6">

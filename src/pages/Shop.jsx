@@ -6,16 +6,16 @@ import ProductCard from '../components/home/ProductCard';
 import ScrollToTop from '../components/layout/ScrollToTop';
 
 // Category Image Imports
-import asthmaImg from '../assets/Asthma.jpeg';
-import diabetesImg from '../assets/Diabetes.jpeg';
-import gallBladderImg from '../assets/Gall Bladder.jpeg';
-import gastricImg from '../assets/Gastric.jpeg';
-import kidneyStoneImg from '../assets/Kidney Stone.jpeg';
-import migraineImg from '../assets/Migraine.jpeg';
-import pilesImg from '../assets/Piles.jpeg';
-import thyroidImg from '../assets/Thyroid.png';
-import tuberculosisImg from '../assets/Tuberculosis.png';
-import allProductsImg from '../assets/AllProducts.png';
+import asthmaImg from '../assets/Asthma.webp';
+import diabetesImg from '../assets/Diabetes.webp';
+import gallBladderImg from '../assets/Gall Bladder.webp';
+import gastricImg from '../assets/Gastric.webp';
+import kidneyStoneImg from '../assets/Kidney Stone.webp';
+import migraineImg from '../assets/Migraine.webp';
+import pilesImg from '../assets/Piles.webp';
+import thyroidImg from '../assets/Thyroid.webp';
+import tuberculosisImg from '../assets/Tuberculosis.webp';
+import allProductsImg from '../assets/AllProducts.webp';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
@@ -23,7 +23,7 @@ const Shop = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState('All');
-    const [sortBy, setSortBy] = useState('newest');
+    const [sortBy, setSortBy] = useState('az');
     const [searchParams, setSearchParams] = useSearchParams();
 
     // Sync selectedCategory with searchParams
@@ -63,7 +63,30 @@ const Shop = () => {
             params.append('sort', sortBy);
 
             const { data } = await api.get(`/products?${params.toString()}`);
-            setProducts(data);
+            
+            // Client-side sorting as a foolproof fallback
+            // This ensures products are correctly sorted even if backend doesn't apply it
+            let sortedData = Array.isArray(data) ? [...data] : [];
+            
+            if (sortBy === 'az') {
+                sortedData.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+            } else if (sortBy === 'za') {
+                sortedData.sort((a, b) => (b.name || '').localeCompare(a.name || ''));
+            } else if (sortBy === 'low') {
+                sortedData.sort((a, b) => {
+                    const priceA = a.packs?.[0]?.sellingPrice || 0;
+                    const priceB = b.packs?.[0]?.sellingPrice || 0;
+                    return priceA - priceB;
+                });
+            } else if (sortBy === 'high') {
+                sortedData.sort((a, b) => {
+                    const priceA = a.packs?.[0]?.sellingPrice || 0;
+                    const priceB = b.packs?.[0]?.sellingPrice || 0;
+                    return priceB - priceA;
+                });
+            }
+
+            setProducts(sortedData);
             setLoading(false);
         } catch (err) {
             setError(err.response?.data?.message || err.message);
@@ -84,10 +107,13 @@ const Shop = () => {
         'Kidney Stone': { image: kidneyStoneImg, color: 'bg-emerald-100 text-emerald-600', label: 'Kidney Stone' },
     };
 
+    const [showAllCategories, setShowAllCategories] = useState(false);
+    const displayedCategories = showAllCategories ? categories : categories?.slice(0, 5);
+
     return (
         <div className="min-h-screen bg-gray-50 pt-16 lg:pt-24 pb-12 -mt-16">
             <ScrollToTop />
-
+            
             {/* Mobile Scrolling Marquee - Fills the gap with dynamic info */}
             <div className="lg:hidden bg-ayur-green text-white py-2.5 overflow-hidden sticky top-0 z-40 shadow-md">
                 <style>
@@ -117,7 +143,7 @@ const Shop = () => {
             </div>
 
             {/* Visual Category Section (Mobile Only) */}
-            <div className="lg:hidden bg-white border-b border-gray-100 mb-6 sticky top-0 z-30 pt-4 pb-2 shadow-sm relative overflow-hidden">
+            <div className="lg:hidden bg-white border-b border-gray-100 mb-6 sticky top-16 z-30 pt-4 pb-2 shadow-sm relative overflow-hidden">
                 <div className="w-full px-4">
                     <div className="flex justify-between items-center mb-4 px-2">
                         <h2 className="text-lg font-bold text-gray-900 border-l-4 border-ayur-green pl-3">
@@ -138,7 +164,6 @@ const Shop = () => {
                         </div>
 
                         {categories?.map(cat => {
-                            console.log('Rendering mobile category:', cat?.name);
                             const config = categoryConfig[cat?.name] || { image: allProductsImg };
                             const isSelected = selectedCategory === cat._id;
 
@@ -185,6 +210,8 @@ const Shop = () => {
                             value={sortBy}
                             onChange={(e) => setSortBy(e.target.value)}
                         >
+                            <option value="az">Alphabetically, A-Z</option>
+                            <option value="za">Alphabetically, Z-A</option>
                             <option value="newest">Newest First</option>
                             <option value="low">Price: Low to High</option>
                             <option value="high">Price: High to Low</option>
@@ -195,7 +222,7 @@ const Shop = () => {
                 <div className="flex flex-col lg:flex-row gap-8">
                     {/* Sidebar Filters */}
                     <aside className="hidden lg:block lg:w-[15%]">
-                        <div className="bg-white p-7 rounded-2xl shadow-sm border border-gray-100 sticky top-28 transition-all hover:shadow-md">
+                        <div className="bg-white p-7 rounded-2xl shadow-sm border border-gray-100 sticky top-28 transition-all hover:shadow-md max-h-[calc(100vh-140px)] overflow-y-auto">
                             <h3 className="font-serif text-2xl text-gray-900 mb-8 pb-3 border-b-2 border-ayur-green/10 flex items-center gap-2">
                                 <span className="w-1.5 h-6 bg-ayur-green rounded-full"></span>
                                 Categories
@@ -216,8 +243,7 @@ const Shop = () => {
                                         <span className="text-sm tracking-wide">All Products</span>
                                     </button>
                                 </li>
-                                {categories?.map(cat => {
-                                    console.log('Rendering desktop category:', cat?.name);
+                                {displayedCategories?.map(cat => {
                                     const config = categoryConfig[cat?.name] || { image: allProductsImg };
                                     const isSelected = selectedCategory === cat._id;
 
@@ -240,6 +266,15 @@ const Shop = () => {
                                     );
                                 })}
                             </ul>
+
+                            {categories?.length > 5 && (
+                                <button
+                                    onClick={() => setShowAllCategories(!showAllCategories)}
+                                    className="mt-4 w-full text-xs font-bold text-ayur-green hover:text-ayur-olive transition-colors flex items-center justify-center gap-2 py-2 border border-ayur-green/10 rounded-lg hover:bg-ayur-green/5"
+                                >
+                                    {showAllCategories ? 'Show Less' : `+ See More (${categories.length - 5})`}
+                                </button>
+                            )}
 
                             <div className="mt-12 pt-10 border-t border-gray-50">
                                 <h4 className="text-[10px] font-extrabold text-gray-400 uppercase tracking-[0.2em] mb-6">Why shop with us?</h4>

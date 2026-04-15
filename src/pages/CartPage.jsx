@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Trash2, ShoppingBag, ArrowRight } from 'lucide-react';
+import { Trash2, ShoppingBag, ArrowRight, Phone } from 'lucide-react';
 import { CartContext } from '../context/CartContext';
+import { getAssetUrl } from '../api/api';
 
 const CartPage = () => {
     const { cartItems, removeFromCart, updateQty, getCartTotal } = useContext(CartContext);
@@ -32,7 +33,7 @@ const CartPage = () => {
                     <div className="flex-1 space-y-4">
                         {cartItems.map((item, index) => (
                             <div key={index} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex gap-4 items-center">
-                                <img src={item.image} alt={item.name} className="w-20 h-20 object-cover rounded-md" />
+                                <img src={getAssetUrl(item.image)} alt={item.name} className="w-20 h-20 object-cover rounded-md" />
 
                                 <div className="flex-1">
                                     <h3 className="font-bold text-gray-900">{item.name}</h3>
@@ -96,6 +97,45 @@ const CartPage = () => {
                             >
                                 Proceed to Checkout <ArrowRight size={18} />
                             </button>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Premium Support Banner */}
+                <div className="mt-12 bg-[#2D5A41] rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden shadow-2xl group">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl transition-transform duration-700 group-hover:scale-110"></div>
+
+                    <div className="relative flex flex-col lg:flex-row items-center justify-between gap-10">
+                        <div className="flex-1 text-center lg:text-left">
+                            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest mb-8">
+                                <div className="w-1.5 h-1.5 bg-ayur-gold rounded-full animate-pulse"></div>
+                                Expert Consultation Available
+                            </div>
+                            <div className="mb-6">
+                                <span className="block text-2xl md:text-5xl font-serif font-bold text-white mb-2 leading-none">Need help with your</span>
+                                <span className="text-4xl md:text-7xl font-serif font-bold text-ayur-gold relative inline-block leading-none">
+                                    Order?
+                                    <div className="absolute bottom-0 left-0 w-full h-1 bg-ayur-gold/30 rounded-full"></div>
+                                </span>
+                            </div>
+                            <p className="text-white/80 text-sm md:text-lg font-medium max-w-xl leading-relaxed">
+                                Our wellness experts are just a call away. Get personalized guidance and place your order directly.
+                            </p>
+                        </div>
+
+                        <div className="flex flex-col items-center">
+                            <a
+                                href="tel:+918219658454"
+                                className="w-28 h-28 md:w-36 md:h-36 bg-[#FDFCFB] rounded-full flex items-center justify-center text-[#2D5A41] shadow-2xl hover:scale-105 transition-all duration-500 relative group/btn"
+                            >
+                                <div className="absolute inset-0 bg-white rounded-full transition-transform group-hover/btn:scale-110"></div>
+                                <Phone size={48} className="relative z-10" />
+                                <div className="absolute -inset-3 border border-white/20 rounded-full animate-pulse"></div>
+                            </a>
+                            <div className="mt-8 text-center">
+                                <div className="text-white/60 text-[10px] font-bold uppercase tracking-[0.4em] mb-2">Tap to Connect</div>
+                                <div className="text-2xl font-bold tracking-wider text-white">+91 82196 58454</div>
+                            </div>
                         </div>
                     </div>
                 </div>
