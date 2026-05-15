@@ -1,9 +1,11 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api, { getAssetUrl } from '../api/api';
 import { CartContext } from '../context/CartContext';
 import { AuthContext } from '../context/AuthContext';
 import { ArrowRight, Lock, Loader2, CreditCard, Banknote } from 'lucide-react';
+import SEO from '../components/seo/SEO';
+import { metaPixelService } from '../services/metaPixel';
 
 const CheckoutPage = () => {
     const { cartItems, getCartTotal, clearCart } = useContext(CartContext);
@@ -11,6 +13,7 @@ const CheckoutPage = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [paymentMethod, setPaymentMethod] = useState('COD'); // 'COD' or 'RAZORPAY'
+    const isRedirecting = useRef(false);
 
     const [form, setForm] = useState({
         name: '',
@@ -34,6 +37,15 @@ const CheckoutPage = () => {
             }));
         }
     }, [userInfo, authLoading, navigate]);
+
+    // Track InitiateCheckout cleanly
+    const hasTrackedCheckout = useRef(false);
+    useEffect(() => {
+        if (cartItems.length > 0 && !hasTrackedCheckout.current) {
+            metaPixelService.trackInitiateCheckout(cartItems, getCartTotal());
+            hasTrackedCheckout.current = true;
+        }
+    }, [cartItems, getCartTotal]);
 
     // Load Razorpay Script
     useEffect(() => {
@@ -104,6 +116,7 @@ const CheckoutPage = () => {
                                 }
                             }
 
+                            isRedirecting.current = true;
                             clearCart();
                             navigate(`/order-success/${createdOrder._id}`);
                         }
@@ -129,7 +142,7 @@ const CheckoutPage = () => {
             const errorMessage = error.response?.data?.message || error.message || 'Error initiating Razorpay payment. Please try again.';
             alert(errorMessage);
         } finally {
-            setLoading(false);
+            if (!isRedirecting.current) setLoading(false);
         }
     };
 
@@ -171,6 +184,7 @@ const CheckoutPage = () => {
         } else {
             try {
                 const { data: createdOrder } = await api.post('/orders', orderData);
+                isRedirecting.current = true;
                 clearCart();
                 navigate(`/order-success/${createdOrder._id}`);
             } catch (error) {
@@ -181,13 +195,22 @@ const CheckoutPage = () => {
         }
     };
 
-    if (cartItems.length === 0) {
-        navigate('/cart');
+    useEffect(() => {
+        if (!isRedirecting.current && cartItems.length === 0) {
+            navigate('/cart');
+        }
+    }, [cartItems, navigate]);
+
+    if (!isRedirecting.current && cartItems.length === 0) {
         return null;
     }
 
     return (
         <div className="bg-gray-50 min-h-screen py-10">
+            <SEO 
+                title="Secure Checkout | Complete Your Order - Karan Singh Vaidh" 
+                description="Finalize your order of authentic Ayurvedic products. Secure payment and fast shipping for natural remedies from Karan Singh Vaidh."
+            />
             <div className="container mx-auto px-4 max-w-4xl">
                 <h1 className="text-3xl font-bold text-gray-800 mb-8 font-serif">Checkout</h1>
 

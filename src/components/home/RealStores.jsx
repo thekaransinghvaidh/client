@@ -1,8 +1,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, MessageCircle, ArrowRight } from 'lucide-react';
+import { FileText, MessageCircle, ArrowRight, MapPin } from 'lucide-react';
+import { metaPixelService } from '../../services/metaPixel';
 
 const RealStores = () => {
+    const trackPDFView = () => {
+        metaPixelService.trackCustom('ViewReportsPDF', {
+            content_name: 'Patient Medical Reports'
+        });
+    };
+
+    const trackWhatsAppLead = () => {
+        metaPixelService.trackContact({
+            content_name: 'WhatsApp Reports'
+        });
+    };
+
     return (
         <section className="relative py-16 md:py-24 overflow-hidden font-sans">
             {/* Background Image & Overlay */}
@@ -55,6 +68,7 @@ const RealStores = () => {
                             href="https://thekaransinghvaidh.com/real-stores-real-people.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={trackPDFView}
                             className="group relative w-full sm:w-auto overflow-hidden bg-white text-[#132e1b] px-8 py-4 md:px-10 md:py-5 rounded-full font-bold text-sm md:text-base tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:scale-[1.02] active:scale-95 text-center"
                         >
                             <span className="relative z-10 flex items-center justify-center gap-3">
@@ -68,11 +82,25 @@ const RealStores = () => {
                             href="https://wa.me/918219658454?text=Hi, I want to send my medical reports for consultation."
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={trackWhatsAppLead}
                             className="group relative w-full sm:w-auto overflow-hidden px-8 py-4 md:px-10 md:py-5 rounded-full border-2 border-ayur-gold/50 bg-ayur-gold/10 backdrop-blur-sm text-ayur-gold font-bold text-sm md:text-base tracking-widest uppercase transition-all duration-300 hover:bg-ayur-gold hover:text-[#132e1b] hover:border-ayur-gold hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] hover:scale-[1.02] active:scale-95 text-center"
                         >
                             <span className="relative z-10 flex items-center justify-center gap-3">
                                 Send Your Reports
                                 <MessageCircle size={18} />
+                            </span>
+                        </a>
+
+                        {/* GMB Button */}
+                        <a
+                            href="https://www.google.com/maps/place/KARAN+SINGH+VAIDH/@30.8959714,77.0929679,17z/data=!3m1!4b1!4m6!3m5!1s0x390f89cea1a75c47:0x1a68eda57c0d4c02!8m2!3d30.8959714!4d77.0929679!16s%2Fg%2F11y1m7q9_0"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group relative w-full sm:w-auto overflow-hidden px-8 py-4 md:px-10 md:py-5 rounded-full border-2 border-white/30 bg-white/5 backdrop-blur-sm text-white font-bold text-sm md:text-base tracking-widest uppercase transition-all duration-300 hover:bg-white hover:text-[#132e1b] hover:border-white hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] hover:scale-[1.02] active:scale-95 text-center"
+                        >
+                            <span className="relative z-10 flex items-center justify-center gap-3">
+                                Visit on Google Maps
+                                <MapPin size={18} />
                             </span>
                         </a>
 

@@ -3,6 +3,7 @@ import { ShoppingCart, Star, Minus, Plus, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getAssetUrl } from '../../api/api';
 import { CartContext } from '../../context/CartContext';
+import { metaPixelService } from '../../services/metaPixel';
 
 const ProductCard = ({ product }) => {
     const { addToCart } = useContext(CartContext);
@@ -31,7 +32,12 @@ const ProductCard = ({ product }) => {
     const discount = selectedPack.discount || (mrp > price ? Math.round(((mrp - price) / mrp) * 100) : 0);
 
     const handleAddToCart = () => {
+        console.log('[Meta Pixel] AddToCart button clicked');
+        
         addToCart(product, selectedPack, quantity);
+        console.log('[Meta Pixel] Cart updated successfully');
+        
+        metaPixelService.trackAddToCart(product, quantity, selectedPack?.sellingPrice || price);
     };
 
     return (
@@ -46,11 +52,10 @@ const ProductCard = ({ product }) => {
 
             {/* Image Container */}
             <Link to={`/product/${id}`} className="relative w-full aspect-[4/5] overflow-hidden bg-white block">
-                <img src={imageError ? '/logo.png' : image}
-                    alt={name}
+                <img loading="lazy" src={imageError ? '/logo.png' : image}
+                    alt={`Ayurvedic Product - ${name} | The Karan Singh Vaidh`}
                     onError={() => setImageError(true)}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 p-4"
-                    loading="lazy"
                 />
             </Link>
 

@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import api, { getAssetUrl } from '../api/api';
 import { CheckCircle, Truck, CreditCard, Headphones, Download, ChevronRight } from 'lucide-react';
+import SEO from '../components/seo/SEO';
+import { metaPixelService } from '../services/metaPixel';
 
 const OrderSuccess = () => {
     const { id } = useParams();
@@ -23,6 +25,19 @@ const OrderSuccess = () => {
 
         fetchOrder();
     }, [id]);
+
+    useEffect(() => {
+        if (order) {
+            // Standard Purchase tracking
+            metaPixelService.trackPurchase({
+                orderId: order._id,
+                totalAmount: order.totalPrice,
+                items: order.orderItems
+            });
+
+            // Enhanced ViewContent tracking for the success page removed as redundant with trackPurchase
+        }
+    }, [order]);
 
     if (loading) return (
         <div className="flex flex-col justify-center items-center min-h-[60vh] gap-4">
@@ -57,6 +72,10 @@ const OrderSuccess = () => {
 
     return (
         <div className="min-h-screen bg-gray-50/50 pb-20 font-sans">
+            <SEO 
+                title="Order Confirmed | Thank You for Shopping - Karan Singh Vaidh" 
+                description="Your order for authentic Ayurvedic products has been successfully placed. Thank you for choosing Karan Singh Vaidh for your natural wellness journey."
+            />
             {/* Breadcrumb */}
             <div className="bg-white border-b py-4">
                 <div className="container mx-auto px-4 max-w-5xl flex items-center gap-2 text-sm text-gray-500">

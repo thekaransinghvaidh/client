@@ -1,22 +1,41 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Trash2, ShoppingBag, ArrowRight, Phone } from 'lucide-react';
 import { CartContext } from '../context/CartContext';
 import { getAssetUrl } from '../api/api';
+import SEO from '../components/seo/SEO';
+import { metaPixelService } from '../services/metaPixel';
 
 const CartPage = () => {
     const { cartItems, removeFromCart, updateQty, getCartTotal } = useContext(CartContext);
     const navigate = useNavigate();
 
+    // Track the cart state on mount using the centralized service
+    const hasTracked = useRef(false);
+    useEffect(() => {
+        // We use a small delay to ensure Meta Pixel script is ready and bypass hydration blocks
+        if (cartItems.length > 0 && !hasTracked.current) {
+            const timer = setTimeout(() => {
+                console.log('[CartPage] Firing trackViewCart...');
+                metaPixelService.trackViewCart(cartItems, getCartTotal());
+                hasTracked.current = true;
+            }, 800); // 800ms for safety
+            return () => clearTimeout(timer);
+        }
+    }, [cartItems, getCartTotal]);
     const total = getCartTotal();
 
     if (cartItems.length === 0) {
         return (
             <div className="min-h-[60vh] flex flex-col items-center justify-center text-center p-4">
+                <SEO 
+                    title="Your Shopping Cart | Authentic Ayurvedic Products - Karan Singh Vaidh" 
+                    description="Review your selected Ayurvedic products and remedies in your cart. Secure checkout for natural treatments for Asthma, Diabetes, and more from Karan Singh Vaidh."
+                />
                 <ShoppingBag size={64} className="text-gray-300 mb-4" />
                 <h2 className="text-2xl font-bold text-gray-800 mb-2">Your Cart is Empty</h2>
                 <p className="text-gray-500 mb-6">Looks like you haven't added any packs yet.</p>
-                <Link to="/shop" className="bg-emerald-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-emerald-700 transition">
+                <Link to="/ayurvedic-products" className="bg-emerald-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-emerald-700 transition">
                     Browse Products
                 </Link>
             </div>
@@ -25,6 +44,10 @@ const CartPage = () => {
 
     return (
         <div className="bg-gray-50 min-h-screen py-10">
+            <SEO 
+                title="Your Shopping Cart | Authentic Ayurvedic Products - Karan Singh Vaidh" 
+                description="Review your selected Ayurvedic products and remedies in your cart. Secure checkout for natural treatments for Asthma, Diabetes, and more from Karan Singh Vaidh."
+            />
             <div className="container mx-auto px-4 max-w-4xl">
                 <h1 className="text-3xl font-bold text-gray-800 mb-8 font-serif">Your Cart ({cartItems.length} items)</h1>
 
@@ -92,7 +115,10 @@ const CartPage = () => {
                             </div>
 
                             <button
-                                onClick={() => navigate('/checkout')}
+                                onClick={() => {
+                                    metaPixelService.trackInitiateCheckout(cartItems, total);
+                                    navigate('/checkout');
+                                }}
                                 className="w-full bg-emerald-700 text-white py-3 rounded-lg font-bold hover:bg-emerald-800 transition flex items-center justify-center gap-2"
                             >
                                 Proceed to Checkout <ArrowRight size={18} />
@@ -126,6 +152,7 @@ const CartPage = () => {
                         <div className="flex flex-col items-center">
                             <a
                                 href="tel:+918219658454"
+                                onClick={() => metaPixelService.trackContact({ type: 'phone_call', location: 'cart_consultation_banner' })}
                                 className="w-28 h-28 md:w-36 md:h-36 bg-[#FDFCFB] rounded-full flex items-center justify-center text-[#2D5A41] shadow-2xl hover:scale-105 transition-all duration-500 relative group/btn"
                             >
                                 <div className="absolute inset-0 bg-white rounded-full transition-transform group-hover/btn:scale-110"></div>

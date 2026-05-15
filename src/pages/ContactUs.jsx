@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import SEO from '../components/seo/SEO';
 import { Mail, Phone, MapPin, Send, Clock, MessageSquare } from 'lucide-react';
+import { metaPixelService } from '../services/metaPixel';
 
 const ContactUs = () => {
     const [formData, setFormData] = useState({
@@ -16,6 +18,10 @@ const ContactUs = () => {
         e.preventDefault();
         // Here you would typically send the form data to your backend
         console.log('Form submitted:', formData);
+        metaPixelService.trackContact({
+            name: formData.name,
+            subject: formData.subject
+        });
         setSubmitted(true);
         setTimeout(() => setSubmitted(false), 3000);
     };
@@ -48,7 +54,7 @@ const ContactUs = () => {
             icon: MapPin,
             title: 'Hospital Address',
             details: 'Anji, Radhasoami Satsang Road, Reboun P.O. Solan, Himachal Pradesh – 173211',
-            link: '#map',
+            link: 'https://www.google.com/maps/place/KARAN+SINGH+VAIDH/@30.8959714,77.0929679,17z/data=!3m1!4b1!4m6!3m5!1s0x390f89cea1a75c47:0x1a68eda57c0d4c02!8m2!3d30.8959714!4d77.0929679!16s%2Fg%2F11y1m7q9_0',
             color: 'text-ayur-green',
             bg: 'bg-ayur-beige/30'
         }
@@ -56,6 +62,12 @@ const ContactUs = () => {
 
     return (
         <div className="bg-[#FCFAFA] min-h-screen pt-24 pb-12">
+            <SEO 
+                title="Contact Us | Expert Ayurvedic Consultation - Karan Singh Vaidh"
+                description="Contact Ayurvedic Clinic in Solan to get expert Ayurvedic advice. Book consultation for natural treatment, personalized care & holistic healing support."
+                keywords="Contact Ayurvedic Clinic in Solan"
+                url="/contact"
+            />
             {/* Hero Section */}
             <div className="container mx-auto px-4 mb-16">
                 <div className="max-w-3xl mx-auto text-center">
@@ -64,7 +76,7 @@ const ContactUs = () => {
                             Get In Touch
                         </span>
                     </div>
-                    <h1 className="text-3xl md:text-6xl font-serif font-bold text-ayur-green mb-6">Contact Us</h1>
+                    <h1 className="text-3xl md:text-6xl font-serif font-bold text-ayur-green mb-6">Contact Ayurvedic Clinic in Solan for Ayurvedic Advice</h1>
                     <p className="text-xl text-gray-600 leading-relaxed">
                         Have questions about our Ayurvedic products or need personalized wellness guidance? We're here to help you on your journey to holistic health.
                     </p>
@@ -221,7 +233,7 @@ const ContactUs = () => {
                         {/* Google Map */}
                         <div id="map" className="bg-white rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-lg">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13694.461789075474!2d77.095068!3d30.897417!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390f86ae3324e9c3%3A0x2c28814c987a2667!2sRadha%20Soami%20Satsang%20Beas%2C%20Solan!5e0!3m2!1sen!2sin!4v1769182809151!5m2!1sen!2sin"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3423.66713793062!2d77.09296789999999!3d30.8959714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390f89cea1a75c47%3A0x1a68eda57c0d4c02!2sKARAN%20SINGH%20VAIDH!5e0!3m2!1sen!2sin!4v1777959729563!5m2!1sen!2sin"
                                 width="100%"
                                 height="350"
                                 style={{ border: 0 }}

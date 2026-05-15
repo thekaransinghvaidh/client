@@ -60,7 +60,14 @@ const Footer = () => {
                                             </h4>
                                             <div className="text-sm text-gray-100 leading-relaxed space-y-1">
                                                 <p className="font-semibold text-white">Karan Singh Vaidh Ayurvedic Hospital – Excellence in Patient Care</p>
-                                                <p>📍 Anji, Radhasoami Satsang Road, Reboun P.O., Solan, Himachal Pradesh – 173211</p>
+                                                <a 
+                                                    href="https://www.google.com/maps/place/KARAN+SINGH+VAIDH/@30.8959714,77.0929679,17z/data=!3m1!4b1!4m6!3m5!1s0x390f89cea1a75c47:0x1a68eda57c0d4c02!8m2!3d30.8959714!4d77.0929679!16s%2Fg%2F11y1m7q9_0" 
+                                                    target="_blank" 
+                                                    rel="noopener noreferrer"
+                                                    className="hover:text-[#d4af37] transition-colors flex items-start gap-1"
+                                                >
+                                                    <span>📍 Anji, Radhasoami Satsang Road, Reboun P.O., Solan, Himachal Pradesh – 173211</span>
+                                                </a>
                                             </div>
                                         </div>
 
@@ -135,13 +142,13 @@ const Footer = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/shop" className="group flex items-center text-gray-300 hover:text-[#d4af37] transition-all duration-300 font-medium">
+                                <Link to="/ayurvedic-products" className="group flex items-center text-gray-300 hover:text-[#d4af37] transition-all duration-300 font-medium">
                                     <span className="w-0 group-hover:w-4 h-[1px] bg-[#d4af37] mr-0 group-hover:mr-3 transition-all duration-300"></span>
                                     Shop All
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/about" className="group flex items-center text-gray-300 hover:text-[#d4af37] transition-all duration-300 font-medium">
+                                <Link to="/about-ayurvedic-doctor-in-solan" className="group flex items-center text-gray-300 hover:text-[#d4af37] transition-all duration-300 font-medium">
                                     <span className="w-0 group-hover:w-4 h-[1px] bg-[#d4af37] mr-0 group-hover:mr-3 transition-all duration-300"></span>
                                     About Us
                                 </Link>

@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
+import SEO from '../components/seo/SEO';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import ProductCard from '../components/home/ProductCard';
 import api, { getAssetUrl } from '../api/api';
 import { Star, Check, ShoppingCart, Truck, ShieldCheck, Heart, Info, Phone, ZoomIn, MousePointerClick } from 'lucide-react';
 import { CartContext } from '../context/CartContext';
+import { metaPixelService } from '../services/metaPixel';
 
 const ProductDetails = () => {
     const { id } = useParams();
@@ -25,6 +27,8 @@ const ProductDetails = () => {
 
     useEffect(() => {
         const fetchProduct = async () => {
+            setLoading(true);
+            setProduct(null);
             try {
                 const { data } = await api.get(`/products/${id}`);
                 setProduct(data);
@@ -61,10 +65,28 @@ const ProductDetails = () => {
         fetchProduct();
     }, [id]);
 
+    // Track ViewContent when product is loaded
+    useEffect(() => {
+        if (product) {
+            metaPixelService.trackViewContent(product);
+        }
+    }, [product]);
+
     const handleAddToCart = () => {
         if (!product || !product.packs || product.packs.length === 0) return;
         const pack = product.packs[selectedPackIndex];
+        
+        // 1. Log click
+        console.log('[Meta Pixel] AddToCart button clicked');
+
+        // 2. Update Cart State
         addToCart(product, pack, qty);
+        console.log('[Meta Pixel] Cart updated successfully');
+
+        // 3. Track Action
+        metaPixelService.trackAddToCart(product, qty, pack.sellingPrice);
+
+        // 4. Navigate
         navigate('/cart');
     };
 
@@ -103,7 +125,188 @@ const ProductDetails = () => {
 
     return (
         <div className="bg-white min-h-screen pt-16 lg:pt-20 pb-20 lg:pb-12 font-sans">
+            <SEO 
+                title={product.metaTitle || `${product.name} | Authentic Ayurvedic Care - Karan Singh Vaidh`}
+                description={product.metaDescription || product.shortDescription || `Buy ${product.name} online. Authentic Ayurvedic remedy by Karan Singh Vaidh. Effective results, 100% natural ingredients.`}
+                url={`/product/${product.slug || product._id || product.id || id}`}
+                image={getAssetUrl(product.image)}
+            >
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@graph": [
+                            {
+                                "@type": "Organization",
+                                "@id": "https://thekaransinghvaidh.com/#organization",
+                                "name": "Karan Singh Vaidh",
+                                "url": "https://thekaransinghvaidh.com/",
+                                "logo": "https://thekaransinghvaidh.com/thekaransinghvaidh-logo.webp",
+                                "sameAs": [
+                                    "https://www.youtube.com/c/karansinghvaidhhp",
+                                    "https://www.facebook.com/AncientAyurvedas.org/",
+                                    "https://www.instagram.com/karan_singh_vaidh/",
+                                    "https://www.linkedin.com/in/karan-singh-vaidh-hp-56a903204?originalSubdomain=in"
+                                ],
+                                "contactPoint": {
+                                    "@type": "ContactPoint",
+                                    "telephone": "+91-8219658454",
+                                    "contactType": "Customer Support",
+                                    "areaServed": "IN",
+                                    "availableLanguage": ["Hindi", "English"]
+                                }
+                            },
+                            {
+                                "@type": "MedicalBusiness",
+                                "@id": "https://thekaransinghvaidh.com/#localbusiness",
+                                "name": "Karan Singh Vaidh Ayurvedic Hospital",
+                                "image": "https://thekaransinghvaidh.com/thekaransinghvaidh-logo.webp",
+                                "address": {
+                                    "@type": "PostalAddress",
+                                    "streetAddress": "Radhasoami Satsang Ghar Road, Rebuan, Deoghat, Anji",
+                                    "addressLocality": "Solan",
+                                    "addressRegion": "Himachal Pradesh",
+                                    "postalCode": "173211",
+                                    "addressCountry": "IN"
+                                },
+                                "telephone": "+91-8219658454",
+                                "openingHours": "Mo-Su 10:00-17:00",
+                                "priceRange": "₹₹",
+                                "areaServed": "India"
+                            },
+                            {
+                                "@type": "Person",
+                                "@id": "https://thekaransinghvaidh.com/#doctor",
+                                "name": "Dr. Karan Singh Vaidh",
+                                "jobTitle": "Ayurvedic Doctor",
+                                "worksFor": {
+                                    "@id": "https://thekaransinghvaidh.com/#organization"
+                                },
+                                "description": "Experienced Ayurvedic doctor specializing in chronic disease treatment using natural herbal formulations.",
+                                "address": {
+                                    "@type": "PostalAddress",
+                                    "addressLocality": "Solan",
+                                    "addressRegion": "Himachal Pradesh",
+                                    "addressCountry": "India"
+                                }
+                            },
+                            {
+                                "@type": "WebSite",
+                                "@id": "https://thekaransinghvaidh.com/#website",
+                                "url": "https://thekaransinghvaidh.com/",
+                                "name": "Karan Singh Vaidh Ayurveda",
+                                "publisher": {
+                                    "@id": "https://thekaransinghvaidh.com/#organization"
+                                },
+                                "potentialAction": {
+                                    "@type": "SearchAction",
+                                    "target": "https://thekaransinghvaidh.com/ayurvedic-products?s={search_term_string}",
+                                    "query-input": "required name=search_term_string"
+                                }
+                            },
+                            {
+                                "@type": "WebPage",
+                                "@id": "https://thekaransinghvaidh.com/#webpage",
+                                "url": window.location.href,
+                                "name": product.metaTitle || product.name,
+                                "isPartOf": {
+                                    "@id": "https://thekaransinghvaidh.com/#website"
+                                },
+                                "about": {
+                                    "@id": "https://thekaransinghvaidh.com/#organization"
+                                },
+                                "primaryImageOfPage": {
+                                    "@type": "ImageObject",
+                                    "url": "https://thekaransinghvaidh.com/banner1-web.webp"
+                                }
+                            },
+                            {
+                                "@type": "FAQPage",
+                                "@id": "https://thekaransinghvaidh.com/#faq",
+                                "mainEntity": [
+                                    {
+                                        "@type": "Question",
+                                        "name": "Is Ayurvedic treatment safe?",
+                                        "acceptedAnswer": {
+                                            "@type": "Answer",
+                                            "text": "Yes, Ayurvedic treatments use natural herbs and are generally safe when used under expert guidance."
+                                        }
+                                    },
+                                    {
+                                        "@type": "Question",
+                                        "name": "How long does it take to see results?",
+                                        "acceptedAnswer": {
+                                            "@type": "Answer",
+                                            "text": "Most users start noticing improvements within 15 to 30 days depending on the condition and regular usage."
+                                        }
+                                    },
+                                    {
+                                        "@type": "Question",
+                                        "name": "Do these treatments have side effects?",
+                                        "acceptedAnswer": {
+                                            "@type": "Answer",
+                                            "text": "These herbal formulations are designed to be natural and safe, with minimal side effects when used as directed."
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "@type": "Product",
+                                "name": product.name,
+                                "image": getAssetUrl(product.image),
+                                "description": product.shortDescription,
+                                "brand": {
+                                    "@type": "Brand",
+                                    "name": "Karan Singh Vaidh"
+                                },
+                                "offers": {
+                                    "@type": "Offer",
+                                    "priceCurrency": "INR",
+                                    "price": currentPack?.sellingPrice || 0,
+                                    "availability": "https://schema.org/InStock",
+                                    "url": window.location.href
+                                },
+                                "aggregateRating": {
+                                    "@type": "AggregateRating",
+                                    "ratingValue": "4.8",
+                                    "reviewCount": "300"
+                                }
+                            },
+                            {
+                                "@type": "BreadcrumbList",
+                                "itemListElement": [
+                                    {
+                                        "@type": "ListItem",
+                                        "position": 1,
+                                        "name": "Home",
+                                        "item": "https://thekaransinghvaidh.com/"
+                                    },
+                                    {
+                                        "@type": "ListItem",
+                                        "position": 2,
+                                        "name": "Products",
+                                        "item": "https://thekaransinghvaidh.com/ayurvedic-products"
+                                    },
+                                    {
+                                        "@type": "ListItem",
+                                        "position": 3,
+                                        "name": product.name,
+                                        "item": window.location.href
+                                    }
+                                ]
+                            }
+                        ]
+                    })}
+                </script>
+            </SEO>
             <div className="container mx-auto px-4 md:px-4 max-w-7xl">
+                {/* SEO Breadcrumb UI */}
+                <nav className="flex items-center gap-2 text-[10px] md:text-xs font-bold uppercase tracking-widest text-gray-400 mb-6 py-2 overflow-x-auto no-scrollbar whitespace-nowrap">
+                    <Link to="/" className="hover:text-ayur-green transition-colors">Home</Link>
+                    <span className="text-gray-300">/</span>
+                    <Link to="/ayurvedic-products" className="hover:text-ayur-green transition-colors">Products</Link>
+                    <span className="text-gray-300">/</span>
+                    <span className="text-ayur-green truncate max-w-[150px] md:max-w-none">{product.name}</span>
+                </nav>
                 <div className="flex flex-col lg:flex-row gap-4 lg:gap-10 mb-16">
 
                     {/* LEFT: Gallery Layout (Vertical Strip + Main Image) */}
@@ -571,6 +774,7 @@ const ProductDetails = () => {
                             <div className="flex-shrink-0">
                                 <a
                                     href="tel:+918219658454"
+                                    onClick={() => metaPixelService.trackContact({ type: 'phone_call', location: 'consultation_banner', page: 'product_details' })}
                                     className="relative flex flex-col items-center group"
                                 >
                                     {/* Pulsing Button Effect */}
@@ -602,7 +806,7 @@ const ProductDetails = () => {
                                 <h2 className="text-3xl lg:text-4xl font-serif text-gray-900 mb-2">People also bought this</h2>
                                 <p className="text-gray-500">Discover more natural solutions for your wellness</p>
                             </div>
-                            <Link to="/shop" className="text-emerald-700 font-bold hover:text-emerald-800 transition-colors uppercase text-sm tracking-wider border-b-2 border-emerald-700 pb-1 hidden sm:block">
+                            <Link to="/ayurvedic-products" className="text-emerald-700 font-bold hover:text-emerald-800 transition-colors uppercase text-sm tracking-wider border-b-2 border-emerald-700 pb-1 hidden sm:block">
                                 View Full Collection
                             </Link>
                         </div>

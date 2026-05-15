@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from '../components/seo/SEO';
 import { Heart, Leaf, Users, Award, ShieldCheck, Sparkles, CheckCircle, ArrowRight, Star, Quote, Shield, Zap, Target } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -101,6 +102,12 @@ const AboutUs = () => {
 
     return (
         <div className="bg-white font-sans overflow-hidden">
+            <SEO 
+                title="Ayurveda Specialist in Himachal Pradesh | Natural Healing"
+                description="Find Ayurveda Specialist in Himachal Pradesh for natural treatment. Experience safe, effective & personalized Ayurvedic healing for long-term wellness."
+                keywords="Ayurveda Specialist in Himachal Pradesh"
+                url="/about-ayurvedic-doctor-in-solan"
+            />
             {/* Modern Ayurvedic Nutrition Hero (The New Requested Top Section) */}
             <section className="relative min-h-[90vh] bg-white flex flex-col items-center justify-center pt-20 overflow-hidden">
                 {/* Decorative Elements (Spread across the section) */}
@@ -155,8 +162,8 @@ const AboutUs = () => {
                             transition={{ delay: 0.3, duration: 0.8 }}
                             className="text-3xl md:text-5xl font-serif font-bold text-[#1b3a27] leading-tight"
                         >
-                            Karan Singh Vaidh-<br />
-                            Modern Ayurvedic Nutrition
+                            Experienced Ayurveda Specialist in <br />
+                            Himachal Pradesh – Dr. Karan Singh Vaidh
                         </motion.h1>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}

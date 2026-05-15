@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import SEO from '../components/seo/SEO';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import { LayoutGrid, Activity, Wind, HeartPulse } from 'lucide-react';
 import api from '../api/api';
 import ProductCard from '../components/home/ProductCard';
 import ScrollToTop from '../components/layout/ScrollToTop';
+import { metaPixelService } from '../services/metaPixel';
 
 // Category Image Imports
 import asthmaImg from '../assets/Asthma.webp';
@@ -17,7 +19,109 @@ import thyroidImg from '../assets/Thyroid.webp';
 import tuberculosisImg from '../assets/Tuberculosis.webp';
 import allProductsImg from '../assets/AllProducts.webp';
 
-const Shop = () => {
+const seoData = {
+    'All': {
+        '/ayurvedic-products': {
+            title: 'Buy Ayurvedic Products in Solan | 100% Natural & Trusted – Karan Singh Vaidh',
+            description: 'Shop 100% natural Ayurvedic medicines in Solan by Karan Singh Vaidh (23+ yrs experience). Effective remedies for diabetes, piles, kidney stones & more. Order now for safe & herbal treatment.',
+            keywords: 'Ayurvedic Products in Solan',
+            h1: 'Buy 100% Natural Ayurvedic Products in Solan for Safe Healing',
+            url: '/ayurvedic-products'
+        },
+        '/ayurvedic-treatment-products': {
+            title: 'Ayurvedic Disease Wise Products | Herbal Health Care',
+            description: 'Explore Ayurvedic Disease Wise Products for natural healing. Target root causes & improve health with safe, effective herbal remedies for every condition.',
+            keywords: 'Ayurvedic Disease Wise Products',
+            h1: 'Ayurvedic Disease Wise Products for Effective Treatment',
+            url: '/ayurvedic-treatment-products'
+        },
+        default: {
+            title: 'Buy Ayurvedic Products in Solan | 100% Natural & Trusted – Karan Singh Vaidh',
+            description: 'Shop 100% natural Ayurvedic medicines in Solan by Karan Singh Vaidh (23+ yrs experience). Effective remedies for diabetes, piles, kidney stones & more. Order now for safe & herbal treatment.',
+            keywords: 'Ayurvedic Products in Solan',
+            h1: 'Buy 100% Natural Ayurvedic Products in Solan for Safe Healing',
+            url: '/ayurvedic-products'
+        }
+    },
+    'Asthma': {
+        title: 'Ayurvedic Asthma Treatment in Solan | Herbal & Safe Solutions',
+        description: 'Get effective Ayurvedic Asthma Treatment in Solan with natural herbal remedies. Improve breathing, reduce symptoms & boost immunity with safe, side-effect-free care.',
+        keywords: 'Ayurvedic Asthma Treatment in Solan',
+        h1: 'Best Ayurvedic Asthma Treatment in Solan with Safe Herbal Remedies',
+        url: '/ayurvedic-asthma-treatment'
+    },
+    'Gall Bladder': {
+        title: 'Best Gallbladder Stone Treatment in Solan | Ayurvedic Care',
+        description: 'Get effective Gallbladder Stone Treatment in Solan with Ayurvedic care. Natural remedies help dissolve stones, reduce pain & improve digestion without surgery.',
+        keywords: 'Gallbladder Stone Treatment in Solan',
+        h1: 'Gallbladder Stone Treatment in Solan – Ayurvedic Care',
+        url: '/gallbladder-stone-ayurvedic-treatment'
+    },
+    'Piles': {
+        title: 'Best Piles Treatment in Solan | Natural & Affordable Care',
+        description: 'Get effective Piles Treatment in Solan with Ayurvedic care. Reduce pain, swelling & bleeding naturally with safe, affordable remedies for long-term relief.',
+        keywords: 'Piles Treatment in Solan',
+        h1: 'Best Piles Treatment in Solan with Safe Ayurvedic Care',
+        url: '/ayurvedic-piles-treatment'
+    },
+    'Gastric': {
+        title: 'Best Gastric Treatment in Solan | Natural Ayurvedic Care',
+        description: 'Get expert Gastric Treatment in Solan with Ayurvedic care. Relieve acidity, gas & indigestion naturally with safe, effective and long-lasting solutions.',
+        keywords: 'Gastric Treatment in Solan',
+        h1: 'Gastric Treatment in Solan for Acidity & Digestive Issues',
+        url: '/ayurvedic-gastric-treatment'
+    },
+    'Diabetes': {
+        title: 'Best Diabetes Treatment in Solan | Natural Ayurvedic Care',
+        description: 'Get effective Diabetes Treatment in Solan with Ayurvedic care. Control blood sugar naturally, improve insulin function & achieve long-term health safely.',
+        keywords: 'Diabetes Treatment in Solan',
+        h1: 'Effective Diabetes Treatment in Solan for Long-Term Control',
+        url: '/ayurvedic-diabetes-treatment'
+    },
+    'Tuberculosis (TB)': {
+        title: 'Tuberculosis Support in Solan | Safe Ayurvedic Treatment',
+        description: 'Find trusted Tuberculosis Treatment Support in Solan. Ayurvedic care helps reduce symptoms, improve strength & support faster, safer recovery naturally.',
+        keywords: 'Tuberculosis Treatment Support in Solan',
+        h1: 'Tuberculosis Treatment Support in Solan for Faster Recovery',
+        url: '/ayurvedic-tuberculosis-support'
+    },
+    'Migraine': {
+        title: 'Best Migraine Treatment in Solan | Natural Ayurvedic Care',
+        description: 'Get effective Migraine Treatment in Solan with Ayurvedic care. Reduce headache frequency, relieve pain & achieve long-term relief naturally without side effects.',
+        keywords: 'Migraine Treatment in Solan',
+        h1: 'Migraine Treatment in Solan for Chronic Headache Relief',
+        url: '/ayurvedic-migraine-treatment'
+    },
+    'Thyroid': {
+        title: 'Best Thyroid Treatment in Solan | Ayurvedic Care & Relief',
+        description: 'Get effective Thyroid Treatment in Solan with Ayurvedic care. Balance hormones naturally, manage symptoms & improve overall health with safe solutions.',
+        keywords: 'Thyroid Treatment in Solan',
+        h1: 'Thyroid Treatment in Solan for Safe Hormone Control',
+        url: '/ayurvedic-thyroid-treatment'
+    },
+    'Kidney Stone': {
+        title: 'Kidney Stone Treatment in Solan for Pain & Stone Relief',
+        description: 'Find trusted Kidney Stone Treatment in Solan. Ayurvedic solutions help reduce pain, dissolve stones & improve kidney health naturally without surgery.',
+        keywords: 'Kidney Stone Treatment in Solan',
+        h1: 'Natural Kidney Stone Treatment in Solan Without Surgery',
+        url: '/kidney-stone-ayurvedic-treatment'
+    }
+};
+
+const categorySlugMap = {
+    'Asthma': '/ayurvedic-asthma-treatment',
+    'Gall Bladder': '/gallbladder-stone-ayurvedic-treatment',
+    'Piles': '/ayurvedic-piles-treatment',
+    'Gastric': '/ayurvedic-gastric-treatment',
+    'Diabetes': '/ayurvedic-diabetes-treatment',
+    'Tuberculosis (TB)': '/ayurvedic-tuberculosis-support',
+    'Migraine': '/ayurvedic-migraine-treatment',
+    'Thyroid': '/ayurvedic-thyroid-treatment',
+    'Kidney Stone': '/kidney-stone-ayurvedic-treatment',
+};
+
+const Shop = ({ defaultCategory }) => {
+    const navigate = useNavigate();
     const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -26,15 +130,40 @@ const Shop = () => {
     const [sortBy, setSortBy] = useState('az');
     const [searchParams, setSearchParams] = useSearchParams();
 
-    // Sync selectedCategory with searchParams
+    // Sync selectedCategory with searchParams or defaultCategory prop
     useEffect(() => {
-        const cat = searchParams.get('category');
-        if (cat) {
-            setSelectedCategory(cat);
-        } else {
-            setSelectedCategory('All');
+        const catId = searchParams.get('category');
+        
+        // Old Category ID to New SEO URL Mapping
+        const categoryIdToSlugMap = {
+            '696fa8160b6f6dc6db28bd16': '/ayurvedic-asthma-treatment',
+            '69739e5df6c84d69035b1fec': '/gallbladder-stone-ayurvedic-treatment',
+            '69739e67f6c84d69035b1ff1': '/ayurvedic-piles-treatment',
+            '69739e6df6c84d69035b1ff6': '/ayurvedic-gastric-treatment',
+            '69739e78f6c84d69035b1ffd': '/ayurvedic-diabetes-treatment',
+            '69739e7df6c84d69035b2002': '/ayurvedic-tuberculosis-support',
+            '69739e81f6c84d69035b2007': '/ayurvedic-migraine-treatment',
+            '69739e86f6c84d69035b200c': '/ayurvedic-thyroid-treatment',
+            '69760bf4f06a3c1381aab1a0': '/kidney-stone-ayurvedic-treatment',
+            '69761f81bd94a7bc32beb998': '/ayurvedic-treatment-products',
+        };
+
+        // If the URL has an old category ID, redirect to the new SEO URL
+        if (catId && categoryIdToSlugMap[catId]) {
+            navigate(categoryIdToSlugMap[catId], { replace: true });
+            return;
         }
-    }, [searchParams]);
+
+        if (defaultCategory) {
+            setSelectedCategory(defaultCategory);
+        } else {
+            if (catId) {
+                setSelectedCategory(catId);
+            } else {
+                setSelectedCategory('All');
+            }
+        }
+    }, [searchParams, defaultCategory, navigate]);
 
     // Scroll to top when component mounts
     useEffect(() => {
@@ -44,7 +173,21 @@ const Shop = () => {
 
     useEffect(() => {
         fetchProducts();
-    }, [selectedCategory, sortBy]);
+        
+        // Track Category View for Meta Pixel
+        if (selectedCategory !== 'All') {
+            metaPixelService.trackCustom('ViewCategory', {
+                content_name: selectedCategory,
+                content_category: 'Ayurvedic Products'
+            });
+        }
+
+        // Track Search for Meta Pixel (if search query exists)
+        const searchQuery = searchParams.get('s') || searchParams.get('q') || searchParams.get('search');
+        if (searchQuery) {
+            metaPixelService.trackSearch(searchQuery);
+        }
+    }, [selectedCategory, sortBy, searchParams]);
 
     const fetchCategories = async () => {
         try {
@@ -59,13 +202,19 @@ const Shop = () => {
         setLoading(true);
         try {
             const params = new URLSearchParams();
-            if (selectedCategory !== 'All') params.append('category', selectedCategory);
+            // If defaultCategory is set, filter by name; otherwise use ID from search params
+            if (selectedCategory !== 'All') {
+                if (defaultCategory) {
+                    params.append('categoryName', selectedCategory);
+                } else {
+                    params.append('category', selectedCategory);
+                }
+            }
             params.append('sort', sortBy);
 
             const { data } = await api.get(`/products?${params.toString()}`);
             
             // Client-side sorting as a foolproof fallback
-            // This ensures products are correctly sorted even if backend doesn't apply it
             let sortedData = Array.isArray(data) ? [...data] : [];
             
             if (sortBy === 'az') {
@@ -94,6 +243,11 @@ const Shop = () => {
         }
     };
 
+    const currentPath = window.location.pathname;
+    const currentSEO = selectedCategory === 'All' 
+        ? (seoData['All'][currentPath] || seoData['All'].default)
+        : (seoData[selectedCategory] || seoData['All'].default);
+
     // Category Configuration for Visuals
     const categoryConfig = {
         'Asthma': { image: asthmaImg, color: 'bg-blue-100 text-blue-600', label: 'Asthma' },
@@ -112,7 +266,39 @@ const Shop = () => {
 
     return (
         <div className="min-h-screen bg-gray-50 pt-16 lg:pt-24 pb-12 -mt-16">
+            <SEO 
+                title={currentSEO.title}
+                description={currentSEO.description}
+                keywords={currentSEO.keywords}
+                url={currentSEO.url}
+            >
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://thekaransinghvaidh.com/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": selectedCategory === 'All' ? "Products" : selectedCategory,
+                                "item": window.location.href
+                            }
+                        ]
+                    })}
+                </script>
+            </SEO>
             <ScrollToTop />
+            
+            {/* Hidden H1 for SEO if no visible H1 exists */}
+            <h1 className="sr-only">
+                {currentSEO.h1}
+            </h1>
             
             {/* Mobile Scrolling Marquee - Fills the gap with dynamic info */}
             <div className="lg:hidden bg-ayur-green text-white py-2.5 overflow-hidden sticky top-0 z-40 shadow-md">
@@ -154,7 +340,7 @@ const Shop = () => {
 
                     <div className="flex gap-4 overflow-x-auto no-scrollbar pb-6 px-2 snap-x scroll-smooth group">
                         <div
-                            onClick={() => setSearchParams({})}
+                            onClick={() => navigate('/ayurvedic-products')}
                             className={`flex flex-col items-center gap-3 min-w-[80px] cursor-pointer group snap-start transition-all duration-300 ${selectedCategory === 'All' ? 'scale-110' : 'scale-100'}`}
                         >
                             <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 ${selectedCategory === 'All' ? 'bg-ayur-green text-white rotate-3 shadow-lg shadow-ayur-green/10' : 'bg-white border border-gray-100 text-gray-500 group-hover:border-ayur-green/10 hover:shadow-md'}`}>
@@ -165,12 +351,13 @@ const Shop = () => {
 
                         {categories?.map(cat => {
                             const config = categoryConfig[cat?.name] || { image: allProductsImg };
-                            const isSelected = selectedCategory === cat._id;
+                            const isSelected = selectedCategory === cat._id || selectedCategory === cat.name;
+                            const slug = categorySlugMap[cat.name];
 
                             return (
                                 <div
                                     key={cat._id}
-                                    onClick={() => setSearchParams({ category: cat._id })}
+                                    onClick={() => slug ? navigate(slug) : setSearchParams({ category: cat._id })}
                                     className={`flex flex-col items-center gap-3 min-w-[90px] cursor-pointer group snap-start transition-all duration-300 ${isSelected ? 'scale-110' : 'scale-100'}`}
                                 >
                                     <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 border overflow-hidden ${isSelected ? `border-ayur-green/20 shadow-lg shadow-gray-100 -rotate-2` : 'border-gray-100 bg-white group-hover:border-ayur-green/10 group-hover:shadow-md'}`}>
@@ -230,7 +417,7 @@ const Shop = () => {
                             <ul className="space-y-2">
                                 <li>
                                     <button
-                                        onClick={() => setSearchParams({})}
+                                        onClick={() => navigate('/ayurvedic-products')}
                                         className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 group ${selectedCategory === 'All' ? 'bg-ayur-green text-white font-bold shadow-md shadow-ayur-green/10 translate-x-1' : 'text-gray-600 hover:bg-gray-50 hover:translate-x-1'}`}
                                     >
                                         <div className={`w-8 h-8 rounded-lg transition-colors overflow-hidden ${selectedCategory === 'All' ? 'ring-2 ring-white/50' : 'bg-gray-100 group-hover:bg-gray-200'}`}>
@@ -245,12 +432,13 @@ const Shop = () => {
                                 </li>
                                 {displayedCategories?.map(cat => {
                                     const config = categoryConfig[cat?.name] || { image: allProductsImg };
-                                    const isSelected = selectedCategory === cat._id;
+                                    const isSelected = selectedCategory === cat._id || selectedCategory === cat.name;
+                                    const slug = categorySlugMap[cat.name];
 
                                     return (
                                         <li key={cat._id}>
                                             <button
-                                                onClick={() => setSearchParams({ category: cat._id })}
+                                                onClick={() => slug ? navigate(slug) : setSearchParams({ category: cat._id })}
                                                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 group ${isSelected ? 'bg-ayur-green text-white font-bold shadow-md shadow-ayur-green/10 translate-x-1' : 'text-gray-600 hover:bg-gray-50 hover:translate-x-1'}`}
                                             >
                                                 <div className={`w-8 h-8 rounded-lg transition-colors overflow-hidden ${isSelected ? 'ring-2 ring-white/50' : 'bg-gray-100 group-hover:bg-gray-200'}`}>

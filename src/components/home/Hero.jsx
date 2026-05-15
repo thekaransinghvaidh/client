@@ -14,6 +14,7 @@ const Hero = () => {
     // State to track if the device is desktop (min-width: 768px for tablet/desktop)
     const [isDesktop, setIsDesktop] = React.useState(window.innerWidth >= 768);
     const [isModalOpen, setIsModalOpen] = React.useState(false);
+    const [currentSlide, setCurrentSlide] = React.useState(0);
 
     React.useEffect(() => {
         const handleResize = () => {
@@ -27,18 +28,24 @@ const Hero = () => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 5000,
+        autoplaySpeed: 6000,
         fade: true,
+        speed: 800,
         cssEase: "linear",
         pauseOnHover: false,
         arrows: isDesktop,
         lazyLoad: 'progressive',
+        afterChange: (current) => {
+            setCurrentSlide(current);
+            if (import.meta.env.DEV) {
+                console.log(`[Slider] Focus transferred safely to slide: ${current}`);
+            }
+        },
         customPaging: i => (
-            <div className="w-3 h-3 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer mt-4"></div>
+            <div className={`w-3 h-3 rounded-full transition-all cursor-pointer mt-4 ${i === currentSlide ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white'}`}></div>
         ),
         appendDots: dots => (
             <div style={{ bottom: "30px" }}>
@@ -54,31 +61,29 @@ const Hero = () => {
             title: null,
             subtitle: null,
             cta: null,
-            link: "/shop",
+            link: "/contact",
             bgImage: banner1Web,
             theme: "dark",
             icon: null,
-            desktopOnly: true,
-            hasOverlay: false
+            hasOverlay: true
         },
         {
             id: 'himAward',
             title: null,
             subtitle: null,
             cta: null,
-            link: "/about",
+            link: "/about-ayurvedic-doctor-in-solan",
             bgImage: himAward,
             theme: "dark",
             icon: null,
-            desktopOnly: true,
             hasOverlay: false
         },
         {
             id: 1,
             title: "Ayurvedic Legacy Since 2003",
             subtitle: "Trusted ancient formulations for modern lifestyle diseases",
-            cta: "Shop Now",
-            link: "/shop",
+            cta: null,
+            link: "/ayurvedic-products",
             bgImage: "https://img.freepik.com/free-photo/high-angle-assortment-fine-powders-bowls-with-stones_23-2148774961.jpg",
             theme: "dark",
             icon: <Leaf className="text-yellow-400 mb-4" size={48} />
@@ -87,7 +92,7 @@ const Hero = () => {
             id: 2,
             title: "Proven Results. Natural Healing.",
             subtitle: "Clinically inspired Ayurvedic medicines with no side effects",
-            cta: "Consult Ayurveda Expert",
+            cta: null,
             link: "/consult",
             bgImage: "https://img.freepik.com/free-photo/hand-holding-rosemary-fresh-plant-bottle-rosemary-oil_1150-35585.jpg",
             theme: "dark",
@@ -97,8 +102,8 @@ const Hero = () => {
             id: 3,
             title: "Targeted Relief for Chronic Disorders",
             subtitle: "Diabetes, Joint Pain, Digestion, Immunity & Lifestyle Issues",
-            cta: "Explore Solutions",
-            link: "/shop",
+            cta: null,
+            link: "/ayurvedic-products",
             bgImage: "https://img.freepik.com/premium-photo/midsection-doctor-patient-shaking-hand-while-sitting-clinic_1048944-15396134.jpg",
             theme: "dark",
             icon: <Star className="text-yellow-400 mb-4" size={48} />
@@ -107,7 +112,7 @@ const Hero = () => {
             id: 4,
             title: "Trusted by Thousands of Happy Patients",
             subtitle: "⭐⭐⭐⭐⭐ Verified reviews with real success stories",
-            cta: "View Reviews",
+            cta: null,
             link: "/reviews",
             bgImage: "https://img.freepik.com/free-photo/happy-senior-man-handshaking-with-female-doctor-while-talking-lobby-clinic_637285-460.jpg",
             theme: "dark",
@@ -128,10 +133,10 @@ const Hero = () => {
                     <div key={slide.id} className="relative h-[500px] md:h-[700px] w-full outline-none">
                         {/* Background Image with Overlay */}
                         <div className="absolute inset-0 overflow-hidden">
-                            <img
-                                src={getOptimizedImage(slide.bgImage, index)}
-                                alt={slide.title || "Banner"}
-                                fetchpriority={index === 0 ? "high" : "auto"}
+                             <img
+                                 src={getOptimizedImage(slide.bgImage, index)}
+                                 alt={slide.title || slide.subtitle || "The Karan Singh Vaidh Ayurvedic Banner"}
+                                fetchPriority={index === 0 ? "high" : "auto"}
                                 loading={index === 0 ? "eager" : "lazy"}
                                 className={`w-full h-full object-center transition-transform duration-[5000ms] ${slide.hasOverlay !== false ? "object-cover hover:scale-105" : "object-cover md:object-fill"
                                     }`}
@@ -142,8 +147,8 @@ const Hero = () => {
                             )}
                         </div>
 
-                        {/* Content Container - Only render if title exists */}
-                        {slide.title && (
+                        {/* Content Container - Render if any text or CTA exists */}
+                        {(slide.title || slide.subtitle || slide.cta) && (
                             <div className="relative z-10 container mx-auto px-4 md:px-12 h-full flex flex-col justify-center max-w-7xl">
                                 <motion.div
                                     initial={{ opacity: 0, y: 30 }}
@@ -152,35 +157,51 @@ const Hero = () => {
                                     className="max-w-2xl"
                                 >
                                     {/* Slide Icon */}
-                                    <div className="mb-2 animate-pulse">
-                                        {slide.icon}
-                                    </div>
+                                    {slide.icon && (
+                                        <div className="mb-2 animate-pulse">
+                                            {slide.icon}
+                                        </div>
+                                    )}
 
                                     {/* Headline */}
-                                    <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-4 md:mb-6 leading-tight drop-shadow-lg">
-                                        {slide.title}
-                                    </h1>
+                                    {slide.title && (
+                                        index === 0 ? (
+                                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4 md:mb-6 leading-tight drop-shadow-lg">
+                                                {slide.title}
+                                            </h1>
+                                        ) : (
+                                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4 md:mb-6 leading-tight drop-shadow-lg">
+                                                {slide.title}
+                                            </h2>
+                                        )
+                                    )}
 
                                     {/* Subtext */}
-                                    <p className="text-sm md:text-xl text-gray-200 mb-6 md:mb-10 font-light tracking-wide leading-relaxed border-l-4 border-yellow-500 pl-4">
-                                        {slide.subtitle}
-                                    </p>
+                                    {slide.subtitle && (
+                                        <p className="text-sm md:text-xl text-gray-200 mb-6 md:mb-10 font-light tracking-wide leading-relaxed border-l-4 border-yellow-500 pl-4">
+                                            {slide.subtitle}
+                                        </p>
+                                    )}
 
                                     {/* CTA Button */}
-                                    <button
-                                        onClick={(e) => {
-                                            if (slide.cta === "Consult Ayurveda Expert") {
-                                                e.preventDefault();
-                                                setIsModalOpen(true);
-                                            } else {
-                                                window.location.href = slide.link;
-                                            }
-                                        }}
-                                        className="inline-flex items-center gap-2 md:gap-3 bg-yellow-500 hover:bg-yellow-400 text-[#0d2e1b] px-6 py-3 md:px-10 md:py-4 rounded-full font-bold text-base md:text-lg transition-all transform hover:-translate-y-1 hover:shadow-xl group"
-                                    >
-                                        {slide.cta}
-                                        <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
-                                    </button>
+                                    {slide.cta && (
+                                        <button
+                                            tabIndex={index === currentSlide ? 0 : -1}
+                                            aria-hidden={index !== currentSlide}
+                                            onClick={(e) => {
+                                                if (slide.cta === "Consult Ayurveda Expert") {
+                                                    e.preventDefault();
+                                                    setIsModalOpen(true);
+                                                } else {
+                                                    window.location.href = slide.link;
+                                                }
+                                            }}
+                                            className="inline-flex items-center gap-2 md:gap-3 bg-yellow-500 hover:bg-yellow-400 text-[#0d2e1b] px-6 py-3 md:px-10 md:py-4 rounded-full font-bold text-base md:text-lg transition-all transform hover:-translate-y-1 hover:shadow-xl group"
+                                        >
+                                            {slide.cta}
+                                            <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
+                                        </button>
+                                    )}
                                 </motion.div>
                             </div>
                         )}
@@ -207,6 +228,15 @@ const Hero = () => {
                 .hero-slider .slick-prev:hover:before, .hero-slider .slick-next:hover:before {
                     opacity: 1;
                     color: #eab308; /* yellow-500 */
+                }
+                .hero-slider .slick-slide {
+                    visibility: hidden;
+                    transition: visibility 0s 0.8s;
+                }
+                .hero-slider .slick-slide.slick-active {
+                    visibility: visible;
+                    transition: visibility 0s;
+                    z-index: 10;
                 }
             `}} />
             {/* Appointment Modal */}

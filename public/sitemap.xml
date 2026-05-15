@@ -9,13 +9,13 @@
 </url>
 
 <url>
-<loc>https://thekaransinghvaidh.com/shop/</loc>
+<loc>https://thekaransinghvaidh.com/ayurvedic-products/</loc>
 <priority>0.9</priority>
 <changefreq>daily</changefreq>
 </url>
 
 <url>
-<loc>https://thekaransinghvaidh.com/about/</loc>
+<loc>https://thekaransinghvaidh.com/about-ayurvedic-doctor-in-solan/</loc>
 <priority>0.7</priority>
 <changefreq>monthly</changefreq>
 </url>
@@ -27,31 +27,26 @@
 </url>
 
 <!-- Treatment Pages -->
-<url><loc>https://thekaransinghvaidh.com/asthma-treatment/</loc><priority>0.9</priority></url>
-<url><loc>https://thekaransinghvaidh.com/diabetes-treatment/</loc><priority>0.9</priority></url>
-<url><loc>https://thekaransinghvaidh.com/piles-treatment/</loc><priority>0.9</priority></url>
-<url><loc>https://thekaransinghvaidh.com/kidney-stone-treatment/</loc><priority>0.9</priority></url>
-<url><loc>https://thekaransinghvaidh.com/gall-bladder-treatment/</loc><priority>0.9</priority></url>
-<url><loc>https://thekaransinghvaidh.com/gastric-treatment/</loc><priority>0.9</priority></url>
-<url><loc>https://thekaransinghvaidh.com/migraine-treatment/</loc><priority>0.9</priority></url>
-<url><loc>https://thekaransinghvaidh.com/thyroid-treatment/</loc><priority>0.9</priority></url>
-<url><loc>https://thekaransinghvaidh.com/tb-treatment/</loc><priority>0.9</priority></url>
-<url><loc>https://thekaransinghvaidh.com/fatty-liver-treatment/</loc><priority>0.9</priority></url>
-<url><loc>https://thekaransinghvaidh.com/sexual-wellness-treatment/</loc><priority>0.9</priority></url>
-<url><loc>https://thekaransinghvaidh.com/weight-loss-treatment/</loc><priority>0.9</priority></url>
+<url><loc>https://thekaransinghvaidh.com/ayurvedic-asthma-treatment/</loc><priority>0.9</priority></url>
+<url><loc>https://thekaransinghvaidh.com/ayurvedic-diabetes-treatment/</loc><priority>0.9</priority></url>
+<url><loc>https://thekaransinghvaidh.com/ayurvedic-piles-treatment/</loc><priority>0.9</priority></url>
+<url><loc>https://thekaransinghvaidh.com/kidney-stone-ayurvedic-treatment/</loc><priority>0.9</priority></url>
+<url><loc>https://thekaransinghvaidh.com/gallbladder-stone-ayurvedic-treatment/</loc><priority>0.9</priority></url>
+<url><loc>https://thekaransinghvaidh.com/ayurvedic-gastric-treatment/</loc><priority>0.9</priority></url>
+<url><loc>https://thekaransinghvaidh.com/ayurvedic-migraine-treatment/</loc><priority>0.9</priority></url>
+<url><loc>https://thekaransinghvaidh.com/ayurvedic-thyroid-treatment/</loc><priority>0.9</priority></url>
+<url><loc>https://thekaransinghvaidh.com/ayurvedic-tuberculosis-support/</loc><priority>0.9</priority></url>
+<url><loc>https://thekaransinghvaidh.com/ayurvedic-treatment-products/</loc><priority>0.9</priority></url>
 
-<!-- Local Pages -->
-<url><loc>https://thekaransinghvaidh.com/asthma-treatment-in-solan/</loc><priority>0.8</priority></url>
-<url><loc>https://thekaransinghvaidh.com/diabetes-treatment-in-solan/</loc><priority>0.8</priority></url>
-<url><loc>https://thekaransinghvaidh.com/piles-treatment-in-solan/</loc><priority>0.8</priority></url>
-<url><loc>https://thekaransinghvaidh.com/kidney-stone-treatment-in-solan/</loc><priority>0.8</priority></url>
-<url><loc>https://thekaransinghvaidh.com/gall-bladder-treatment-in-solan/</loc><priority>0.8</priority></url>
-<url><loc>https://thekaransinghvaidh.com/gastric-treatment-in-solan/</loc><priority>0.8</priority></url>
-<url><loc>https://thekaransinghvaidh.com/migraine-treatment-in-solan/</loc><priority>0.8</priority></url>
-<url><loc>https://thekaransinghvaidh.com/thyroid-treatment-in-solan/</loc><priority>0.8</priority></url>
-<url><loc>https://thekaransinghvaidh.com/tb-treatment-in-solan/</loc><priority>0.8</priority></url>
-<url><loc>https://thekaransinghvaidh.com/fatty-liver-treatment-in-solan/</loc><priority>0.8</priority></url>
-<url><loc>https://thekaransinghvaidh.com/sexual-wellness-treatment-in-solan/</loc><priority>0.8</priority></url>
-<url><loc>https://thekaransinghvaidh.com/weight-loss-treatment-in-solan/</loc><priority>0.8</priority></url>
+<!-- Local Pages (Solan Specific) -->
+<url><loc>https://thekaransinghvaidh.com/ayurvedic-asthma-treatment-in-solan/</loc><priority>0.8</priority></url>
+<url><loc>https://thekaransinghvaidh.com/ayurvedic-diabetes-treatment-in-solan/</loc><priority>0.8</priority></url>
+<url><loc>https://thekaransinghvaidh.com/ayurvedic-piles-treatment-in-solan/</loc><priority>0.8</priority></url>
+<url><loc>https://thekaransinghvaidh.com/kidney-stone-ayurvedic-treatment-in-solan/</loc><priority>0.8</priority></url>
+<url><loc>https://thekaransinghvaidh.com/gallbladder-stone-ayurvedic-treatment-in-solan/</loc><priority>0.8</priority></url>
+<url><loc>https://thekaransinghvaidh.com/ayurvedic-gastric-treatment-in-solan/</loc><priority>0.8</priority></url>
+<url><loc>https://thekaransinghvaidh.com/ayurvedic-migraine-treatment-in-solan/</loc><priority>0.8</priority></url>
+<url><loc>https://thekaransinghvaidh.com/ayurvedic-thyroid-treatment-in-solan/</loc><priority>0.8</priority></url>
+<url><loc>https://thekaransinghvaidh.com/ayurvedic-tuberculosis-support-in-solan/</loc><priority>0.8</priority></url>
 
 </urlset>

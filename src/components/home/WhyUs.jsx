@@ -118,7 +118,7 @@ const WhyUs = () => {
 
                             <div className="flex flex-wrap gap-4 mt-8">
                                 <Link
-                                    to="/about"
+                                    to="/about-ayurvedic-doctor-in-solan"
                                     className="bg-[#d4af37] text-[#0d2e1b] px-8 py-3 rounded-full font-bold text-base transition-all hover:bg-white hover:scale-105"
                                 >
                                     Discover Our Story
