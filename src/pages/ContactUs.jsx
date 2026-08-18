@@ -9,7 +9,8 @@ const ContactUs = () => {
         email: '',
         phone: '',
         subject: '',
-        message: ''
+        message: '',
+        contactConsent: false
     });
 
     const [submitted, setSubmitted] = useState(false);
@@ -27,9 +28,10 @@ const ContactUs = () => {
     };
 
     const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value
+            [name]: type === 'checkbox' ? checked : value
         });
     };
 
@@ -63,10 +65,11 @@ const ContactUs = () => {
     return (
         <div className="bg-[#FCFAFA] min-h-screen pt-24 pb-12">
             <SEO
-                title="Contact Us | Expert Ayurvedic Consultation - Karan Singh Vaidh"
-                description="Contact Ayurvedic hospital in Solan to get expert Ayurvedic advice. Book consultation for natural treatment, personalized care & holistic healing support."
-                keywords="Contact Ayurvedic hospital in Solan"
+                title="Contact Ayurvedic Clinic in Solan | Get Expert Care"
+                description="Contact Ayurvedic Clinic in Solan to get expert Ayurvedic advice. Book consultation for natural treatment, personalized care & holistic healing support."
+                keywords="Contact Ayurvedic Clinic"
                 url="/contact"
+                exact={true}
             />
             {/* Hero Section */}
             <div className="container mx-auto px-4 mb-16">
@@ -76,7 +79,7 @@ const ContactUs = () => {
                             Get In Touch
                         </span>
                     </div>
-                    <h1 className="text-3xl md:text-6xl font-serif font-bold text-ayur-green mb-6">Contact Ayurvedic Hospital in Solan for Ayurvedic Advice</h1>
+                    <h1 className="text-3xl md:text-6xl font-serif font-bold text-ayur-green mb-6">Contact Ayurvedic Clinic in Solan for Ayurvedic Advice</h1>
                     <p className="text-xl text-gray-600 leading-relaxed">
                         Have questions about our Ayurvedic products or need personalized wellness guidance? We're here to help you on your journey to holistic health.
                     </p>
@@ -189,6 +192,21 @@ const ContactUs = () => {
                                         className="w-full px-5 py-3 bg-gray-50 border-none rounded-2xl focus:ring-2 focus:ring-ayur-green/20 text-gray-900 resize-none"
                                         placeholder="Tell us how we can help you..."
                                     ></textarea>
+                                </div>
+
+                                <div className="flex items-start gap-3">
+                                    <input
+                                        type="checkbox"
+                                        id="contactConsent"
+                                        name="contactConsent"
+                                        checked={formData.contactConsent}
+                                        onChange={handleChange}
+                                        required
+                                        className="mt-1 w-4 h-4 text-ayur-green bg-gray-50 border-gray-300 rounded focus:ring-ayur-green cursor-pointer"
+                                    />
+                                    <label htmlFor="contactConsent" className="text-sm text-gray-600 leading-relaxed cursor-pointer">
+                                        I authorise karan singh vaidh & its representatives to contact me with updates and notifications via Email/SMS/What'sApp/Call. This will override DND/NDNC
+                                    </label>
                                 </div>
 
                                 <button

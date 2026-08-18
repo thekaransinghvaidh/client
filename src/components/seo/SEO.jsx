@@ -2,10 +2,10 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 
-const SEO = ({ title, description, url, image, keywords, children }) => {
+const SEO = ({ title, description, url, image, keywords, children, exact = false }) => {
   const location = useLocation();
   const siteTitle = title 
-    ? (title.includes('Karan Singh Vaidh') ? title : `${title} | The Karan Singh Vaidh`) 
+    ? (exact || title.includes('Karan Singh Vaidh') ? title : `${title} | The Karan Singh Vaidh`) 
     : 'The Karan Singh Vaidh - Authentic Ayurvedic Treatments & Products';
   const siteDesc = description || 'Experience the power of ancient Ayurveda. Trusted Ayurvedic doctor in Solan, HP, providing natural treatments for Asthma, Diabetes, Piles, and more.';
   

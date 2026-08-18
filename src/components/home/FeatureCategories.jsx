@@ -24,7 +24,7 @@ const categories = [
         name: 'Gall Bladder',
         description: 'Potent herbal support for gallbladder health and stone management.',
         image: gallBladderImg,
-        link: '/product/gall-bladder-stone-ayurvedic-treatment'
+        link: '/product/gall-bladder-ayurvedic-treatment'
     },
     {
         id: 3,
@@ -66,7 +66,7 @@ const categories = [
         name: 'Over Weight',
         description: 'Natural metabolism booster and fat burner to achieve your ideal weight safely.',
         image: "/Overweight.png",
-        link: '/product/weight-loss-ayurvedic-treatment',
+        link: '/product/over-weight-ayurvedic-treatment',
         imgClass: 'object-top'
     }
 ];

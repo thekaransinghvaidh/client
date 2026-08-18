@@ -268,7 +268,7 @@ const AuthPopup = () => {
                                 <div className="space-y-2">
                                     <h4 className="text-xl font-serif text-gray-800">Start Healing Naturally</h4>
                                     <p className="text-xs text-gray-500">
-                                        We use a secure mobile OTP system to verify and secure all patient registrations.
+                                        Create an account to start your journey towards holistic healing.
                                     </p>
                                 </div>
 
@@ -297,7 +297,7 @@ const AuthPopup = () => {
                                     onClick={handleSignUpRedirect}
                                     className="w-full flex items-center justify-center gap-2 py-3 bg-ayur-green hover:bg-ayur-olive text-white text-sm font-bold rounded-xl transition-all shadow-md hover:shadow-lg mt-2"
                                 >
-                                    Verify Mobile & Register
+                                    Create Account
                                     <ArrowRight size={16} />
                                 </button>
                             </div>
