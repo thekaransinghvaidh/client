@@ -22,12 +22,14 @@ const AboutUs = lazy(() => import('./pages/AboutUs'));
 const ContactUs = lazy(() => import('./pages/ContactUs'));
 const OrderSuccess = lazy(() => import('./pages/OrderSuccess'));
 const ForgotPassword = lazy(() => import('./pages/ForgotPassword'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 // Policy Pages
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
 const ShippingPolicy = lazy(() => import('./pages/ShippingPolicy'));
 const RefundCancellation = lazy(() => import('./pages/RefundCancellation'));
+const PatientReports = lazy(() => import('./pages/PatientReports'));
 
 // Admin Pages
 const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
@@ -37,6 +39,7 @@ const ProductForm = lazy(() => import('./pages/admin/ProductForm'));
 const Categories = lazy(() => import('./pages/admin/Categories'));
 const Orders = lazy(() => import('./pages/admin/Orders'));
 const Appointments = lazy(() => import('./pages/admin/Appointments'));
+const Users = lazy(() => import('./pages/admin/Users'));
 
 const AdminRoute = lazy(() => import('./components/admin/AdminRoute'));
 const AdminLayout = lazy(() => import('./components/admin/AdminLayout'));
@@ -115,6 +118,8 @@ function App() {
                 {/* Redirect old /about URL */}
                 <Route path="/about" element={<Navigate to="/about-ayurvedic-doctor-in-solan" replace />} />
 
+                <Route path="/patient-reports" element={<PatientReports />} />
+
                 <Route path="/contact" element={<ContactUs />} />
 
                 {/* Policy Pages */}
@@ -134,8 +139,12 @@ function App() {
                     <Route path="categories" element={<Categories />} />
                     <Route path="orders" element={<Orders />} />
                     <Route path="appointments" element={<Appointments />} />
+                    <Route path="users" element={<Users />} />
                   </Route>
                 </Route>
+                
+                {/* Catch-all 404 Route */}
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
           </MainLayout>

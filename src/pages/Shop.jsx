@@ -22,88 +22,88 @@ import allProductsImg from '../assets/AllProducts.webp';
 const seoData = {
     'All': {
         '/ayurvedic-products': {
-            title: 'Buy Ayurvedic Products in Solan | 100% Natural & Trusted – Karan Singh Vaidh',
-            description: 'Shop 100% natural Ayurvedic medicines in Solan by Karan Singh Vaidh (23+ yrs experience). Effective remedies for diabetes, piles, kidney stones & more. Order now for safe & herbal treatment.',
-            keywords: 'Ayurvedic Products in Solan',
-            h1: 'Buy 100% Natural Ayurvedic Products in Solan for Safe Healing',
+            title: 'Buy Ayurvedic Medicines Online | 100% Natural Remedies',
+            description: 'Buy Ayurvedic Medicine Online made with natural ingredients for better wellness. Shop trusted Ayurvedic remedies to support immunity, digestion, and overall health naturally.',
+            keywords: 'Ayurvedic Medicines Online',
+            h1: 'Buy Ayurvedic Medicines Online for Better Health',
             url: '/ayurvedic-products'
         },
         '/ayurvedic-treatment-products': {
-            title: 'Ayurvedic Disease Wise Products | Herbal Health Care',
-            description: 'Explore Ayurvedic Disease Wise Products for natural healing. Target root causes & improve health with safe, effective herbal remedies for every condition.',
-            keywords: 'Ayurvedic Disease Wise Products',
-            h1: 'Ayurvedic Disease Wise Products for Effective Treatment',
+            title: 'Ayurvedic Treatment Products | Buy Natural Medicine Online',
+            description: 'Buy Ayurvedic Treatment Products made with natural ingredients. Shop trusted Ayurvedic Medicine for better health, daily wellness and safe natural care. Order online today.',
+            keywords: 'Ayurvedic Treatment Products',
+            h1: 'Ayurvedic Treatment Products for Better Health',
             url: '/ayurvedic-treatment-products'
         },
         default: {
-            title: 'Buy Ayurvedic Products in Solan | 100% Natural & Trusted – Karan Singh Vaidh',
-            description: 'Shop 100% natural Ayurvedic medicines in Solan by Karan Singh Vaidh (23+ yrs experience). Effective remedies for diabetes, piles, kidney stones & more. Order now for safe & herbal treatment.',
-            keywords: 'Ayurvedic Products in Solan',
-            h1: 'Buy 100% Natural Ayurvedic Products in Solan for Safe Healing',
+            title: 'Buy Ayurvedic Medicines Online | 100% Natural Remedies',
+            description: 'Buy Ayurvedic Medicine Online made with natural ingredients for better wellness. Shop trusted Ayurvedic remedies to support immunity, digestion, and overall health naturally.',
+            keywords: 'Ayurvedic Medicines Online',
+            h1: 'Buy Ayurvedic Medicines Online for Better Health',
             url: '/ayurvedic-products'
         }
     },
     'Asthma': {
-        title: 'Ayurvedic Asthma Treatment in Solan | Herbal & Safe Solutions',
-        description: 'Get effective Ayurvedic Asthma Treatment in Solan with natural herbal remedies. Improve breathing, reduce symptoms & boost immunity with safe, side-effect-free care.',
-        keywords: 'Ayurvedic Asthma Treatment in Solan',
-        h1: 'Best Ayurvedic Asthma Treatment in Solan with Safe Herbal Remedies',
+        title: 'Ayurvedic Asthma Treatment | Natural Ayurvedic Medicine',
+        description: 'Buy Ayurvedic Asthma Treatment online with natural Ayurvedic Medicine. Support healthy breathing, manage asthma symptoms, and promote better respiratory wellness naturally.',
+        keywords: 'Ayurvedic Asthma Treatment',
+        h1: 'Best Ayurvedic Asthma Treatment with Natural Ayurvedic Medicine',
         url: '/ayurvedic-asthma-treatment'
     },
     'Gall Bladder': {
-        title: 'Best Gallbladder Stone Treatment in Solan | Ayurvedic Care',
-        description: 'Get effective Gallbladder Stone Treatment in Solan with Ayurvedic care. Natural remedies help dissolve stones, reduce pain & improve digestion without surgery.',
-        keywords: 'Gallbladder Stone Treatment in Solan',
-        h1: 'Gallbladder Stone Treatment in Solan – Ayurvedic Care',
+        title: 'Best Gall Bladder Stone Ayurvedic Treatment Without Surgery Now',
+        description: 'Get effective Gall Bladder Stone Ayurvedic Treatment with natural Ayurvedic Medicine. Helps support digestion, reduce discomfort and promote healthy gallbladder function. Shop now!',
+        keywords: 'Gall Bladder Stone Ayurvedic Treatment',
+        h1: 'Gall Bladder Stone Ayurvedic Treatment | Natural Relief Guide!!',
         url: '/gallbladder-stone-ayurvedic-treatment'
     },
     'Piles': {
-        title: 'Best Piles Treatment in Solan | Natural & Affordable Care',
-        description: 'Get effective Piles Treatment in Solan with Ayurvedic care. Reduce pain, swelling & bleeding naturally with safe, affordable remedies for long-term relief.',
-        keywords: 'Piles Treatment in Solan',
-        h1: 'Best Piles Treatment in Solan with Safe Ayurvedic Care',
+        title: 'Ayurvedic Piles Treatment | Natural Relief Without Surgery',
+        description: 'Get safe Ayurvedic Piles Treatment with natural Ayurvedic Medicine. Helps manage pain, swelling and bleeding naturally. Shop trusted Ayurvedic remedies online today.',
+        keywords: 'Ayurvedic Piles Treatment',
+        h1: 'Ayurvedic Piles Treatment for Natural & Lasting Relief',
         url: '/ayurvedic-piles-treatment'
     },
     'Gastric': {
-        title: 'Best Gastric Treatment in Solan | Natural Ayurvedic Care',
-        description: 'Get expert Gastric Treatment in Solan with Ayurvedic care. Relieve acidity, gas & indigestion naturally with safe, effective and long-lasting solutions.',
-        keywords: 'Gastric Treatment in Solan',
-        h1: 'Gastric Treatment in Solan for Acidity & Digestive Issues',
+        title: 'Buy Ayurvedic Gastric Treatment for Acidity & Gas',
+        description: 'Buy Ayurvedic Gastric Treatment Medicine online for natural relief from acidity, gas, bloating and indigestion. Safe Ayurvedic Medicine with fast delivery. Order now!',
+        keywords: 'Ayurvedic Gastric Treatment',
+        h1: 'Ayurvedic Gastric Treatment for Natural Digestive Relief',
         url: '/ayurvedic-gastric-treatment'
     },
     'Diabetes': {
-        title: 'Best Diabetes Treatment in Solan | Natural Ayurvedic Care',
-        description: 'Get effective Diabetes Treatment in Solan with Ayurvedic care. Control blood sugar naturally, improve insulin function & achieve long-term health safely.',
-        keywords: 'Diabetes Treatment in Solan',
-        h1: 'Effective Diabetes Treatment in Solan for Long-Term Control',
+        title: 'Ayurvedic Diabetes Treatment for Healthy Blood Sugar',
+        description: 'Choose Ayurvedic Diabetes Treatment with natural Ayurvedic Medicine. Support balanced blood sugar levels, improve overall wellness, and enjoy safe Ayurvedic care every day.',
+        keywords: 'Ayurvedic Diabetes Treatment',
+        h1: 'Best Ayurvedic Diabetes Treatment with Natural Medicine',
         url: '/ayurvedic-diabetes-treatment'
     },
     'Tuberculosis (TB)': {
-        title: 'Tuberculosis Support in Solan | Safe Ayurvedic Treatment',
-        description: 'Find trusted Tuberculosis Treatment Support in Solan. Ayurvedic care helps reduce symptoms, improve strength & support faster, safer recovery naturally.',
-        keywords: 'Tuberculosis Treatment Support in Solan',
-        h1: 'Tuberculosis Treatment Support in Solan for Faster Recovery',
+        title: 'Ayurvedic Tuberculosis Support | Natural Care',
+        description: 'Ayurvedic Tuberculosis Support with natural Ayurvedic Medicine to help support immunity, strength, and recovery naturally. Get safe Ayurvedic care and order online today.',
+        keywords: 'Ayurvedic Tuberculosis Support',
+        h1: 'Best Ayurvedic Tuberculosis Support for Better Health',
         url: '/ayurvedic-tuberculosis-support'
     },
     'Migraine': {
-        title: 'Best Migraine Treatment in Solan | Natural Ayurvedic Care',
-        description: 'Get effective Migraine Treatment in Solan with Ayurvedic care. Reduce headache frequency, relieve pain & achieve long-term relief naturally without side effects.',
-        keywords: 'Migraine Treatment in Solan',
-        h1: 'Migraine Treatment in Solan for Chronic Headache Relief',
+        title: 'Ayurvedic Migraine Treatment | Natural Pain Relief',
+        description: 'Get lasting relief with Ayurvedic Migraine Treatment using natural Ayurvedic Medicine. Reduce headaches, stress & migraine attacks with trusted Ayurvedic solutions. Shop now.',
+        keywords: 'Ayurvedic Migraine Treatment',
+        h1: 'Best Ayurvedic Migraine Treatment with Ayurvedic Medicine',
         url: '/ayurvedic-migraine-treatment'
     },
     'Thyroid': {
-        title: 'Best Thyroid Treatment in Solan | Ayurvedic Care & Relief',
-        description: 'Get effective Thyroid Treatment in Solan with Ayurvedic care. Balance hormones naturally, manage symptoms & improve overall health with safe solutions.',
-        keywords: 'Thyroid Treatment in Solan',
-        h1: 'Thyroid Treatment in Solan for Safe Hormone Control',
+        title: 'Best Ayurvedic Thyroid Treatment | Natural Medicine',
+        description: 'Get the best Ayurvedic Thyroid Treatment with natural Ayurvedic Medicine. Support thyroid balance, reduce symptoms, improve energy levels and promote healthy living naturally.',
+        keywords: 'Ayurvedic Thyroid Treatment',
+        h1: 'Best Ayurvedic Thyroid Treatment for Natural Hormone Balance',
         url: '/ayurvedic-thyroid-treatment'
     },
     'Kidney Stone': {
-        title: 'Kidney Stone Treatment in Solan for Pain & Stone Relief',
-        description: 'Find trusted Kidney Stone Treatment in Solan. Ayurvedic solutions help reduce pain, dissolve stones & improve kidney health naturally without surgery.',
-        keywords: 'Kidney Stone Treatment in Solan',
-        h1: 'Natural Kidney Stone Treatment in Solan Without Surgery',
+        title: 'Kidney Stone Ayurvedic Treatment | Natural Medicine',
+        description: 'Get effective Kidney Stone Ayurvedic Treatment with natural Ayurvedic Medicine that helps reduce pain, support stone management, and promote better kidney health. Order online today!',
+        keywords: 'Kidney Stone Ayurvedic Treatment',
+        h1: 'Best Kidney Stone Ayurvedic Treatment with Ayurvedic Medicine',
         url: '/kidney-stone-ayurvedic-treatment'
     }
 };
@@ -202,13 +202,8 @@ const Shop = ({ defaultCategory }) => {
         setLoading(true);
         try {
             const params = new URLSearchParams();
-            // If defaultCategory is set, filter by name; otherwise use ID from search params
             if (selectedCategory !== 'All') {
-                if (defaultCategory) {
-                    params.append('categoryName', selectedCategory);
-                } else {
-                    params.append('category', selectedCategory);
-                }
+                params.append('category', selectedCategory);
             }
             params.append('sort', sortBy);
 
@@ -257,7 +252,7 @@ const Shop = ({ defaultCategory }) => {
         'Diabetes': { image: diabetesImg, color: 'bg-purple-100 text-purple-600', label: 'Diabetes' },
         'Tuberculosis (TB)': { image: tuberculosisImg, color: 'bg-cyan-100 text-cyan-600', label: 'Tuberculosis' },
         'Migraine': { image: migraineImg, color: 'bg-yellow-100 text-yellow-600', label: 'Migraine' },
-        'Thyroid': { image: thyroidImg, color: 'bg-pink-100 text-pink-600', label: 'Thyroid' },
+        'Thyroid': { image: '/Thyroid.jpeg', color: 'bg-pink-100 text-pink-600', label: 'Thyroid' },
         'Kidney Stone': { image: kidneyStoneImg, color: 'bg-emerald-100 text-emerald-600', label: 'Kidney Stone' },
     };
 
@@ -271,6 +266,7 @@ const Shop = ({ defaultCategory }) => {
                 description={currentSEO.description}
                 keywords={currentSEO.keywords}
                 url={currentSEO.url}
+                exact={true}
             >
                 <script type="application/ld+json">
                     {JSON.stringify({
@@ -357,7 +353,7 @@ const Shop = ({ defaultCategory }) => {
                             return (
                                 <div
                                     key={cat._id}
-                                    onClick={() => slug ? navigate(slug) : setSearchParams({ category: cat._id })}
+                                    onClick={() => slug ? navigate(slug) : navigate(`/ayurvedic-products?category=${cat._id}`)}
                                     className={`flex flex-col items-center gap-3 min-w-[90px] cursor-pointer group snap-start transition-all duration-300 ${isSelected ? 'scale-110' : 'scale-100'}`}
                                 >
                                     <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 border overflow-hidden ${isSelected ? `border-ayur-green/20 shadow-lg shadow-gray-100 -rotate-2` : 'border-gray-100 bg-white group-hover:border-ayur-green/10 group-hover:shadow-md'}`}>
@@ -438,7 +434,7 @@ const Shop = ({ defaultCategory }) => {
                                     return (
                                         <li key={cat._id}>
                                             <button
-                                                onClick={() => slug ? navigate(slug) : setSearchParams({ category: cat._id })}
+                                                onClick={() => slug ? navigate(slug) : navigate(`/ayurvedic-products?category=${cat._id}`)}
                                                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 group ${isSelected ? 'bg-ayur-green text-white font-bold shadow-md shadow-ayur-green/10 translate-x-1' : 'text-gray-600 hover:bg-gray-50 hover:translate-x-1'}`}
                                             >
                                                 <div className={`w-8 h-8 rounded-lg transition-colors overflow-hidden ${isSelected ? 'ring-2 ring-white/50' : 'bg-gray-100 group-hover:bg-gray-200'}`}>
@@ -510,7 +506,7 @@ const Shop = ({ defaultCategory }) => {
                             <div className="text-center py-32 bg-white rounded-xl shadow-sm border border-gray-50">
                                 <p className="text-gray-400 font-serif text-xl italic mb-4">No products found in this category.</p>
                                 <button
-                                    onClick={() => setSearchParams({})}
+                                    onClick={() => navigate('/ayurvedic-products')}
                                     className="bg-ayur-green text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg hover:shadow-xl transition-all"
                                 >
                                     View All Products

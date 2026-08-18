@@ -12,7 +12,8 @@ const ConsultationModal = ({ isOpen, onClose }) => {
         concern: '',
         preferredDate: '',
         preferredTime: '',
-        duration: '15 Min'
+        duration: '15 Min',
+        contactConsent: false
     });
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
@@ -97,7 +98,9 @@ const ConsultationModal = ({ isOpen, onClose }) => {
                                 service: '',
                                 concern: '',
                                 preferredDate: '',
-                                preferredTime: ''
+                                preferredTime: '',
+                                duration: '15 Min',
+                                contactConsent: false
                             });
                             onClose();
                         }, 3000);
@@ -127,11 +130,12 @@ const ConsultationModal = ({ isOpen, onClose }) => {
     };
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        const { name, value, type, checked } = e.target;
+        setFormData({ ...formData, [name]: type === 'checkbox' ? checked : value });
     };
 
     return (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
+        <div className="fixed inset-0 z-[1000] flex items-center justify-center px-4">
             {/* Backdrop */}
             <div
                 className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity"
@@ -139,7 +143,7 @@ const ConsultationModal = ({ isOpen, onClose }) => {
             ></div>
 
             {/* Modal Content */}
-            <div className="relative bg-[#fcfcfc] w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300">
+            <div className="relative bg-[#fcfcfc] w-full max-w-2xl rounded-2xl shadow-2xl overflow-y-auto max-h-[95vh] sm:max-h-[90vh] animate-in zoom-in-95 duration-300">
                 {/* Close Button */}
                 <button
                     onClick={onClose}
@@ -296,6 +300,21 @@ const ConsultationModal = ({ isOpen, onClose }) => {
                                             className="w-full bg-white border border-gray-300 rounded-lg py-2.5 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#419463]/20 focus:border-[#419463] transition-all placeholder:text-gray-400 resize-none"
                                             placeholder="Any special requirements, symptoms, or notes you'd like to share..."
                                         />
+                                    </div>
+
+                                    <div className="flex items-start gap-3 pt-2">
+                                        <input
+                                            type="checkbox"
+                                            id="contactConsent"
+                                            name="contactConsent"
+                                            checked={formData.contactConsent}
+                                            onChange={handleChange}
+                                            required
+                                            className="mt-1 w-4 h-4 text-[#419463] bg-white border-gray-300 rounded focus:ring-[#419463] cursor-pointer"
+                                        />
+                                        <label htmlFor="contactConsent" className="text-xs text-gray-600 leading-relaxed cursor-pointer">
+                                            I authorise karan singh vaidh & its representatives to contact me with updates and notifications via Email/SMS/What'sApp/Call. This will override DND/NDNC
+                                        </label>
                                     </div>
                                 </div>
                             </div>

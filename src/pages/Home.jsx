@@ -12,7 +12,6 @@ const WhyUs = lazy(() => import('../components/home/WhyUs'));
 const HowItWorks = lazy(() => import('../components/home/HowItWorks'));
 const Authenticity = lazy(() => import('../components/home/Authenticity'));
 const RealStores = lazy(() => import('../components/home/RealStores'));
-const FactoryVideo = lazy(() => import('../components/home/FactoryVideo'));
 const Reviews = lazy(() => import('../components/home/Reviews'));
 
 const SectionLoader = () => (
@@ -34,14 +33,14 @@ const Home = () => {
     if (import.meta.env.DEV && renderCount.current > 1) {
         console.log(`%c[Meta Pixel] Homepage rerender detected (#${renderCount.current})`, 'color: #0d9488');
     }
-
     return (
         <div className="bg-ayur-beige/20 min-h-screen">
             <SEO 
-                title="Best Ayurvedic Doctor in Solan | Natural Treatment by Karan Singh Vaidh"
-                description="Get expert Ayurvedic treatment in Solan by Dr. Karan Singh Vaidh (23+ years experience). Natural solutions for kidney stone, piles, diabetes & more. Book consultation now!"
+                title="Best Ayurvedic Doctor in Solan | Natural Ayurvedic Treatment"
+                description="Looking for the best Ayurvedic Doctor in Solan? Get natural treatment for kidney stones, piles, diabetes, thyroid & more. Book your consultation today!"
                 keywords="Ayurvedic Doctor in Solan"
                 url="/"
+                exact={true}
             >
                 <script type="application/ld+json">
                     {JSON.stringify({
@@ -61,7 +60,7 @@ const Home = () => {
                                 ],
                                 "contactPoint": {
                                     "@type": "ContactPoint",
-                                    "telephone": "+91-8219658454",
+                                    "telephone": "+91-8091498454",
                                     "contactType": "Customer Support",
                                     "areaServed": "IN",
                                     "availableLanguage": ["Hindi", "English"]
@@ -80,7 +79,7 @@ const Home = () => {
                                     "postalCode": "173211",
                                     "addressCountry": "IN"
                                 },
-                                "telephone": "+91-8219658454",
+                                "telephone": "+91-8091498454",
                                 "openingHours": "Mo-Su 10:00-17:00",
                                 "priceRange": "₹₹",
                                 "areaServed": "India"
@@ -165,6 +164,7 @@ const Home = () => {
                     })}
                 </script>
             </SEO>
+            <h1 className="sr-only">Best Ayurvedic Doctor in Solan | Natural & Holistic Healing</h1>
             
             {/* Eager Load Content */}
             <Hero />
@@ -179,7 +179,6 @@ const Home = () => {
                 <HowItWorks />
                 <Authenticity />
                 <RealStores />
-                <FactoryVideo />
                 <Reviews />
             </Suspense>
         </div>

@@ -9,7 +9,8 @@ const ContactUs = () => {
         email: '',
         phone: '',
         subject: '',
-        message: ''
+        message: '',
+        contactConsent: false
     });
 
     const [submitted, setSubmitted] = useState(false);
@@ -27,9 +28,10 @@ const ContactUs = () => {
     };
 
     const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value
+            [name]: type === 'checkbox' ? checked : value
         });
     };
 
@@ -37,8 +39,8 @@ const ContactUs = () => {
         {
             icon: Phone,
             title: 'Phone Numbers',
-            details: '82196 58454',
-            link: 'tel:+918219658454',
+            details: '80914 98454',
+            link: 'tel:+918091498454',
             color: 'text-emerald-600',
             bg: 'bg-emerald-50'
         },
@@ -62,11 +64,12 @@ const ContactUs = () => {
 
     return (
         <div className="bg-[#FCFAFA] min-h-screen pt-24 pb-12">
-            <SEO 
-                title="Contact Us | Expert Ayurvedic Consultation - Karan Singh Vaidh"
+            <SEO
+                title="Contact Ayurvedic Clinic in Solan | Get Expert Care"
                 description="Contact Ayurvedic Clinic in Solan to get expert Ayurvedic advice. Book consultation for natural treatment, personalized care & holistic healing support."
-                keywords="Contact Ayurvedic Clinic in Solan"
+                keywords="Contact Ayurvedic Clinic"
                 url="/contact"
+                exact={true}
             />
             {/* Hero Section */}
             <div className="container mx-auto px-4 mb-16">
@@ -191,6 +194,21 @@ const ContactUs = () => {
                                     ></textarea>
                                 </div>
 
+                                <div className="flex items-start gap-3">
+                                    <input
+                                        type="checkbox"
+                                        id="contactConsent"
+                                        name="contactConsent"
+                                        checked={formData.contactConsent}
+                                        onChange={handleChange}
+                                        required
+                                        className="mt-1 w-4 h-4 text-ayur-green bg-gray-50 border-gray-300 rounded focus:ring-ayur-green cursor-pointer"
+                                    />
+                                    <label htmlFor="contactConsent" className="text-sm text-gray-600 leading-relaxed cursor-pointer">
+                                        I authorise karan singh vaidh & its representatives to contact me with updates and notifications via Email/SMS/What'sApp/Call. This will override DND/NDNC
+                                    </label>
+                                </div>
+
                                 <button
                                     type="submit"
                                     className="w-full bg-ayur-green text-white py-4 px-8 rounded-2xl font-bold text-lg hover:bg-ayur-olive transition-all shadow-xl shadow-ayur-green/20 flex items-center justify-center gap-3 group"
@@ -218,9 +236,9 @@ const ContactUs = () => {
                                         <MapPin size={20} className="flex-shrink-0 mt-1" />
                                         <span className="font-medium"> Near Apex Hospital, Kotlanala, Solan, Himachal Pradesh – 173212</span>
                                     </div>
-                                    <a href="tel:+918219658454" className="flex items-center gap-3 text-white hover:text-ayur-gold transition-colors">
+                                    <a href="tel:+918091498454" className="flex items-center gap-3 text-white hover:text-ayur-gold transition-colors">
                                         <Phone size={20} />
-                                        <span className="font-semibold">82196 58454</span>
+                                        <span className="font-semibold">80914 98454</span>
                                     </a>
                                     <a href="mailto:info@thekaransinghvaidh.com" className="flex items-center gap-3 text-white hover:text-ayur-gold transition-colors">
                                         <Mail size={20} />

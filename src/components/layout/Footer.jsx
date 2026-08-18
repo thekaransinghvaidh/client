@@ -17,10 +17,10 @@ const Footer = () => {
                     <div className="lg:col-span-5">
                         {/* Logo */}
                         <div className="mb-6">
-                            <div className="bg-white/95 px-5 py-3 inline-block rounded-lg shadow-lg">
-                                <img loading="lazy" src={logo}
+                            <div className="inline-block py-3">
+                                <img loading="lazy" src="/Logo white.png"
                                     alt="The Karan Singh  Vaidh - Ancient Ayurvedas"
-                                    className="h-14 md:h-16 object-contain"
+                                    className="h-14 md:h-20 object-contain"
                                 />
                             </div>
                         </div>
@@ -110,11 +110,11 @@ const Footer = () => {
                             {/* Contact Info */}
                             <div className="space-y-3 pt-3 border-t border-[#d4af37]/30">
                                 <a
-                                    href="tel:8219658454"
+                                    href="tel:8091498454"
                                     className="flex items-center gap-3 text-base text-gray-100 hover:text-[#d4af37] transition-colors group"
                                 >
                                     <Phone size={20} className="text-[#d4af37] group-hover:scale-110 transition-transform" />
-                                    <span className="font-medium">82196 58454 | 80911 34027 | 88947 72187</span>
+                                    <span className="font-medium">80914 98454</span>
                                 </a>
 
                                 <a
@@ -166,15 +166,13 @@ const Footer = () => {
                                 </Link>
                             </li>
                             <li>
-                                <a
-                                    href="https://thekaransinghvaidh.com/real-stores-real-people.pdf"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                <Link
+                                    to="/patient-reports"
                                     className="group flex items-center text-[#d4af37] hover:text-white transition-all duration-300 font-bold"
                                 >
                                     <span className="w-0 group-hover:w-4 h-[1px] bg-white mr-0 group-hover:mr-3 transition-all duration-300"></span>
                                     See Our Patients Report
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>

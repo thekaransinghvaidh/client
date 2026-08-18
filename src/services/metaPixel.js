@@ -1,63 +1,27 @@
 /**
- * Professional Centralized Meta Pixel Service
- * All tracking methods follow industry-standard ecommerce patterns.
+ * Professional Meta Pixel Service (Singleton Wrapper)
+ * Optimized for high-fidelity tracking on wellness platforms.
  */
-import { isDuplicateEvent } from '../utils/pixelDeduplication';
 
 const CURRENCY = 'INR';
 
 /**
- * Core tracking function with safety checks and deduplication
+ * Core tracking function - Pass-through to Global Proxy Shield
  */
-const track = (eventName, payload = {}, isCustom = false, force = false) => {
-  console.log(`[Meta Pixel] Attempting to track: ${eventName}`);
+const track = (eventName, payload = {}, isCustom = false) => {
+  if (typeof window.fbq !== 'function') return;
 
-  if (typeof window.fbq !== 'function') {
-    console.error('[Meta Pixel] fbq is NOT a function or not initialized');
-    return;
-  }
-
-  // Prevent tracking null/undefined payloads
-  if (!payload || (eventName !== 'PageView' && Object.keys(payload).length === 0)) {
-    console.warn(`[Meta Pixel] Skipping ${eventName} - Empty or invalid payload`);
-    return;
-  }
-
-  // Deduplication check
-  if (force) {
-    console.log(`[Meta Pixel] Force bypass active for: ${eventName}`);
-  } else if (isDuplicateEvent(eventName, payload)) {
-    console.warn(`[Meta Pixel] Duplicate ${eventName} blocked`);
-    return;
-  }
+  // Cleanup payload: remove empty values
+  const cleanPayload = Object.fromEntries(
+    Object.entries(payload).filter(([_, v]) => v !== null && v !== undefined)
+  );
 
   try {
-    console.log(`[Meta Pixel] fbq exists: ${typeof window.fbq}`);
-    console.log(`[Meta Pixel] Sending ${eventName} event...`);
-
-    // ANTI-SUPPRESSION BYPASS: Temporarily change page title to hide 'Ayurvedic' keywords from Meta's crawler
-    const originalTitle = document.title;
-    const needsBypass = originalTitle.toLowerCase().includes('ayurvedic') || originalTitle.toLowerCase().includes('vaidh');
-
-    if (needsBypass) {
-      document.title = 'Wellness Shopping Cart';
-    }
-
     if (isCustom) {
-      window.fbq('trackCustom', eventName, payload);
+      window.fbq('trackCustom', eventName, cleanPayload);
     } else {
-      window.fbq('track', eventName, payload);
+      window.fbq('track', eventName, cleanPayload);
     }
-
-    // Restore original title after a short delay
-    if (needsBypass) {
-      setTimeout(() => {
-        document.title = originalTitle;
-      }, 500);
-    }
-
-    console.log(`[Meta Pixel] ${eventName} sent successfully`);
-    console.log(`[Meta Pixel] ${eventName} final payload:`, JSON.stringify(payload, null, 2));
   } catch (error) {
     console.error(`[Meta Pixel] Error tracking ${eventName}:`, error);
   }
@@ -65,171 +29,132 @@ const track = (eventName, payload = {}, isCustom = false, force = false) => {
 
 export const metaPixelService = {
   /**
-   * Initialize - Handled in index.html, kept for compatibility
+   * Initialize - Singleton Guard
    */
   init: () => {
-    console.log('[Meta Pixel] Service ready (Global Interceptor Active)');
+    console.log('[Meta Pixel] Service Link Active.');
   },
 
   /**
-   * PageView - Tracks location changes
+   * PageView
    */
   trackPageView: () => {
     track('PageView');
   },
 
   /**
-   * ViewContent - Tracks when a user views a product page
+   * ViewContent
    */
   trackViewContent: (product) => {
     if (!product) return;
-    const id = product._id || product.id || product.slug;
+    const id = product.slug || product._id || product.id;
     const price = Number(product.price || product.packs?.[0]?.sellingPrice || 0);
-    const category = typeof product.category === 'object' ? product.category.name : (product.category || 'Ayurvedic Products');
-
-    console.log(`[Meta Pixel] ViewContent triggered for: ${product.name}`);
 
     track('ViewContent', {
-      content_category: String(category).toUpperCase(),
       content_ids: [String(id)],
-      content_name: String(product.name),
+      content_name: product.name,
       content_type: 'product',
-      contents: [{
-        id: String(id),
-        quantity: 1,
-        item_price: price
-      }],
-      currency: CURRENCY,
       value: price,
+      currency: CURRENCY,
+      content_category: product.category?.name || 'Wellness'
     });
   },
 
   /**
-   * AddToCart - Tracks when a user adds a product to the cart
+   * AddToCart
    */
-  trackAddToCart: (product, quantity = 1, priceOverride = null, force = true) => {
+  trackAddToCart: (product, quantity = 1, priceOverride = null) => {
     if (!product) return;
-    console.log('[Meta Pixel] trackAddToCart called');
-
-    const id = product._id || product.id || product.slug || product.product;
     const unitPrice = Number(priceOverride !== null ? priceOverride : (product.price || product.packs?.[0]?.sellingPrice || 0));
 
-    const payload = {
-      content_ids: [String(id)],
+    track('AddToCart', {
+      content_ids: [String(product.slug || product._id || product.id)],
       content_type: 'product',
-      content_name: 'Wellness Item',
-      contents: [{
-        id: String(id),
-        quantity: Number(quantity),
-        item_price: Number(unitPrice)
-      }],
+      content_name: product.name,
       value: Number(unitPrice * quantity),
-      currency: CURRENCY
-    };
-
-    // SAFE MAPPING: Using 'Contact' for AddToCart (Pre-approved for Health sites)
-    track('Contact', {
-      ...payload,
-      content_name: 'Cart_Add_Bypass',
-      event_source: 'button_click'
-    }, false, true);
+      currency: CURRENCY,
+      num_items: quantity
+    });
   },
 
   /**
-   * ViewCart - Tracks when user views their cart
-   * Fires standard AddToCart for full funnel visibility on the cart page
-   */
-  /**
-   * ViewCart - Tracks when user views their cart
-   * Fires both standard and custom events to ensure visibility despite Meta's health filters
+   * ViewCart
    */
   trackViewCart: (cartItems, totalValue) => {
-    console.log('[Meta Pixel] trackViewCart called');
+    if (!cartItems || cartItems.length === 0) return;
+    
+    const contentIds = cartItems.map(item => {
+      const p = item.product || item;
+      return String(p.slug || p._id || p.id);
+    }).filter(id => id && id !== 'undefined');
 
-    if (!cartItems || cartItems.length === 0) {
-      console.log('[Meta Pixel] ViewCart skipped - Empty cart');
-      return;
-    }
-
-    const itemIds = cartItems.map(item => String(item.product || item._id || item.id));
-    const totalQty = Number(cartItems.reduce((acc, item) => acc + (item.qty || 1), 0));
-
-    // SAFE MAPPING: Using 'Contact' for Cart View (Pre-approved for Health sites)
-    track('Contact', {
-      content_ids: itemIds,
+    // Use trackCustom for non-standard event to avoid warnings
+    track('ViewCart', {
+      content_ids: contentIds.length > 0 ? contentIds : ['cart_bundle'],
       content_type: 'product',
-      contents: cartItems.map(item => ({
-        id: String(item.product || item._id || item.id),
-        quantity: Number(item.qty || 1),
-        item_price: Number(item.price || 0)
-      })),
       value: Number(totalValue || 0),
       currency: CURRENCY,
-      num_items: totalQty,
-      content_name: 'Cart_View_Bypass',
-      event_source: 'cart_page_view'
-    }, false, true);
-
-    console.log(`[Meta Pixel] Anti-Suppression SAFE-track executed`);
+      num_items: cartItems.reduce((total, item) => total + (item.quantity || 1), 0)
+    }, true);
   },
 
   /**
-   * InitiateCheckout - Tracks checkout start
+   * InitiateCheckout
    */
   trackInitiateCheckout: (cartItems, totalValue) => {
-    console.log('[Meta Pixel] trackInitiateCheckout called');
     if (!cartItems || cartItems.length === 0) return;
 
-    const itemIds = cartItems.map(item => String(item.product || item._id || item.id || ''));
-    const totalQty = Number(cartItems.reduce((acc, item) => acc + (item.quantity || item.qty || 1), 0));
+    const contentIds = cartItems.map(item => {
+      const p = item.product || item;
+      return String(p.slug || p._id || p.id);
+    }).filter(id => id && id !== 'undefined');
 
-    // SAFE MAPPING: Using 'Lead' for Checkout Start (Pre-approved for Health sites)
-    track('Lead', {
-      content_ids: itemIds,
+    track('InitiateCheckout', {
+      content_ids: contentIds.length > 0 ? contentIds : ['checkout'],
       content_type: 'product',
-      contents: cartItems.map(item => ({
-        id: String(item.product || item._id || item.id),
-        quantity: Number(item.qty || item.quantity || 1),
-        item_price: Number(item.price || 0)
-      })),
       value: Number(totalValue || 0),
       currency: CURRENCY,
-      num_items: totalQty,
-      content_name: 'Checkout_Start_Bypass',
-      event_source: 'checkout_page'
-    }, false, true);
+      num_items: cartItems.reduce((total, item) => total + (item.quantity || 1), 0)
+    });
   },
 
   /**
-   * Purchase - Tracks successful orders
+   * Purchase
    */
   trackPurchase: (orderData) => {
-    console.log('[Meta Pixel] trackPurchase called');
     if (!orderData || !orderData.orderId) return;
 
-    const itemIds = orderData.items?.map(item => String(item.product || item._id || item.id || '')) || [];
-    const totalQty = Number(orderData.items?.reduce((acc, item) => acc + (item.quantity || item.qty || 1), 0) || 0);
+    let contentIds = ['purchase'];
+    let numItems = 1;
+    
+    if (orderData.items && Array.isArray(orderData.items)) {
+      contentIds = orderData.items.map(item => {
+        const p = item.product || item;
+        return String(p.slug || p._id || p.id);
+      }).filter(id => id && id !== 'undefined');
+      if (contentIds.length === 0) contentIds = ['purchase'];
+      numItems = orderData.items.reduce((total, item) => total + (item.quantity || 1), 0);
+    } else if (orderData.cartItems && Array.isArray(orderData.cartItems)) {
+      contentIds = orderData.cartItems.map(item => {
+        const p = item.product || item;
+        return String(p.slug || p._id || p.id);
+      }).filter(id => id && id !== 'undefined');
+      if (contentIds.length === 0) contentIds = ['purchase'];
+      numItems = orderData.cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+    }
 
-    // SAFE MAPPING: Using 'Schedule' for Purchase (Pre-approved for Health sites)
-    track('Schedule', {
+    track('Purchase', {
       transaction_id: String(orderData.orderId),
-      content_ids: itemIds,
-      content_type: 'product',
-      contents: orderData.items?.map(item => ({
-        id: String(item.product || item._id || item.id),
-        quantity: Number(item.qty || item.quantity || 1),
-        item_price: Number(item.price || 0)
-      })) || [],
       value: Number(orderData.totalAmount || 0),
       currency: CURRENCY,
-      num_items: totalQty,
-      content_name: 'Order_Complete_Bypass',
-      event_source: 'order_success_page'
-    }, false, true);
+      content_ids: contentIds,
+      content_type: 'product',
+      num_items: numItems
+    });
   },
 
   /**
-   * Lead - Consultation form submissions
+   * Lead
    */
   trackLead: (payload = {}) => {
     track('Lead', {
@@ -240,7 +165,7 @@ export const metaPixelService = {
   },
 
   /**
-   * Contact - General contact form submissions
+   * Contact
    */
   trackContact: (payload = {}) => {
     track('Contact', {
@@ -250,7 +175,7 @@ export const metaPixelService = {
   },
 
   /**
-   * CompleteRegistration - Successful user signup
+   * CompleteRegistration
    */
   trackCompleteRegistration: (payload = {}) => {
     track('CompleteRegistration', {
@@ -259,14 +184,18 @@ export const metaPixelService = {
     });
   },
 
-  /**
-   * Search - On-site product search
-   */
   trackSearch: (searchString) => {
     if (!searchString) return;
     track('Search', {
       search_string: searchString,
     });
+  },
+
+  /**
+   * Custom Event
+   */
+  trackCustom: (eventName, payload = {}) => {
+    track(eventName, payload, true);
   }
 };
 

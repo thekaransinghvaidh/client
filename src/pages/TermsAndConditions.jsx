@@ -131,6 +131,18 @@ const TermsAndConditions = () => {
 
                     {/* Section 5 */}
                     <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 md:p-10">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-4">Electronic Communication</h2>
+                        <div className="h-1 w-20 bg-gradient-to-r from-[#2C5F4F] to-[#A8C5B5] mb-6"></div>
+
+                        <div className="space-y-4 text-gray-700">
+                            <p className="leading-relaxed">
+                                When you voluntarily send us electronic mail / fillup the form, we will keep a record of this information so that we can respond to you. We only collect information from you when you register on our site or fill out a form. Also, when filling out a form on our site, you may be asked to enter your: name, e-mail address or phone number. You may, however, visit our site anonymously. In case you have submitted your personal information and contact details, we reserve the rights to Call, SMS, Email or WhatsApp about our products and offers, even if your number has DND activated on it.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Section 6 */}
+                    <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 md:p-10">
                         <div className="flex items-start gap-4 mb-6">
                             <div className="w-12 h-12 bg-[#2C5F4F]/10 rounded-xl flex items-center justify-center flex-shrink-0">
                                 <Scale className="text-[#2C5F4F]" size={24} />
@@ -224,8 +236,8 @@ const TermsAndConditions = () => {
                         </p>
                         <p>
                             <span className="font-semibold">Phone:</span>{' '}
-                            <a href="tel:8219658454" className="hover:underline">
-                                82196 58454
+                            <a href="tel:8091498454" className="hover:underline">
+                                80914 98454
                             </a>
                         </p>
                     </div>
