@@ -22,19 +22,12 @@ const ProductForm = () => {
     const [usage, setUsage] = useState('');
     const [benefits, setBenefits] = useState('');
     const [packs, setPacks] = useState([]); // [{name, price, isDefault}]
+    const [reviews, setReviews] = useState([]); // [{name, rating, comment, title}]
     const [uploading, setUploading] = useState(false);
     const [isEditMode, setIsEditMode] = useState(false);
 
     const navigate = useNavigate();
     const { id } = useParams();
-
-    useEffect(() => {
-        fetchCategories();
-        if (id) {
-            setIsEditMode(true);
-            fetchProduct(id);
-        }
-    }, [id]);
 
     const fetchCategories = async () => {
         try {
@@ -62,6 +55,7 @@ const ProductForm = () => {
             setDiscount(data.discount || 0);
             setIsBestSeller(!!data.isBestSeller);
             setIsWellness(!!data.isWellness);
+            setReviews(Array.isArray(data.reviews) ? data.reviews : []);
             // Normalize medicines to objects {name, image}
             const normalizedPacks = (Array.isArray(data.packs) ? data.packs : []).map(pack => ({
                 ...pack,
@@ -129,7 +123,8 @@ const ProductForm = () => {
             ingredients,
             usage,
             benefits,
-            packs
+            packs,
+            reviews
         };
 
         console.log('Submitting Product Data:', productData);
@@ -219,6 +214,22 @@ const ProductForm = () => {
         
         setImages(newImages);
         setDraggedImgIdx(null);
+    };
+
+    const addReview = () => {
+        setReviews([...reviews, { name: '', rating: 5, comment: '', title: '' }]);
+    };
+
+    const removeReview = (index) => {
+        const updated = [...reviews];
+        updated.splice(index, 1);
+        setReviews(updated);
+    };
+
+    const updateReview = (index, field, value) => {
+        const updated = [...reviews];
+        updated[index][field] = value;
+        setReviews(updated);
     };
 
     return (
@@ -462,6 +473,87 @@ const ProductForm = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+
+                {/* Product Reviews Section (Admin Controlled) */}
+                <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <div className="flex justify-between items-center mb-4">
+                        <div>
+                            <h3 className="text-lg font-bold text-gray-800">Product Reviews ({reviews.length})</h3>
+                            <p className="text-xs text-gray-500">Add or edit customer reviews displayed on the product page</p>
+                        </div>
+                        <button
+                            type="button"
+                            onClick={addReview}
+                            className="flex items-center gap-1 text-sm bg-emerald-600 text-white px-3 py-1.5 rounded-md hover:bg-emerald-700 font-medium"
+                        >
+                            <Plus size={16} /> Add Review
+                        </button>
+                    </div>
+
+                    {reviews.length === 0 ? (
+                        <p className="text-sm text-gray-500 italic">No custom reviews added yet. Click "Add Review" to add one.</p>
+                    ) : (
+                        <div className="space-y-4">
+                            {reviews.map((rev, index) => (
+                                <div key={index} className="bg-white p-4 rounded-md border border-gray-200 relative">
+                                    <button
+                                        type="button"
+                                        onClick={() => removeReview(index)}
+                                        className="absolute top-3 right-3 text-red-500 hover:text-red-700"
+                                    >
+                                        <X size={18} />
+                                    </button>
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-3">
+                                        <div>
+                                            <label className="block text-xs font-bold text-gray-700 mb-1">Customer Name</label>
+                                            <input
+                                                type="text"
+                                                value={rev.name || ''}
+                                                onChange={(e) => updateReview(index, 'name', e.target.value)}
+                                                placeholder="e.g. Ramesh Kumar"
+                                                className="w-full p-2 text-sm border border-gray-300 rounded focus:ring-emerald-500"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-xs font-bold text-gray-700 mb-1">Rating (1 to 5 Stars)</label>
+                                            <select
+                                                value={rev.rating || 5}
+                                                onChange={(e) => updateReview(index, 'rating', Number(e.target.value))}
+                                                className="w-full p-2 text-sm border border-gray-300 rounded focus:ring-emerald-500"
+                                            >
+                                                <option value={5}>5 Stars ⭐⭐⭐⭐⭐</option>
+                                                <option value={4}>4 Stars ⭐⭐⭐⭐</option>
+                                                <option value={3}>3 Stars ⭐⭐⭐</option>
+                                                <option value={2}>2 Stars ⭐⭐</option>
+                                                <option value={1}>1 Star ⭐</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label className="block text-xs font-bold text-gray-700 mb-1">Review Title (Optional)</label>
+                                            <input
+                                                type="text"
+                                                value={rev.title || ''}
+                                                onChange={(e) => updateReview(index, 'title', e.target.value)}
+                                                placeholder="e.g. Product Quality"
+                                                className="w-full p-2 text-sm border border-gray-300 rounded focus:ring-emerald-500"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label className="block text-xs font-bold text-gray-700 mb-1">Review Comment</label>
+                                        <textarea
+                                            value={rev.comment || ''}
+                                            onChange={(e) => updateReview(index, 'comment', e.target.value)}
+                                            rows={2}
+                                            placeholder="Enter the customer review comment here..."
+                                            className="w-full p-2 text-sm border border-gray-300 rounded focus:ring-emerald-500"
+                                        />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
                 {/* Toggles */}

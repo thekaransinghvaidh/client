@@ -23,9 +23,12 @@ const ContactUs = lazy(() => import('./pages/ContactUs'));
 const OrderSuccess = lazy(() => import('./pages/OrderSuccess'));
 const ForgotPassword = lazy(() => import('./pages/ForgotPassword'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const FAQ = lazy(() => import('./pages/FAQ'));
+const OrderTracking = lazy(() => import('./pages/OrderTracking'));
 
 // Policy Pages
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const Disclaimer = lazy(() => import('./pages/Disclaimer'));
 const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
 const ShippingPolicy = lazy(() => import('./pages/ShippingPolicy'));
 const RefundCancellation = lazy(() => import('./pages/RefundCancellation'));
@@ -40,9 +43,18 @@ const Categories = lazy(() => import('./pages/admin/Categories'));
 const Orders = lazy(() => import('./pages/admin/Orders'));
 const Appointments = lazy(() => import('./pages/admin/Appointments'));
 const Users = lazy(() => import('./pages/admin/Users'));
+const SEOManagement = lazy(() => import('./pages/admin/SEOManagement'));
 
 const AdminRoute = lazy(() => import('./components/admin/AdminRoute'));
 const AdminLayout = lazy(() => import('./components/admin/AdminLayout'));
+
+// Independent SEO Portal Pages
+const SEOLogin = lazy(() => import('./pages/seo/SEOLogin'));
+const SEODashboard = lazy(() => import('./pages/seo/SEODashboard'));
+const SEOProductsPage = lazy(() => import('./pages/seo/SEOProductsPage'));
+const SEOCategoriesPage = lazy(() => import('./pages/seo/SEOCategoriesPage'));
+const SEORoute = lazy(() => import('./components/seo/SEORoute'));
+const SEOLayout = lazy(() => import('./components/seo/SEOLayout'));
 
 const LoadingFallback = () => (
   <div className="min-h-[60vh] flex flex-col items-center justify-center">
@@ -121,9 +133,12 @@ function App() {
                 <Route path="/patient-reports" element={<PatientReports />} />
 
                 <Route path="/contact" element={<ContactUs />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/track-order" element={<OrderTracking />} />
 
                 {/* Policy Pages */}
                 <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/disclaimer" element={<Disclaimer />} />
                 <Route path="/terms" element={<TermsAndConditions />} />
                 <Route path="/shipping" element={<ShippingPolicy />} />
                 <Route path="/cancellation" element={<RefundCancellation />} />
@@ -140,9 +155,21 @@ function App() {
                     <Route path="orders" element={<Orders />} />
                     <Route path="appointments" element={<Appointments />} />
                     <Route path="users" element={<Users />} />
+                    <Route path="seo" element={<SEOManagement />} />
                   </Route>
                 </Route>
                 
+                {/* Independent SEO Executive Portal Routes */}
+                <Route path="/seo/login" element={<SEOLogin />} />
+                <Route path="/seo" element={<SEORoute />}>
+                  <Route element={<SEOLayout />}>
+                    <Route index element={<Navigate to="/seo/dashboard" replace />} />
+                    <Route path="dashboard" element={<SEODashboard />} />
+                    <Route path="products" element={<SEOProductsPage />} />
+                    <Route path="categories" element={<SEOCategoriesPage />} />
+                  </Route>
+                </Route>
+
                 {/* Catch-all 404 Route */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

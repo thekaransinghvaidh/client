@@ -7,17 +7,21 @@ import axios from "axios";
 // BASE URL Configuration
 // ─────────────────────────────────────────────────────────────────────────────
 const getBaseURL = () => {
-    // Priority 1: Environment variable (must be a valid URL, not just a slash)
+    // Priority 1: Environment variable (must be a valid backend URL, not just frontend domain without API proxy)
     const envUrl = import.meta.env.VITE_API_URL;
-    if (envUrl && envUrl !== "/" && envUrl !== "") return envUrl;
+    if (envUrl && envUrl !== "/" && envUrl !== "" && !envUrl.includes("thekaransinghvaidh.com")) return envUrl;
     
-    // Priority 2: Use current origin. This perfectly handles both localhost (Vite proxy)
-    // and live cPanel servers (where frontend and backend share the domain).
-    return window.location.origin;
+    // Priority 2: Use current origin if running on localhost (Vite dev server proxy)
+    if (typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")) {
+        return window.location.origin;
+    }
+
+    // Default live production fallback: Render backend URL where API is active
+    return "https://server-pevq.onrender.com";
 };
 
 const BASE_URL = getBaseURL();
-const API_ORIGIN = (BASE_URL !== undefined && BASE_URL !== "/") ? BASE_URL.replace(/\/$/, "") : "";
+const API_ORIGIN = (BASE_URL !== undefined && BASE_URL !== "/") ? BASE_URL.replace(/\/$/, "") : "https://server-pevq.onrender.com";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // getAssetUrl  — FASTEST IMAGE LOADING LOGIC
@@ -73,7 +77,13 @@ api.interceptors.request.use((config) => {
     return config;
 }, (e) => Promise.reject(e));
 
-api.interceptors.response.use(r => r, (e) => {
+api.interceptors.response.use((r) => {
+    // Guard: If response is an HTML document string instead of JSON (e.g., cPanel static rewrite fallback)
+    if (typeof r.data === "string" && (r.data.trim().startsWith("<!") || r.data.trim().startsWith("<html"))) {
+        return Promise.reject(new Error("API returned HTML instead of JSON data. Check backend URL configuration."));
+    }
+    return r;
+}, (e) => {
     if (e.response?.status === 401 && !window.location.pathname.includes("/login")) {
         localStorage.removeItem("userInfo");
         window.location.href = window.location.pathname.includes("/admin") ? "/admin/login" : "/login";

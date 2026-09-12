@@ -16,14 +16,50 @@ const ProductDetails = () => {
     const [selectedPackIndex, setSelectedPackIndex] = useState(0);
     const [qty, setQty] = useState(1);
     const [loading, setLoading] = useState(true);
-    const [activeTab, setActiveTab] = useState('benefits');
+    const [activeTab, setActiveTab] = useState('overview');
     const [imageError, setImageError] = useState(false);
     const [relatedProducts, setRelatedProducts] = useState([]);
     const [lightboxImage, setLightboxImage] = useState(null);
     const [selectedImage, setSelectedImage] = useState(null);
+    const [reviewName, setReviewName] = useState('');
+    const [reviewRating, setReviewRating] = useState(5);
+    const [reviewTitle, setReviewTitle] = useState('');
+    const [reviewComment, setReviewComment] = useState('');
+    const [reviewSubmitting, setReviewSubmitting] = useState(false);
+    const [reviewSuccess, setReviewSuccess] = useState('');
 
     // Fallback image URL (Data URI for performance)
     const fallbackImage = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="600" height="600"%3E%3Crect fill="%23F4F7F6" width="600" height="600"/%3E%3Ctext fill="%23849A8E" font-family="system-ui" font-size="24" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle"%3ENo Image%3C/text%3E%3C/svg%3E';
+
+    const handleReviewSubmit = async (e) => {
+        e.preventDefault();
+        if (!reviewComment.trim()) return;
+        setReviewSubmitting(true);
+        setReviewSuccess('');
+        try {
+            const productId = product._id || product.id || id;
+            const { data } = await api.post(`/products/${productId}/reviews`, {
+                name: reviewName,
+                rating: reviewRating,
+                title: reviewTitle,
+                comment: reviewComment
+            });
+            setProduct(prev => ({
+                ...prev,
+                reviews: data.reviews || prev.reviews
+            }));
+            setReviewSuccess('Thank you! Your review has been submitted successfully.');
+            setReviewName('');
+            setReviewTitle('');
+            setReviewComment('');
+            setReviewRating(5);
+        } catch (err) {
+            console.error(err);
+            alert(err.response?.data?.message || 'Failed to submit review');
+        } finally {
+            setReviewSubmitting(false);
+        }
+    };
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -41,15 +77,16 @@ const ProductDetails = () => {
                 }
 
                 // Fetch related products
-                const { data: allProducts } = await api.get('/products');
+                const { data: allProductsData } = await api.get('/products');
+                const allProducts = Array.isArray(allProductsData) ? allProductsData : (Array.isArray(allProductsData?.products) ? allProductsData.products : []);
                 const filtered = allProducts
-                    .filter(p => (p._id || p.id) !== id && p.category?.name === data.category?.name)
+                    .filter(p => p && (p._id || p.id) !== id && p.category?.name === data?.category?.name)
                     .slice(0, 4);
 
                 // If not enough related products in same category, just take other products
                 if (filtered.length < 4) {
                     const others = allProducts
-                        .filter(p => (p._id || p.id) !== id && !filtered.find(f => (f._id || f.id) === (p._id || p.id)))
+                        .filter(p => p && (p._id || p.id) !== id && !filtered.find(f => (f._id || f.id) === (p._id || p.id)))
                         .slice(0, 4 - filtered.length);
                     setRelatedProducts([...filtered, ...others]);
                 } else {
@@ -176,7 +213,7 @@ const ProductDetails = () => {
                             {
                                 "@type": "Person",
                                 "@id": "https://thekaransinghvaidh.com/#doctor",
-                                "name": "Dr. Karan Singh Vaidh",
+                                "name": "Karan Singh Vaidh",
                                 "jobTitle": "Ayurvedic Doctor",
                                 "worksFor": {
                                     "@id": "https://thekaransinghvaidh.com/#organization"
@@ -705,7 +742,7 @@ const ProductDetails = () => {
                         {/* Tab Headers */}
                         <div className="md:w-1/5">
                             <div className="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible pb-4 md:pb-0 sticky top-24 no-scrollbar">
-                                {['Benefits', 'Ingredients', 'Usage'].map((tab) => (
+                                {['Overview', 'Benefits', 'Why Choose Us', 'Usage', 'Ingredients', 'FAQs', 'Reviews'].map((tab) => (
                                     <button
                                         key={tab}
                                         onClick={() => setActiveTab(tab.toLowerCase())}
@@ -714,7 +751,8 @@ const ProductDetails = () => {
                                             : 'text-gray-500 hover:bg-gray-50 border-transparent'
                                             }`}
                                     >
-                                        {tab}
+                                        {tab} {tab === 'Reviews' && product.reviews?.length > 0 ? `(${product.reviews.length})` : ''}
+                                        {tab === 'FAQs' && product.faqs?.length > 0 ? `(${product.faqs.length})` : ''}
                                     </button>
                                 ))}
                             </div>
@@ -725,12 +763,22 @@ const ProductDetails = () => {
                             <div className="bg-white rounded-2xl p-6 md:p-10 border border-gray-100 min-h-[300px]">
                                 <h3 className="font-serif text-2xl md:text-3xl text-gray-900 mb-6 md:mb-8 capitalize flex items-center gap-3">
                                     <span className="w-6 h-1 bg-emerald-600 rounded-full"></span>
-                                    {activeTab}
+                                    {activeTab === 'overview' ? 'Long Description' : activeTab}
                                 </h3>
                                 <div className="prose prose-emerald max-w-none text-gray-600 leading-relaxed space-y-4">
+                                    {(activeTab === 'overview' || activeTab === 'description') && (
+                                        <div className="whitespace-pre-line text-gray-700 leading-relaxed text-base space-y-4">
+                                            {product.fullDescription || product.shortDescription || "No detailed description available."}
+                                        </div>
+                                    )}
                                     {activeTab === 'benefits' && (
-                                        <div className="whitespace-pre-line">
+                                        <div className="whitespace-pre-line text-gray-700 leading-relaxed">
                                             {product.benefits || "No specific benefits listed for this product."}
+                                        </div>
+                                    )}
+                                    {activeTab === 'why choose us' && (
+                                        <div className="whitespace-pre-line bg-amber-50/40 p-6 rounded-xl border border-amber-100 text-gray-800 leading-relaxed">
+                                            {product.whyChooseUs || "Designed according to traditional Ayurvedic principles for daily wellness support."}
                                         </div>
                                     )}
                                     {activeTab === 'ingredients' && (
@@ -741,6 +789,140 @@ const ProductDetails = () => {
                                     {activeTab === 'usage' && (
                                         <div className="bg-emerald-50/50 p-6 rounded-xl border border-emerald-100 text-emerald-900 italic font-medium">
                                             {product.usage || "Usage instructions not available."}
+                                        </div>
+                                    )}
+                                    {activeTab === 'faqs' && (
+                                        <div className="space-y-4">
+                                            {(() => {
+                                                const faqsToDisplay = (Array.isArray(product.faqs) && product.faqs.length > 0)
+                                                    ? product.faqs
+                                                    : [
+                                                        {
+                                                            question: `How should ${product.name} be consumed?`,
+                                                            answer: product.usage || "Take according to the recommended dosage specified on the package with lukewarm water after meals, or as directed by an Ayurvedic physician."
+                                                        },
+                                                        {
+                                                            question: `Is ${product.name} safe for long-term usage?`,
+                                                            answer: "Yes, our formulations are prepared from 100% natural Ayurvedic herbs without synthetic preservatives or steroids."
+                                                        },
+                                                        {
+                                                            question: "How long does delivery take?",
+                                                            answer: "Orders are shipped within 24 hours from Solan, HP and delivered across India within 3–6 business days with live tracking."
+                                                        },
+                                                        {
+                                                            question: "Can I consult Karan Singh Vaidh regarding my treatment?",
+                                                            answer: "Yes, you can schedule an online consultation or visit our clinic in Solan, HP for personalized clinical guidance."
+                                                        }
+                                                    ];
+                                                return faqsToDisplay.map((faq, i) => (
+                                                    <div key={i} className="bg-gray-50/80 p-5 rounded-xl border border-gray-200/80 space-y-2">
+                                                        <h4 className="font-bold text-gray-900 text-base">{faq.question}</h4>
+                                                        <p className="text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
+                                                    </div>
+                                                ));
+                                            })()}
+                                        </div>
+                                    )}
+                                    {activeTab === 'reviews' && (
+                                        <div className="space-y-8">
+                                            {/* Reviews List */}
+                                            <div>
+                                                <h4 className="font-bold text-lg text-gray-900 mb-4">Customer Reviews ({product.reviews?.length || 0})</h4>
+                                                {!product.reviews || product.reviews.length === 0 ? (
+                                                    <p className="text-gray-500 italic">No reviews yet. Be the first to write a review!</p>
+                                                ) : (
+                                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                        {product.reviews.map((rev, i) => (
+                                                            <div key={i} className="bg-gray-50 p-5 rounded-xl border border-gray-100 flex flex-col justify-between">
+                                                                <div>
+                                                                    <div className="flex items-center justify-between mb-2">
+                                                                        <span className="font-bold text-gray-900 text-sm">{rev.name || 'Verified Customer'}</span>
+                                                                        <div className="flex text-amber-400">
+                                                                            {[...Array(5)].map((_, starIdx) => (
+                                                                                <Star key={starIdx} size={14} fill={starIdx < (rev.rating || 5) ? 'currentColor' : 'none'} strokeWidth={starIdx < (rev.rating || 5) ? 0 : 1} className={starIdx >= (rev.rating || 5) ? 'text-gray-300' : ''} />
+                                                                            ))}
+                                                                        </div>
+                                                                    </div>
+                                                                    {rev.title && (
+                                                                        <h5 className="font-bold text-emerald-800 text-xs uppercase tracking-wide mb-1">{rev.title}</h5>
+                                                                    )}
+                                                                    <p className="text-gray-600 text-sm italic">"{rev.comment}"</p>
+                                                                </div>
+                                                                {rev.createdAt && (
+                                                                    <span className="text-[10px] text-gray-400 mt-3 self-end">{new Date(rev.createdAt).toLocaleDateString()}</span>
+                                                                )}
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Write a Review Form */}
+                                            <div className="border-t border-gray-200 pt-6">
+                                                <h4 className="font-bold text-lg text-gray-900 mb-4">Write a Review</h4>
+                                                {reviewSuccess && (
+                                                    <div className="mb-4 p-3 bg-emerald-50 text-emerald-800 rounded-lg text-sm font-medium border border-emerald-200">
+                                                        {reviewSuccess}
+                                                    </div>
+                                                )}
+                                                <form onSubmit={handleReviewSubmit} className="bg-white p-6 rounded-xl border border-gray-200 space-y-4">
+                                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                        <div>
+                                                            <label className="block text-xs font-bold text-gray-700 mb-1">Your Name</label>
+                                                            <input
+                                                                type="text"
+                                                                required
+                                                                value={reviewName}
+                                                                onChange={(e) => setReviewName(e.target.value)}
+                                                                placeholder="e.g. Anish Sharma"
+                                                                className="w-full p-2.5 text-sm border border-gray-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500"
+                                                            />
+                                                        </div>
+                                                        <div>
+                                                            <label className="block text-xs font-bold text-gray-700 mb-1">Rating</label>
+                                                            <select
+                                                                value={reviewRating}
+                                                                onChange={(e) => setReviewRating(Number(e.target.value))}
+                                                                className="w-full p-2.5 text-sm border border-gray-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500"
+                                                            >
+                                                                <option value={5}>5 Stars ⭐⭐⭐⭐⭐</option>
+                                                                <option value={4}>4 Stars ⭐⭐⭐⭐</option>
+                                                                <option value={3}>3 Stars ⭐⭐⭐</option>
+                                                                <option value={2}>2 Stars ⭐⭐</option>
+                                                                <option value={1}>1 Star ⭐</option>
+                                                            </select>
+                                                        </div>
+                                                        <div>
+                                                            <label className="block text-xs font-bold text-gray-700 mb-1">Review Title (Optional)</label>
+                                                            <input
+                                                                type="text"
+                                                                value={reviewTitle}
+                                                                onChange={(e) => setReviewTitle(e.target.value)}
+                                                                placeholder="e.g. Product Quality"
+                                                                className="w-full p-2.5 text-sm border border-gray-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <label className="block text-xs font-bold text-gray-700 mb-1">Your Review</label>
+                                                        <textarea
+                                                            required
+                                                            rows={3}
+                                                            value={reviewComment}
+                                                            onChange={(e) => setReviewComment(e.target.value)}
+                                                            placeholder="Write your honest feedback about this product..."
+                                                            className="w-full p-2.5 text-sm border border-gray-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500"
+                                                        />
+                                                    </div>
+                                                    <button
+                                                        type="submit"
+                                                        disabled={reviewSubmitting}
+                                                        className="px-6 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-lg text-sm transition-colors shadow-sm disabled:opacity-50"
+                                                    >
+                                                        {reviewSubmitting ? 'Submitting...' : 'Submit Review'}
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </div>
                                     )}
                                 </div>

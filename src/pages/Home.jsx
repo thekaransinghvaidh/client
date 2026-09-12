@@ -87,7 +87,7 @@ const Home = () => {
                             {
                                 "@type": "Person",
                                 "@id": "https://thekaransinghvaidh.com/#doctor",
-                                "name": "Dr. Karan Singh Vaidh",
+                                "name": "Karan Singh Vaidh",
                                 "jobTitle": "Ayurvedic Doctor",
                                 "worksFor": {
                                     "@id": "https://thekaransinghvaidh.com/#organization"
@@ -118,7 +118,7 @@ const Home = () => {
                                 "@type": "WebPage",
                                 "@id": "https://thekaransinghvaidh.com/#webpage",
                                 "url": "https://thekaransinghvaidh.com/",
-                                "name": "Best Ayurvedic Doctor in Solan | Dr. Karan Singh Vaidh",
+                                "name": "Best Ayurvedic Doctor in Solan | Karan Singh Vaidh",
                                 "isPartOf": {
                                     "@id": "https://thekaransinghvaidh.com/#website"
                                 },
@@ -164,7 +164,11 @@ const Home = () => {
                     })}
                 </script>
             </SEO>
-            <h1 className="sr-only">Best Ayurvedic Doctor in Solan | Natural & Holistic Healing</h1>
+            <div className="bg-[#0d2e1b] text-white text-center py-3.5 px-4 shadow-inner border-b border-emerald-900">
+                <h1 className="text-lg md:text-2xl font-serif font-bold tracking-wide text-emerald-100 max-w-6xl mx-auto">
+                    Authentic Ayurvedic Doctor in Solan | Natural & Holistic Healing by Karan Singh Vaidh
+                </h1>
+            </div>
             
             {/* Eager Load Content */}
             <Hero />

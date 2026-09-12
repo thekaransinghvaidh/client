@@ -8,10 +8,6 @@ const Users = () => {
     const [error, setError] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
 
-    useEffect(() => {
-        fetchUsers();
-    }, []);
-
     const fetchUsers = async () => {
         try {
             const { data } = await api.get('/users');
@@ -22,6 +18,10 @@ const Users = () => {
             setLoading(false);
         }
     };
+
+    useEffect(() => {
+        fetchUsers();
+    }, []);
 
     const filteredUsers = users.filter(user => 
         user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||

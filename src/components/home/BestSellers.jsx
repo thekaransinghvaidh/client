@@ -12,7 +12,13 @@ const BestSellers = () => {
         const fetchProducts = async () => {
             try {
                 const { data } = await api.get('/products');
-                const bestSellers = data.filter(p => p.isBestSeller).slice(0, 8);
+                const list = Array.isArray(data) ? data : (Array.isArray(data?.products) ? data.products : []);
+                let bestSellers = list.filter(p => p && p.isBestSeller);
+                if (bestSellers.length === 0 && list.length > 0) {
+                    bestSellers = list.slice(0, 8);
+                } else {
+                    bestSellers = bestSellers.slice(0, 8);
+                }
                 setProducts(bestSellers);
                 setLoading(false);
             } catch (err) {

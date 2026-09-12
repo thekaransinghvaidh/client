@@ -25,6 +25,7 @@ const Header = () => {
         { name: 'Home', path: '/' },
         { name: 'Shop', path: '/ayurvedic-products' },
         { name: 'About Us', path: '/about-ayurvedic-doctor-in-solan' },
+        { name: 'FAQ', path: '/faq' },
         { name: 'Contact Us', path: '/contact' },
     ];
 

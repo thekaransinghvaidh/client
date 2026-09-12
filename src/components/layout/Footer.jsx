@@ -166,6 +166,12 @@ const Footer = () => {
                                 </Link>
                             </li>
                             <li>
+                                <Link to="/track-order" className="group flex items-center text-[#d4af37] hover:text-white transition-all duration-300 font-bold">
+                                    <span className="w-0 group-hover:w-4 h-[1px] bg-white mr-0 group-hover:mr-3 transition-all duration-300"></span>
+                                    Track Your Order
+                                </Link>
+                            </li>
+                            <li>
                                 <Link
                                     to="/patient-reports"
                                     className="group flex items-center text-[#d4af37] hover:text-white transition-all duration-300 font-bold"
@@ -187,6 +193,12 @@ const Footer = () => {
                                 <Link to="/privacy" className="group flex items-center text-gray-300 hover:text-[#d4af37] transition-all duration-300 font-medium">
                                     <span className="w-0 group-hover:w-4 h-[1px] bg-[#d4af37] mr-0 group-hover:mr-3 transition-all duration-300"></span>
                                     Privacy Policy
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/disclaimer" className="group flex items-center text-gray-300 hover:text-[#d4af37] transition-all duration-300 font-medium">
+                                    <span className="w-0 group-hover:w-4 h-[1px] bg-[#d4af37] mr-0 group-hover:mr-3 transition-all duration-300"></span>
+                                    Disclaimer
                                 </Link>
                             </li>
                             <li>

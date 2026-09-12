@@ -39,9 +39,9 @@ const reasons = [
         bgColor: "bg-purple-50"
     },
     {
-        stat: "90%",
-        label: "Result Guaranteed",
-        desc: "Proven track record of successful patient outcomes.",
+        stat: "95%+",
+        label: "Patient Satisfaction",
+        desc: "High rating and positive outcomes reported by our patients.",
         icon: resultGuaranteedIcon,
         bgColor: "bg-green-50"
     },
@@ -80,7 +80,7 @@ const WhyUs = () => {
                     {/* Left: Doctor Image Section - Light Background */}
                     <div className="w-full md:w-5/12 bg-gray-200 relative flex items-end justify-center md:min-h-full">
                         <img loading="lazy" src={karanSir}
-                            alt="Dr. Karan Singh Vaidh"
+                            alt="Karan Singh Vaidh"
                             className="w-full h-auto md:h-full object-cover relative z-10"
                         />
                     </div>

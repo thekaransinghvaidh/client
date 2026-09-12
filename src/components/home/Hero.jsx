@@ -192,9 +192,12 @@ const Hero = () => {
                              <img
                                  src={getOptimizedImage(!isDesktop && slide.mobileBgImage ? slide.mobileBgImage : slide.bgImage, index)}
                                  alt={slide.title || slide.subtitle || "The Karan Singh Vaidh Ayurvedic Banner"}
-                                fetchPriority={index === 0 ? "high" : "auto"}
-                                loading={index === 0 ? "eager" : "lazy"}
-                                className={`w-full h-auto block transition-transform duration-[5000ms] ${slide.hasOverlay !== false ? "hover:scale-105" : "bg-white"}`}
+                                 width={isDesktop ? "1920" : "800"}
+                                 height={isDesktop ? "700" : "1200"}
+                                 decoding={index === 0 ? "sync" : "async"}
+                                 fetchPriority={index === 0 ? "high" : "auto"}
+                                 loading={index === 0 ? "eager" : "lazy"}
+                                 className={`w-full h-auto block transition-transform duration-[5000ms] ${slide.hasOverlay !== false ? "hover:scale-105" : "bg-white"}`}
                             />
                             {/* Gradient Overlay for Readability - Only for slides with text */}
                             {slide.hasOverlay !== false && (

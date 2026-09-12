@@ -11,11 +11,10 @@ const PillsSection = () => {
         const fetchProducts = async () => {
             try {
                 const { data } = await api.get('/products');
-                // Filter products that are intended for the pills section
-                // Based on the original logic (id > 100), but now we check isWellness 
-                // or specific names/categories since IDs are now MongoDB ObjectIds
-                const filtered = data.filter(p => p.isWellness || p.category?.name?.toLowerCase().includes('capsule') || p.name.toLowerCase().includes('capsule') || p.name.toLowerCase().includes('pill'));
-                setProducts(filtered.slice(0, 4));
+                const list = Array.isArray(data) ? data : (Array.isArray(data?.products) ? data.products : []);
+                const filtered = list.filter(p => p && (p.isWellness || p.category?.name?.toLowerCase().includes('capsule') || p.name?.toLowerCase().includes('capsule') || p.name?.toLowerCase().includes('pill')));
+                const finalProducts = filtered.length > 0 ? filtered.slice(0, 4) : list.slice(0, 4);
+                setProducts(finalProducts);
                 setLoading(false);
             } catch (err) {
                 console.error('Error fetching products for PillsSection:', err);

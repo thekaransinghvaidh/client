@@ -27,16 +27,14 @@ const CheckoutPage = () => {
     });
 
     useEffect(() => {
-        if (!authLoading && !userInfo) {
-            navigate('/login?redirect=checkout');
-        } else if (userInfo) {
+        if (userInfo) {
             setForm(prev => ({
                 ...prev,
                 name: userInfo.name || '',
                 email: userInfo.email || '',
             }));
         }
-    }, [userInfo, authLoading, navigate]);
+    }, [userInfo]);
 
     // Track InitiateCheckout cleanly
     const hasTrackedCheckout = useRef(false);

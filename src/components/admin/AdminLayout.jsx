@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
-import { LayoutDashboard, ShoppingBag, Package, ListOrdered, LogOut, Bell, Search, User, Menu, X, Calendar, Users } from 'lucide-react';
+import { LayoutDashboard, ShoppingBag, Package, ListOrdered, LogOut, Bell, Search, User, Menu, X, Calendar, Users, Globe } from 'lucide-react';
 import { AuthContext } from '../../context/AuthContext';
 import api from '../../api/api';
 
