@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { getAssetUrl } from '../../api/api';
 import { CartContext } from '../../context/CartContext';
 import { metaPixelService } from '../../services/metaPixel';
+import { resolveProductImage } from '../../utils/productImages';
 
 const ProductCard = ({ product }) => {
     const { addToCart } = useContext(CartContext);
@@ -11,10 +12,9 @@ const ProductCard = ({ product }) => {
     const [quantity, setQuantity] = useState(1);
 
     // Reconcile property names
-    // Use ID for now - slugs will be used once all products have them
     const id = product.slug || product._id || product.id;
     const name = product.name;
-    const image = getAssetUrl(product.image, 400);
+    const image = resolveProductImage(product);
     const rating = product.rating || 4.8;
     const reviews = product.numReviews || product.reviews || 2500;
     const tags = product.tags || ["Natural", "Wellness"];
@@ -33,10 +33,10 @@ const ProductCard = ({ product }) => {
 
     const handleAddToCart = () => {
         console.log('[Meta Pixel] AddToCart button clicked');
-        
+
         addToCart(product, selectedPack, quantity);
         console.log('[Meta Pixel] Cart updated successfully');
-        
+
         metaPixelService.trackAddToCart(product, quantity, selectedPack?.sellingPrice || price);
     };
 

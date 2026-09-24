@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import api, { getAssetUrl } from '../api/api';
+import { resolveProductImage } from '../utils/productImages';
 import { CheckCircle, Truck, CreditCard, Headphones, Download, ChevronRight } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import { metaPixelService } from '../services/metaPixel';
@@ -143,7 +144,7 @@ const OrderSuccess = () => {
                                 <div key={index} className="flex items-center gap-4 group">
                                     <div className="relative h-16 w-16 md:h-20 md:w-20 flex-shrink-0 bg-gray-50 rounded-xl overflow-hidden border border-gray-100 group-hover:border-ayur-green transition-colors">
                                         <img
-                                            src={getAssetUrl(item.image)}
+                                            src={resolveProductImage(item)}
                                             alt={item.name}
                                             className="w-full h-full object-cover p-2"
                                         />

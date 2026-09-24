@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
-import { LayoutDashboard, ShoppingBag, Package, ListOrdered, LogOut, Bell, Search, User, Menu, X, Calendar, Users } from 'lucide-react';
+import { LayoutDashboard, ShoppingBag, Package, ListOrdered, LogOut, Bell, Search, User, Menu, X, Calendar, Users, Globe, Image as ImageIcon } from 'lucide-react';
 import { AuthContext } from '../../context/AuthContext';
 import api from '../../api/api';
 
@@ -51,6 +51,7 @@ const AdminLayout = () => {
 
     const menuItems = [
         { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, path: '/admin/dashboard' },
+        { id: 'banners', label: 'Banners', icon: ImageIcon, path: '/admin/banners' },
         { id: 'products', label: 'Products', icon: ShoppingBag, path: '/admin/products' },
         { id: 'categories', label: 'Categories', icon: Package, path: '/admin/categories' },
         { id: 'orders', label: 'Orders', icon: ListOrdered, path: '/admin/orders' },

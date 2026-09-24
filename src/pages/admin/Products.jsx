@@ -15,10 +15,6 @@ const Products = () => {
     const [categoryFilter, setCategoryFilter] = useState('All');
     const navigate = useNavigate();
 
-    useEffect(() => {
-        fetchProducts();
-    }, []);
-
     const fetchProducts = async () => {
         try {
             setLoading(true);
@@ -30,6 +26,10 @@ const Products = () => {
             setLoading(false);
         }
     };
+
+    useEffect(() => {
+        fetchProducts();
+    }, []);
 
     const deleteHandler = async (id) => {
         if (window.confirm('Deleting this product will remove it from all records. Continue?')) {

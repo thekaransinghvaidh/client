@@ -23,8 +23,10 @@ const Header = () => {
 
     const navLinks = [
         { name: 'Home', path: '/' },
+        { name: 'About', path: '/about-ayurvedic-doctor-in-solan' },
         { name: 'Shop', path: '/ayurvedic-products' },
-        { name: 'About Us', path: '/about-ayurvedic-doctor-in-solan' },
+        { name: 'Book Appointment', path: '/book-appointment' },
+        { name: 'Patient Report', path: '/patient-reports' },
         { name: 'Contact Us', path: '/contact' },
     ];
 

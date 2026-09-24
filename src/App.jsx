@@ -18,14 +18,18 @@ const Register = lazy(() => import('./pages/Register'));
 const MyAccount = lazy(() => import('./pages/MyAccount'));
 const CartPage = lazy(() => import('./pages/CartPage'));
 const CheckoutPage = lazy(() => import('./pages/CheckoutPage'));
+const BookAppointment = lazy(() => import('./pages/BookAppointment'));
 const AboutUs = lazy(() => import('./pages/AboutUs'));
 const ContactUs = lazy(() => import('./pages/ContactUs'));
 const OrderSuccess = lazy(() => import('./pages/OrderSuccess'));
 const ForgotPassword = lazy(() => import('./pages/ForgotPassword'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const FAQ = lazy(() => import('./pages/FAQ'));
+const OrderTracking = lazy(() => import('./pages/OrderTracking'));
 
 // Policy Pages
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const Disclaimer = lazy(() => import('./pages/Disclaimer'));
 const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
 const ShippingPolicy = lazy(() => import('./pages/ShippingPolicy'));
 const RefundCancellation = lazy(() => import('./pages/RefundCancellation'));
@@ -40,9 +44,19 @@ const Categories = lazy(() => import('./pages/admin/Categories'));
 const Orders = lazy(() => import('./pages/admin/Orders'));
 const Appointments = lazy(() => import('./pages/admin/Appointments'));
 const Users = lazy(() => import('./pages/admin/Users'));
+const Banners = lazy(() => import('./pages/admin/Banners'));
+const SEOManagement = lazy(() => import('./pages/admin/SEOManagement'));
 
 const AdminRoute = lazy(() => import('./components/admin/AdminRoute'));
 const AdminLayout = lazy(() => import('./components/admin/AdminLayout'));
+
+// Independent SEO Portal Pages
+const SEOLogin = lazy(() => import('./pages/seo/SEOLogin'));
+const SEODashboard = lazy(() => import('./pages/seo/SEODashboard'));
+const SEOProductsPage = lazy(() => import('./pages/seo/SEOProductsPage'));
+const SEOCategoriesPage = lazy(() => import('./pages/seo/SEOCategoriesPage'));
+const SEORoute = lazy(() => import('./components/seo/SEORoute'));
+const SEOLayout = lazy(() => import('./components/seo/SEOLayout'));
 
 const LoadingFallback = () => (
   <div className="min-h-[60vh] flex flex-col items-center justify-center">
@@ -77,7 +91,9 @@ function App() {
                 <Route path="/ayurvedic-tuberculosis-support" element={<Shop defaultCategory="Tuberculosis (TB)" />} />
                 <Route path="/ayurvedic-migraine-treatment" element={<Shop defaultCategory="Migraine" />} />
                 <Route path="/ayurvedic-thyroid-treatment" element={<Shop defaultCategory="Thyroid" />} />
-                <Route path="/kidney-stone-ayurvedic-treatment" element={<Shop defaultCategory="Kidney Stone" />} />
+                <Route path="/high-blood-pressure-ayurvedic-treatment" element={<Shop defaultCategory="Hypertension" />} />
+                <Route path="/hypertension-ayurvedic-treatment" element={<Shop defaultCategory="Hypertension" />} />
+                <Route path="/ayurvedic-hypertension-treatment" element={<Shop defaultCategory="Hypertension" />} />
                 <Route path="/ayurvedic-treatment-products" element={<Shop />} />
 
                 <Route path="/product/asthma" element={<Navigate to="/product/asthma-ayurvedic-treatment" replace />} />
@@ -90,7 +106,10 @@ function App() {
                 <Route path="/product/fibroid" element={<Navigate to="/product/fibroid-ayurvedic-treatment" replace />} />
                 <Route path="/product/gall-bladder" element={<Navigate to="/product/gall-bladder-ayurvedic-treatment" replace />} />
                 <Route path="/product/gastritis-digestion" element={<Navigate to="/product/gastritis-digestion-ayurvedic-treatment" replace />} />
-                <Route path="/product/hypertension-high-blood-pressure" element={<Navigate to="/product/hypertension-high-blood-pressure-ayurvedic-treatment" replace />} />
+                <Route path="/product/hypertension-high-blood-pressure" element={<Navigate to="/product/high-blood-pressure-ayurvedic-treatment" replace />} />
+                <Route path="/product/hypertension-high-blood-pressure-ayurvedic-treatment" element={<Navigate to="/product/high-blood-pressure-ayurvedic-treatment" replace />} />
+                <Route path="/product/hypertension" element={<Navigate to="/product/high-blood-pressure-ayurvedic-treatment" replace />} />
+                <Route path="/product/high-blood-pressure" element={<Navigate to="/product/high-blood-pressure-ayurvedic-treatment" replace />} />
                 <Route path="/product/jaundice" element={<Navigate to="/product/jaundice-ayurvedic-treatment" replace />} />
                 <Route path="/product/kidney-stone" element={<Navigate to="/product/kidney-stone-ayurvedic-treatment" replace />} />
                 <Route path="/product/loose-motion" element={<Navigate to="/product/loose-motion-ayurvedic-treatment" replace />} />
@@ -113,6 +132,11 @@ function App() {
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/account" element={<MyAccount />} />
 
+                {/* Book Appointment Pages */}
+                <Route path="/book-appointment" element={<BookAppointment />} />
+                <Route path="/book-an-appointment" element={<Navigate to="/book-appointment" replace />} />
+                <Route path="/appointment" element={<Navigate to="/book-appointment" replace />} />
+
                 {/* About - SEO URL */}
                 <Route path="/about-ayurvedic-doctor-in-solan" element={<AboutUs />} />
                 {/* Redirect old /about URL */}
@@ -121,9 +145,12 @@ function App() {
                 <Route path="/patient-reports" element={<PatientReports />} />
 
                 <Route path="/contact" element={<ContactUs />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/track-order" element={<OrderTracking />} />
 
                 {/* Policy Pages */}
                 <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/disclaimer" element={<Disclaimer />} />
                 <Route path="/terms" element={<TermsAndConditions />} />
                 <Route path="/shipping" element={<ShippingPolicy />} />
                 <Route path="/cancellation" element={<RefundCancellation />} />
@@ -133,6 +160,7 @@ function App() {
                 <Route path="/admin" element={<AdminRoute />}>
                   <Route element={<AdminLayout />}>
                     <Route path="dashboard" element={<Dashboard />} />
+                    <Route path="banners" element={<Banners />} />
                     <Route path="products" element={<Products />} />
                     <Route path="product/new" element={<ProductForm />} />
                     <Route path="product/:id/edit" element={<ProductForm />} />
@@ -140,9 +168,21 @@ function App() {
                     <Route path="orders" element={<Orders />} />
                     <Route path="appointments" element={<Appointments />} />
                     <Route path="users" element={<Users />} />
+                    <Route path="seo" element={<SEOManagement />} />
                   </Route>
                 </Route>
                 
+                {/* Independent SEO Executive Portal Routes */}
+                <Route path="/seo/login" element={<SEOLogin />} />
+                <Route path="/seo" element={<SEORoute />}>
+                  <Route element={<SEOLayout />}>
+                    <Route index element={<Navigate to="/seo/dashboard" replace />} />
+                    <Route path="dashboard" element={<SEODashboard />} />
+                    <Route path="products" element={<SEOProductsPage />} />
+                    <Route path="categories" element={<SEOCategoriesPage />} />
+                  </Route>
+                </Route>
+
                 {/* Catch-all 404 Route */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

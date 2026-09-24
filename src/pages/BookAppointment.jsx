@@ -1,0 +1,332 @@
+import React, { useState, useEffect } from 'react';
+import { Calendar, Clock, User, Phone, Mail, FileText, Send, CheckCircle2, ChevronDown, Lock } from 'lucide-react';
+import SEO from '../components/seo/SEO';
+import api from '../api/api';
+import { metaPixelService } from '../services/metaPixel';
+
+const BookAppointment = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        phone: '',
+        email: '',
+        service: '',
+        concern: '',
+        preferredDate: '',
+        preferredTime: '',
+        duration: '15 Min',
+        contactConsent: false
+    });
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState('');
+
+    // Load Razorpay Script
+    useEffect(() => {
+        const script = document.createElement('script');
+        script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+        script.async = true;
+        document.body.appendChild(script);
+        return () => {
+            if (document.body.contains(script)) {
+                document.body.removeChild(script);
+            }
+        };
+    }, []);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setError('');
+
+        try {
+            // Calculate amount based on duration
+            const amounts = {
+                '15 Min': 999,
+                '30 Min': 1999,
+                '45 Min': 2999
+            };
+            const selectedAmount = amounts[formData.duration] || 999;
+
+            // 1. Create Razorpay Order
+            const { data: order } = await api.post('/appointments/create-payment', { amount: selectedAmount });
+
+            // 2. Configure Razorpay options
+            const options = {
+                key: import.meta.env.VITE_RAZORPAY_KEY_ID || 'rzp_live_SL5SABtfYmhkMp',
+                amount: order.amount,
+                currency: order.currency,
+                name: 'The Karan Singh Vaidh',
+                description: 'Appointment Booking Fee',
+                order_id: order.id,
+                prefill: {
+                    name: formData.name,
+                    email: formData.email,
+                    contact: formData.phone
+                },
+                theme: {
+                    color: '#419463'
+                },
+                handler: async function (response) {
+                    try {
+                        // 3. Verify Payment & Create Appointment
+                        const appointmentPayload = {
+                            ...formData,
+                            razorpay_order_id: response.razorpay_order_id,
+                            razorpay_payment_id: response.razorpay_payment_id,
+                            razorpay_signature: response.razorpay_signature
+                        };
+
+                        const { data: appointmentData } = await api.post('/appointments', appointmentPayload);
+                        
+                        // Track Lead/Appointment in Meta Pixel
+                        metaPixelService.trackLead({
+                            service: formData.service,
+                            value: selectedAmount,
+                            currency: 'INR'
+                        });
+
+                        // Show success state
+                        setSuccess(true);
+                        setLoading(false);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } catch (verifyError) {
+                        console.error('Verification Error:', verifyError);
+                        setError(verifyError.response?.data?.message || 'Payment verification failed. Please try again.');
+                        setLoading(false);
+                    }
+                }
+            };
+
+            // Setup Razorpay event handlers
+            const rzp = new window.Razorpay(options);
+            
+            rzp.on('payment.failed', function (response) {
+                console.error('Payment Failed:', response.error);
+                setError(response.error.description || 'Payment failed. Please try again.');
+                setLoading(false);
+            });
+
+            rzp.open();
+        } catch (err) {
+            console.error('Razorpay Error:', err);
+            setError(err.response?.data?.message || 'Error initiating payment. Please try again.');
+            setLoading(false);
+        }
+    };
+
+    const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        setFormData({ ...formData, [name]: type === 'checkbox' ? checked : value });
+    };
+
+    return (
+        <div className="bg-[#FCFAFA] min-h-screen pt-24 pb-16">
+            <SEO
+                title="Book an Appointment | The Karan Singh Vaidh"
+                description="Book your consultation appointment with Karan Singh Vaidh. Choose your service, preferred date and time for expert Ayurvedic guidance."
+                url="/book-appointment"
+                exact={true}
+            />
+
+            <div className="container mx-auto px-4 max-w-2xl">
+                <div className="bg-[#fcfcfc] rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+                    {success ? (
+                        <div className="p-12 text-center flex flex-col items-center justify-center min-h-[450px]">
+                            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-6 animate-bounce">
+                                <CheckCircle2 size={48} />
+                            </div>
+                            <h2 className="text-3xl font-serif font-bold text-ayur-green mb-4">Request Submitted!</h2>
+                            <p className="text-gray-600 text-lg max-w-md">
+                                Thank you for reaching out. Our Ayurvedic experts will contact you shortly to confirm your appointment.
+                            </p>
+                        </div>
+                    ) : (
+                        <div className="p-6 md:p-10">
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                {/* Personal Information Section */}
+                                <div>
+                                    <h2 className="text-2xl font-bold text-[#419463] mb-2">Personal Information</h2>
+                                    <div className="h-px bg-gray-200 w-full mb-6"></div>
+
+                                    <div className="space-y-4">
+                                        <div className="space-y-1.5">
+                                            <label className="text-sm font-semibold text-gray-700">Full Name *</label>
+                                            <input
+                                                required
+                                                type="text"
+                                                name="name"
+                                                value={formData.name}
+                                                onChange={handleChange}
+                                                className="w-full bg-white border border-gray-300 rounded-lg py-2.5 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#419463]/20 focus:border-[#419463] transition-all placeholder:text-gray-400"
+                                                placeholder="Enter your full name"
+                                            />
+                                        </div>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div className="space-y-1.5">
+                                                <label className="text-sm font-semibold text-gray-700">Email Address *</label>
+                                                <input
+                                                    required
+                                                    type="email"
+                                                    name="email"
+                                                    value={formData.email}
+                                                    onChange={handleChange}
+                                                    className="w-full bg-white border border-gray-300 rounded-lg py-2.5 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#419463]/20 focus:border-[#419463] transition-all placeholder:text-gray-400"
+                                                    placeholder="your@email.com"
+                                                />
+                                            </div>
+                                            <div className="space-y-1.5">
+                                                <label className="text-sm font-semibold text-gray-700">Phone Number *</label>
+                                                <input
+                                                    required
+                                                    type="tel"
+                                                    name="phone"
+                                                    value={formData.phone}
+                                                    onChange={handleChange}
+                                                    className="w-full bg-white border border-gray-300 rounded-lg py-2.5 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#419463]/20 focus:border-[#419463] transition-all placeholder:text-gray-400"
+                                                    placeholder="+91 1234567890"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Appointment Details Section */}
+                                <div>
+                                    <h2 className="text-2xl font-bold text-[#419463] mb-2">Appointment Details</h2>
+                                    <div className="h-px bg-gray-200 w-full mb-6"></div>
+
+                                    <div className="space-y-4">
+                                        <div className="space-y-1.5">
+                                            <label className="text-sm font-semibold text-gray-700">Service Required *</label>
+                                            <div className="relative">
+                                                <select
+                                                    required
+                                                    name="service"
+                                                    value={formData.service}
+                                                    onChange={handleChange}
+                                                    className="w-full bg-white border border-gray-300 rounded-lg py-2.5 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#419463]/20 focus:border-[#419463] transition-all appearance-none cursor-pointer"
+                                                >
+                                                    <option value="" disabled>Select a service</option>
+                                                    <option value="General Consultation">General Consultation</option>
+                                                    <option value="Ayurvedic Treatment">Ayurvedic Treatment</option>
+                                                    <option value="Diet & Nutrition">Diet & Nutrition</option>
+                                                    <option value="Pulse Diagnosis">Pulse Diagnosis (Nadi Pariksha)</option>
+                                                    <option value="Lifestyle Coaching">Lifestyle Coaching</option>
+                                                </select>
+                                                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" size={18} />
+                                            </div>
+                                        </div>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div className="space-y-1.5">
+                                                <label className="text-sm font-semibold text-gray-700">Preferred Date *</label>
+                                                <div className="relative">
+                                                    <input
+                                                        required
+                                                        type="date"
+                                                        name="preferredDate"
+                                                        value={formData.preferredDate}
+                                                        onChange={handleChange}
+                                                        className="w-full bg-white border border-gray-300 rounded-lg py-2.5 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#419463]/20 focus:border-[#419463] transition-all cursor-pointer"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="space-y-1.5">
+                                                <label className="text-sm font-semibold text-gray-700">Preferred Time *</label>
+                                                <div className="relative">
+                                                    <select
+                                                        required
+                                                        name="preferredTime"
+                                                        value={formData.preferredTime}
+                                                        onChange={handleChange}
+                                                        className="w-full bg-white border border-gray-300 rounded-lg py-2.5 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#419463]/20 focus:border-[#419463] transition-all appearance-none cursor-pointer"
+                                                    >
+                                                        <option value="" disabled>Select preferred time</option>
+                                                        <option value="Between 10:00 AM - 01:00 PM">Between 10:00 AM to 01:00 PM</option>
+                                                    </select>
+                                                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" size={18} />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="space-y-1.5">
+                                            <label className="text-sm font-semibold text-gray-700">Consultation Duration *</label>
+                                            <div className="relative">
+                                                <select
+                                                    required
+                                                    name="duration"
+                                                    value={formData.duration}
+                                                    onChange={handleChange}
+                                                    className="w-full bg-white border border-gray-300 rounded-lg py-2.5 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#419463]/20 focus:border-[#419463] transition-all appearance-none cursor-pointer"
+                                                >
+                                                    <option value="15 Min">15 Minutes (₹999)</option>
+                                                    <option value="30 Min">30 Minutes (₹1999)</option>
+                                                    <option value="45 Min">45 Minutes (₹2999)</option>
+                                                </select>
+                                                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" size={18} />
+                                            </div>
+                                        </div>
+
+                                        <div className="space-y-1.5">
+                                            <label className="text-sm font-semibold text-gray-700">Special Requests or Notes</label>
+                                            <textarea
+                                                name="concern"
+                                                value={formData.concern}
+                                                onChange={handleChange}
+                                                rows="4"
+                                                className="w-full bg-white border border-gray-300 rounded-lg py-2.5 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#419463]/20 focus:border-[#419463] transition-all placeholder:text-gray-400 resize-none"
+                                                placeholder="Any special requirements, symptoms, or notes you'd like to share..."
+                                            />
+                                        </div>
+
+                                        <div className="flex items-start gap-3 pt-2">
+                                            <input
+                                                type="checkbox"
+                                                id="contactConsent"
+                                                name="contactConsent"
+                                                checked={formData.contactConsent}
+                                                onChange={handleChange}
+                                                required
+                                                className="mt-1 w-4 h-4 text-[#419463] bg-white border-gray-300 rounded focus:ring-[#419463] cursor-pointer"
+                                            />
+                                            <label htmlFor="contactConsent" className="text-xs text-gray-600 leading-relaxed cursor-pointer">
+                                                I authorise karan singh vaidh & its representatives to contact me with updates and notifications via Email/SMS/What'sApp/Call. This will override DND/NDNC
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {error && (
+                                    <div className="p-3 bg-red-50 text-red-500 text-xs font-semibold rounded-lg border border-red-100 italic">
+                                        {error}
+                                    </div>
+                                )}
+
+                                <div className="pt-2">
+                                    <button
+                                        type="submit"
+                                        disabled={loading}
+                                        className="w-full bg-[#419463] hover:bg-[#357a52] text-white font-bold py-3.5 rounded-lg shadow-lg shadow-green-500/20 transition-all active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-2 cursor-pointer"
+                                    >
+                                        {loading ? (
+                                            <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                                        ) : (
+                                            <>
+                                                <Lock size={18} />
+                                                <span>Pay ₹{formData.duration === '15 Min' ? '999' : formData.duration === '30 Min' ? '1999' : '2999'} & Book Appointment</span>
+                                                <Send size={18} className="ml-2" />
+                                            </>
+                                        )}
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default BookAppointment;

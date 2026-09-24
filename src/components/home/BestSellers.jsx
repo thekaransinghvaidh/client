@@ -2,29 +2,53 @@ import React, { useEffect, useState } from 'react';
 import api from '../../api/api';
 import { Link } from 'react-router-dom';
 import ProductCard from './ProductCard';
+import { getInstantProducts, cacheProducts } from '../../data/staticCatalog';
+
+const sortBestSellers = (list) => {
+    if (!Array.isArray(list) || list.length === 0) return [];
+    const sorted = [...list].sort((a, b) => {
+        const isHypA = /hypertension|hbp|blood pressure|high-blood-pressure|raktachap/i.test((a?.name || '') + ' ' + (a?.slug || ''));
+        const isHypB = /hypertension|hbp|blood pressure|high-blood-pressure|raktachap/i.test((b?.name || '') + ' ' + (b?.slug || ''));
+        if (isHypA && !isHypB) return -1;
+        if (!isHypA && isHypB) return 1;
+        return (b?.isBestSeller ? 1 : 0) - (a?.isBestSeller ? 1 : 0);
+    });
+
+    let bestSellers = sorted.filter(p => p && (p.isBestSeller || /hypertension|hbp|blood pressure/i.test((p?.name || '') + ' ' + (p?.slug || ''))));
+    if (bestSellers.length === 0 && sorted.length > 0) {
+        bestSellers = sorted.slice(0, 8);
+    } else {
+        bestSellers = bestSellers.slice(0, 8);
+    }
+    return bestSellers;
+};
 
 const BestSellers = () => {
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [slowLoad, setSlowLoad] = useState(false);
+    // Instant 0ms load from pre-compiled catalog / local cache
+    const [products, setProducts] = useState(() => {
+        const instant = getInstantProducts();
+        return sortBestSellers(instant);
+    });
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        const fetchProducts = async () => {
+        let isMounted = true;
+        const fetchProductsBackground = async () => {
             try {
                 const { data } = await api.get('/products');
-                const bestSellers = data.filter(p => p.isBestSeller).slice(0, 8);
-                setProducts(bestSellers);
-                setLoading(false);
+                const list = Array.isArray(data) ? data : (Array.isArray(data?.products) ? data.products : []);
+                if (isMounted && list.length > 0) {
+                    const sorted = sortBestSellers(list);
+                    setProducts(sorted);
+                    cacheProducts(list);
+                }
             } catch (err) {
-                console.error(err);
-                setLoading(false);
+                // Keep instant products gracefully
             }
         };
-        fetchProducts();
 
-        // Show slow-load notice if loading takes more than 4 seconds
-        const slowTimer = setTimeout(() => setSlowLoad(true), 4000);
-        return () => clearTimeout(slowTimer);
+        fetchProductsBackground();
+        return () => { isMounted = false; };
     }, []);
 
     return (
@@ -35,14 +59,9 @@ const BestSellers = () => {
                     <h2 className="text-3xl md:text-5xl font-bold text-[#1A3C34] mb-8">Our Best Sellers</h2>
                 </div>
 
-                {loading ? (
+                {loading && products.length === 0 ? (
                     <div className="flex flex-col justify-center items-center py-20 gap-4">
                         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-ayur-green"></div>
-                        {slowLoad && (
-                            <p className="text-sm text-gray-500 text-center max-w-xs animate-pulse">
-                                Server is waking up, please wait a moment...
-                            </p>
-                        )}
                     </div>
                 ) : products.length > 0 ? (
                     <div className="relative overflow-visible">
@@ -50,7 +69,7 @@ const BestSellers = () => {
                         <div className="flex gap-4 md:gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide no-scrollbar scroll-smooth px-5 md:px-12 lg:px-24">
                             {products.map(product => (
                                 <div
-                                    key={product._id || product.id}
+                                    key={product._id || product.id || product.slug}
                                     className="min-w-[280px] md:min-w-[320px] lg:min-w-[340px] snap-start"
                                 >
                                     <ProductCard product={product} />

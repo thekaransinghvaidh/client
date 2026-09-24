@@ -6,6 +6,7 @@ import api from '../api/api';
 import ProductCard from '../components/home/ProductCard';
 import ScrollToTop from '../components/layout/ScrollToTop';
 import { metaPixelService } from '../services/metaPixel';
+import { getInstantProducts, cacheProducts } from '../data/staticCatalog';
 
 // Category Image Imports
 import asthmaImg from '../assets/Asthma.webp';
@@ -105,10 +106,26 @@ const seoData = {
         keywords: 'Kidney Stone Ayurvedic Treatment',
         h1: 'Best Kidney Stone Ayurvedic Treatment with Ayurvedic Medicine',
         url: '/kidney-stone-ayurvedic-treatment'
+    },
+    'High Blood Pressure': {
+        title: 'Buy High Blood Pressure Ayurvedic Treatment | Karan Singh Vaidh',
+        description: 'Shop natural Ayurvedic Medicine for High Blood Pressure & Hypertension by Karan Singh Vaidh. Formulated with Arjuna, Sarpagandha & Brahmi.',
+        keywords: 'Ayurvedic Medicine for High Blood Pressure, Hypertension Treatment',
+        h1: 'Best High Blood Pressure Ayurvedic Treatment | Natural Care',
+        url: '/high-blood-pressure-ayurvedic-treatment'
+    },
+    'Hypertension': {
+        title: 'Buy High Blood Pressure Ayurvedic Treatment | Karan Singh Vaidh',
+        description: 'Shop natural Ayurvedic Medicine for High Blood Pressure & Hypertension by Karan Singh Vaidh. Formulated with Arjuna, Sarpagandha & Brahmi.',
+        keywords: 'Ayurvedic Medicine for High Blood Pressure, Hypertension Treatment',
+        h1: 'Best High Blood Pressure Ayurvedic Treatment | Natural Care',
+        url: '/high-blood-pressure-ayurvedic-treatment'
     }
 };
 
 const categorySlugMap = {
+    'High Blood Pressure': '/high-blood-pressure-ayurvedic-treatment',
+    'Hypertension': '/high-blood-pressure-ayurvedic-treatment',
     'Asthma': '/ayurvedic-asthma-treatment',
     'Gall Bladder': '/gallbladder-stone-ayurvedic-treatment',
     'Piles': '/ayurvedic-piles-treatment',
@@ -120,15 +137,63 @@ const categorySlugMap = {
     'Kidney Stone': '/kidney-stone-ayurvedic-treatment',
 };
 
+const filterAndSortShopProducts = (list, selectedCategory, sortBy) => {
+    if (!Array.isArray(list) || list.length === 0) return [];
+    let filtered = [...list];
+
+    if (selectedCategory && selectedCategory !== 'All') {
+        const isHypCategory = /hypertension|high blood pressure|blood-pressure|hbp/i.test(selectedCategory);
+        if (isHypCategory) {
+            filtered = filtered.filter(p => /hypertension|hbp|blood pressure|high-blood-pressure|raktachap/i.test((p?.name || '') + ' ' + (p?.slug || '') + ' ' + (p?.category?.name || '')));
+        } else {
+            filtered = filtered.filter(p => {
+                const catName = p?.category?.name || p?.category || '';
+                const pSlug = p?.slug || '';
+                const pName = p?.name || '';
+                const target = selectedCategory.toLowerCase();
+                return catName.toLowerCase().includes(target) ||
+                       target.includes(catName.toLowerCase()) ||
+                       pSlug.toLowerCase().includes(target.replace(/\s+/g, '-')) ||
+                       pName.toLowerCase().includes(target);
+            });
+        }
+    }
+
+    if (sortBy === 'az') {
+        filtered.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+    } else if (sortBy === 'za') {
+        filtered.sort((a, b) => (b.name || '').localeCompare(a.name || ''));
+    } else if (sortBy === 'low') {
+        filtered.sort((a, b) => (a.packs?.[0]?.sellingPrice || 0) - (b.packs?.[0]?.sellingPrice || 0));
+    } else if (sortBy === 'high') {
+        filtered.sort((a, b) => (b.packs?.[0]?.sellingPrice || 0) - (a.packs?.[0]?.sellingPrice || 0));
+    } else {
+        filtered.sort((a, b) => {
+            const isHypA = /hypertension|hbp|blood pressure|high-blood-pressure|raktachap/i.test((a?.name || '') + ' ' + (a?.slug || ''));
+            const isHypB = /hypertension|hbp|blood pressure|high-blood-pressure|raktachap/i.test((b?.name || '') + ' ' + (b?.slug || ''));
+            if (isHypA && !isHypB) return -1;
+            if (!isHypA && isHypB) return 1;
+            return (b?.isBestSeller ? 1 : 0) - (a?.isBestSeller ? 1 : 0);
+        });
+    }
+
+    return filtered;
+};
+
 const Shop = ({ defaultCategory }) => {
     const navigate = useNavigate();
-    const [products, setProducts] = useState([]);
-    const [categories, setCategories] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const [selectedCategory, setSelectedCategory] = useState('All');
-    const [sortBy, setSortBy] = useState('az');
     const [searchParams, setSearchParams] = useSearchParams();
+    const [selectedCategory, setSelectedCategory] = useState(defaultCategory || 'All');
+    const [sortBy, setSortBy] = useState('az');
+
+    // Instant 0ms load from pre-compiled catalog
+    const [products, setProducts] = useState(() => {
+        const instant = getInstantProducts();
+        return filterAndSortShopProducts(instant, defaultCategory || 'All', 'az');
+    });
+    const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     // Sync selectedCategory with searchParams or defaultCategory prop
     useEffect(() => {
@@ -148,7 +213,6 @@ const Shop = ({ defaultCategory }) => {
             '69761f81bd94a7bc32beb998': '/ayurvedic-treatment-products',
         };
 
-        // If the URL has an old category ID, redirect to the new SEO URL
         if (catId && categoryIdToSlugMap[catId]) {
             navigate(categoryIdToSlugMap[catId], { replace: true });
             return;
@@ -172,9 +236,15 @@ const Shop = ({ defaultCategory }) => {
     }, []);
 
     useEffect(() => {
+        // Immediate instant filter update on category/sort change
+        const instant = getInstantProducts();
+        const instantFiltered = filterAndSortShopProducts(instant, selectedCategory, sortBy);
+        if (instantFiltered.length > 0) {
+            setProducts(instantFiltered);
+        }
+
         fetchProducts();
         
-        // Track Category View for Meta Pixel
         if (selectedCategory !== 'All') {
             metaPixelService.trackCustom('ViewCategory', {
                 content_name: selectedCategory,
@@ -182,7 +252,6 @@ const Shop = ({ defaultCategory }) => {
             });
         }
 
-        // Track Search for Meta Pixel (if search query exists)
         const searchQuery = searchParams.get('s') || searchParams.get('q') || searchParams.get('search');
         if (searchQuery) {
             metaPixelService.trackSearch(searchQuery);
@@ -199,42 +268,49 @@ const Shop = ({ defaultCategory }) => {
     };
 
     const fetchProducts = async () => {
-        setLoading(true);
         try {
             const params = new URLSearchParams();
+            const isHypCategory = /hypertension|high blood pressure|blood-pressure|hbp/i.test(selectedCategory || '');
+            
             if (selectedCategory !== 'All') {
-                params.append('category', selectedCategory);
+                if (isHypCategory) {
+                    const matchedCat = categories.find(c => /hypertension|high blood pressure|blood-pressure/i.test(c?.name || c?.slug || ''));
+                    if (matchedCat) {
+                        params.append('category', matchedCat._id);
+                    } else {
+                        params.append('category', 'Hypertension');
+                    }
+                } else {
+                    const matchedCat = categories.find(c => c._id === selectedCategory || c.name === selectedCategory || c.slug === selectedCategory);
+                    if (matchedCat) {
+                        params.append('category', matchedCat._id);
+                    } else {
+                        params.append('category', selectedCategory);
+                    }
+                }
             }
             params.append('sort', sortBy);
 
-            const { data } = await api.get(`/products?${params.toString()}`);
-            
-            // Client-side sorting as a foolproof fallback
-            let sortedData = Array.isArray(data) ? [...data] : [];
-            
-            if (sortBy === 'az') {
-                sortedData.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
-            } else if (sortBy === 'za') {
-                sortedData.sort((a, b) => (b.name || '').localeCompare(a.name || ''));
-            } else if (sortBy === 'low') {
-                sortedData.sort((a, b) => {
-                    const priceA = a.packs?.[0]?.sellingPrice || 0;
-                    const priceB = b.packs?.[0]?.sellingPrice || 0;
-                    return priceA - priceB;
-                });
-            } else if (sortBy === 'high') {
-                sortedData.sort((a, b) => {
-                    const priceA = a.packs?.[0]?.sellingPrice || 0;
-                    const priceB = b.packs?.[0]?.sellingPrice || 0;
-                    return priceB - priceA;
-                });
+            let data;
+            try {
+                const res = await api.get(`/products?${params.toString()}`);
+                data = res.data;
+            } catch (e) {
+                const res = await api.get('/products');
+                data = res.data;
             }
 
-            setProducts(sortedData);
-            setLoading(false);
+            let sortedData = Array.isArray(data) ? [...data] : (Array.isArray(data?.products) ? [...data.products] : []);
+
+            if (sortedData.length > 0) {
+                cacheProducts(sortedData);
+                const finalFiltered = filterAndSortShopProducts(sortedData, selectedCategory, sortBy);
+                if (finalFiltered.length > 0) {
+                    setProducts(finalFiltered);
+                }
+            }
         } catch (err) {
-            setError(err.response?.data?.message || err.message);
-            setLoading(false);
+            // Keep instant filtered products gracefully
         }
     };
 
@@ -245,6 +321,8 @@ const Shop = ({ defaultCategory }) => {
 
     // Category Configuration for Visuals
     const categoryConfig = {
+        'High Blood Pressure': { image: '/VIDHUVADHA-HBP-Churan.webp', color: 'bg-red-100 text-red-600', label: 'Blood Pressure' },
+        'Hypertension': { image: '/VIDHUVADHA-HBP-Churan.webp', color: 'bg-red-100 text-red-600', label: 'Hypertension' },
         'Asthma': { image: asthmaImg, color: 'bg-blue-100 text-blue-600', label: 'Asthma' },
         'Gall Bladder': { image: gallBladderImg, color: 'bg-green-100 text-green-600', label: 'Gall Bladder' },
         'Piles': { image: pilesImg, color: 'bg-red-100 text-red-600', label: 'Piles' },
@@ -347,7 +425,7 @@ const Shop = ({ defaultCategory }) => {
 
                         {categories?.map(cat => {
                             const config = categoryConfig[cat?.name] || { image: allProductsImg };
-                            const isSelected = selectedCategory === cat._id || selectedCategory === cat.name;
+                            const isSelected = selectedCategory === cat._id || selectedCategory === cat.name || (/hypertension|blood/i.test(selectedCategory || '') && /hypertension|blood/i.test(cat?.name || ''));
                             const slug = categorySlugMap[cat.name];
 
                             return (
@@ -428,7 +506,7 @@ const Shop = ({ defaultCategory }) => {
                                 </li>
                                 {displayedCategories?.map(cat => {
                                     const config = categoryConfig[cat?.name] || { image: allProductsImg };
-                                    const isSelected = selectedCategory === cat._id || selectedCategory === cat.name;
+                                    const isSelected = selectedCategory === cat._id || selectedCategory === cat.name || (/hypertension|blood/i.test(selectedCategory || '') && /hypertension|blood/i.test(cat?.name || ''));
                                     const slug = categorySlugMap[cat.name];
 
                                     return (

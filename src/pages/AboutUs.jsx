@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import founderImage from '../assets/karan singh vaidh img.webp';
 import ConsultationModal from '../components/home/ConsultationModal';
+import HowItWorks from '../components/home/HowItWorks';
 
 import natureIsGoodSeal from '../assets/nature-is-good-seal.webp';
 import hereForYourHealthSeal from '../assets/here-for-your-health-seal.webp';
@@ -295,6 +296,9 @@ const AboutUs = () => {
                     </div>
                 </div>
             </section>
+
+            {/* How Your Healing Begins Section */}
+            <HowItWorks />
 
             {/* Doctor Consultation Section */}
             <section className="py-24 bg-[#f4f1ea]">

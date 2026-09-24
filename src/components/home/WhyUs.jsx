@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import karanSir from '../../assets/karan sir 3.webp';
 import happyPatientsIcon from '../../assets/happy_patients_icon.webp';
@@ -11,21 +10,21 @@ import resultGuaranteedIcon from '../../assets/result_guaranteed_icon.webp';
 
 const reasons = [
     {
-        stat: "3,00,000+",
+        stat: "3,50,000+",
         label: "Happy Patients",
         desc: "Trusted by millions worldwide for holistic Ayurvedic healing.",
         icon: happyPatientsIcon,
         bgColor: "bg-blue-50"
     },
     {
-        stat: "1,00,000+",
+        stat: "1,50,000+",
         label: "Happy Customer Worldwide",
         desc: "Delivering authentic Ayurvedic wellness across continents.",
         icon: customersWorldwideIcon,
         bgColor: "bg-emerald-50"
     },
     {
-        stat: "3000+",
+        stat: "4000+",
         label: "Cities Covered",
         desc: "Bringing traditional wisdom to urban communities nationwide.",
         icon: citiesCoveredIcon,
@@ -39,9 +38,9 @@ const reasons = [
         bgColor: "bg-purple-50"
     },
     {
-        stat: "90%",
-        label: "Result Guaranteed",
-        desc: "Proven track record of successful patient outcomes.",
+        stat: "95%+",
+        label: "Patient Satisfaction",
+        desc: "High rating and positive outcomes reported by our patients.",
         icon: resultGuaranteedIcon,
         bgColor: "bg-green-50"
     },
@@ -49,86 +48,91 @@ const reasons = [
 
 const WhyUs = () => {
     return (
-        <section className="py-12 md:py-16 bg-white relative overflow-hidden">
+        <section className="py-8 md:py-12 bg-white relative overflow-hidden w-full">
             {/* Background Accent */}
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-ayur-green/20 to-transparent" />
 
-            <div className="container mx-auto px-6 md:px-12 text-center relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="mb-10"
-                >
-                    <span className="inline-flex items-center gap-2 text-ayur-olive font-bold tracking-[0.2em] uppercase text-xs mb-4">
-                        <Sparkles size={14} className="text-ayur-gold" />
-                        Our Legacy of Trust
-                    </span>
-                    <h2 className="text-4xl md:text-5xl font-serif text-ayur-green">
-                        Why Karan Singh Vaidh ?
-                    </h2>
-                </motion.div>
-
-                {/* Doctor Profile Section */}
-                <motion.div
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="w-full mx-auto rounded-[3rem] shadow-2xl overflow-hidden mb-20 flex flex-col md:flex-row"
-                >
-                    {/* Left: Doctor Image Section - Light Background */}
-                    <div className="w-full md:w-5/12 bg-gray-200 relative flex items-end justify-center md:min-h-full">
-                        <img loading="lazy" src={karanSir}
-                            alt="Dr. Karan Singh Vaidh"
-                            className="w-full h-auto md:h-full object-cover relative z-10"
+            {/* Full-Width Doctor Profile Banner */}
+            <div className="w-full relative bg-[#EFE6DA] overflow-hidden border-y border-[#D8C7B5]/60 mb-12 md:mb-16">
+                {/* Subtle Organic Background Curve Waves */}
+                <div className="absolute inset-x-0 bottom-0 pointer-events-none w-full h-32 md:h-44 overflow-hidden z-0">
+                    <svg
+                        viewBox="0 0 1440 240"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-full h-full object-cover object-bottom"
+                        preserveAspectRatio="none"
+                    >
+                        <path
+                            d="M0,150 C320,230 480,210 720,205 C960,200 1180,235 1440,170 L1440,240 L0,240 Z"
+                            fill="#C8B39B"
+                            fillOpacity="0.4"
                         />
-                    </div>
+                        <path
+                            d="M0,185 C280,135 520,225 720,225 C920,225 1160,165 1440,205 L1440,240 L0,240 Z"
+                            fill="#DEC9B3"
+                            fillOpacity="0.75"
+                        />
+                        <path
+                            d="M0,215 C380,180 540,232 720,232 C900,232 1200,185 1440,220 L1440,240 L0,240 Z"
+                            fill="#8A725A"
+                            fillOpacity="0.25"
+                        />
+                    </svg>
+                </div>
 
-                    {/* Right: Doctor Details Section - Deep Green Background */}
-                    <div className="w-full md:w-7/12 bg-gradient-to-br from-emerald-700 to-teal-700 text-white p-8 md:p-14 flex flex-col justify-center relative text-left overflow-hidden">
-                        {/* Palm Image Decoration */}
-                        <div className="absolute top-0 right-0 w-full h-full pointer-events-none opacity-30 mix-blend-multiply">
-                            <img loading="lazy" src="https://img.freepik.com/free-psd/tropical-palm-fronds-lush-green-paradise_632498-25032.jpg?t=st=1770031966~exp=1770035566~hmac=3bb2da029bc828c0931494c97447e07cf06fefa7ea13db71de64e89be01875f7&w=1480"
-                                alt="Palm Decoration"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-
-                        <div className="relative z-10 space-y-6">
-                            <h3 className="text-4xl md:text-5xl font-sans font-bold leading-tight !text-white" style={{ color: 'white' }}>
+                <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center pt-8 md:pt-10 lg:pt-8 pb-0">
+                        {/* Left Column: Name & Title */}
+                        <div className="lg:col-span-4 flex flex-col justify-center text-center lg:text-left order-1 lg:py-8">
+                            <h3 className="font-playfair text-3xl sm:text-4xl lg:text-[42px] xl:text-[48px] font-bold text-[#14120E] tracking-tight leading-[1.12]">
                                 Karan Singh Vaidh
                             </h3>
-
-                            <div className="space-y-3 text-sm md:text-base">
-                                <p>
-                                    <span className="font-bold text-white">Specialization:</span> <span className="font-medium">Ayurvedic Expert & Holistic Healer</span>
-                                </p>
-                                <p>
-                                    <span className="font-bold text-white">Total Experience:</span> <span className="font-medium">23+ Years</span>
-                                </p>
-                                <p>
-                                    {/* <span className="font-bold text-green-300">Consultation Language Known:</span> <span className="font-medium">Hindi, English, Punjabi</span> */}
-                                </p>
-                            </div>
-
-                            <p className="text-gray-200 text-lg md:text-xl leading-relaxed border-t border-green-700/50 pt-8 mt-10">
-                                Karan Singh Vaidh is a renowned Ayurvedic vaidh with over 23 years of experience. He has been dedicated to restoring balance in modern lives through authentic Ayurveda. His clinical expertise is known widely for treating various ailments, ensuring lifelong wellness for every patient.
+                            <p className="text-base sm:text-lg lg:text-xl xl:text-[22px] text-[#2D241D] font-normal mt-2 tracking-wide">
+                                Ayurvedic Expert & Holistic Healer
                             </p>
+                            
+                            <div className="w-16 h-[3.5px] bg-[#A4753F] my-5 sm:my-6 rounded-full mx-auto lg:mx-0"></div>
 
-                            <div className="flex flex-wrap gap-4 mt-8">
-                                <Link
-                                    to="/about-ayurvedic-doctor-in-solan"
-                                    className="bg-[#d4af37] text-[#0d2e1b] px-8 py-3 rounded-full font-bold text-base transition-all hover:bg-white hover:scale-105"
-                                >
-                                    Discover Our Story
-                                </Link>
-
+                            <div className="text-xs sm:text-[13px] lg:text-[14px] font-bold uppercase tracking-[0.22em] text-[#221C16] leading-relaxed">
+                                <div>RESTORING BALANCE</div>
+                                <div>THROUGH AYURVEDA</div>
                             </div>
                         </div>
-                    </div>
-                </motion.div>
 
+                        {/* Center Column: Doctor Portrait in Arched Container */}
+                        <div className="lg:col-span-4 flex justify-center items-end self-end order-3 lg:order-2 pt-4">
+                            <div className="w-60 sm:w-72 md:w-80 lg:w-[320px] xl:w-[360px] h-[340px] sm:h-[400px] md:h-[460px] lg:h-[490px] rounded-t-[140px] md:rounded-t-[180px] bg-gradient-to-b from-[#DFCDBC] to-[#D4BEA7] relative flex items-end justify-center overflow-hidden shadow-inner">
+                                <img
+                                    loading="lazy"
+                                    src={karanSir}
+                                    alt="Karan Singh Vaidh"
+                                    className="w-full h-full object-cover object-top mix-blend-multiply relative z-10 scale-105 transform translate-y-1"
+                                />
+                            </div>
+                        </div>
+
+                        {/* Right Column: Total Experience & Bio */}
+                        <div className="lg:col-span-4 flex flex-col justify-center text-center lg:text-left order-2 lg:order-3 lg:py-8">
+                            <span className="text-xs sm:text-[13px] lg:text-[14px] font-bold uppercase tracking-[0.22em] text-[#332A22] block mb-1">
+                                TOTAL EXPERIENCE
+                            </span>
+                            <div className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-[48px] xl:text-[54px] font-bold text-[#A4753F] leading-none mb-3 tracking-tight">
+                                23+ Years
+                            </div>
+                            
+                            <div className="w-16 h-[3.5px] bg-[#A4753F] mb-5 sm:mb-6 rounded-full mx-auto lg:mx-0"></div>
+
+                            <p className="text-xs sm:text-sm md:text-base lg:text-[15.5px] text-[#332A22] leading-[1.7] font-normal max-w-md mx-auto lg:mx-0">
+                                Karan Singh Vaidh is a renowned Ayurvedic vaidh with over 23 years of experience. He has been dedicated to restoring balance in modern lives through authentic Ayurveda. His clinical expertise is known widely for treating various ailments, ensuring lifelong wellness for every patient.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Reasons / Stats Grid */}
+            <div className="container mx-auto px-6 md:px-12 text-center relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
                     {reasons.map((reason, idx) => (
                         <motion.div

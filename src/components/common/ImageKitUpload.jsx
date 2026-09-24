@@ -2,11 +2,16 @@ import React, { useState } from 'react';
 import { IKContext, IKUpload } from 'imagekitio-react';
 import { Upload, X, Check, Loader2 } from 'lucide-react';
 
-// Use same logic as api.js for consistency
-const BASE_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
-  ? window.location.origin
-  : (import.meta.env.VITE_API_URL || window.location.origin);
+const getUploadBaseURL = () => {
+  const envUrl = import.meta.env.VITE_API_URL;
+  if (envUrl && envUrl !== "/" && envUrl !== "" && !envUrl.includes("thekaransinghvaidh.com")) return envUrl;
+  if (typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")) {
+    return window.location.origin;
+  }
+  return "https://server-pevq.onrender.com";
+};
 
+const BASE_URL = getUploadBaseURL();
 const API_ORIGIN = BASE_URL.replace(/\/$/, "");
 
 const publicKey = 'public_4c8twCaRhq67pmSzubBwraeuJvQ=';

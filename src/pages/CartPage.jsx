@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Trash2, ShoppingBag, ArrowRight, Phone } from 'lucide-react';
 import { CartContext } from '../context/CartContext';
 import { getAssetUrl } from '../api/api';
+import { resolveProductImage } from '../utils/productImages';
 import SEO from '../components/seo/SEO';
 import { metaPixelService } from '../services/metaPixel';
 
@@ -56,7 +57,7 @@ const CartPage = () => {
                     <div className="flex-1 space-y-4">
                         {cartItems.map((item, index) => (
                             <div key={index} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex gap-4 items-center">
-                                <img src={getAssetUrl(item.image)} alt={item.name} className="w-20 h-20 object-cover rounded-md" />
+                                <img src={resolveProductImage(item)} alt={item.name} className="w-20 h-20 object-cover rounded-md" />
 
                                 <div className="flex-1">
                                     <h3 className="font-bold text-gray-900">{item.name}</h3>

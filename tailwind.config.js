@@ -16,7 +16,8 @@ export default {
         }
       },
       fontFamily: {
-        serif: ['"Poppins"', 'sans-serif'],
+        playfair: ['"Playfair Display"', 'serif'],
+        serif: ['"Playfair Display"', '"Poppins"', 'serif'],
         sans: ['"Inter"', 'sans-serif'],
         roboto: ['"Roboto"', 'sans-serif'],
         opensans: ['"Open Sans"', 'sans-serif'],
