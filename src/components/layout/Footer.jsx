@@ -9,10 +9,10 @@ const Footer = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <footer className="relative text-white bg-gradient-to-br from-[#1a4d3e] via-[#2C5F4F] to-[#1a4d3e] overflow-hidden">
-            {/* Background Image with Overlay */}
+        <footer className="relative text-white bg-[#7a9c8b] overflow-hidden">
+            {/* Background Illustration blended beautifully */}
             <div 
-                className="absolute inset-0 z-0 opacity-20 md:opacity-30 mix-blend-screen pointer-events-none bg-cover bg-bottom bg-no-repeat"
+                className="absolute inset-0 z-0 pointer-events-none bg-cover bg-bottom bg-no-repeat mix-blend-multiply opacity-75"
                 style={{ backgroundImage: `url('/New%20website%20footer%20maybe%20Final.png')` }}
             />
 

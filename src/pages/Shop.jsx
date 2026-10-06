@@ -137,9 +137,21 @@ const categorySlugMap = {
     'Kidney Stone': '/kidney-stone-ayurvedic-treatment',
 };
 
-const filterAndSortShopProducts = (list, selectedCategory, sortBy) => {
+const filterAndSortShopProducts = (list, selectedCategory, sortBy, searchQuery = '') => {
     if (!Array.isArray(list) || list.length === 0) return [];
     let filtered = [...list];
+
+    if (searchQuery && typeof searchQuery === 'string' && searchQuery.trim()) {
+        const q = searchQuery.toLowerCase().trim();
+        filtered = filtered.filter(p => {
+            const name = (p?.name || '').toLowerCase();
+            const cat = (p?.category?.name || p?.category || '').toLowerCase();
+            const desc = (p?.shortDescription || p?.fullDescription || '').toLowerCase();
+            const benefits = (p?.benefits || '').toLowerCase();
+            const ing = (p?.ingredients || '').toLowerCase();
+            return name.includes(q) || cat.includes(q) || desc.includes(q) || benefits.includes(q) || ing.includes(q);
+        });
+    }
 
     if (selectedCategory && selectedCategory !== 'All') {
         const isHypCategory = /hypertension|high blood pressure|blood-pressure|hbp/i.test(selectedCategory);
@@ -183,13 +195,14 @@ const filterAndSortShopProducts = (list, selectedCategory, sortBy) => {
 const Shop = ({ defaultCategory }) => {
     const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
+    const searchQuery = searchParams.get('s') || searchParams.get('q') || searchParams.get('search') || '';
     const [selectedCategory, setSelectedCategory] = useState(defaultCategory || 'All');
     const [sortBy, setSortBy] = useState('az');
 
     // Instant 0ms load from pre-compiled catalog
     const [products, setProducts] = useState(() => {
         const instant = getInstantProducts();
-        return filterAndSortShopProducts(instant, defaultCategory || 'All', 'az');
+        return filterAndSortShopProducts(instant, defaultCategory || 'All', 'az', searchQuery);
     });
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -238,7 +251,7 @@ const Shop = ({ defaultCategory }) => {
     useEffect(() => {
         // Immediate instant filter update on category/sort change
         const instant = getInstantProducts();
-        const instantFiltered = filterAndSortShopProducts(instant, selectedCategory, sortBy);
+        const instantFiltered = filterAndSortShopProducts(instant, selectedCategory, sortBy, searchQuery);
         if (instantFiltered.length > 0) {
             setProducts(instantFiltered);
         }
@@ -252,11 +265,10 @@ const Shop = ({ defaultCategory }) => {
             });
         }
 
-        const searchQuery = searchParams.get('s') || searchParams.get('q') || searchParams.get('search');
         if (searchQuery) {
             metaPixelService.trackSearch(searchQuery);
         }
-    }, [selectedCategory, sortBy, searchParams]);
+    }, [selectedCategory, sortBy, searchQuery]);
 
     const fetchCategories = async () => {
         try {
@@ -304,7 +316,7 @@ const Shop = ({ defaultCategory }) => {
 
             if (sortedData.length > 0) {
                 cacheProducts(sortedData);
-                const finalFiltered = filterAndSortShopProducts(sortedData, selectedCategory, sortBy);
+                const finalFiltered = filterAndSortShopProducts(sortedData, selectedCategory, sortBy, searchQuery);
                 if (finalFiltered.length > 0) {
                     setProducts(finalFiltered);
                 }
