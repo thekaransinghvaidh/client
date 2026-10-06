@@ -47,7 +47,7 @@ const PillsSection = () => {
     }, []);
 
     return (
-        <section className="pt-2 sm:pt-4 pb-2 sm:pb-4 bg-gray-50">
+        <section className="pt-2 sm:pt-4 pb-0 sm:pb-0 bg-gray-50">
             <div className="w-full px-2 md:px-6">
                 <div className="text-center mb-4 sm:mb-6">
                     <h2 className="!text-[20px] font-sans text-[#0d2e1b] font-bold" style={{ fontSize: '20px' }}>Explore Our Best-Selling Natural Solutions</h2>

@@ -47,7 +47,7 @@ const reasons = [
 
 const WhyUs = () => {
     return (
-        <section className="pt-2 pb-0 md:pt-4 md:pb-0 bg-white relative w-full">
+        <section className="pt-0 pb-0 bg-white relative w-full">
             {/* Background Accent */}
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-ayur-green/20 to-transparent" />
 
