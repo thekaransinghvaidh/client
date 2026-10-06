@@ -24,9 +24,22 @@ const hospitalFeatures = [
 const HospitalSection = () => {
     return (
         <section className="pt-0 pb-0 bg-white relative overflow-hidden w-full">
-            {/* Full-Width Hospital Section */}
-            <div className="w-full relative bg-white overflow-hidden border-y border-gray-100 shadow-xs">
-                <div className="w-full mx-auto flex flex-col lg:flex-row items-stretch">
+            {/* ======================================= */}
+            {/* DESKTOP VIEW (Image Banner) */}
+            {/* ======================================= */}
+            <div className="hidden lg:block w-full">
+                <img 
+                    src="/Our%20Hospital%20Desktop%201920%20X%20360%20px.png" 
+                    alt="Our Hospital - Karan Singh Vaidh" 
+                    className="w-full h-auto object-cover"
+                />
+            </div>
+
+            {/* ======================================= */}
+            {/* MOBILE VIEW (Original HTML Layout) */}
+            {/* ======================================= */}
+            <div className="block lg:hidden w-full relative bg-white overflow-hidden border-y border-gray-100 shadow-xs">
+                <div className="w-full mx-auto flex flex-col items-stretch">
                     {/* Left Column: Hospital Building Image */}
                     <div className="w-full lg:w-[46%] xl:w-[48%] relative h-56 sm:h-72 md:h-80 lg:h-auto lg:min-h-[380px] overflow-hidden shrink-0 bg-gray-50">
                         <img
