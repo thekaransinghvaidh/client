@@ -23,10 +23,10 @@ const hospitalFeatures = [
 
 const HospitalSection = () => {
     return (
-        <section className="py-6 sm:py-8 md:py-12 bg-white relative overflow-hidden w-full">
+        <section className="pb-6 sm:pb-8 md:pb-12 pt-0 bg-white relative overflow-hidden w-full">
             {/* Full-Width Hospital Section */}
             <div className="w-full relative bg-white overflow-hidden border-y border-gray-100 shadow-xs">
-                <div className="w-full max-w-[1600px] mx-auto flex flex-col lg:flex-row items-stretch">
+                <div className="w-full mx-auto flex flex-col lg:flex-row items-stretch">
                     {/* Left Column: Hospital Building Image */}
                     <div className="w-full lg:w-[46%] xl:w-[48%] relative h-56 sm:h-72 md:h-80 lg:h-auto lg:min-h-[380px] overflow-hidden shrink-0 bg-gray-50">
                         <img

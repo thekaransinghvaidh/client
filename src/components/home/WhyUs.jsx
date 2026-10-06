@@ -47,14 +47,14 @@ const reasons = [
 
 const WhyUs = () => {
     return (
-        <section className="pt-8 pb-0 md:py-12 bg-white relative w-full">
+        <section className="pt-8 pb-0 md:pt-12 md:pb-0 bg-white relative w-full">
             {/* Background Accent */}
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-ayur-green/20 to-transparent" />
 
             {/* ======================================= */}
             {/* DESKTOP VIEW (Original) */}
             {/* ======================================= */}
-            <div className="hidden md:block w-full relative bg-[#EFE6DA] overflow-hidden border-y border-[#D8C7B5]/60 mb-12 md:mb-16">
+            <div className="hidden md:block w-full relative bg-[#EFE6DA] overflow-hidden border-y border-[#D8C7B5]/60 mb-0">
                 {/* Subtle Organic Background Curve Waves */}
                 <div className="absolute inset-x-0 bottom-0 pointer-events-none w-full h-32 md:h-44 overflow-hidden z-0">
                     <svg
@@ -82,7 +82,7 @@ const WhyUs = () => {
                     </svg>
                 </div>
 
-                <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 relative z-10">
+                <div className="w-full mx-auto px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center pt-8 md:pt-10 lg:pt-8 pb-0">
                         {/* Left Column: Name & Title */}
                         <div className="lg:col-span-4 flex flex-col justify-center text-center lg:text-left order-1 lg:py-8">
