@@ -111,7 +111,7 @@ const AboutUs = () => {
                 exact={true}
             />
             {/* Modern Ayurvedic Nutrition Hero (The New Requested Top Section) */}
-            <section className="relative min-h-[90vh] bg-white flex flex-col items-center justify-center pt-20 overflow-hidden">
+            <section className="relative min-h-[90vh] bg-[#e8fcf0] flex flex-col items-center justify-center pt-20 overflow-hidden">
                 {/* Decorative Elements (Spread across the section) */}
                 <FloatingDecoration
                     src={herbBowl1}
