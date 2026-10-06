@@ -8,10 +8,10 @@ const Authenticity = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const checkItems = [
-        "1-on-1 Consultation With Karan Singh Vaidh",
-        "Specialized in kidney & Gallbladder stone and more than 100+ chronic deases",
-        "Over 23+ Years of Expert Experience",
-        "Deep Rooted Ayurvedic Wisdom",
+        "1-on-1 Consultation",
+        "Specialized in Kidney & Gallbladder stone and 100+ chronic diseases",
+        "Over 23+ Years of Expert Clinical Experience",
+        "Deep-Rooted Authentic Ayurvedic Wisdom",
         "Duration: 15 Min | 30 Min | 45 Min"
     ];
 
@@ -21,8 +21,8 @@ const Authenticity = () => {
             <div className="absolute top-0 right-0 w-96 h-96 bg-ayur-green/5 rounded-full blur-3xl -mr-48 -mt-48" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-ayur-gold/5 rounded-full blur-3xl -ml-48 -mb-48" />
 
-            <div className="container mx-auto px-6 md:px-12 relative z-10">
-                <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+            <div className="container mx-auto px-4 sm:px-6 md:px-12 relative z-10">
+                <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-24">
 
                     {/* Image Side - Enhanced Presentation */}
                     <motion.div
@@ -47,21 +47,20 @@ const Authenticity = () => {
                                 {/* Overlay Gradient for Premium Look */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
                             </div>
-
-
                         </div>
                     </motion.div>
 
                     {/* Content Side - Refined Typography & Layout */}
-                    <div className="w-full lg:w-9/20 space-y-10">
+                    <div className="w-full lg:w-9/20 space-y-8 sm:space-y-10">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                         >
-                            <h2 className="text-5xl lg:text-6xl font-serif text-ayur-green leading-[1.1] mb-6">
-                                Get Expert Consultation with <span className="text-ayur-gold">Karan Singh Vaidh</span>
+                            <h2 className="text-[20px] sm:text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-ayur-green leading-[1.25] mb-6">
+                                <span className="whitespace-nowrap block">Get Direct Consultation with</span>
+                                <span className="text-ayur-gold whitespace-nowrap block mt-1">Karan Singh Vaidh</span>
                             </h2>
                         </motion.div>
 
@@ -72,7 +71,7 @@ const Authenticity = () => {
                             variants={{
                                 visible: { transition: { staggerChildren: 0.1 } }
                             }}
-                            className="space-y-5"
+                            className="space-y-3.5 sm:space-y-5"
                         >
                             {checkItems.map((item, i) => (
                                 <motion.li
@@ -81,12 +80,12 @@ const Authenticity = () => {
                                         hidden: { opacity: 0, x: 20 },
                                         visible: { opacity: 1, x: 0 }
                                     }}
-                                    className="flex items-center space-x-4 bg-white/50 p-4 rounded-2xl border border-transparent hover:border-ayur-gold/20 hover:bg-white transition-all duration-300 group shadow-sm hover:shadow-md"
+                                    className="flex items-start sm:items-center space-x-3 sm:space-x-4 bg-white/70 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-gray-100 hover:border-ayur-gold/20 hover:bg-white transition-all duration-300 group shadow-xs hover:shadow-md"
                                 >
-                                    <div className="bg-ayur-green/5 p-2 rounded-xl group-hover:bg-ayur-green group-hover:text-white transition-colors duration-300 shadow-inner">
-                                        <CheckCircle size={20} className="text-ayur-gold group-hover:text-white" />
+                                    <div className="bg-ayur-green/5 p-1.5 sm:p-2 rounded-xl group-hover:bg-ayur-green group-hover:text-white transition-colors duration-300 shrink-0 mt-0.5 sm:mt-0">
+                                        <CheckCircle size={18} className="text-ayur-gold group-hover:text-white" />
                                     </div>
-                                    <span className="text-ayur-brown font-medium tracking-tight text-lg">{item}</span>
+                                    <span className="text-ayur-brown font-medium tracking-tight text-sm sm:text-base md:text-[17px] leading-snug">{item}</span>
                                 </motion.li>
                             ))}
                         </motion.ul>

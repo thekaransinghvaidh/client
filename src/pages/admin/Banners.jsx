@@ -114,7 +114,7 @@ const INITIAL_MOBILE_BANNERS = [
 ];
 
 const INITIAL_ALL_BANNERS = [...INITIAL_LAPTOP_BANNERS, ...INITIAL_MOBILE_BANNERS];
-const LOCAL_STORAGE_KEY = 'ksv_admin_banners_v4';
+const LOCAL_STORAGE_KEY = 'ksv_admin_banners_v5';
 
 const resolveBannerImage = (img) => {
     if (!img) return '';
@@ -128,6 +128,7 @@ const resolveBannerImage = (img) => {
 const Banners = () => {
     const [banners, setBanners] = useState(() => {
         try {
+            localStorage.removeItem('ksv_admin_banners_v4');
             const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
             if (saved) {
                 const parsed = JSON.parse(saved);
@@ -197,9 +198,12 @@ const Banners = () => {
     const handleOpenModal = (banner = null) => {
         if (banner) {
             setEditingBanner(banner);
+            const isMobile = activeTab === 'mobile' || banner.targetAudience === 'mobileOnly';
             setFormData({
                 title: banner.title || '',
-                image: banner.desktopImage || banner.mobileImage || '',
+                image: isMobile
+                    ? (banner.mobileImage || banner.desktopImage || '')
+                    : (banner.desktopImage || banner.mobileImage || ''),
                 link: banner.link || '/ayurvedic-products',
                 order: banner.order !== undefined ? banner.order : 1,
                 isActive: banner.isActive !== undefined ? banner.isActive : true
@@ -255,15 +259,13 @@ const Banners = () => {
             return;
         }
 
-        const isLaptop = editingBanner
-            ? editingBanner.targetAudience === 'desktopOnly' || !!editingBanner.desktopImage
-            : activeTab === 'laptop';
+        const isLaptop = activeTab === 'laptop';
 
         const payload = {
-            title: formData.title,
-            desktopImage: isLaptop ? formData.image : '',
-            mobileImage: !isLaptop ? formData.image : '',
-            link: formData.link,
+            title: formData.title || (isLaptop ? 'Laptop Banner' : 'Mobile Banner'),
+            desktopImage: isLaptop ? formData.image : (editingBanner?.desktopImage || formData.image),
+            mobileImage: isLaptop ? (editingBanner?.mobileImage || '') : formData.image,
+            link: formData.link || '/ayurvedic-products',
             order: Number(formData.order) || 1,
             targetAudience: isLaptop ? 'desktopOnly' : 'mobileOnly',
             isActive: formData.isActive
@@ -274,14 +276,18 @@ const Banners = () => {
             let updatedList = [...banners];
 
             if (editingBanner) {
+                let savedData = null;
                 try {
-                    await api.put(`/banners/${editingBanner._id}`, payload);
+                    const { data } = await api.put(`/banners/${editingBanner._id}`, payload);
+                    savedData = data;
                 } catch (apiErr) {
-                    console.warn('API update fallback:', apiErr.message);
+                    console.warn('API update fallback:', apiErr.response?.data?.message || apiErr.message);
                 }
 
                 updatedList = updatedList.map(b =>
-                    b._id === editingBanner._id ? { ...b, ...payload } : b
+                    b._id === editingBanner._id
+                        ? { ...b, ...payload, ...(savedData?._id ? { _id: savedData._id } : {}) }
+                        : b
                 );
             } else {
                 let newId = `${isLaptop ? 'laptop' : 'mobile'}-${Date.now()}`;
@@ -289,7 +295,7 @@ const Banners = () => {
                     const { data } = await api.post('/banners', payload);
                     if (data && data._id) newId = data._id;
                 } catch (apiErr) {
-                    console.warn('API post fallback:', apiErr.message);
+                    console.warn('API post fallback:', apiErr.response?.data?.message || apiErr.message);
                 }
 
                 const newBanner = {
@@ -317,7 +323,7 @@ const Banners = () => {
         saveBannersLocallyAndNotify(updatedList);
 
         try {
-            await api.put(`/banners/${banner._id}`, { isActive: newStatus });
+            await api.put(`/banners/${banner._id}`, { ...banner, isActive: newStatus });
         } catch (e) {
             console.log('Status updated in local cache');
         }
@@ -329,7 +335,7 @@ const Banners = () => {
             saveBannersLocallyAndNotify(updatedList);
 
             try {
-                await api.delete(`/banners/${id}`);
+                await api.delete(`/banners/${id}?title=${encodeURIComponent(title || '')}`);
             } catch (e) {
                 console.log('Deleted from local cache');
             }

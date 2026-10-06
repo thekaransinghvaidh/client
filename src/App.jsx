@@ -84,13 +84,32 @@ function App() {
 
                 {/* SEO-friendly category routes */}
                 <Route path="/ayurvedic-asthma-treatment" element={<Shop defaultCategory="Asthma" />} />
+                <Route path="/ayurvedic-asthma-treatment-in-solan" element={<Shop defaultCategory="Asthma" />} />
+                
                 <Route path="/gallbladder-stone-ayurvedic-treatment" element={<Shop defaultCategory="Gall Bladder" />} />
+                <Route path="/gallbladder-stone-ayurvedic-treatment-in-solan" element={<Shop defaultCategory="Gall Bladder" />} />
+                
                 <Route path="/ayurvedic-piles-treatment" element={<Shop defaultCategory="Piles" />} />
+                <Route path="/ayurvedic-piles-treatment-in-solan" element={<Shop defaultCategory="Piles" />} />
+                
                 <Route path="/ayurvedic-gastric-treatment" element={<Shop defaultCategory="Gastric" />} />
+                <Route path="/ayurvedic-gastric-treatment-in-solan" element={<Shop defaultCategory="Gastric" />} />
+                
                 <Route path="/ayurvedic-diabetes-treatment" element={<Shop defaultCategory="Diabetes" />} />
+                <Route path="/ayurvedic-diabetes-treatment-in-solan" element={<Shop defaultCategory="Diabetes" />} />
+                
                 <Route path="/ayurvedic-tuberculosis-support" element={<Shop defaultCategory="Tuberculosis (TB)" />} />
+                <Route path="/ayurvedic-tuberculosis-support-in-solan" element={<Shop defaultCategory="Tuberculosis (TB)" />} />
+                
                 <Route path="/ayurvedic-migraine-treatment" element={<Shop defaultCategory="Migraine" />} />
+                <Route path="/ayurvedic-migraine-treatment-in-solan" element={<Shop defaultCategory="Migraine" />} />
+                
                 <Route path="/ayurvedic-thyroid-treatment" element={<Shop defaultCategory="Thyroid" />} />
+                <Route path="/ayurvedic-thyroid-treatment-in-solan" element={<Shop defaultCategory="Thyroid" />} />
+                
+                <Route path="/kidney-stone-ayurvedic-treatment" element={<Shop defaultCategory="Kidney Stone" />} />
+                <Route path="/kidney-stone-ayurvedic-treatment-in-solan" element={<Shop defaultCategory="Kidney Stone" />} />
+                
                 <Route path="/high-blood-pressure-ayurvedic-treatment" element={<Shop defaultCategory="Hypertension" />} />
                 <Route path="/hypertension-ayurvedic-treatment" element={<Shop defaultCategory="Hypertension" />} />
                 <Route path="/ayurvedic-hypertension-treatment" element={<Shop defaultCategory="Hypertension" />} />

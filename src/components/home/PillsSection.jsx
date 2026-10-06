@@ -4,17 +4,21 @@ import api from '../../api/api';
 import { Link } from 'react-router-dom';
 import { getInstantProducts, cacheProducts } from '../../data/staticCatalog';
 
+const getProductPriority = (p) => {
+    const text = `${p?.name || ''} ${p?.slug || ''} ${p?.category?.name || ''}`.toLowerCase();
+    if (text.includes('hypertension') || text.includes('hbp') || text.includes('blood pressure')) return 1;
+    if (text.includes('diabetes') || text.includes('madhu') || text.includes('sugar')) return 2;
+    if (text.includes('piles') || text.includes('fissure') || text.includes('ps')) return 3;
+    if (text.includes('asthma') || text.includes('aks') || text.includes('bronchial')) return 4;
+    return 10;
+};
+
 const filterPills = (list) => {
     if (!Array.isArray(list) || list.length === 0) return [];
     const sorted = [...list].sort((a, b) => {
-        const isHypA = /hypertension|hbp|blood pressure|high-blood-pressure|raktachap/i.test((a?.name || '') + ' ' + (a?.slug || ''));
-        const isHypB = /hypertension|hbp|blood pressure|high-blood-pressure|raktachap/i.test((b?.name || '') + ' ' + (b?.slug || ''));
-        if (isHypA && !isHypB) return -1;
-        if (!isHypA && isHypB) return 1;
-        return 0;
+        return getProductPriority(a) - getProductPriority(b);
     });
-    const filtered = sorted.filter(p => p && (p.isWellness || p.category?.name?.toLowerCase().includes('capsule') || p.name?.toLowerCase().includes('capsule') || p.name?.toLowerCase().includes('pill') || /hypertension|hbp|blood pressure/i.test((p?.name || '') + ' ' + (p?.slug || ''))));
-    return filtered.length > 0 ? filtered.slice(0, 4) : sorted.slice(0, 4);
+    return sorted.slice(0, 4);
 };
 
 const PillsSection = () => {
@@ -43,10 +47,10 @@ const PillsSection = () => {
     }, []);
 
     return (
-        <section className="py-12 bg-gray-50">
+        <section className="pt-2 sm:pt-4 pb-8 sm:pb-12 bg-gray-50">
             <div className="w-full px-2 md:px-6">
-                <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-serif text-[#0d2e1b] font-medium">Explore our specialized natural solutions</h2>
+                <div className="text-center mb-4 sm:mb-6">
+                    <h2 className="!text-[20px] font-sans text-[#0d2e1b] font-bold" style={{ fontSize: '20px' }}>Explore Our Best-Selling Natural Solutions</h2>
                 </div>
 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">

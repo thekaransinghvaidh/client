@@ -9,9 +9,15 @@ const Footer = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <footer className="bg-gradient-to-br from-[#1a4d3e] via-[#2C5F4F] to-[#1a4d3e] text-white">
+        <footer className="relative text-white bg-gradient-to-br from-[#1a4d3e] via-[#2C5F4F] to-[#1a4d3e] overflow-hidden">
+            {/* Background Image with Overlay */}
+            <div 
+                className="absolute inset-0 z-0 opacity-20 md:opacity-30 mix-blend-screen pointer-events-none bg-cover bg-bottom bg-no-repeat"
+                style={{ backgroundImage: `url('/New%20website%20footer%20maybe%20Final.png')` }}
+            />
+
             {/* Main Footer Content */}
-            <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-14">
+            <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-14">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
                     {/* Column 1: Brand & Contact */}
                     <div className="lg:col-span-5">
@@ -285,60 +291,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Platform Availability & Payment Methods */}
-            <div className="border-t border-white/10">
-                <div className="max-w-7xl mx-auto px-6 md:px-12 py-10">
-                    <div className="flex flex-col lg:flex-row gap-10 lg:gap-24">
-                        {/* Availability */}
-                        <div className="space-y-4">
-                            <h5 className="text-xs font-bold text-[#d4af37] uppercase tracking-[0.2em] mb-4">
-                                Also available on:
-                            </h5>
-                            <div className="flex items-center gap-3">
-                                <div className="bg-white p-2 rounded-lg h-12 w-28 flex items-center justify-center shadow-md transition-transform hover:scale-105">
-                                    <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" className="max-h-8" />
-                                </div>
-                                <div className="bg-white p-2 rounded-lg h-12 w-28 flex items-center justify-center shadow-md transition-transform hover:scale-105">
-                                    <img loading="lazy" src="https://kapiva-in-nextjs.pages.dev/assets/images/footer/top_strip/flipkart.png?webp" alt="Flipkart" className="max-h-8" />
-                                </div>
-                                <div className="bg-white p-2 rounded-lg h-12 w-28 flex items-center justify-center shadow-md transition-transform hover:scale-105">
-                                    <img loading="lazy" src="https://static.cdnlogo.com/logos/i/39/indiamart.svg" alt="IndiaMart" className="max-h-6 object-contain" />
-                                </div>
-                            </div>
-                        </div>
 
-                        <div className="space-y-4">
-                            <h5 className="text-xs font-bold text-[#d4af37] uppercase tracking-[0.2em] mb-4">
-                                We Accept:
-                            </h5>
-                            <div className="flex items-center gap-2">
-                                <div className="bg-white px-2 py-2 rounded-lg h-11 min-w-[80px] flex items-center justify-center shadow-md transition-transform hover:scale-105">
-                                    <img loading="lazy" src="https://kapiva-in-nextjs.pages.dev/assets/images/footer/bottom_strip/amazon_pay.png?webp" alt="Amazon Pay" className="max-h-7 object-contain" />
-                                </div>
-                                <div className="bg-white px-2 py-2 rounded-lg h-11 min-w-[80px] flex items-center justify-center shadow-md transition-transform hover:scale-105">
-                                    <img loading="lazy" src="https://kapiva-in-nextjs.pages.dev/assets/images/footer/bottom_strip/bhim_upi.png?webp" alt="UPI" className="max-h-7 object-contain" />
-                                </div>
-                                <div className="bg-[#f0f0f0] rounded-full h-12 w-12 flex flex-col items-center justify-center text-center border border-gray-300 shadow-inner group flex-shrink-0">
-                                    <span className="text-[6px] text-gray-500 leading-tight uppercase font-bold">Pay Online</span>
-                                    <span className="text-[9px] font-black text-gray-800 leading-none">OR COD</span>
-                                </div>
-                                <div className="bg-white px-2 py-2 rounded-lg h-11 min-w-[80px] flex items-center justify-center shadow-md transition-transform hover:scale-105">
-                                    <img loading="lazy" src="https://kapiva-in-nextjs.pages.dev/assets/images/footer/bottom_strip/google_pay.png?webp  " alt="GPay" className="max-h-7 object-contain" />
-                                </div>
-                                <div className="bg-white px-2 py-2 rounded-lg h-11 min-w-[80px] flex items-center justify-center shadow-md transition-transform hover:scale-105">
-                                    <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="max-h-8 object-contain" />
-                                </div>
-                                <div className="bg-white px-2 py-2 rounded-lg h-11 min-w-[80px] flex items-center justify-center shadow-md transition-transform hover:scale-105">
-                                    <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/d/d1/RuPay.svg" alt="RuPay" className="max-h-7 object-contain" />
-                                </div>
-                                <div className="bg-white px-2 py-2 rounded-lg h-11 min-w-[80px] flex items-center justify-center shadow-md transition-transform hover:scale-105">
-                                    <img loading="lazy" src="https://kapiva-in-nextjs.pages.dev/assets/images/footer/bottom_strip/visa.png?webp" alt="Visa" className="max-h-7 object-contain" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             {/* Bottom Bar */}
             <div className="border-t border-white/20 bg-black/20">

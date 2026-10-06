@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import SEO from '../components/seo/SEO';
 import { Loader2 } from 'lucide-react';
 import Hero from '../components/home/Hero';
+import StatsSection from '../components/home/StatsSection';
 import TrustMarquee from '../components/home/TrustMarquee';
 
 // Lazy load below-the-fold sections
@@ -162,15 +163,11 @@ const Home = () => {
                     })}
                 </script>
             </SEO>
-            <div className="bg-[#0d2e1b] text-white text-center py-3.5 px-4 shadow-inner border-b border-emerald-900">
-                <h1 className="text-lg md:text-2xl font-serif font-bold tracking-wide text-emerald-100 max-w-6xl mx-auto">
-                    Authentic Ayurvedic Doctor in Solan | Natural & Holistic Healing by Karan Singh Vaidh
-                </h1>
-            </div>
+            <h1 className="sr-only">Authentic Ayurvedic Doctor in Solan | Natural &amp; Holistic Healing by Karan Singh Vaidh</h1>
             
             {/* Eager Load Content */}
             <Hero />
-            <TrustMarquee />
+            <StatsSection />
 
             {/* Lazy Load Content with Suspense */}
             <Suspense fallback={<SectionLoader />}>
@@ -178,6 +175,7 @@ const Home = () => {
                 <PillsSection />
                 <WhyUs />
                 <HospitalSection />
+                <TrustMarquee />
                 <Authenticity />
                 <Reviews />
             </Suspense>

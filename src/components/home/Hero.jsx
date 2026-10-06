@@ -158,7 +158,7 @@ const defaultSlides = [
     }
 ];
 
-const LOCAL_STORAGE_KEY = 'ksv_admin_banners_v4';
+const LOCAL_STORAGE_KEY = 'ksv_admin_banners_v5';
 
 const Hero = () => {
     const [isDesktop, setIsDesktop] = React.useState(window.innerWidth >= 768);
@@ -184,6 +184,7 @@ const Hero = () => {
             localStorage.removeItem('ksv_admin_banners');
             localStorage.removeItem('ksv_admin_banners_v2');
             localStorage.removeItem('ksv_admin_banners_v3');
+            localStorage.removeItem('ksv_admin_banners_v4');
         } catch {}
 
         const formatBannerList = (list) => {
@@ -209,7 +210,7 @@ const Hero = () => {
                 subtitle: null,
                 cta: null,
                 link: b.link || '',
-                bgImage: resolveBannerImage(b.desktopImage),
+                bgImage: resolveBannerImage(b.desktopImage || b.mobileImage),
                 mobileBgImage: resolveBannerImage(b.mobileImage || b.desktopImage),
                 desktopOnly: b.targetAudience === 'desktopOnly',
                 mobileOnly: b.targetAudience === 'mobileOnly',

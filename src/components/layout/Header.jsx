@@ -23,11 +23,11 @@ const Header = () => {
 
     const navLinks = [
         { name: 'Home', path: '/' },
-        { name: 'About', path: '/about-ayurvedic-doctor-in-solan' },
         { name: 'Shop', path: '/ayurvedic-products' },
         { name: 'Book Appointment', path: '/book-appointment' },
-        { name: 'Patient Report', path: '/patient-reports' },
-        { name: 'Contact Us', path: '/contact' },
+        { name: 'Patient Reports', path: '/patient-reports' },
+        { name: 'About', path: '/about-ayurvedic-doctor-in-solan' },
+        { name: 'Contact', path: '/contact' },
     ];
 
     return (

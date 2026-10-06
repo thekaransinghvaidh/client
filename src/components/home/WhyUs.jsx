@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { Leaf, CalendarDays } from 'lucide-react';
 import karanSir from '../../assets/karan sir 3.webp';
 import happyPatientsIcon from '../../assets/happy_patients_icon.webp';
 import customersWorldwideIcon from '../../assets/customers_worldwide_icon.webp';
@@ -48,12 +47,14 @@ const reasons = [
 
 const WhyUs = () => {
     return (
-        <section className="py-8 md:py-12 bg-white relative overflow-hidden w-full">
+        <section className="pt-8 pb-0 md:py-12 bg-white relative w-full">
             {/* Background Accent */}
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-ayur-green/20 to-transparent" />
 
-            {/* Full-Width Doctor Profile Banner */}
-            <div className="w-full relative bg-[#EFE6DA] overflow-hidden border-y border-[#D8C7B5]/60 mb-12 md:mb-16">
+            {/* ======================================= */}
+            {/* DESKTOP VIEW (Original) */}
+            {/* ======================================= */}
+            <div className="hidden md:block w-full relative bg-[#EFE6DA] overflow-hidden border-y border-[#D8C7B5]/60 mb-12 md:mb-16">
                 {/* Subtle Organic Background Curve Waves */}
                 <div className="absolute inset-x-0 bottom-0 pointer-events-none w-full h-32 md:h-44 overflow-hidden z-0">
                     <svg
@@ -131,37 +132,15 @@ const WhyUs = () => {
                 </div>
             </div>
 
-            {/* Reasons / Stats Grid */}
-            <div className="container mx-auto px-6 md:px-12 text-center relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
-                    {reasons.map((reason, idx) => (
-                        <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, scale: 0.9, y: 30 }}
-                            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: idx * 0.1 }}
-                            whileHover={{ y: -10 }}
-                            className="group bg-[rgb(74,124,89)] p-8 rounded-[2rem] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_60px_-15px_rgba(44,95,79,0.15)] border border-ayur-beige/30 transition-all duration-500 flex flex-col items-center text-center"
-                        >
-                            <div className={`p-5 rounded-3xl bg-white/20 backdrop-blur-sm mb-6 transform group-hover:rotate-12 transition-transform duration-500`}>
-                                <img loading="lazy" src={reason.icon} alt={reason.label} className="w-10 h-10 object-contain" />
-                            </div>
-
-                            <h3 className="text-3xl font-bold text-white mb-1 transition-colors">
-                                {reason.stat}
-                            </h3>
-                            <p className="font-serif text-lg text-[#d4af37] font-bold mb-3 tracking-tight">
-                                {reason.label}
-                            </p>
-                            <p className="text-xs text-green-100 leading-relaxed font-medium">
-                                {reason.desc}
-                            </p>
-
-                            <div className="mt-6 w-12 h-1 bg-[#d4af37]/40 rounded-full group-hover:w-20 group-hover:bg-[#d4af37] transition-all duration-300"></div>
-                        </motion.div>
-                    ))}
-                </div>
+            {/* ======================================= */}
+            {/* MOBILE VIEW (Image only) */}
+            {/* ======================================= */}
+            <div className="block md:hidden w-full relative mb-0">
+                <img 
+                    src="/Why%20Karan%20Singh%20Vaidh%20Mobile%20768%20X%20900px.png" 
+                    alt="Why Karan Singh Vaidh" 
+                    className="w-full h-auto object-contain"
+                />
             </div>
         </section>
     );

@@ -58,9 +58,9 @@ const FloatingDecoration = ({ src, className, delay = 0, duration = 6, rotate = 
         className={`absolute pointer-events-none z-0 ${className}`}
         style={{ transform: rotate ? `rotate(${rotate}deg)` : 'none' }}
     >
-        <img 
-            src={src} 
-            alt="Decoration" 
+        <img
+            src={src}
+            alt="Decoration"
             className="w-full h-full object-cover rounded-full shadow-lg border-2 border-white/20"
         />
     </div>
@@ -103,7 +103,7 @@ const AboutUs = () => {
 
     return (
         <div className="bg-white font-sans overflow-hidden">
-            <SEO 
+            <SEO
                 title="Ayurveda Specialist in Himachal Pradesh | Natural Healing"
                 description="Find Ayurveda Specialist in Himachal Pradesh for natural treatment. Experience safe, effective & personalized Ayurvedic healing for long-term wellness."
                 keywords="Ayurveda Specialist in Himachal Pradesh"
@@ -113,76 +113,66 @@ const AboutUs = () => {
             {/* Modern Ayurvedic Nutrition Hero (The New Requested Top Section) */}
             <section className="relative min-h-[90vh] bg-white flex flex-col items-center justify-center pt-20 overflow-hidden">
                 {/* Decorative Elements (Spread across the section) */}
-                <FloatingDecoration 
-                    src={herbBowl1} 
-                    className="w-20 h-20 md:w-32 md:h-32 top-[10%] left-[10%] opacity-80" 
-                    delay={0} 
+                <FloatingDecoration
+                    src={herbBowl1}
+                    className="w-20 h-20 md:w-32 md:h-32 top-[10%] left-[10%] opacity-80"
+                    delay={0}
                 />
-                <FloatingDecoration 
-                    src={spiceTray} 
-                    className="w-24 h-24 md:w-36 md:h-36 top-[10%] right-[10%] opacity-80" 
-                    delay={1} 
+                <FloatingDecoration
+                    src={spiceTray}
+                    className="w-24 h-24 md:w-36 md:h-36 top-[10%] right-[10%] opacity-80"
+                    delay={1}
                 />
-                <FloatingDecoration 
-                    src={cinnamonBowl} 
-                    className="w-24 h-24 md:w-40 md:h-40 bottom-[10%] left-[10%] opacity-80" 
-                    delay={0.5} 
+                <FloatingDecoration
+                    src={cinnamonBowl}
+                    className="w-24 h-24 md:w-40 md:h-40 bottom-[10%] left-[10%] opacity-80"
+                    delay={0.5}
                     rotate={-15}
                 />
-                <FloatingDecoration 
-                    src={herbTable} 
-                    className="w-24 h-24 md:w-40 md:h-40 bottom-[10%] right-[10%] opacity-80" 
-                    delay={1.5} 
+                <FloatingDecoration
+                    src={herbTable}
+                    className="w-24 h-24 md:w-40 md:h-40 bottom-[10%] right-[10%] opacity-80"
+                    delay={1.5}
                 />
 
                 {/* Center Content */}
-                <div className="container mx-auto px-6 text-center z-20 space-y-12">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, ease: [0, 0.71, 0.2, 1.01] }}
-                        className="relative inline-block"
-                    >
-
-                        {/* New High-Quality K Logo */}
-                        {/* KSV Text Logo */}
-                        <div className="relative flex items-center justify-center">
-                            <div className="text-8xl md:text-[12rem] font-serif font-bold text-[#1b3a27] tracking-tighter relative z-10 leading-none">
-                                KSV
-                            </div>
-                            {/* Subtle decorative ring */}
-                            <div className="absolute inset-0 border-[1px] border-[#1b3a27]/10 rounded-full transform scale-[1.2] md:scale-[1.4]"></div>
-                            {/* Subtle glow behind the text */}
-                            <div className="absolute inset-0 bg-ayur-green/5 blur-[100px] rounded-full transform scale-90"></div>
-                        </div>
-                    </motion.div>
-
-                    <div className="space-y-6 max-w-4xl mx-auto">
+                <div className="container mx-auto px-6 text-center z-20 space-y-6 md:space-y-8">
+                    <div className="space-y-4 sm:space-y-6 max-w-4xl mx-auto">
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3, duration: 0.8 }}
-                            className="text-3xl md:text-5xl font-serif font-bold text-[#1b3a27] leading-tight"
+                            transition={{ delay: 0.2, duration: 0.8 }}
+                            className="text-[36px] sm:text-[48px] font-sans font-extrabold text-[#1b3a27] leading-[1.15] tracking-tight"
                         >
-                            Experienced Ayurveda Specialist in Himachal Pradesh – Karan Singh Vaidh
+                            Karan Singh Vaidh
                         </motion.h1>
+
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.35, duration: 0.8 }}
+                            className="text-xl sm:text-2xl md:text-3xl font-sans font-bold text-[#8B5E34] tracking-normal leading-snug"
+                        >
+                            Asia&apos;s Trusted Ayurvedic Healer
+                        </motion.p>
+
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5, duration: 0.8 }}
-                            className="text-lg md:text-xl text-gray-600 font-light tracking-wide italic"
+                            className="text-base sm:text-lg md:text-xl text-gray-600 font-normal tracking-normal italic max-w-2xl mx-auto leading-relaxed pt-1"
                         >
-                            We're with you to help you live consciously, in synergy with Mother nature.
+                            We&apos;re with you to help you live consciously, in synergy with Mother nature.
                         </motion.p>
                     </div>
 
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ delay: 1, duration: 1 }}
-                        className="flex justify-center"
+                        transition={{ delay: 0.8, duration: 1 }}
+                        className="flex justify-center pt-2"
                     >
-                        <div className="w-px h-24 bg-gradient-to-b from-[#1b3a27]/20 to-transparent"></div>
+                        <div className="w-px h-20 bg-gradient-to-b from-[#1b3a27]/20 to-transparent"></div>
                     </motion.div>
                 </div>
 
