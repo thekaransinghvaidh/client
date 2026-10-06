@@ -23,7 +23,7 @@ const hospitalFeatures = [
 
 const HospitalSection = () => {
     return (
-        <section className="pb-6 sm:pb-8 md:pb-12 pt-0 bg-white relative overflow-hidden w-full">
+        <section className="pt-0 pb-0 bg-white relative overflow-hidden w-full">
             {/* Full-Width Hospital Section */}
             <div className="w-full relative bg-white overflow-hidden border-y border-gray-100 shadow-xs">
                 <div className="w-full mx-auto flex flex-col lg:flex-row items-stretch">
