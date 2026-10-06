@@ -33,7 +33,7 @@ const HospitalSection = () => {
                             loading="lazy"
                             src="/hospital-building.png"
                             alt="Karan Singh Vaidh Ayurvedic Hospital Solan"
-                            className="w-full h-full object-cover object-center"
+                            className="w-full h-full object-cover object-left"
                         />
                         {/* Smooth Gradient Masks for Seamless Edge Blending */}
                         <div className="hidden lg:block absolute inset-y-0 right-0 w-28 bg-gradient-to-r from-transparent via-white/80 to-white pointer-events-none" />
