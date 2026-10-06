@@ -40,7 +40,7 @@ const HospitalSection = () => {
             {/* ======================================= */}
             <div className="block lg:hidden w-full">
                 <img 
-                    src="/Our%20Hospital%20Mobile%20768%20X%20300%20px.png" 
+                    src="/Our%20Hospital%20Mobile%20768%20x%20300%20px.png" 
                     alt="Our Hospital - Karan Singh Vaidh" 
                     className="w-full h-auto object-cover"
                 />
