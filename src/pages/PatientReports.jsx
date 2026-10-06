@@ -38,7 +38,7 @@ const PatientReports = () => {
     ];
 
     return (
-        <div className="bg-[#FAF8F5] min-h-screen pt-20 font-sans">
+        <div className="bg-[#FAF8F5] min-h-screen font-sans">
             <SEO 
                 title="Patients Reports & Real Medical Evidence | Karan Singh Vaidh"
                 description="Explore authentic patient medical reports, ultrasound scans, and clinical case studies demonstrating effective Ayurvedic treatments at Karan Singh Vaidh Hospital."
@@ -48,7 +48,7 @@ const PatientReports = () => {
             />
 
             {/* 1. Real People's Real Stories Hero Section */}
-            <section className="relative py-16 md:py-24 overflow-hidden font-sans">
+            <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden font-sans">
                 {/* Background Image & Overlay */}
                 <div className="absolute inset-0 z-0">
                     <img 
