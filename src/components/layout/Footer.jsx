@@ -11,9 +11,15 @@ const Footer = () => {
     return (
         <footer className="relative text-white bg-gradient-to-br from-[#1a4d3e] via-[#2C5F4F] to-[#1a4d3e] md:bg-none md:bg-[#7a9c8b] overflow-hidden">
             {/* Background Illustration blended beautifully (Desktop Only) */}
-            <div 
+            <div
                 className="hidden md:block absolute inset-0 z-0 pointer-events-none bg-cover bg-bottom bg-no-repeat mix-blend-multiply opacity-75"
                 style={{ backgroundImage: `url('/New%20website%20footer%20maybe%20Final.png')` }}
+            />
+
+            {/* Background Illustration blended beautifully (Mobile Only) */}
+            <div
+                className="block md:hidden absolute inset-0 z-0 pointer-events-none bg-cover bg-bottom bg-no-repeat mix-blend-multiply opacity-75"
+                style={{ backgroundImage: `url('/footer%20website%20blue%20for%20Mobile.png')` }}
             />
 
             {/* Main Footer Content */}
@@ -66,9 +72,9 @@ const Footer = () => {
                                             </h4>
                                             <div className="text-sm text-gray-100 leading-relaxed space-y-1">
                                                 <p className="font-semibold text-white">Karan Singh Vaidh Ayurvedic Hospital – Excellence in Patient Care</p>
-                                                <a 
-                                                    href="https://www.google.com/maps/place/KARAN+SINGH+VAIDH/@30.8959714,77.0929679,17z/data=!3m1!4b1!4m6!3m5!1s0x390f89cea1a75c47:0x1a68eda57c0d4c02!8m2!3d30.8959714!4d77.0929679!16s%2Fg%2F11y1m7q9_0" 
-                                                    target="_blank" 
+                                                <a
+                                                    href="https://www.google.com/maps/place/KARAN+SINGH+VAIDH/@30.8959714,77.0929679,17z/data=!3m1!4b1!4m6!3m5!1s0x390f89cea1a75c47:0x1a68eda57c0d4c02!8m2!3d30.8959714!4d77.0929679!16s%2Fg%2F11y1m7q9_0"
+                                                    target="_blank"
                                                     rel="noopener noreferrer"
                                                     className="hover:text-[#d4af37] transition-colors flex items-start gap-1"
                                                 >
@@ -137,7 +143,7 @@ const Footer = () => {
 
                     {/* Column 2: Quick Links */}
                     <div className="lg:col-span-3">
-                        <h4 className="text-lg font-bold mb-6 text-white uppercase tracking-[0.2em] relative inline-block pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-0.5 after:bg-[#d4af37]">
+                        <h4 className="text-base md:text-lg font-bold mb-5 md:mb-6 text-white uppercase tracking-[0.2em] relative inline-block pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-0.5 after:bg-[#d4af37]">
                             Quick Links
                         </h4>
                         <ul className="space-y-4">
@@ -197,7 +203,7 @@ const Footer = () => {
 
                     {/* Column 3: Policies & Social */}
                     <div className="lg:col-span-4">
-                        <h4 className="text-lg font-bold mb-6 text-white uppercase tracking-[0.2em] relative inline-block pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-0.5 after:bg-[#d4af37]">
+                        <h4 className="text-base md:text-lg font-bold mb-5 md:mb-6 text-white uppercase tracking-[0.2em] relative inline-block pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-0.5 after:bg-[#d4af37]">
                             Policies
                         </h4>
                         <ul className="space-y-4 mb-10">
@@ -235,7 +241,7 @@ const Footer = () => {
 
                         {/* Social Media */}
                         <div>
-                            <h5 className="text-lg font-bold mb-6 text-white uppercase tracking-[0.2em] relative inline-block pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-0.5 after:bg-[#d4af37]">
+                            <h5 className="text-base md:text-lg font-bold mb-5 md:mb-6 text-white uppercase tracking-[0.2em] relative inline-block pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-0.5 after:bg-[#d4af37]">
                                 Follow Us
                             </h5>
                             <div className="flex gap-4 items-center">
