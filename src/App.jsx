@@ -46,6 +46,10 @@ const Appointments = lazy(() => import('./pages/admin/Appointments'));
 const Users = lazy(() => import('./pages/admin/Users'));
 const Banners = lazy(() => import('./pages/admin/Banners'));
 const SEOManagement = lazy(() => import('./pages/admin/SEOManagement'));
+const AdminBlogs = lazy(() => import('./pages/admin/Blogs'));
+const AdminBlogForm = lazy(() => import('./pages/admin/BlogForm'));
+const BlogsPage = lazy(() => import('./pages/BlogsPage'));
+const BlogDetailPage = lazy(() => import('./pages/BlogDetailPage'));
 
 const AdminRoute = lazy(() => import('./components/admin/AdminRoute'));
 const AdminLayout = lazy(() => import('./components/admin/AdminLayout'));
@@ -174,6 +178,12 @@ function App() {
                 <Route path="/shipping" element={<ShippingPolicy />} />
                 <Route path="/cancellation" element={<RefundCancellation />} />
 
+                {/* Blog Public Routes */}
+                <Route path="/blogs" element={<BlogsPage />} />
+                <Route path="/ayurvedic-blogs" element={<BlogsPage />} />
+                <Route path="/blog/:slug" element={<BlogDetailPage />} />
+                <Route path="/ayurvedic-blog/:slug" element={<BlogDetailPage />} />
+
                 {/* Admin Routes */}
                 <Route path="/admin/login" element={<AdminLogin />} />
                 <Route path="/admin" element={<AdminRoute />}>
@@ -187,6 +197,9 @@ function App() {
                     <Route path="orders" element={<Orders />} />
                     <Route path="appointments" element={<Appointments />} />
                     <Route path="users" element={<Users />} />
+                    <Route path="blogs" element={<AdminBlogs />} />
+                    <Route path="blog/new" element={<AdminBlogForm />} />
+                    <Route path="blog/:id/edit" element={<AdminBlogForm />} />
                     <Route path="seo" element={<SEOManagement />} />
                   </Route>
                 </Route>

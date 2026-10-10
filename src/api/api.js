@@ -7,17 +7,17 @@ import axios from "axios";
 // BASE URL Configuration
 // ─────────────────────────────────────────────────────────────────────────────
 const getBaseURL = () => {
-    // Priority 1: Environment variable (must be a valid backend URL, not just frontend domain without API proxy)
-    const envUrl = import.meta.env.VITE_API_URL;
-    if (envUrl && envUrl !== "/" && envUrl !== "" && !envUrl.includes("thekaransinghvaidh.com")) return envUrl;
-    
-    // Priority 2: Use current origin if running on localhost (Vite dev server proxy)
+    // Priority 1: When running on localhost, always use local Vite dev server proxy (/api -> http://localhost:5000)
     if (typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")) {
         return window.location.origin;
     }
 
+    // Priority 2: Environment variable (must be a valid backend URL)
+    const envUrl = import.meta.env.VITE_API_URL;
+    if (envUrl && envUrl !== "/" && envUrl !== "" && !envUrl.includes("thekaransinghvaidh.com")) return envUrl;
+
     // Default live production fallback: Render backend URL where API is active
-    return "https://server-pevq.onrender.com";
+    return "https://the-karan-singh-vaidh.onrender.com";
 };
 
 const BASE_URL = getBaseURL();

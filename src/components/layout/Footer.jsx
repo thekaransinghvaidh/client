@@ -172,6 +172,12 @@ const Footer = () => {
                                 </Link>
                             </li>
                             <li>
+                                <Link to="/blogs" className="group flex items-center text-gray-300 hover:text-[#d4af37] transition-all duration-300 font-medium">
+                                    <span className="w-0 group-hover:w-4 h-[1px] bg-[#d4af37] mr-0 group-hover:mr-3 transition-all duration-300"></span>
+                                    Ayurvedic Blogs
+                                </Link>
+                            </li>
+                            <li>
                                 <Link to="/contact" className="group flex items-center text-gray-300 hover:text-[#d4af37] transition-all duration-300 font-medium">
                                     <span className="w-0 group-hover:w-4 h-[1px] bg-[#d4af37] mr-0 group-hover:mr-3 transition-all duration-300"></span>
                                     Contact Us
