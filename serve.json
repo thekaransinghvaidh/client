@@ -20,6 +20,21 @@
       "source": "/about",
       "destination": "/about-ayurvedic-doctor-in-solan",
       "type": 301
+    },
+    {
+      "source": "/product/polyps-2",
+      "destination": "/product/polyps-ayurvedic-treatment",
+      "type": 301
+    },
+    {
+      "source": "/product/polyps",
+      "destination": "/product/polyps-ayurvedic-treatment",
+      "type": 301
+    },
+    {
+      "source": "/index.php",
+      "destination": "/",
+      "type": 301
     }
   ],
   "rewrites": [

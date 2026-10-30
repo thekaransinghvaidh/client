@@ -93,7 +93,7 @@ const PatientReports = () => {
                         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
                             {/* Secondary Button - Send Reports on WhatsApp */}
                             <a
-                                href="https://wa.me/918091498454?text=Hi, I want to send my medical reports for consultation."
+                                href="https://api.whatsapp.com/send/?phone=918091498454&text=Hi,+I+want+to+send+my+medical+reports+for+consultation.&type=phone_number&app_absent=0"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={trackWhatsAppLead}

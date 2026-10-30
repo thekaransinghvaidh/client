@@ -23,7 +23,7 @@ const FloatingActionButtons = () => {
 
                 {/* WhatsApp Button */}
                 <a
-                    href={`https://wa.me/${whatsappNumber}?text=Hi, I have a query about your Ayurvedic treatments.`}
+                    href={`https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=Hi,+I+have+a+query+about+your+Ayurvedic+treatments.&type=phone_number&app_absent=0`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex items-center gap-3 bg-[#25D366] text-white px-4 py-3 rounded-full shadow-2xl hover:bg-[#128C7E] transition-all duration-300 transform hover:-translate-x-2"

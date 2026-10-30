@@ -105,7 +105,7 @@ export const resolveProductImage = (product) => {
         // If it's a genuine upload on backend (not the corrupted one)
         if (trimmed.startsWith('uploads/') || trimmed.startsWith('/uploads/')) {
             const cleanPath = trimmed.startsWith('/') ? trimmed.slice(1) : trimmed;
-            return `https://server-pevq.onrender.com/${cleanPath}`;
+            return `/${cleanPath}`;
         }
     }
 

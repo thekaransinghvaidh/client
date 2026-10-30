@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import SEO from '../components/seo/SEO';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import api from '../api/api';
 import {
@@ -81,6 +82,12 @@ const BlogDetailPage = () => {
 
     return (
         <div className="min-h-screen bg-[#FDFBF7] font-sans selection:bg-ayur-green/10 selection:text-ayur-green pt-4 pb-20">
+            <SEO
+                title={`${blog.metaTitle || blog.title} | Dr. Karan Singh Vaidh`}
+                description={blog.metaDescription || blog.excerpt}
+                url={`/blog/${blog.slug || slug}`}
+                exact={true}
+            />
             {/* Breadcrumb Header */}
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
                 <div className="flex items-center justify-between">

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import SEO from '../components/seo/SEO';
 import { Link } from 'react-router-dom';
 import api from '../api/api';
 import { Clock, ArrowRight, BookOpen, Loader2 } from 'lucide-react';
@@ -45,6 +46,12 @@ const BlogsPage = () => {
 
     return (
         <div className="min-h-screen bg-[#FDFBF7] font-sans selection:bg-ayur-green/10 selection:text-ayur-green pb-20">
+            <SEO
+                title="Ayurvedic Health Blogs & Remedies | Dr. Karan Singh Vaidh"
+                description="Read authentic Ayurvedic health blogs, herbal remedies for chronic care, asthma, high blood pressure, and kidney stones by Dr. Karan Singh Vaidh."
+                url="/blogs"
+                exact={true}
+            />
             {/* Main Content Area - 4 Blogs Per Row */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 space-y-12">
                 {loading ? (

@@ -119,33 +119,64 @@ function App() {
                 <Route path="/ayurvedic-hypertension-treatment" element={<Shop defaultCategory="Hypertension" />} />
                 <Route path="/ayurvedic-treatment-products" element={<Shop />} />
 
+                {/* Legacy PHP & spam URL redirects */}
+                <Route path="/index.php" element={<Navigate to="/" replace />} />
+                <Route path="/index.php/*" element={<Navigate to="/" replace />} />
+
+                {/* Legacy product redirects with duplicate suffixes */}
                 <Route path="/product/asthma" element={<Navigate to="/product/asthma-ayurvedic-treatment" replace />} />
+                <Route path="/product/asthma-2" element={<Navigate to="/product/asthma-ayurvedic-treatment" replace />} />
                 <Route path="/product/cirrhosis-hepatitis" element={<Navigate to="/product/cirrhosis-hepatitis-ayurvedic-treatment" replace />} />
+                <Route path="/product/cirrhosis-hepatitis-2" element={<Navigate to="/product/cirrhosis-hepatitis-ayurvedic-treatment" replace />} />
                 <Route path="/product/constipation" element={<Navigate to="/product/constipation-ayurvedic-treatment" replace />} />
+                <Route path="/product/constipation-2" element={<Navigate to="/product/constipation-ayurvedic-treatment" replace />} />
                 <Route path="/product/cyst" element={<Navigate to="/product/cyst-ayurvedic-treatment" replace />} />
+                <Route path="/product/cyst-2" element={<Navigate to="/product/cyst-ayurvedic-treatment" replace />} />
                 <Route path="/product/diabetes" element={<Navigate to="/product/diabetes-ayurvedic-treatment" replace />} />
+                <Route path="/product/diabetes-2" element={<Navigate to="/product/diabetes-ayurvedic-treatment" replace />} />
                 <Route path="/product/erectile-dysfunction" element={<Navigate to="/product/erectile-dysfunction-ayurvedic-treatment" replace />} />
+                <Route path="/product/erectile-dysfunction-2" element={<Navigate to="/product/erectile-dysfunction-ayurvedic-treatment" replace />} />
                 <Route path="/product/fatty-liver" element={<Navigate to="/product/fatty-liver-ayurvedic-treatment" replace />} />
+                <Route path="/product/fatty-liver-2" element={<Navigate to="/product/fatty-liver-ayurvedic-treatment" replace />} />
                 <Route path="/product/fibroid" element={<Navigate to="/product/fibroid-ayurvedic-treatment" replace />} />
+                <Route path="/product/fibroid-2" element={<Navigate to="/product/fibroid-ayurvedic-treatment" replace />} />
                 <Route path="/product/gall-bladder" element={<Navigate to="/product/gall-bladder-ayurvedic-treatment" replace />} />
+                <Route path="/product/gall-bladder-2" element={<Navigate to="/product/gall-bladder-ayurvedic-treatment" replace />} />
                 <Route path="/product/gastritis-digestion" element={<Navigate to="/product/gastritis-digestion-ayurvedic-treatment" replace />} />
+                <Route path="/product/gastritis-digestion-2" element={<Navigate to="/product/gastritis-digestion-ayurvedic-treatment" replace />} />
                 <Route path="/product/hypertension-high-blood-pressure" element={<Navigate to="/product/high-blood-pressure-ayurvedic-treatment" replace />} />
+                <Route path="/product/hypertension-high-blood-pressure-2" element={<Navigate to="/product/high-blood-pressure-ayurvedic-treatment" replace />} />
                 <Route path="/product/hypertension-high-blood-pressure-ayurvedic-treatment" element={<Navigate to="/product/high-blood-pressure-ayurvedic-treatment" replace />} />
                 <Route path="/product/hypertension" element={<Navigate to="/product/high-blood-pressure-ayurvedic-treatment" replace />} />
+                <Route path="/product/hypertension-2" element={<Navigate to="/product/high-blood-pressure-ayurvedic-treatment" replace />} />
                 <Route path="/product/high-blood-pressure" element={<Navigate to="/product/high-blood-pressure-ayurvedic-treatment" replace />} />
+                <Route path="/product/high-blood-pressure-2" element={<Navigate to="/product/high-blood-pressure-ayurvedic-treatment" replace />} />
                 <Route path="/product/jaundice" element={<Navigate to="/product/jaundice-ayurvedic-treatment" replace />} />
+                <Route path="/product/jaundice-2" element={<Navigate to="/product/jaundice-ayurvedic-treatment" replace />} />
                 <Route path="/product/kidney-stone" element={<Navigate to="/product/kidney-stone-ayurvedic-treatment" replace />} />
+                <Route path="/product/kidney-stone-2" element={<Navigate to="/product/kidney-stone-ayurvedic-treatment" replace />} />
                 <Route path="/product/loose-motion" element={<Navigate to="/product/loose-motion-ayurvedic-treatment" replace />} />
+                <Route path="/product/loose-motion-2" element={<Navigate to="/product/loose-motion-ayurvedic-treatment" replace />} />
                 <Route path="/product/migraine" element={<Navigate to="/product/migraine-ayurvedic-treatment" replace />} />
+                <Route path="/product/migraine-2" element={<Navigate to="/product/migraine-ayurvedic-treatment" replace />} />
                 <Route path="/product/ortho-arthritis-joint-pain" element={<Navigate to="/product/ortho-arthritis-joint-pain-ayurvedic-treatment" replace />} />
+                <Route path="/product/ortho-arthritis-joint-pain-2" element={<Navigate to="/product/ortho-arthritis-joint-pain-ayurvedic-treatment" replace />} />
                 <Route path="/product/over-weight" element={<Navigate to="/product/over-weight-ayurvedic-treatment" replace />} />
+                <Route path="/product/over-weight-2" element={<Navigate to="/product/over-weight-ayurvedic-treatment" replace />} />
                 <Route path="/product/piles" element={<Navigate to="/product/piles-ayurvedic-treatment" replace />} />
+                <Route path="/product/piles-2" element={<Navigate to="/product/piles-ayurvedic-treatment" replace />} />
                 <Route path="/product/polyps" element={<Navigate to="/product/polyps-ayurvedic-treatment" replace />} />
+                <Route path="/product/polyps-2" element={<Navigate to="/product/polyps-ayurvedic-treatment" replace />} />
                 <Route path="/product/prostate" element={<Navigate to="/product/prostate-ayurvedic-treatment" replace />} />
+                <Route path="/product/prostate-2" element={<Navigate to="/product/prostate-ayurvedic-treatment" replace />} />
                 <Route path="/product/psoriasis-and-skin-allergy" element={<Navigate to="/product/psoriasis-and-skin-allergy-ayurvedic-treatment" replace />} />
+                <Route path="/product/psoriasis-and-skin-allergy-2" element={<Navigate to="/product/psoriasis-and-skin-allergy-ayurvedic-treatment" replace />} />
                 <Route path="/product/sinus" element={<Navigate to="/product/sinus-ayurvedic-treatment" replace />} />
+                <Route path="/product/sinus-2" element={<Navigate to="/product/sinus-ayurvedic-treatment" replace />} />
                 <Route path="/product/tbtuberculosis" element={<Navigate to="/product/tbtuberculosis-ayurvedic-treatment" replace />} />
+                <Route path="/product/tbtuberculosis-2" element={<Navigate to="/product/tbtuberculosis-ayurvedic-treatment" replace />} />
                 <Route path="/product/thyroid" element={<Navigate to="/product/thyroid-ayurvedic-treatment" replace />} />
+                <Route path="/product/thyroid-2" element={<Navigate to="/product/thyroid-ayurvedic-treatment" replace />} />
                 <Route path="/product/:id" element={<ProductDetails />} />
                 <Route path="/cart" element={<CartPage />} />
                 <Route path="/checkout" element={<CheckoutPage />} />

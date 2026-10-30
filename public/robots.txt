@@ -16,8 +16,10 @@ Disallow: /register
 Disallow: /forgot-password
 Disallow: /order-success
 
-# Allow query URLs (IMPORTANT FIX)
-# (Remove /*? blocking)
+# Block spam query parameters (prevents crawler spam traps)
+Disallow: /*?_g=*
+Disallow: /*&_g=*
 
 # Sitemap
 Sitemap: https://thekaransinghvaidh.com/sitemap.xml
+

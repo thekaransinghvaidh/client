@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 
@@ -6,13 +6,29 @@ const SEO = ({ title, description, url, image, keywords, children, exact = false
   const location = useLocation();
   const siteTitle = title 
     ? (exact || title.includes('Karan Singh Vaidh') ? title : `${title} | The Karan Singh Vaidh`) 
-    : 'The Karan Singh Vaidh - Authentic Ayurvedic Treatments & Products';
-  const siteDesc = description || 'Experience the power of ancient Ayurveda. Trusted Ayurvedic doctor in Solan, HP, providing natural treatments for Asthma, Diabetes, Piles, and more.';
+    : 'Best Ayurvedic Doctor in Solan | Natural Ayurvedic Treatment';
+  const siteDesc = description || 'Looking for the best Ayurvedic Doctor in Solan? Get natural treatment for kidney stones, piles, diabetes, thyroid & more. Book your consultation today!';
   
   // Use provided url or fallback to current pathname
   const currentPath = url || location.pathname;
   const siteUrl = `https://thekaransinghvaidh.com${currentPath.startsWith('/') ? currentPath : '/' + currentPath}`;
   const siteImage = image || 'https://thekaransinghvaidh.com/logo.png';
+
+  useEffect(() => {
+    document.title = siteTitle;
+    const titles = document.head.querySelectorAll('title');
+    if (titles.length > 1) {
+      titles.forEach((el, idx) => {
+        if (idx > 0) el.remove();
+      });
+    }
+    const descriptions = document.head.querySelectorAll('meta[name="description"]');
+    if (descriptions.length > 1) {
+      descriptions.forEach((el, idx) => {
+        if (idx < descriptions.length - 1) el.remove();
+      });
+    }
+  }, [siteTitle, siteDesc]);
 
   return (
     <Helmet>

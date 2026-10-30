@@ -2,15 +2,59 @@
   RewriteEngine On
   RewriteBase /
 
-  # 301 Redirects for moved pages
-  Redirect 301 /shop /ayurvedic-products
-  Redirect 301 /about /about-ayurvedic-doctor-in-solan
-  
-  # Redirect old treatment URLs (if they were indexed)
-  Redirect 301 /asthma-treatment /ayurvedic-asthma-treatment
-  Redirect 301 /diabetes-treatment /ayurvedic-diabetes-treatment
-  Redirect 301 /piles-treatment /ayurvedic-piles-treatment
+  # ── 1. Redirect legacy index.php & spam query parameters to clean homepage ──
+  # Fixes https://thekaransinghvaidh.com/index.php/?_g=1086240 etc.
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+index\.php [NC]
+  RewriteRule ^index\.php.*$ /? [R=301,L]
 
+  # Strip spam _g= query parameters from any URL
+  RewriteCond %{QUERY_STRING} (^|&)_g=[0-9]+(&|$) [NC]
+  RewriteRule ^(.*)$ /$1? [R=301,L]
+
+  # ── 2. 301 Permanent Redirects for Products (including -2 WordPress duplicates) ──
+  RewriteRule ^product/polyps(-[0-9]+)?/?$ /product/polyps-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/asthma(-[0-9]+)?/?$ /product/asthma-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/cirrhosis-hepatitis(-[0-9]+)?/?$ /product/cirrhosis-hepatitis-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/constipation(-[0-9]+)?/?$ /product/constipation-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/cyst(-[0-9]+)?/?$ /product/cyst-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/diabetes(-[0-9]+)?/?$ /product/diabetes-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/erectile-dysfunction(-[0-9]+)?/?$ /product/erectile-dysfunction-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/fatty-liver(-[0-9]+)?/?$ /product/fatty-liver-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/fibroid(-[0-9]+)?/?$ /product/fibroid-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/gall-bladder(-[0-9]+)?/?$ /product/gall-bladder-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/gastritis-digestion(-[0-9]+)?/?$ /product/gastritis-digestion-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/hypertension(-high-blood-pressure)?(-[0-9]+)?/?$ /product/high-blood-pressure-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/high-blood-pressure(-[0-9]+)?/?$ /product/high-blood-pressure-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/jaundice(-[0-9]+)?/?$ /product/jaundice-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/kidney-stone(-[0-9]+)?/?$ /product/kidney-stone-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/loose-motion(-[0-9]+)?/?$ /product/loose-motion-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/migraine(-[0-9]+)?/?$ /product/migraine-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/ortho-arthritis-joint-pain(-[0-9]+)?/?$ /product/ortho-arthritis-joint-pain-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/over-weight(-[0-9]+)?/?$ /product/over-weight-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/piles(-[0-9]+)?/?$ /product/piles-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/prostate(-[0-9]+)?/?$ /product/prostate-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/psoriasis-and-skin-allergy(-[0-9]+)?/?$ /product/psoriasis-and-skin-allergy-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/sinus(-[0-9]+)?/?$ /product/sinus-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/tbtuberculosis(-[0-9]+)?/?$ /product/tbtuberculosis-ayurvedic-treatment [R=301,L,NC]
+  RewriteRule ^product/thyroid(-[0-9]+)?/?$ /product/thyroid-ayurvedic-treatment [R=301,L,NC]
+
+  # ── 3. 301 Redirects for moved pages & appointments ──
+  RewriteRule ^shop/?$ /ayurvedic-products [R=301,L,NC]
+  RewriteRule ^about/?$ /about-ayurvedic-doctor-in-solan [R=301,L,NC]
+  RewriteRule ^book-an-appointment/?$ /book-appointment [R=301,L,NC]
+  RewriteRule ^appointment/?$ /book-appointment [R=301,L,NC]
+
+  # Redirect old treatment URLs (if they were indexed)
+  RewriteRule ^asthma-treatment/?$ /ayurvedic-asthma-treatment [R=301,L,NC]
+  RewriteRule ^diabetes-treatment/?$ /ayurvedic-diabetes-treatment [R=301,L,NC]
+  RewriteRule ^piles-treatment/?$ /ayurvedic-piles-treatment [R=301,L,NC]
+
+  # ── 4. Fallback for missing uploads to Render backend (never serve index.html for images) ──
+  RewriteCond %{REQUEST_URI} ^/uploads/ [NC]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^uploads/(.*)$ https://server-pevq.onrender.com/uploads/$1 [R=302,L]
+
+  # ── 5. SPA Client Routing Fallback ──
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

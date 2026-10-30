@@ -14,14 +14,14 @@ const getBaseURL = () => {
 
     // Priority 2: Environment variable (must be a valid backend URL)
     const envUrl = import.meta.env.VITE_API_URL;
-    if (envUrl && envUrl !== "/" && envUrl !== "" && !envUrl.includes("thekaransinghvaidh.com")) return envUrl;
+    if (envUrl && envUrl !== "/" && envUrl !== "" && !envUrl.includes("thekaransinghvaidh.com") && !envUrl.includes("server-pevq.onrender.com")) return envUrl;
 
     // Default live production fallback: Render backend URL where API is active
     return "https://the-karan-singh-vaidh.onrender.com";
 };
 
 const BASE_URL = getBaseURL();
-const API_ORIGIN = (BASE_URL !== undefined && BASE_URL !== "/") ? BASE_URL.replace(/\/$/, "") : "https://server-pevq.onrender.com";
+const API_ORIGIN = (BASE_URL !== undefined && BASE_URL !== "/") ? BASE_URL.replace(/\/$/, "") : "https://the-karan-singh-vaidh.onrender.com";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // getAssetUrl  — FASTEST IMAGE LOADING LOGIC
@@ -33,12 +33,12 @@ export const getAssetUrl = (imagePath, width = 600) => {
 
     const trimmed = imagePath.trim();
 
-    // 0. Filter out corrupted/dummy image placeholder
-    if (trimmed.includes("1769181213575")) {
+    // 0. Filter out corrupted/dummy placeholder images
+    if (trimmed.includes("1769181213575") || trimmed === "/logo.png" || trimmed === "logo.png") {
         return FALLBACK_IMAGE;
     }
 
-    // 1. Data URLs or Blobs or Vite asset paths
+    // 1. Data URLs, Blobs, and Vite internal asset paths
     if (
         trimmed.startsWith("data:") || 
         trimmed.startsWith("blob:") || 
@@ -47,35 +47,39 @@ export const getAssetUrl = (imagePath, width = 600) => {
         trimmed.startsWith("assets/") ||
         trimmed.startsWith("/VIDHUVADHA")
     ) {
-        return trimmed;
+        return trimmed.startsWith("assets/") ? `/${trimmed}` : trimmed;
     }
 
-    // 2. ImageKit Magic (Auto-transform for 10x Speed)
+    // 2. ImageKit URLs
     if (trimmed.includes("ik.imagekit.io")) {
         return `${trimmed}?tr=w-${width},q-80,f-auto`;
     }
 
-    // 3. Already Absolute URLs
+    // 3. Absolute HTTP(S) URLs
     if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
         return trimmed;
     }
 
     // 4. Local Path Resolution
-    let path = trimmed;
-    if (path.startsWith("/")) path = path.slice(1);
-    
-    // If it starts with uploads/
-    if (path.startsWith("uploads/")) {
-        return `${API_ORIGIN}/${path}`;
+    let clean = trimmed.startsWith("/") ? trimmed.slice(1) : trimmed;
+
+    // Direct match for uploads
+    if (clean.startsWith("uploads/")) {
+        return `/${clean}`;
     }
 
-    // If it looks like an uploaded file
-    if (path.includes("image-") || path.includes("images-")) {
-        return `${API_ORIGIN}/uploads/${path}`;
+    // If it is an image file from uploads folder (e.g., Asthma-1st-..., image-..., etc.)
+    if (
+        clean.includes("Asthma-") ||
+        clean.includes("image-") ||
+        clean.includes("images-") ||
+        clean.match(/^\d+-(image|images|Asthma)/) ||
+        /\.(png|jpe?g|webp|gif|svg)$/i.test(clean)
+    ) {
+        return `/uploads/${clean}`;
     }
 
-    // Default return path or fallback
-    return `/${path}`;
+    return `/${clean}`;
 };
 
 const api = axios.create({

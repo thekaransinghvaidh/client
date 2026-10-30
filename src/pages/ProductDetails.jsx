@@ -12,15 +12,24 @@ import { resolveProductImage } from '../utils/productImages';
 const findMatchingProduct = (targetId) => {
     if (!targetId) return null;
     const all = getInstantProducts();
-    const clean = targetId.toLowerCase().replace(/[-_]/g, ' ');
+    const cleanTarget = targetId.toLowerCase().replace(/\/+$/, '');
+    const clean = cleanTarget.replace(/[-_]/g, ' ');
+    const strippedId = cleanTarget.replace(/-\d+$/, '');
+    const strippedClean = strippedId.replace(/[-_]/g, ' ');
     
     return all.find(p => 
         p._id === targetId || 
         p.id === targetId || 
         p.slug === targetId || 
+        p.slug === cleanTarget ||
+        p.slug === strippedId ||
+        p.slug === `${strippedId}-ayurvedic-treatment` ||
         (p.slug && p.slug.toLowerCase() === targetId.toLowerCase()) ||
+        (p.slug && p.slug.toLowerCase() === strippedId.toLowerCase()) ||
         (p.name && p.name.toLowerCase().includes(clean)) ||
-        clean.includes((p.slug || '').toLowerCase().replace(/[-_]/g, ' '))
+        (p.name && p.name.toLowerCase().includes(strippedClean)) ||
+        clean.includes((p.slug || '').toLowerCase().replace(/[-_]/g, ' ')) ||
+        strippedClean.includes((p.slug || '').toLowerCase().replace(/[-_]/g, ' '))
     ) || null;
 };
 
@@ -91,18 +100,46 @@ const ProductDetails = () => {
     };
 
     useEffect(() => {
-        const match = findMatchingProduct(id);
+        const cleanId = (id || '').replace(/\/+$/, '');
+        const strippedId = cleanId.replace(/-\d+$/, '');
+
+        const match = findMatchingProduct(cleanId) || findMatchingProduct(strippedId);
         if (match) {
             setProduct(match);
             if (match.image) setSelectedImage(match.image);
             setLoading(false);
+            if (strippedId !== cleanId) {
+                navigate(`/product/${strippedId.endsWith('-ayurvedic-treatment') ? strippedId : `${strippedId}-ayurvedic-treatment`}`, { replace: true });
+                return;
+            }
         }
 
         const fetchProduct = async () => {
             try {
-                const { data } = await api.get(`/products/${id}`);
+                let data = null;
+                try {
+                    const res = await api.get(`/products/${cleanId}`);
+                    data = res.data;
+                } catch (err1) {
+                    if (strippedId !== cleanId) {
+                        try {
+                            const res2 = await api.get(`/products/${strippedId}`);
+                            data = res2.data;
+                        } catch (err2) {
+                            const res3 = await api.get(`/products/${strippedId}-ayurvedic-treatment`);
+                            data = res3.data;
+                        }
+                    } else {
+                        throw err1;
+                    }
+                }
+
                 if (data) {
                     setProduct(data);
+                    setLoading(false);
+                    if (strippedId !== cleanId) {
+                        navigate(`/product/${strippedId.endsWith('-ayurvedic-treatment') ? strippedId : `${strippedId}-ayurvedic-treatment`}`, { replace: true });
+                    }
                     if (data.packs && data.packs.length > 0) {
                         const defaultIndex = data.packs.findIndex(p => p.isDefault);
                         setSelectedPackIndex(defaultIndex >= 0 ? defaultIndex : 0);
@@ -132,8 +169,44 @@ const ProductDetails = () => {
                 }
             } catch (error) {
                 console.error('Error fetching product details from server:', error);
+                // Fallback for Polyps
+                if (/polyps/i.test(id || '')) {
+                    const fallbackPolyps = {
+                        _id: 'polyps-ayurvedic-treatment',
+                        id: 'polyps-ayurvedic-treatment',
+                        name: 'Vidhuvaidha Polyps Care (Natural Polyps Management)',
+                        slug: 'polyps-ayurvedic-treatment',
+                        category: { name: 'Polyps' },
+                        image: '/VIDHUVADHA-CB-1.webp',
+                        images: ['/VIDHUVADHA-CB-1.webp'],
+                        shortDescription: 'Ayurvedic formula to support polyp management, reduce inflammation, boost cellular immunity, and promote internal healing naturally.',
+                        fullDescription: 'Polyps Ayurvedic Solution by Karan Singh Vaidh is a scientifically formulated natural solution designed to support polyp management and tissue health. Enriched with time-tested herbs including Haridra, Brahmi, Arjun, and Marich, it helps reduce chronic inflammation and strengthens natural immunity.',
+                        benefits: 'Supports natural management of polyps\nHelps reduce internal inflammation\nBoosts immunity and natural body defenses\nImproves circulation and nutrient assimilation\n100% natural, GMP certified',
+                        ingredients: 'Haridra (Curcuma longa), Brahmi (Bacopa monnieri), Arjuna (Terminalia arjuna), Marich (Piper nigrum), Kanchnar Guggulu, Varuna.',
+                        usage: 'Take 1 to 2 pouches/capsules twice daily after meals with lukewarm water, or as directed by an Ayurvedic practitioner.',
+                        whyChooseUs: 'Formulated under expert guidance of Karan Singh Vaidh with 23+ years of clinical experience in Ayurvedic chronic care.',
+                        rating: 4.9,
+                        numReviews: 42,
+                        countInStock: 80,
+                        isBestSeller: true,
+                        packs: [
+                            { name: '1 Month Pack', mrp: 3500, sellingPrice: 2800, isDefault: true, isActive: true },
+                            { name: '2 Month Pack', mrp: 7000, sellingPrice: 5200, isDefault: false, isActive: true }
+                        ],
+                        faqs: [
+                            { question: 'Is this Ayurvedic medicine safe for long-term use?', answer: 'Yes, it is prepared using pure, standardized herbal ingredients without chemicals or steroids.' },
+                            { question: 'How long should I take this for polyps?', answer: 'We typically recommend a complete course of 2 to 3 months for optimal natural management.' }
+                        ]
+                    };
+                    setProduct(fallbackPolyps);
+                    setSelectedImage(fallbackPolyps.image);
+                    setSelectedPackIndex(0);
+                    if (id !== fallbackPolyps.slug) {
+                        navigate(`/product/${fallbackPolyps.slug}`, { replace: true });
+                    }
+                }
                 // Fallback for High Blood Pressure / Hypertension
-                if (/high-blood-pressure|hypertension|hbp/i.test(id || '')) {
+                else if (/high-blood-pressure|hypertension|hbp/i.test(id || '')) {
                     const fallbackHBP = {
                         _id: 'high-blood-pressure-ayurvedic-treatment',
                         id: 'high-blood-pressure-ayurvedic-treatment',
@@ -466,16 +539,16 @@ const ProductDetails = () => {
                                     setSelectedImage(resolveProductImage(product));
                                     setImageError(false);
                                 }}
-                                className={`w-20 h-20 rounded-lg border-2 overflow-hidden cursor-pointer transition-all ${selectedImage === resolveProductImage(product) ? 'border-ayur-gold' : 'border-gray-200 hover:border-gray-300'}`}
+                                className={`w-20 h-20 rounded-lg border-2 overflow-hidden cursor-pointer transition-all ${(selectedImage === product.image || selectedImage === resolveProductImage(product)) ? 'border-ayur-gold' : 'border-gray-200 hover:border-gray-300'}`}
                             >
                                 <img
                                     src={resolveProductImage(product)}
                                     alt="Main"
                                     className="w-full h-full object-cover"
-                                    onError={(e) => e.target.src = fallbackImage}
+                                    onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }}
                                 />
                             </div>
-                            {product.images?.map((img, i) => (
+                            {product.images?.filter(img => img && img !== product.image).map((img, i) => (
                                 <div
                                     key={i}
                                     onClick={() => {
@@ -485,11 +558,19 @@ const ProductDetails = () => {
                                     className={`w-20 h-20 rounded-lg border-2 overflow-hidden cursor-pointer transition-all ${selectedImage === img ? 'border-ayur-gold' : 'border-gray-200 hover:border-gray-300'}`}
                                 >
                                     <img
-                                        src={getAssetUrl(img, 200)} // Small thumbnail for speed
-                                        alt={`Thumbnail ${i}`}
+                                        src={getAssetUrl(img, 200)}
+                                        alt={`Thumbnail ${i + 1}`}
                                         className="w-full h-full object-cover"
                                         loading="lazy"
-                                        onError={(e) => e.target.src = fallbackImage}
+                                        onError={(e) => {
+                                            const currentSrc = e.target.src;
+                                            if (!currentSrc.includes('the-karan-singh-vaidh.onrender.com')) {
+                                                const filename = (img || '').replace(/^\/?uploads\//, '');
+                                                e.target.src = `https://the-karan-singh-vaidh.onrender.com/uploads/${filename}`;
+                                            } else {
+                                                e.currentTarget.parentElement.style.display = 'none';
+                                            }
+                                        }}
                                     />
                                 </div>
                             ))}
@@ -502,7 +583,13 @@ const ProductDetails = () => {
                                 alt={product.name}
                                 className="w-full h-full object-cover md:object-contain p-0 md:p-8 transition-transform duration-500 group-hover:scale-105"
                                 onError={(e) => {
-                                    e.target.src = resolveProductImage(product);
+                                    const currentSrc = e.target.src;
+                                    if (!currentSrc.includes('the-karan-singh-vaidh.onrender.com') && selectedImage && typeof selectedImage === 'string') {
+                                        const filename = selectedImage.replace(/^\/?uploads\//, '');
+                                        e.target.src = `https://the-karan-singh-vaidh.onrender.com/uploads/${filename}`;
+                                    } else {
+                                        e.target.src = resolveProductImage(product);
+                                    }
                                 }}
                             />
                         </div>
@@ -514,15 +601,16 @@ const ProductDetails = () => {
                                     setSelectedImage(resolveProductImage(product));
                                     setImageError(false);
                                 }}
-                                className={`w-16 h-16 flex-shrink-0 rounded-lg border-2 overflow-hidden ${selectedImage === resolveProductImage(product) ? 'border-ayur-gold' : 'border-gray-200'}`}
+                                className={`w-16 h-16 flex-shrink-0 rounded-lg border-2 overflow-hidden ${(selectedImage === product.image || selectedImage === resolveProductImage(product)) ? 'border-ayur-gold' : 'border-gray-200'}`}
                             >
                                 <img
                                     src={resolveProductImage(product)}
                                     className="w-full h-full object-cover"
                                     alt="Main"
+                                    onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }}
                                 />
                             </div>
-                            {product.images?.map((img, i) => (
+                            {product.images?.filter(img => img && img !== product.image).map((img, i) => (
                                 <div
                                     key={i}
                                     onClick={() => {
@@ -532,9 +620,18 @@ const ProductDetails = () => {
                                     className={`w-16 h-16 flex-shrink-0 rounded-lg border-2 overflow-hidden ${selectedImage === img ? 'border-ayur-gold' : 'border-gray-200'}`}
                                 >
                                     <img
-                                        src={getAssetUrl(img)}
+                                        src={getAssetUrl(img, 200)}
                                         className="w-full h-full object-cover"
-                                        alt={`Thumb ${i}`}
+                                        alt={`Thumb ${i + 1}`}
+                                        onError={(e) => {
+                                            const currentSrc = e.target.src;
+                                            if (!currentSrc.includes('the-karan-singh-vaidh.onrender.com')) {
+                                                const filename = (img || '').replace(/^\/?uploads\//, '');
+                                                e.target.src = `https://the-karan-singh-vaidh.onrender.com/uploads/${filename}`;
+                                            } else {
+                                                e.currentTarget.parentElement.style.display = 'none';
+                                            }
+                                        }}
                                     />
                                 </div>
                             ))}
@@ -573,7 +670,7 @@ const ProductDetails = () => {
                                 <>
                                     <span className="text-lg text-gray-400 line-through">₹{currentPack.mrp}</span>
                                     <span className="bg-green-700 text-white text-xs font-bold px-2 py-1 rounded">
-                                        {currentPack.discountPercentage}% OFF
+                                        {currentPack.discountPercentage || Math.round(((currentPack.mrp - currentPack.sellingPrice) / currentPack.mrp) * 100)}% OFF
                                     </span>
                                 </>
                             )}
