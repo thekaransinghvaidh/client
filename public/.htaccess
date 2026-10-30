@@ -2,14 +2,19 @@
   RewriteEngine On
   RewriteBase /
 
+  # ── 0. Force SSL (HTTPS) & Canonical Non-WWW Domain (301 Permanent Redirect) ──
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^www\.thekaransinghvaidh\.com$ [NC]
+  RewriteRule ^(.*)$ https://thekaransinghvaidh.com/$1 [R=301,L]
+
   # ── 1. Redirect legacy index.php & spam query parameters to clean homepage ──
   # Fixes https://thekaransinghvaidh.com/index.php/?_g=1086240 etc.
   RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+index\.php [NC]
-  RewriteRule ^index\.php.*$ /? [R=301,L]
+  RewriteRule ^index\.php.*$ https://thekaransinghvaidh.com/? [R=301,L]
 
   # Strip spam _g= query parameters from any URL
   RewriteCond %{QUERY_STRING} (^|&)_g=[0-9]+(&|$) [NC]
-  RewriteRule ^(.*)$ /$1? [R=301,L]
+  RewriteRule ^(.*)$ https://thekaransinghvaidh.com/$1? [R=301,L]
 
   # ── 2. 301 Permanent Redirects for Products (including -2 WordPress duplicates) ──
   RewriteRule ^product/polyps(-[0-9]+)?/?$ /product/polyps-ayurvedic-treatment [R=301,L,NC]
@@ -49,10 +54,10 @@
   RewriteRule ^diabetes-treatment/?$ /ayurvedic-diabetes-treatment [R=301,L,NC]
   RewriteRule ^piles-treatment/?$ /ayurvedic-piles-treatment [R=301,L,NC]
 
-  # ── 4. Fallback for missing uploads to Render backend (never serve index.html for images) ──
+  # ── 4. Fallback for missing uploads to active Render backend ──
   RewriteCond %{REQUEST_URI} ^/uploads/ [NC]
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^uploads/(.*)$ https://server-pevq.onrender.com/uploads/$1 [R=302,L]
+  RewriteRule ^uploads/(.*)$ https://the-karan-singh-vaidh.onrender.com/uploads/$1 [R=301,L]
 
   # ── 5. SPA Client Routing Fallback ──
   RewriteRule ^index\.html$ - [L]
