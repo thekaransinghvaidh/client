@@ -3,25 +3,26 @@ import axios from "axios";
 // ─────────────────────────────────────────────────────────────────────────────
 // BASE URL Configuration
 // ─────────────────────────────────────────────────────────────────────────────
-// ─────────────────────────────────────────────────────────────────────────────
-// BASE URL Configuration
-// ─────────────────────────────────────────────────────────────────────────────
+const REMOTE_API_ORIGIN = "https://server-pevq.onrender.com";
+
 const getBaseURL = () => {
-    // Priority 1: When running on localhost, always use local Vite dev server proxy (/api -> http://localhost:5000)
+    // Priority 1: When running on localhost, use local Vite dev server proxy (/api -> http://localhost:5000)
     if (typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")) {
         return window.location.origin;
     }
 
     // Priority 2: Environment variable (must be a valid backend URL)
     const envUrl = import.meta.env.VITE_API_URL;
-    if (envUrl && envUrl !== "/" && envUrl !== "" && !envUrl.includes("thekaransinghvaidh.com") && !envUrl.includes("server-pevq.onrender.com")) return envUrl;
+    if (envUrl && envUrl !== "/" && envUrl !== "" && !envUrl.includes("thekaransinghvaidh.com")) {
+        return envUrl.replace(/\/$/, "");
+    }
 
-    // Default live production fallback: Render backend URL where API is active
-    return "https://the-karan-singh-vaidh.onrender.com";
+    // Default live production fallback: Active Render backend URL with /api/blogs & /api/products
+    return REMOTE_API_ORIGIN;
 };
 
 const BASE_URL = getBaseURL();
-const API_ORIGIN = (BASE_URL !== undefined && BASE_URL !== "/") ? BASE_URL.replace(/\/$/, "") : "https://the-karan-singh-vaidh.onrender.com";
+const API_ORIGIN = (BASE_URL !== undefined && BASE_URL !== "/") ? BASE_URL.replace(/\/$/, "") : REMOTE_API_ORIGIN;
 
 // ─────────────────────────────────────────────────────────────────────────────
 // getAssetUrl  — FASTEST IMAGE LOADING LOGIC
@@ -102,11 +103,29 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use((r) => {
     // Guard: If response is an HTML document string instead of JSON (e.g., cPanel static rewrite fallback)
     if (typeof r.data === "string" && (r.data.trim().startsWith("<!") || r.data.trim().startsWith("<html"))) {
+        if (r.config && !r.config._retriedRemote) {
+            r.config._retriedRemote = true;
+            r.config.baseURL = `${REMOTE_API_ORIGIN}/api`;
+            return api.request(r.config);
+        }
         return Promise.reject(new Error("API returned HTML instead of JSON data. Check backend URL configuration."));
     }
     return r;
 }, (e) => {
-    if (e.response?.status === 401 && !window.location.pathname.includes("/login")) {
+    // Fallback to live Render API if local dev proxy (localhost:5000) is offline or returns 404/500/502/504
+    const status = e.response?.status;
+    if (
+        e.config &&
+        !e.config._retriedRemote &&
+        (!e.response || status === 404 || status === 500 || status === 502 || status === 503 || status === 504) &&
+        !String(e.config.baseURL || "").includes(REMOTE_API_ORIGIN)
+    ) {
+        e.config._retriedRemote = true;
+        e.config.baseURL = `${REMOTE_API_ORIGIN}/api`;
+        return api.request(e.config);
+    }
+
+    if (status === 401 && !window.location.pathname.includes("/login")) {
         localStorage.removeItem("userInfo");
         window.location.href = window.location.pathname.includes("/admin") ? "/admin/login" : "/login";
     }
@@ -114,8 +133,8 @@ api.interceptors.response.use((r) => {
 });
 
 // Keep-alive only in production
-if (window.location.hostname !== "localhost") {
-    setInterval(() => { axios.get(`${API_ORIGIN}/api/version`).catch(() => {}); }, 14 * 60 * 1000);
+if (typeof window !== "undefined" && window.location.hostname !== "localhost") {
+    setInterval(() => { axios.get(`${REMOTE_API_ORIGIN}/api/version`).catch(() => {}); }, 14 * 60 * 1000);
 }
 
 export default api;
