@@ -72,7 +72,7 @@
   # ── 4. Fallback for missing uploads to active Render backend ──
   RewriteCond %{REQUEST_URI} ^/uploads/ [NC]
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^uploads/(.*)$ https://the-karan-singh-vaidh.onrender.com/uploads/$1 [R=301,L]
+  RewriteRule ^uploads/(.*)$ https://server-pevq.onrender.com/uploads/$1 [R=301,L]
 
   # ── 5. SPA Client Routing Fallback ──
   RewriteRule ^index\.html$ - [L]
