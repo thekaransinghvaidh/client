@@ -16,6 +16,7 @@ const __dirname = path.dirname(__filename);
 const CLIENT_ROOT = path.resolve(__dirname, '..');
 const DIST_DIR = path.join(CLIENT_ROOT, 'dist');
 const PUBLIC_DIR = path.join(CLIENT_ROOT, 'public');
+const DOM_CACHE_FILE = path.join(__dirname, 'ssg-dom-cache.json');
 const SITE_URL = 'https://thekaransinghvaidh.com';
 
 const EXTRA_PUBLIC_ROUTES = [
@@ -348,6 +349,15 @@ async function runSSGPrerender() {
     const browserPath = findBrowserExecutable();
     const realDomMap = new Map();
 
+    if (fs.existsSync(DOM_CACHE_FILE)) {
+        try {
+            const cachedDom = JSON.parse(fs.readFileSync(DOM_CACHE_FILE, 'utf8'));
+            for (const [k, v] of Object.entries(cachedDom)) {
+                realDomMap.set(k, v);
+            }
+        } catch {}
+    }
+
     if (browserPath && typeof WebSocket !== 'undefined') {
         console.log(`🌐 [SSG] Rendering real React DOM for ${routes.length} routes via Headless Browser...`);
         const { server, port } = await startLocalSSGServer(baseTemplate, { products, blogs });
@@ -399,6 +409,9 @@ async function runSSGPrerender() {
                 });
             }
             console.log(`✨ [SSG] Captured full React DOM for ${realDomMap.size}/${routes.length} routes.`);
+            try {
+                fs.writeFileSync(DOM_CACHE_FILE, JSON.stringify(Object.fromEntries(realDomMap), null, 2), 'utf8');
+            } catch {}
         }
 
         try { chromeProc.kill(); } catch {}
