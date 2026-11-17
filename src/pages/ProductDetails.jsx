@@ -973,32 +973,32 @@ const ProductDetails = () => {
                                     {activeTab === 'overview' ? 'Long Description' : activeTab}
                                 </h3>
                                 <div className="prose prose-emerald max-w-none text-gray-600 leading-relaxed space-y-4">
-                                    {(activeTab === 'overview' || activeTab === 'description') && (
+                                    <div className={(activeTab === 'overview' || activeTab === 'description') ? 'block' : 'hidden'}>
                                         <div className="whitespace-pre-line text-gray-700 leading-relaxed text-base space-y-4">
                                             {product.fullDescription || product.shortDescription || "No detailed description available."}
                                         </div>
-                                    )}
-                                    {activeTab === 'benefits' && (
+                                    </div>
+                                    <div className={activeTab === 'benefits' ? 'block' : 'hidden'}>
                                         <div className="whitespace-pre-line text-gray-700 leading-relaxed">
                                             {product.benefits || "No specific benefits listed for this product."}
                                         </div>
-                                    )}
-                                    {activeTab === 'why choose us' && (
+                                    </div>
+                                    <div className={activeTab === 'why choose us' ? 'block' : 'hidden'}>
                                         <div className="whitespace-pre-line bg-amber-50/40 p-6 rounded-xl border border-amber-100 text-gray-800 leading-relaxed">
                                             {product.whyChooseUs || "Designed according to traditional Ayurvedic principles for daily wellness support."}
                                         </div>
-                                    )}
-                                    {activeTab === 'ingredients' && (
+                                    </div>
+                                    <div className={activeTab === 'ingredients' ? 'block' : 'hidden'}>
                                         <div className="whitespace-pre-line bg-[#fbfbfb] p-6 rounded-xl border border-gray-100 text-sm leading-relaxed">
                                             {product.ingredients || "Natural ingredients list not available."}
                                         </div>
-                                    )}
-                                    {activeTab === 'usage' && (
+                                    </div>
+                                    <div className={activeTab === 'usage' ? 'block' : 'hidden'}>
                                         <div className="bg-emerald-50/50 p-6 rounded-xl border border-emerald-100 text-emerald-900 italic font-medium">
                                             {product.usage || "Usage instructions not available."}
                                         </div>
-                                    )}
-                                    {activeTab === 'faqs' && (
+                                    </div>
+                                    <div className={activeTab === 'faqs' ? 'block' : 'hidden'}>
                                         <div className="space-y-4">
                                             {(() => {
                                                 const faqsToDisplay = (Array.isArray(product.faqs) && product.faqs.length > 0)
@@ -1029,8 +1029,8 @@ const ProductDetails = () => {
                                                 ));
                                             })()}
                                         </div>
-                                    )}
-                                    {activeTab === 'reviews' && (
+                                    </div>
+                                    <div className={activeTab === 'reviews' ? 'block' : 'hidden'}>
                                         <div className="space-y-8">
                                             {/* Reviews List */}
                                             <div>
@@ -1131,7 +1131,7 @@ const ProductDetails = () => {
                                                 </form>
                                             </div>
                                         </div>
-                                    )}
+                                    </div>
                                 </div>
                             </div>
                         </div>
