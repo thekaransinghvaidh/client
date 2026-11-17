@@ -11,6 +11,11 @@
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
+<IfModule mod_dir.c>
+  DirectoryIndex index.html
+  DirectorySlash Off
+</IfModule>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -74,7 +79,11 @@
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule ^uploads/(.*)$ https://server-pevq.onrender.com/uploads/$1 [R=301,L]
 
-  # ── 5. SPA Client Routing Fallback ──
+  # ── 5. SSG Pre-rendered Route Resolution (Serves dist/<route>/index.html directly) ──
+  RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+  RewriteRule ^(.+?)/?$ /$1/index.html [L]
+
+  # ── 6. SPA Client Routing Fallback for Dynamic Routes (/cart, /checkout, /admin/*) ──
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

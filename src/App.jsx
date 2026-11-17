@@ -213,6 +213,7 @@ function App() {
                 <Route path="/blogs" element={<BlogsPage />} />
                 <Route path="/ayurvedic-blogs" element={<BlogsPage />} />
                 <Route path="/blog/:slug" element={<BlogDetailPage />} />
+                <Route path="/blogs/:slug" element={<BlogDetailPage />} />
                 <Route path="/ayurvedic-blog/:slug" element={<BlogDetailPage />} />
 
                 {/* Admin Routes */}

@@ -1,0 +1,3070 @@
+{
+  "products": [
+    {
+      "_id": "69a9c6ab8ed666386ee32c39",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Cirrhosis hepatitis",
+      "image": "https://ik.imagekit.io/wjmididvj/ksv-products/main/ksv-1784181078617_dFC4R2pdT",
+      "images": [
+        "https://ik.imagekit.io/wjmididvj/ksv-products/gallery/ksv-1784181086710__1akSvMF8",
+        "https://ik.imagekit.io/wjmididvj/ksv-products/gallery/ksv-1784181098342_eK3PzKpWo",
+        "https://ik.imagekit.io/wjmididvj/ksv-products/gallery/ksv-1784181105437_0N5M9F8V0"
+      ],
+      "shortDescription": "Cirrhosis Hepatitis is an Ayurvedic liver support formulation designed to support liver wellness, healthy digestion, and overall daily wellbeing. Made with traditionally used Ayurvedic ingredients, it provides gentle support for people looking for natural Ayurvedic liver care as part of a healthy lifestyle.",
+      "category": {
+        "_id": "69761f81bd94a7bc32beb998",
+        "name": "All products"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": true,
+      "isWellness": true,
+      "packs": [
+        {
+          "name": "Cirrhosis hepatitis Pack A",
+          "mrp": 3700,
+          "sellingPrice": 3300,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191229777_Sy8mN19-0"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69a9c6ab8ed666386ee32c3a"
+        },
+        {
+          "name": "Cirrhosis hepatitis Pack B",
+          "mrp": 6200,
+          "sellingPrice": 5700,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191236696_a-npBVcUR"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69a9c6ab8ed666386ee32c3b"
+        },
+        {
+          "name": "Cirrhosis hepatitis Pack C",
+          "mrp": 6500,
+          "sellingPrice": 6000,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191238803_NJQE58iai"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69a9c6ab8ed666386ee32c3c"
+        }
+      ],
+      "createdAt": "2026-03-05T18:08:43.422Z",
+      "updatedAt": "2026-09-14T05:38:45.138Z",
+      "slug": "cirrhosis-hepatitis-ayurvedic-treatment",
+      "__v": 16,
+      "faqs": [
+        {
+          "question": "What is Ayurvedic Liver Support?",
+          "answer": "Ayurvedic liver support refers to traditional Ayurvedic wellness approaches intended to support general liver health, digestion, and overall wellbeing. It should be used as supportive care and not as a replacement for professional medical treatment.",
+          "_id": "6a954bde1f3b1388343202c1"
+        },
+        {
+          "question": "Can Ayurvedic liver support be used for cirrhosis?",
+          "answer": "People with cirrhosis should consult a qualified healthcare professional before using any new product. Cirrhosis requires appropriate medical evaluation and ongoing care. Ayurvedic products should not replace prescribed treatment.",
+          "_id": "6a954bde1f3b1388343202c2"
+        },
+        {
+          "question": "Can Ayurvedic liver support be used for hepatitis?",
+          "answer": "Anyone diagnosed with hepatitis should seek professional medical advice before using an Ayurvedic product. The suitability of any supplement or formulation depends on the person's condition, medicines, and overall health.",
+          "_id": "6a954bde1f3b1388343202c3"
+        },
+        {
+          "question": "What ingredients are used in this Ayurvedic liver support formulation?",
+          "answer": "The formulation contains traditionally used Ayurvedic ingredients including Amalaki, Dadima, Dhanyaka, Mishriya, and Sandhav Namak. Refer to the product packaging for the complete and current ingredient information.",
+          "_id": "6a954bde1f3b1388343202c4"
+        },
+        {
+          "question": "How should Cirrhosis Hepatitis Ayurvedic Liver Support be used?",
+          "answer": "The recommended usage is 4 grams two to three times daily, or according to professional guidance. Always follow the product instructions and consult a qualified healthcare professional if you have a diagnosed liver condition or take medicines.",
+          "_id": "6a954bde1f3b1388343202c5"
+        },
+        {
+          "question": "Does this product support healthy digestion?",
+          "answer": "The formulation is designed to support digestive wellness and healthy digestion as part of overall Ayurvedic wellness care.",
+          "_id": "6a954bde1f3b1388343202c6"
+        },
+        {
+          "question": "Can I take Ayurvedic liver support with prescription medicines?",
+          "answer": "Do not assume that an Ayurvedic product is automatically suitable with prescription medicines. If you take regular medication, especially for a liver condition or another chronic condition, consult your qualified healthcare professional before use.",
+          "_id": "6a954bde1f3b1388343202c7"
+        },
+        {
+          "question": "Is this product a replacement for liver disease treatment?",
+          "answer": "No. This product should not be considered a replacement for diagnosis, prescribed medicines, or medical treatment. It is positioned as supportive Ayurvedic wellness care, and individual results may vary.",
+          "_id": "6a954bde1f3b1388343202c8"
+        }
+      ],
+      "imageAlt": "Cirrhosis Hepatitis Ayurvedic Liver Support product",
+      "longTailKeywords": [
+        "Ayurvedic liver support for cirrhosis and hepatitis",
+        "Ayurvedic support for liver wellness",
+        "Natural Ayurvedic liver support formulation",
+        "Ayurvedic formulation for liver health"
+      ],
+      "metaDescription": "Buy Ayurvedic Asthma Medicine for breathing support and respiratory wellness. A traditional Ayurvedic formulation designed to support healthy breathing and lung wellness.",
+      "metaTitle": "Ayurvedic Liver Support for Cirrhosis & Hepatitis",
+      "primaryKeyword": "Ayurvedic Liver Support",
+      "reviews": [
+        {
+          "name": "Verified Customer",
+          "title": "Verified Purchase",
+          "comment": "Product quality was good and the packaging was secure. The overall buying experience was smooth.",
+          "rating": 5,
+          "_id": "6a954bde1f3b1388343202b9",
+          "createdAt": "2026-09-14T05:37:57.167Z",
+          "updatedAt": "2026-09-14T05:37:57.167Z"
+        },
+        {
+          "name": "Verified Customer",
+          "title": "Regular Use",
+          "comment": "I have been using the product regularly and have been satisfied with the overall product and service.",
+          "rating": 5,
+          "_id": "6a954bde1f3b1388343202ba",
+          "createdAt": "2026-09-14T05:37:57.167Z",
+          "updatedAt": "2026-09-14T05:37:57.167Z"
+        },
+        {
+          "name": "Verified Customer",
+          "title": "Packaging & Usage",
+          "comment": "The packaging was clean and professional, and the product was easy to use.",
+          "rating": 5,
+          "_id": "6a954bde1f3b1388343202bb",
+          "createdAt": "2026-09-14T05:37:57.167Z",
+          "updatedAt": "2026-09-14T05:37:57.167Z"
+        },
+        {
+          "name": "Verified Customer",
+          "title": "Delivery & Support",
+          "comment": "Delivery was on time and the customer support team responded properly to my questions.",
+          "rating": 5,
+          "_id": "6a954bde1f3b1388343202bc",
+          "createdAt": "2026-09-14T05:37:57.168Z",
+          "updatedAt": "2026-09-14T05:37:57.168Z"
+        },
+        {
+          "name": "Verified Customer",
+          "title": "Buying Experience",
+          "comment": "Good product quality and a convenient ordering experience.",
+          "rating": 5,
+          "_id": "6a954bde1f3b1388343202bd",
+          "createdAt": "2026-09-14T05:37:57.168Z",
+          "updatedAt": "2026-09-14T05:37:57.168Z"
+        },
+        {
+          "name": "Verified Customer",
+          "title": "Service & Packaging",
+          "comment": "I was satisfied with the packaging, delivery, and overall customer service.",
+          "rating": 5,
+          "_id": "6a954bde1f3b1388343202be",
+          "createdAt": "2026-09-14T05:37:57.168Z",
+          "updatedAt": "2026-09-14T05:37:57.168Z"
+        },
+        {
+          "name": "Verified Customer",
+          "title": "Product Arrival",
+          "comment": "The product arrived safely and the overall purchase experience was good.",
+          "rating": 5,
+          "_id": "6a954bde1f3b1388343202bf",
+          "createdAt": "2026-09-14T05:37:57.168Z",
+          "updatedAt": "2026-09-14T05:37:57.168Z"
+        },
+        {
+          "name": "Verified Customer",
+          "title": "Overall Experience",
+          "comment": "Good experience with the product quality, packaging, and service.",
+          "rating": 5,
+          "_id": "6a954bde1f3b1388343202c0",
+          "createdAt": "2026-09-14T05:37:57.168Z",
+          "updatedAt": "2026-09-14T05:37:57.168Z"
+        }
+      ],
+      "secondaryKeywords": [
+        "Ayurvedic liver support for cirrhosis",
+        "Ayurvedic liver support for hepatitis",
+        "Ayurvedic liver wellness",
+        "Ayurvedic liver care"
+      ],
+      "semanticTerms": [
+        "Liver wellness",
+        "Liver health",
+        "Liver support",
+        "Ayurvedic liver care",
+        "Liver support",
+        "Ayurvedic formulation",
+        "Digestive wellness",
+        "Healthy digestion",
+        "Traditional Ayurvedic",
+        "Natural wellness"
+      ],
+      "whyChoose": [
+        "Traditional Ayurvedic Formulation: Prepared using traditionally used Ayurvedic ingredients and principles.",
+        "Focused on Liver Wellness: Designed to provide supportive care for general liver wellness and daily wellbeing.",
+        "Supports Healthy Digestion: The formulation is designed to support digestive wellness and healthy digestion.",
+        "Quality-Focused Manufacturing: Manufactured in a GMP-certified facility, subject to applicable certification requirements.",
+        "Carefully Selected Ingredients: Contains traditionally used ingredients such as Amalaki, Dadima, and Dhanyaka.",
+        "Ayurvedic Wellness Approach: Developed around traditional Ayurvedic principles while keeping everyday wellness needs in mind.",
+        "Quality & Packaging: Prepared with attention to product quality, packaging, and customer experience.",
+        "Expert Consultation Available: Customers can seek professional guidance when they need help understanding whether the product is appropriate for their individual needs."
+      ],
+      "imageAltText": "",
+      "numReviews": 0,
+      "rating": 5,
+      "whyChooseUs": ""
+    },
+    {
+      "_id": "69763b71bd94a7bc32beca9e",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Thyroid",
+      "image": "/uploads/1774016601980-image-1769356004793.png",
+      "images": [
+        "/uploads/1774016602941-images-1772365232151.png",
+        "/uploads/1774016603914-images-1772365239788.png",
+        "/uploads/1774016604631-images-1772365245228.png"
+      ],
+      "shortDescription": "Thyroid is an Ayurvedic formulation for Ayurvedic Thyroid Support, supporting thyroid wellness, metabolism, digestion, energy, and hormonal wellness as part of a healthy lifestyle.",
+      "category": {
+        "_id": "69739e86f6c84d69035b200c",
+        "name": "Thyroid"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": false,
+      "isWellness": true,
+      "packs": [
+        {
+          "name": "Thyroid Pack A",
+          "mrp": 2000,
+          "sellingPrice": 1650,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191934004_BnFivezqs"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69763b71bd94a7bc32beca9f"
+        },
+        {
+          "name": "Thyroid Pack B",
+          "mrp": 3000,
+          "sellingPrice": 2700,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191934005_19p58i1dn"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69763b71bd94a7bc32becaa0"
+        },
+        {
+          "name": "Thyroid Pack C",
+          "mrp": 4500,
+          "sellingPrice": 4200,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191940662_KxnBN_yB7"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69763b71bd94a7bc32becaa1"
+        }
+      ],
+      "createdAt": "2026-01-25T15:49:05.777Z",
+      "updatedAt": "2026-09-15T04:36:34.736Z",
+      "__v": 10,
+      "slug": "thyroid-ayurvedic-treatment",
+      "metaDescription": "Ayurvedic Thyroid Support for adults with a focus on thyroid wellness, metabolism, digestion and hormonal wellness. Explore this Ayurvedic formulation for daily wellness.",
+      "metaTitle": "Ayurvedic Thyroid Support | Thyroid Wellness Formula",
+      "faqs": [
+        {
+          "question": "What is Ayurvedic Thyroid Support?",
+          "answer": "Ayurvedic Thyroid Support refers to Ayurvedic wellness products and practices intended to support overall thyroid health and general wellbeing. Individual needs can vary, so people with a diagnosed thyroid condition should seek professional medical guidance.\n",
+          "_id": "6aa8cb5267192dbffb9465fa"
+        },
+        {
+          "question": "What is an Ayurvedic Thyroid Medicine?",
+          "answer": "An Ayurvedic Thyroid Medicine is an Ayurvedic formulation intended to provide wellness support related to thyroid health. It should be used according to the product directions and professional guidance where appropriate.\n",
+          "_id": "6aa8cb5267192dbffb9465fb"
+        },
+        {
+          "question": "How does an Ayurvedic Thyroid Formula support wellness?",
+          "answer": "An Ayurvedic Thyroid Formula may be used as part of a healthy routine focused on thyroid wellness, metabolic wellness, digestive health, and overall hormonal wellness. Individual results may vary.\n",
+          "_id": "6aa8cb5267192dbffb9465fc"
+        },
+        {
+          "question": "Who can use Ayurvedic thyroid wellness support?",
+          "answer": "Ayurvedic thyroid wellness support for adults may be considered by adults looking for daily wellness support. People with diagnosed thyroid disorders, those taking medication, and pregnant or breastfeeding individuals should consult a qualified healthcare professional before use.\n",
+          "_id": "6aa8cb5267192dbffb9465fd"
+        },
+        {
+          "question": "Can Ayurvedic thyroid support help with metabolism and digestion?",
+          "answer": "Ayurvedic thyroid support for metabolism and digestion can be used as part of a healthy lifestyle focused on metabolic and digestive wellness. It should not be considered a guaranteed treatment for thyroid or digestive disorders.\n",
+          "_id": "6aa8cb5267192dbffb9465fe"
+        },
+        {
+          "question": "Is this Ayurvedic Support for Thyroid a replacement for thyroid medicine?",
+          "answer": "No. Ayurvedic Support for Thyroid should not be presented as a replacement for prescribed thyroid medicine. If you take thyroid medication or have a diagnosed thyroid condition, speak with your healthcare professional before changing or adding any treatment.\n",
+          "_id": "6aa8cb5267192dbffb9465ff"
+        },
+        {
+          "question": "What is the Ayurvedic formula for thyroid wellness and hormonal balance?",
+          "answer": "An Ayurvedic formula for thyroid wellness and hormonal balance is designed around Ayurvedic ingredients traditionally used for general wellness. The specific ingredients and their quantities should always be checked on the product label.\n",
+          "_id": "6aa8cb5267192dbffb946600"
+        },
+        {
+          "question": "Where can I find Ayurvedic thyroid support medicine in India?",
+          "answer": "People looking for Ayurvedic thyroid support medicine in India can explore Ayurvedic formulations from established manufacturers and sellers. Always check the product information, ingredients, usage directions, manufacturing details, and applicable quality certifications before purchasing.",
+          "_id": "6aa8cb5267192dbffb946601"
+        }
+      ],
+      "imageAltText": "Ayurvedic Thyroid Support product by Karan Singh Vaidh",
+      "numReviews": 0,
+      "primaryKeyword": "Ayurvedic Thyroid Support",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "Ayurvedic formulation focused on thyroid wellness\nDesigned for Thyroid Wellness Support\nSupports metabolism and digestive wellness\nMade with selected Ayurvedic ingredients\nManufactured in a GMP-certified facility\nQuality-focused production practices\nSuitable for adults seeking Ayurvedic wellness support\nConvenient daily wellness formulation\nSupports a holistic approach to everyday health"
+    },
+    {
+      "_id": "69763acbbd94a7bc32beca04",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "T.B(Tuberculosis)",
+      "image": "/uploads/1774016598838-image-1769355814371.png",
+      "images": [
+        "/uploads/1774016599914-images-1771949928884.png",
+        "/uploads/1774016600673-images-1771949937475.png",
+        "/uploads/1774016601277-images-1771949994614.png"
+      ],
+      "shortDescription": "T.B. (Tuberculosis) is an Ayurvedic wellness formulation for Ayurvedic Immunity Support, respiratory wellness, strength, energy, and overall health. It provides daily wellness support through a traditional Ayurvedic approach.",
+      "category": {
+        "_id": "69739e7df6c84d69035b2002",
+        "name": "Tuberculosis (TB)"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": false,
+      "isWellness": true,
+      "packs": [
+        {
+          "name": "T.B(Tuberculosis) Pack A",
+          "mrp": 3000,
+          "sellingPrice": 2850,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191892668_Gbebwy1gB"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69763acbbd94a7bc32beca05"
+        },
+        {
+          "name": "T.B(Tuberculosis) Pack B",
+          "mrp": 5500,
+          "sellingPrice": 5100,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191900363_rEyMByIFz"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69763acbbd94a7bc32beca06"
+        },
+        {
+          "name": "T.B(Tuberculosis) Pack C",
+          "mrp": 6500,
+          "sellingPrice": 6000,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191902868_aOzXmAxTe"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69763acbbd94a7bc32beca07"
+        }
+      ],
+      "createdAt": "2026-01-25T15:46:19.255Z",
+      "updatedAt": "2026-09-15T04:27:43.542Z",
+      "__v": 10,
+      "slug": "tuberculosis-ayurvedic-support",
+      "metaDescription": "Ayurvedic Immunity Support for respiratory wellness, daily strength, energy, and overall well-being. Traditional Ayurvedic formulation for natural wellness support.",
+      "metaTitle": "Ayurvedic Immunity Support | T.B. Wellness Formula",
+      "faqs": [
+        {
+          "question": "What is Ayurvedic Immunity Support?",
+          "answer": "Ayurvedic Immunity Support refers to traditional Ayurvedic approaches used to support the body's natural defense system and overall wellness.\n",
+          "_id": "6aa8c93f67192dbffb9465e7"
+        },
+        {
+          "question": "What is this T.B. (Tuberculosis) product used for?",
+          "answer": "This product is formulated for immunity, respiratory wellness, strength, energy, and overall health support. It should not be used as a replacement for prescribed tuberculosis treatment.\n",
+          "_id": "6aa8c93f67192dbffb9465e8"
+        },
+        {
+          "question": "Is this an Ayurvedic Immunity Supplement?",
+          "answer": "Yes. It is an Ayurvedic Immunity Supplement designed to support immune system function, daily wellness, strength, and overall health.\n",
+          "_id": "6aa8c93f67192dbffb9465e9"
+        },
+        {
+          "question": "Can this product support respiratory health?",
+          "answer": "It is designed to provide Ayurvedic Respiratory Support and support respiratory wellness as part of a healthy lifestyle.\n",
+          "_id": "6aa8c93f67192dbffb9465ea"
+        },
+        {
+          "question": "Is this an Ayurvedic supplement for immunity and strength?",
+          "answer": "Yes. The formulation is intended to provide Ayurvedic supplement for immunity and strength support as part of a regular wellness routine.\n",
+          "_id": "6aa8c93f67192dbffb9465eb"
+        },
+        {
+          "question": "Can I take this product while receiving TB treatment?",
+          "answer": "Anyone receiving tuberculosis treatment should speak with their qualified healthcare professional before using this or any additional supplement. Do not stop or change prescribed TB medicines without medical advice.\n",
+          "_id": "6aa8c93f67192dbffb9465ec"
+        },
+        {
+          "question": "How should this Ayurvedic wellness supplement be taken?",
+          "answer": "The recommended use is 2 capsules twice daily with water, or as directed by a qualified healthcare professional.\n",
+          "_id": "6aa8c93f67192dbffb9465ed"
+        },
+        {
+          "question": "Does this product provide natural immunity support?",
+          "answer": "The formulation is designed to provide Natural Immunity Support and general wellness support through a traditional Ayurvedic approach. Individual results may vary.",
+          "_id": "6aa8c93f67192dbffb9465ee"
+        }
+      ],
+      "imageAltText": "T.B. Tuberculosis Ayurvedic Immunity Support",
+      "numReviews": 0,
+      "primaryKeyword": "Ayurvedic Immunity Support",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "Traditional Ayurvedic formulation\nDesigned for Ayurvedic Immunity Support\nSupports respiratory wellness\nProvides Ayurvedic Strength Support\nSupports energy and overall wellness\nSuitable for a regular wellness routine\nMade with carefully selected Ayurvedic ingredients\nManufactured in a GMP-certified facility\nQuality-focused manufacturing process\nConvenient capsule format\nDesigned for daily wellness support"
+    },
+    {
+      "_id": "69763a03bd94a7bc32bec970",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Sinus",
+      "image": "https://ik.imagekit.io/wjmididvj/ksv-products/main/ksv-1782906550128_e4srSpL5i",
+      "images": [
+        "/uploads/1774016596374-images-1772365357456.png",
+        "https://ik.imagekit.io/wjmididvj/ksv-products/gallery/ksv-1782906555861_LgVGERbDk",
+        "/uploads/1774016598186-images-1772365369989.png"
+      ],
+      "shortDescription": "Sinus by Karan Singh Vaidh is an Ayurvedic Medicine for Sinus designed to support nasal comfort, sinus congestion, blocked nose, sinus pressure, and overall respiratory wellness.",
+      "category": {
+        "_id": "69761f81bd94a7bc32beb998",
+        "name": "All products"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": false,
+      "isWellness": false,
+      "packs": [
+        {
+          "name": "Sinus Pack A",
+          "mrp": 1800,
+          "sellingPrice": 1650,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191844439_YikQVTUBQ"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69763a03bd94a7bc32bec971"
+        },
+        {
+          "name": "Sinus Pack B",
+          "mrp": 3800,
+          "sellingPrice": 3450,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191851853_8JkBTOEoX"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69763a03bd94a7bc32bec972"
+        },
+        {
+          "name": "Fibroids Pack C",
+          "mrp": 6000,
+          "sellingPrice": 5450,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191853977_quQcillfL"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69763a03bd94a7bc32bec973"
+        }
+      ],
+      "createdAt": "2026-01-25T15:42:59.013Z",
+      "updatedAt": "2026-09-15T04:23:28.531Z",
+      "__v": 12,
+      "slug": "sinus-ayurvedic-treatment",
+      "metaDescription": "Ayurvedic Medicine for Sinus and nasal congestion. Supports nasal comfort, respiratory wellness, blocked nose and sinus-related symptoms with Ayurvedic care.",
+      "metaTitle": "Ayurvedic Medicine for Sinus & Nasal Congestion | Karan Singh Vaidh",
+      "faqs": [
+        {
+          "question": "What is Ayurvedic Medicine for Sinus?",
+          "answer": "Ayurvedic Medicine for Sinus refers to Ayurvedic formulations used to provide supportive care for sinus-related symptoms and promote nasal comfort and respiratory wellness.\n",
+          "_id": "6aa8c84067192dbffb9463ac"
+        },
+        {
+          "question": "Is Ayurvedic Medicine good for sinus congestion?",
+          "answer": "Ayurvedic formulations may provide supportive care for people experiencing sinus congestion and nasal discomfort. Individual needs can vary, so professional guidance is recommended.\n",
+          "_id": "6aa8c84067192dbffb9463ad"
+        },
+        {
+          "question": "What is the best Ayurvedic Medicine for Sinus Congestion?",
+          "answer": "The appropriate product can depend on the person's symptoms and individual needs. Sinus is an Ayurvedic formulation designed to support nasal comfort, sinus congestion, and respiratory wellness.\n",
+          "_id": "6aa8c84067192dbffb9463ae"
+        },
+        {
+          "question": "Can Ayurvedic Medicine help with a blocked nose?",
+          "answer": "Ayurvedic formulations may provide supportive care for blocked nose and nasal congestion. Persistent or severe nasal blockage should be evaluated by a qualified healthcare professional.\n",
+          "_id": "6aa8c84067192dbffb9463af"
+        },
+        {
+          "question": "What is Ayurvedic Medicine for Sinus and Nasal Congestion used for?",
+          "answer": "It is used as supportive Ayurvedic care for concerns such as sinus congestion, nasal congestion, blocked nose, nasal blockage, sinus pressure, and general respiratory wellness.\n",
+          "_id": "6aa8c84067192dbffb9463b0"
+        },
+        {
+          "question": "Can Ayurvedic Medicine be used for sinus headache and congestion?",
+          "answer": "An Ayurvedic formulation may provide supportive wellness care for people experiencing sinus headache and congestion. If headaches are severe, frequent, or unusual, seek professional medical advice.\n",
+          "_id": "6aa8c84067192dbffb9463b1"
+        },
+        {
+          "question": "Is Sinus an Ayurvedic Medicine for Nasal Congestion?",
+          "answer": "Sinus is an Ayurvedic formulation designed to support nasal comfort and respiratory wellness for people experiencing concerns such as nasal congestion and blocked nose.\n",
+          "_id": "6aa8c84067192dbffb9463b2"
+        },
+        {
+          "question": "How should Sinus Ayurvedic Medicine be used?",
+          "answer": "Use the product according to the dosage and directions provided with the product or as advised by a qualified healthcare professional. Do not exceed the recommended quantity.",
+          "_id": "6aa8c84067192dbffb9463b3"
+        }
+      ],
+      "imageAltText": "Ayurvedic Medicine for Sinus by Karan Singh Vaidh",
+      "numReviews": 0,
+      "primaryKeyword": "Ayurvedic Medicine for Sinus",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "Ayurvedic formulation for sinus wellness\nDesigned for nasal and respiratory support\nSupports nasal comfort and everyday wellness\nSuitable for people seeking Ayurvedic care for sinus-related symptoms\nMade with quality-focused manufacturing practices\nConvenient for regular use as directed\nProfessional guidance available\nFocuses on overall wellness rather than making guaranteed-result claims"
+    },
+    {
+      "_id": "6976394bbd94a7bc32bec8e2",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Psoriasis & Skin Allergy",
+      "image": "/uploads/1774016592399-image-1769355450618.png",
+      "images": [
+        "/uploads/1774016592671-images-1772365480091.png",
+        "/uploads/1774016594049-images-1772365486866.png",
+        "/uploads/1774016594713-images-1772365491404.png"
+      ],
+      "shortDescription": "Psoriasis & Skin Allergy is an Ayurvedic skin formulation designed to support psoriasis skin care, skin allergy care, and itching relief. This traditional Ayurvedic formulation is developed as an Ayurvedic Medicine for Psoriasis and Skin Allergy, supporting healthy skin wellness and overall skin care with time-tested Ayurvedic principles.",
+      "category": {
+        "_id": "69761f81bd94a7bc32beb998",
+        "name": "All products"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": false,
+      "isWellness": false,
+      "packs": [
+        {
+          "name": "PSORIASIS/Skin Allergy Pack A",
+          "mrp": 3000,
+          "sellingPrice": 2850,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191795901_oHa31jrRx"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976394bbd94a7bc32bec8e3"
+        },
+        {
+          "name": "PSORIASIS/Skin Allergy Pack B",
+          "mrp": 5000,
+          "sellingPrice": 4500,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191804694_i4pO9-hth"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976394bbd94a7bc32bec8e4"
+        },
+        {
+          "name": "PSORIASIS/Skin Allergy Pack C",
+          "mrp": 6000,
+          "sellingPrice": 5400,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191806787__0yQ1TOrO"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976394bbd94a7bc32bec8e5"
+        }
+      ],
+      "createdAt": "2026-01-25T15:39:55.156Z",
+      "updatedAt": "2026-09-14T10:58:53.128Z",
+      "__v": 9,
+      "slug": "psoriasis-skin-allergy-ayurvedic-treatment",
+      "metaDescription": "Explore Ayurvedic Medicine for Psoriasis and Skin Allergy to support skin wellness, itching relief, redness, and skin irritation with traditional Ayurvedic care.",
+      "metaTitle": "Ayurvedic Medicine for Psoriasis and Skin Allergy | Karan Singh Vaidh",
+      "faqs": [
+        {
+          "question": "What is Ayurvedic Medicine for Psoriasis and Skin Allergy?",
+          "answer": "Ayurvedic Medicine for Psoriasis and Skin Allergy refers to Ayurvedic formulations used as part of traditional skin wellness and personal skin-care routines. Individual suitability can vary, so professional advice is recommended.\n",
+          "_id": "6aa7d36d67192dbffb940240"
+        },
+        {
+          "question": "Is Ayurvedic Medicine for Psoriasis suitable for skin care?",
+          "answer": "Ayurvedic Medicine for Psoriasis may be considered as part of an Ayurvedic skin-care routine. The appropriate product and usage depend on the individual's skin condition and overall health.\n",
+          "_id": "6aa7d36d67192dbffb940241"
+        },
+        {
+          "question": "What is Ayurvedic Medicine for Skin Allergy used for?",
+          "answer": "Ayurvedic Medicine for Skin Allergy is generally considered for traditional skin wellness and support for concerns such as itching, irritation, redness, and discomfort. Consult a qualified healthcare professional for personalized guidance.\n",
+          "_id": "6aa7d36d67192dbffb940242"
+        },
+        {
+          "question": "Can I use Ayurvedic Medicine for Psoriasis and Itching?",
+          "answer": "People looking for Ayurvedic Medicine for Psoriasis and Itching may consider an Ayurvedic approach to skin wellness. Product suitability and dosage should be discussed with a qualified Ayurvedic healthcare professional.\n",
+          "_id": "6aa7d36d67192dbffb940243"
+        },
+        {
+          "question": "What is Ayurvedic Medicine for Skin Allergy and Itching?",
+          "answer": "Ayurvedic Medicine for Skin Allergy and Itching refers to Ayurvedic products intended to support skin wellness and comfort. Individual results and suitability may vary.\n",
+          "_id": "6aa7d36d67192dbffb940244"
+        },
+        {
+          "question": "Is Psoriasis Ayurvedic Medicine suitable for long-term use?",
+          "answer": "Long-term use should depend on the product directions and individual needs. It is best to consult a qualified Ayurvedic healthcare professional before using any product for an extended period.\n",
+          "_id": "6aa7d36d67192dbffb940245"
+        },
+        {
+          "question": "Where can I Buy Ayurvedic Medicine for Psoriasis Online?",
+          "answer": "You can buy Ayurvedic Medicine for Psoriasis Online through the official The Karan Singh Vaidh website. Check the product details, pack size, usage instructions, and applicable precautions before ordering.\n",
+          "_id": "6aa7d36d67192dbffb940246"
+        },
+        {
+          "question": "What is the difference between Psoriasis Ayurvedic Medicine and Skin Allergy Ayurvedic Medicine?",
+          "answer": "Psoriasis Ayurvedic Medicine and Skin Allergy Ayurvedic Medicine may have different intended uses and formulations. Psoriasis and skin allergies can have different causes and symptoms, so professional guidance can help determine the appropriate approach.",
+          "_id": "6aa7d36d67192dbffb940247"
+        }
+      ],
+      "imageAltText": "Ayurvedic Medicine for Psoriasis and Skin Allergy",
+      "numReviews": 0,
+      "primaryKeyword": "Psoriasis and Skin Allergy Ayurvedic Medicine",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "Traditional Ayurvedic approach to skin wellness\nDesigned for psoriasis skin care and skin allergy care\nSupports people looking for Ayurvedic skin care\nSuitable for a consistent personal wellness routine\nManufactured with quality standards\nEasy to include in a regular wellness routine\nSupports skin comfort and healthy-looking skin\nAvailable to buy online through The Karan Singh Vaidh"
+    },
+    {
+      "_id": "6976388abd94a7bc32bec85a",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Prostate",
+      "image": "/uploads/1774016588738-image-1769355265716.png",
+      "images": [
+        "/uploads/1774016590084-images-1771949746297.png",
+        "/uploads/1774016591041-images-1771949753343.png",
+        "/uploads/1774016591799-images-1771949761128.png"
+      ],
+      "shortDescription": "Prostate by Karan Singh Vaidh is an Ayurvedic Medicine for Prostate designed to support prostate health, urinary health, healthy urinary function, and overall male wellness. Based on traditional Ayurvedic principles, this formulation is intended to support men’s wellness and maintain normal urinary function naturally.",
+      "category": {
+        "_id": "69761f81bd94a7bc32beb998",
+        "name": "All products"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": false,
+      "isWellness": false,
+      "packs": [
+        {
+          "name": "Prostate Pack A",
+          "mrp": 4000,
+          "sellingPrice": 3750,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774515392343_pGbzxLjY9"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976388abd94a7bc32bec85b"
+        },
+        {
+          "name": "Prostate Pack B",
+          "mrp": 4500,
+          "sellingPrice": 4050,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774515459780_VXA8ClZCB"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976388abd94a7bc32bec85c"
+        },
+        {
+          "name": "Prostate Pack C",
+          "mrp": 5400,
+          "sellingPrice": 4800,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774515468661_hME_TNm-u"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976388abd94a7bc32bec85d"
+        }
+      ],
+      "createdAt": "2026-01-25T15:36:42.236Z",
+      "updatedAt": "2026-09-14T10:53:24.022Z",
+      "__v": 10,
+      "slug": "prostate-ayurvedic-treatment",
+      "metaDescription": "Explore Ayurvedic Medicine for Prostate health and urinary wellness. Designed to support prostate health, urinary function, urinary flow, and overall male wellness.",
+      "metaTitle": "Ayurvedic Medicine for Prostate | Prostate Health Support",
+      "faqs": [
+        {
+          "question": "What is Ayurvedic Medicine for Prostate?",
+          "answer": "Ayurvedic Medicine for Prostate refers to Ayurvedic formulations designed to support prostate health, urinary wellness, and overall male wellness. Individual needs can vary, so professional guidance may be appropriate.\n",
+          "_id": "6aa7d22467192dbffb93fef9"
+        },
+        {
+          "question": "What is Ayurvedic Prostate Medicine used for?",
+          "answer": "Ayurvedic Prostate Medicine is generally used as part of a wellness routine focused on prostate health, urinary health, urinary function, and male wellness.\n",
+          "_id": "6aa7d22467192dbffb93fefa"
+        },
+        {
+          "question": "Is this an Ayurvedic Medicine for Prostate Health?",
+          "answer": "Yes. This product is an Ayurvedic formulation designed to provide prostate health and urinary wellness support while following the principles of Traditional Ayurveda.\n",
+          "_id": "6aa7d22467192dbffb93fefb"
+        },
+        {
+          "question": "Can Ayurvedic medicine support urinary health?",
+          "answer": "Ayurvedic formulations may be used as part of a wellness approach focused on urinary health and urinary function. Persistent or concerning urinary symptoms should be evaluated by a qualified healthcare professional.\n",
+          "_id": "6aa7d22467192dbffb93fefc"
+        },
+        {
+          "question": "Is this Ayurvedic medicine for prostate health in India?",
+          "answer": "Yes. This product is available in India for customers looking for Ayurvedic medicine for prostate health in India and Ayurvedic Prostate Health Support.\n",
+          "_id": "6aa7d22467192dbffb93fefd"
+        },
+        {
+          "question": "Can this be used as Ayurvedic prostate medicine for urinary health?",
+          "answer": "This formulation is designed to support prostate and urinary wellness. Follow the product directions and consult a qualified healthcare professional for individual guidance.\n",
+          "_id": "6aa7d22467192dbffb93fefe"
+        },
+        {
+          "question": "What is the difference between prostate health and urinary health?",
+          "answer": "Prostate health and urinary health are closely related, but urinary symptoms can have many different causes. A healthcare professional can help identify the cause of persistent urinary problems.\n",
+          "_id": "6aa7d22467192dbffb93feff"
+        },
+        {
+          "question": "Who should consult a healthcare professional before using prostate health medicine?",
+          "answer": "People with an existing medical condition, those taking prescription medicines, or anyone experiencing persistent, severe, or unusual urinary symptoms should consult a qualified healthcare professional before using a prostate health medicine.",
+          "_id": "6aa7d22467192dbffb93ff00"
+        }
+      ],
+      "imageAltText": "Ayurvedic Medicine for Prostate by Karan Singh Vaidh",
+      "numReviews": 0,
+      "primaryKeyword": "Ayurvedic Medicine for Prostate",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "Ayurvedic Medicine for Prostate health and wellness support\nMade with selected Ayurvedic ingredients\nBased on the principles of Traditional Ayurveda\nDesigned for prostate health and urinary wellness\nSupports urinary function and urinary flow\nSupports overall male wellness\nQuality-focused Ayurvedic formulation\nConvenient option for daily wellness support\nSuitable for customers looking for Ayurvedic Prostate Medicine\nAvailable for customers across India"
+    },
+    {
+      "_id": "697637dbbd94a7bc32bec74e",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Polyps",
+      "image": "/uploads/1774016586357-image-1771948847926.png",
+      "images": [
+        "/uploads/1774016586584-images-1771948492357.png",
+        "/uploads/1774016587454-images-1771948500304.png",
+        "/uploads/1774016587993-images-1771948509080.png"
+      ],
+      "shortDescription": "Polyps by Karan Singh Vaidh is an Ayurvedic formulation designed to provide personalized Ayurvedic support for polyps. This Ayurvedic Medicine for Polyps is prepared with selected ingredients and is intended to complement a traditional Ayurveda-based wellness approach.",
+      "category": {
+        "_id": "69761f81bd94a7bc32beb998",
+        "name": "All products"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": false,
+      "isWellness": false,
+      "packs": [
+        {
+          "name": "Polyps Pack A",
+          "mrp": 2600,
+          "sellingPrice": 2250,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774618633126_cARTXchre"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "697637dbbd94a7bc32bec74f"
+        },
+        {
+          "name": "Polyps Pack B",
+          "mrp": 4500,
+          "sellingPrice": 4000,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774618639198_I1DZVQylx"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "697637dbbd94a7bc32bec750"
+        },
+        {
+          "name": "Polyps Pack C",
+          "mrp": 5500,
+          "sellingPrice": 5000,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774618648453_JQdX3qEVC"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69c688326940f7e63ee5cfc5"
+        }
+      ],
+      "createdAt": "2026-01-25T15:33:47.982Z",
+      "updatedAt": "2026-09-14T10:41:17.514Z",
+      "__v": 12,
+      "slug": "polyps-ayurvedic-treatment",
+      "metaDescription": "Explore Ayurvedic Medicine for Polyps by Karan Singh Vaidh, made with a traditional Ayurvedic formulation for personalized polyp wellness and health support.",
+      "metaTitle": "Ayurvedic Medicine for Polyps | Natural Ayurvedic Support",
+      "faqs": [
+        {
+          "question": "What is Ayurvedic Medicine for Polyps?",
+          "answer": "Ayurvedic Medicine for Polyps refers to an Ayurveda-based formulation used as part of a personalized wellness and care approach. The appropriate use can depend on the type, location, symptoms, and individual health condition.\n",
+          "_id": "6aa7cf4d67192dbffb93fea4"
+        },
+        {
+          "question": "Is Ayurvedic Polyps Medicine suitable for everyone?",
+          "answer": "Not necessarily. Polyps can occur in different parts of the body, and individual health conditions can vary. It is best to consult a qualified healthcare professional before starting any product, especially if you have symptoms or are already taking medicines.\n",
+          "_id": "6aa7cf4d67192dbffb93fea5"
+        },
+        {
+          "question": "How does Ayurvedic Medicine for Polyp management work?",
+          "answer": "An Ayurvedic Medicine for Polyp is generally used as part of an individualized Ayurvedic care plan. Ayurveda considers a person's overall health, symptoms, lifestyle, and individual needs rather than focusing only on one symptom.\n",
+          "_id": "6aa7cf4d67192dbffb93fea6"
+        },
+        {
+          "question": "How should Polyps Ayurvedic Medicine be taken?",
+          "answer": "Follow the dosage and directions provided on the product label or given by a qualified healthcare professional. Do not take more than the recommended amount.\n",
+          "_id": "6aa7cf4d67192dbffb93fea7"
+        },
+        {
+          "question": "Can I use Ayurvedic Medicine for Polyps with other medicines?",
+          "answer": "If you are already taking prescription or other medicines, consult a qualified healthcare professional before using an Ayurvedic Polyps Medicine. This is especially important for long-term medicines or existing medical conditions.\n",
+          "_id": "6aa7cf4d67192dbffb93fea8"
+        },
+        {
+          "question": "Where can I buy Ayurvedic medicine for polyps in India?",
+          "answer": "You can purchase Ayurvedic medicine for polyps in India through the official Karan Singh Vaidh website, subject to product availability and delivery locations.\n",
+          "_id": "6aa7cf4d67192dbffb93fea9"
+        },
+        {
+          "question": "Is this a Natural Ayurvedic Medicine for Polyps?",
+          "answer": "Polyps by Karan Singh Vaidh is an Ayurvedic formulation developed around traditional Ayurvedic principles. For exact ingredients and formulation details, customers should refer to the product label or official product information.\n",
+          "_id": "6aa7cf4d67192dbffb93feaa"
+        },
+        {
+          "question": "Can Ayurvedic medicine replace medical treatment for polyps?",
+          "answer": "No product should automatically be considered a replacement for diagnosis or treatment recommended by a qualified healthcare professional. Since polyps can occur in different parts of the body, proper evaluation is important before deciding on a treatment approach.",
+          "_id": "6aa7cf4d67192dbffb93feab"
+        }
+      ],
+      "imageAltText": "Ayurvedic Medicine for Polyps by Karan Singh Vaidh",
+      "numReviews": 0,
+      "primaryKeyword": "Ayurvedic Medicine for Polyps",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "Developed around the principles of Traditional Ayurveda.\nDesigned for personalized Ayurvedic care.\nProvides supportive Ayurvedic health support.\nSuitable for people looking for an Ayurveda-based wellness approach.\nQuality-focused product preparation.\nConvenient format for regular use.\nFocus on personalized wellness rather than one-size-fits-all care.\nBacked by the Ayurvedic experience of Karan Singh Vaidh.\nAvailable for customers across India.\nCan be combined with professional Ayurvedic consultation for a personalized approach."
+    },
+    {
+      "_id": "6976370fbd94a7bc32bec3fe",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Piles",
+      "image": "https://ik.imagekit.io/wjmididvj/ksv-products/main/ksv-1782906506299_9WxO_PQZwQ",
+      "images": [
+        "/uploads/1774016583534-images-1771949825036.png",
+        "https://ik.imagekit.io/wjmididvj/ksv-products/gallery/ksv-1782906512176_0AeV0Udw_t",
+        "/uploads/1774016585754-images-1771949840261.png"
+      ],
+      "shortDescription": "Piles by Karan Singh Vaidh is an Ayurvedic formulation that supports comfortable bowel movements, digestive health, and overall wellness. A gentle Ayurvedic Medicine for Piles formulated with traditional Ayurvedic ingredients.",
+      "category": {
+        "_id": "69739e67f6c84d69035b1ff1",
+        "name": "Piles"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": true,
+      "isWellness": true,
+      "packs": [
+        {
+          "name": "Piles Pack A",
+          "mrp": 3000,
+          "sellingPrice": 2850,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191752322_B6Ah8J6Acy"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976370fbd94a7bc32bec3ff"
+        },
+        {
+          "name": "Piles Pack B",
+          "mrp": 4200,
+          "sellingPrice": 3900,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191752322_RSubaLLAiZ"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976370fbd94a7bc32bec400"
+        },
+        {
+          "name": "Piles Pack C",
+          "mrp": 7000,
+          "sellingPrice": 6450,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191762140_eYyBqAD3s"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976370fbd94a7bc32bec401"
+        }
+      ],
+      "createdAt": "2026-01-25T15:30:23.977Z",
+      "updatedAt": "2026-09-14T10:29:44.036Z",
+      "__v": 11,
+      "slug": "piles-ayurvedic-treatment",
+      "metaDescription": "Looking for Ayurvedic Medicine for Piles? Explore Piles Ayurvedic Medicine by Karan Singh Vaidh for digestive health, bowel comfort and piles wellness support.",
+      "metaTitle": "Ayurvedic Medicine for Piles | Buy Piles Medicine Online",
+      "faqs": [
+        {
+          "question": "What is Ayurvedic Medicine for Piles?",
+          "answer": "Ayurvedic Medicine for Piles refers to Ayurvedic formulations used to support digestive health, bowel comfort and overall wellness in people dealing with piles or hemorrhoids. The suitability of any product can vary from person to person.\n",
+          "_id": "6aa7cc9867192dbffb93fd66"
+        },
+        {
+          "question": "Is Ayurvedic Piles Medicine suitable for hemorrhoids?",
+          "answer": "Ayurvedic Piles Medicine may be used as part of an Ayurvedic wellness approach for hemorrhoids. Consult a qualified healthcare professional to determine whether it is suitable for your individual needs.\n",
+          "_id": "6aa7cc9867192dbffb93fd67"
+        },
+        {
+          "question": "Can I use Ayurvedic medicine for piles with constipation?",
+          "answer": "People experiencing piles along with constipation may look for Ayurvedic medicine for piles with constipation to support digestive and bowel wellness. Adequate fluids, dietary fibre and healthy bowel habits are also important.\n",
+          "_id": "6aa7cc9867192dbffb93fd68"
+        },
+        {
+          "question": "Can Ayurvedic medicine help with piles pain and discomfort?",
+          "answer": "People searching for Ayurvedic medicine for piles pain and discomfort should understand that the cause and severity of piles can vary. An Ayurvedic healthcare professional can recommend an appropriate approach based on individual needs.\n",
+          "_id": "6aa7cc9867192dbffb93fd69"
+        },
+        {
+          "question": "What is the difference between piles and hemorrhoids?",
+          "answer": "Piles and hemorrhoids are commonly used terms for swollen or enlarged veins in and around the lower rectal and anal area. If you have persistent bleeding, severe pain or unusual symptoms, seek medical advice.\n",
+          "_id": "6aa7cc9867192dbffb93fd6a"
+        },
+        {
+          "question": "How should I take this Piles Ayurvedic Medicine?",
+          "answer": "Take the product according to the dosage written on the website below the product or as advised by a qualified healthcare professional. For this product, the stated dosage is 3 grams, 2–3 times daily with water, unless otherwise advised.\n",
+          "_id": "6aa7cc9867192dbffb93fd6b"
+        },
+        {
+          "question": "Can I Buy Ayurvedic Medicine for Piles Online?",
+          "answer": "Yes, you can Buy Ayurvedic Medicine for Piles Online from a reliable source. Before purchasing, check the product information, ingredients, dosage, manufacturer details and applicable quality information.\n",
+          "_id": "6aa7cc9867192dbffb93fd6c"
+        },
+        {
+          "question": "When should I consult a doctor for piles?",
+          "answer": "Consult a healthcare professional if you have persistent or significant rectal bleeding, severe pain, fever, dizziness, black stools, or symptoms that continue or worsen. Do not rely only on self-care for unexplained or severe symptoms.",
+          "_id": "6aa7cc9867192dbffb93fd6d"
+        }
+      ],
+      "imageAltText": "Ayurvedic Medicine for Piles",
+      "numReviews": 0,
+      "primaryKeyword": "Ayurvedic Medicine for Piles",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "• Ayurvedic formulation for piles wellness support\n• Designed with a focus on digestive and bowel health\n• Suitable for people looking for Ayurvedic Piles Medicine\n• Manufactured in a GMP-certified facility\n• Quality-focused Ayurvedic product\n• Convenient option for people looking to Buy Ayurvedic Medicine for Piles Online\n• Supports a balanced approach to digestive wellness\n• Made for regular use according to professional guidance"
+    },
+    {
+      "_id": "69763627bd94a7bc32bec386",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Over Weight",
+      "image": "https://ik.imagekit.io/wjmididvj/ksv-products/main/ksv-1782906445083_fwONbV6Ji",
+      "images": [
+        "/uploads/1774016580303-images-1771950065917.png",
+        "https://ik.imagekit.io/wjmididvj/ksv-products/gallery/ksv-1782906458562_2OjsR_BSm",
+        "/uploads/1774016581843-images-1771950084752.png"
+      ],
+      "shortDescription": "Over Weight is an Ayurvedic Weight Management Medicine formulated to support healthy weight management, digestive wellness, bowel regularity, and a balanced lifestyle.",
+      "category": {
+        "_id": "69761f81bd94a7bc32beb998",
+        "name": "All products"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": false,
+      "isWellness": false,
+      "packs": [
+        {
+          "name": "Over Weight Pack A",
+          "mrp": 3800,
+          "sellingPrice": 3500,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191705309_pWM2YLD2d"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69763627bd94a7bc32bec387"
+        },
+        {
+          "name": "Over Weight Pack B",
+          "mrp": 4500,
+          "sellingPrice": 4000,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191711135_ddRXktPx2"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69763627bd94a7bc32bec388"
+        },
+        {
+          "name": "Over Weight Pack C",
+          "mrp": 7500,
+          "sellingPrice": 7000,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191714469_iqEGu-yMK"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69763627bd94a7bc32bec389"
+        }
+      ],
+      "createdAt": "2026-01-25T15:26:31.834Z",
+      "updatedAt": "2026-09-14T10:25:51.779Z",
+      "__v": 10,
+      "slug": "weight-loss-ayurvedic-treatment",
+      "metaDescription": "Over Weight is an Ayurvedic weight management medicine designed to support healthy weight management, digestive health, bowel regularity, and overall wellness.",
+      "metaTitle": "Ayurvedic Weight Management Medicine | Over Weight",
+      "faqs": [
+        {
+          "question": "1. What is Ayurvedic Weight Management Medicine?",
+          "answer": "Ayurvedic Weight Management Medicine refers to Ayurvedic formulations used to support healthy weight management as part of a balanced lifestyle. Such products are generally used along with a balanced diet and regular physical activity.",
+          "_id": "6aa7cbaf67192dbffb93fd3d"
+        },
+        {
+          "question": "What is Ayurvedic Weight Management?",
+          "answer": "Ayurvedic Weight Management focuses on maintaining a healthy body weight through traditional Ayurvedic principles, proper digestion, healthy daily habits, balanced food choices, and an active lifestyle.\n",
+          "_id": "6aa7cbaf67192dbffb93fd3e"
+        },
+        {
+          "question": "How can Ayurvedic Medicine support Weight Management?",
+          "answer": "Ayurvedic Medicine for Weight Management can be used as part of a wellness routine that focuses on digestive health, bowel regularity, healthy eating habits, and regular physical activity.\n",
+          "_id": "6aa7cbaf67192dbffb93fd3f"
+        },
+        {
+          "question": "What is an Ayurvedic Weight Management Formula?",
+          "answer": "An Ayurvedic Weight Management Formula is a traditional Ayurvedic formulation designed to provide weight management support. The Over Weight formulation contains ingredients such as Haritaki, Ajwain, Sunthi, and Sandhav Namak.\n",
+          "_id": "6aa7cbaf67192dbffb93fd40"
+        },
+        {
+          "question": "Is Over Weight an Ayurvedic Weight Management Product?",
+          "answer": "Yes. Over Weight is an Ayurvedic Weight Management Product designed to support healthy weight management, digestive wellness, and a healthy daily routine.\n",
+          "_id": "6aa7cbaf67192dbffb93fd41"
+        },
+        {
+          "question": "Is this Ayurvedic medicine suitable for adults?",
+          "answer": "Over Weight is intended as an Ayurvedic weight management medicine for adults when used according to the product directions. People with existing health conditions or those taking regular medicines should consult a qualified healthcare professional before use.\n",
+          "_id": "6aa7cbaf67192dbffb93fd42"
+        },
+        {
+          "question": "How can I support healthy weight management naturally?",
+          "answer": "Healthy weight management is best supported through a Balanced Diet, regular physical activity, adequate hydration, proper sleep, and consistent daily habits. An Ayurvedic medicine for healthy weight management can be considered as part of an overall wellness routine.\n",
+          "_id": "6aa7cbaf67192dbffb93fd43"
+        },
+        {
+          "question": "How should I use Ayurvedic medicine to support healthy weight management?",
+          "answer": "Use the product according to the dosage and directions provided on the packaging. For best overall wellness, combine Ayurvedic medicine to support healthy weight management with a balanced diet and active lifestyle.",
+          "_id": "6aa7cbaf67192dbffb93fd44"
+        }
+      ],
+      "imageAltText": "Over Weight Ayurvedic Weight Management Medicine",
+      "numReviews": 0,
+      "primaryKeyword": "Ayurvedic Weight Management Medicine",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "Traditional Ayurvedic Formulation\nDesigned for Healthy Weight Management\nSupports digestive wellness and bowel regularity\nContains selected Ayurvedic ingredients\nSupports a healthy body-weight routine\nSuitable for adults when used as directed\nComplements a balanced diet and active lifestyle\nManufactured under quality-focused standards\nExpert consultation available\nDesigned for long-term wellness support"
+    },
+    {
+      "_id": "6976350bbd94a7bc32bec314",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Ortho Arthritis/ Joint Pain",
+      "image": "/uploads/1774016577972-image-1769354319710.png",
+      "images": [],
+      "shortDescription": "Ortho Arthritis / Joint Pain is an Ayurvedic formulation designed to support joint health, mobility and flexibility. It is suitable for people looking for Ayurvedic medicine for joint pain, stiffness and everyday joint wellness.",
+      "category": {
+        "_id": "69761f81bd94a7bc32beb998",
+        "name": "All products"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": false,
+      "isWellness": false,
+      "packs": [
+        {
+          "name": "Ortho Arthritis/ Joint Pain Pack A",
+          "mrp": 3000,
+          "sellingPrice": 2500,
+          "medicines": [],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976350bbd94a7bc32bec315"
+        },
+        {
+          "name": "Ortho Arthritis/ Joint Pain Pack B",
+          "mrp": 4800,
+          "sellingPrice": 4500,
+          "medicines": [],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976350bbd94a7bc32bec316"
+        },
+        {
+          "name": "Ortho Arthritis/ Joint Pain Pack C",
+          "mrp": 6000,
+          "sellingPrice": 5600,
+          "medicines": [],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976350bbd94a7bc32bec317"
+        }
+      ],
+      "createdAt": "2026-01-25T15:21:47.174Z",
+      "updatedAt": "2026-09-14T10:19:47.308Z",
+      "__v": 7,
+      "slug": "ortho-arthritis-joint-pain",
+      "faqs": [
+        {
+          "question": "What is the best Ayurvedic medicine for joint pain?",
+          "answer": "The best Ayurvedic medicine depends on the person's symptoms, age, health condition and individual needs. Ortho Arthritis / Joint Pain is an Ayurvedic formulation designed to support joint health, mobility, flexibility and daily joint wellness.\n",
+          "_id": "6aa7ca4367192dbffb93fb53"
+        },
+        {
+          "question": "Can Ayurvedic medicine help with joint pain and stiffness?",
+          "answer": "Ayurveda offers traditional approaches for supporting joint health and managing everyday wellness. Ortho Arthritis / Joint Pain is designed to provide Ayurvedic support for joint pain and stiffness as part of a regular joint-care routine.\n",
+          "_id": "6aa7ca4367192dbffb93fb54"
+        },
+        {
+          "question": "Is Ayurvedic medicine useful for arthritis and joint pain?",
+          "answer": "Ayurvedic care traditionally focuses on supporting overall balance and wellness. This formulation is designed for people looking for Ayurvedic medicine for arthritis and joint pain and general joint health support.\n",
+          "_id": "6aa7ca4367192dbffb93fb55"
+        },
+        {
+          "question": "Can I use Ayurvedic medicine for knee and joint pain?",
+          "answer": "Knee discomfort can have different causes. An Ayurvedic formulation may be used as part of a joint-care routine, but persistent, severe or unexplained knee pain should be evaluated by a qualified healthcare professional.\n",
+          "_id": "6aa7ca4367192dbffb93fb56"
+        },
+        {
+          "question": "How does Ayurvedic joint pain medicine support joint health?",
+          "answer": "Ortho Arthritis / Joint Pain contains traditionally used Ayurvedic ingredients and is designed to support joint mobility, joint flexibility, bone and joint health and overall musculoskeletal wellness.\n",
+          "_id": "6aa7ca4367192dbffb93fb57"
+        },
+        {
+          "question": "How should I take Ortho Arthritis / Joint Pain?",
+          "answer": "Take the recommended quantity according to the product label or the advice of a qualified healthcare professional. Do not take more than the recommended quantity.\n",
+          "_id": "6aa7ca4367192dbffb93fb58"
+        },
+        {
+          "question": "Is this Ayurvedic medicine suitable for everyone?",
+          "answer": "Not necessarily. Individual needs can differ. People who are pregnant or breastfeeding, taking regular medicines, have an existing health condition, or have severe or persistent joint symptoms should consult a qualified healthcare professional before using a new product.\n",
+          "_id": "6aa7ca4367192dbffb93fb59"
+        },
+        {
+          "question": "How long does Ayurvedic medicine for joint pain take to show results?",
+          "answer": "Results can vary from person to person and depend on individual health, lifestyle and the underlying cause of joint discomfort. Avoid assuming that the product will provide results within a fixed number of days.",
+          "_id": "6aa7ca4367192dbffb93fb5a"
+        }
+      ],
+      "imageAltText": "Ortho Arthritis Joint Pain Ayurvedic Medicine",
+      "metaDescription": "Ayurvedic medicine for joint pain, stiffness and arthritis support. Designed to support joint mobility, flexibility and overall bone and joint health.",
+      "metaTitle": "Ayurvedic Medicine for Joint Pain & Arthritis | Karan Singh Vaidh",
+      "numReviews": 0,
+      "primaryKeyword": "Ayurvedic Medicine for Joint Pain",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "Ayurvedic formulation for daily joint health support\nMade with traditionally used Ayurvedic ingredients\nDesigned to support joint mobility and flexibility\nSuitable for people looking for Ayurvedic Medicine for Joint Pain\nSupports an Ayurveda-based approach to everyday joint wellness\nManufactured with quality-focused processes\nConvenient pack options for regular use\nSuitable for people looking to include Ayurvedic support in their joint-care routine\nProduct information and usage guidance are provided clearly\nSupport is available for product-related questions"
+    },
+    {
+      "_id": "6976341abd94a7bc32bec2a8",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Migraine",
+      "image": "https://ik.imagekit.io/wjmididvj/ksv-products/main/ksv-1782906354955_FhETt1kPC",
+      "images": [
+        "/uploads/1774016576512-images-1772365869253.png",
+        "https://ik.imagekit.io/wjmididvj/ksv-products/gallery/ksv-1782906372619_bs2WnyQUU",
+        "/uploads/1774016577420-images-1772365915813.png"
+      ],
+      "shortDescription": "Migraine by Karan Singh Vaidh is an Ayurvedic Migraine Medicine designed to support migraine and headache wellness. It supports digestive health, stress management, nervous system support, and overall Ayurvedic wellness.",
+      "category": {
+        "_id": "69739e81f6c84d69035b2007",
+        "name": "Migraine"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": true,
+      "isWellness": true,
+      "packs": [
+        {
+          "name": "Migraine Pack A",
+          "mrp": 4000,
+          "sellingPrice": 3550,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191652007_nbipNBG3q"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976341abd94a7bc32bec2a9"
+        },
+        {
+          "name": "Migraine Pack B",
+          "mrp": 6300,
+          "sellingPrice": 5800,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191664747_YQ1CkggvO"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976341abd94a7bc32bec2aa"
+        },
+        {
+          "name": "Migraine Pack C",
+          "mrp": 7000,
+          "sellingPrice": 6400,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191664747_PM-VzL-j3"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976341abd94a7bc32bec2ab"
+        }
+      ],
+      "createdAt": "2026-01-25T15:17:46.347Z",
+      "updatedAt": "2026-09-14T10:12:11.483Z",
+      "__v": 12,
+      "slug": "migraine-ayurvedic-treatment",
+      "metaDescription": "Looking for Ayurvedic Migraine Medicine? Explore Migraine by Karan Singh Vaidh, an Ayurvedic formulation for headache support, stress management and overall wellness.",
+      "metaTitle": "Ayurvedic Migraine Medicine | Migraine Support – Karan Singh Vaidh",
+      "faqs": [
+        {
+          "question": "What is Ayurvedic Migraine Medicine?",
+          "answer": "Ayurvedic Migraine Medicine refers to Ayurvedic formulations used to provide traditional wellness support for people experiencing migraine and headache-related concerns. It may be used as part of a healthy lifestyle and regular wellness routine.\n",
+          "_id": "6aa7c87b67192dbffb93fb2a"
+        },
+        {
+          "question": "Is Ayurvedic Medicine for Migraine suitable for everyone?",
+          "answer": "Suitability can vary from person to person. People who are taking medicines, pregnant or breastfeeding, or managing an existing health condition should consult a qualified healthcare professional before using any Ayurvedic formulation.\n",
+          "_id": "6aa7c87b67192dbffb93fb2b"
+        },
+        {
+          "question": "How does Ayurvedic Migraine Treatment work?",
+          "answer": "Ayurvedic approaches commonly focus on overall wellbeing, including digestive health, stress management, daily routine, and nervous system support. Individual results and experiences can vary.\n",
+          "_id": "6aa7c87b67192dbffb93fb2c"
+        },
+        {
+          "question": "Can I use Ayurvedic Medicine for Migraine and Headache every day?",
+          "answer": "Use the product according to the recommended directions provided with it. Do not exceed the recommended quantity. For long-term use, especially alongside other medicines, professional guidance is recommended.\n",
+          "_id": "6aa7c87b67192dbffb93fb2d"
+        },
+        {
+          "question": "Can I buy Ayurvedic Migraine Medicine Online in India?",
+          "answer": "Yes. Migraine by Karan Singh Vaidh is available online with All-India delivery. Check the product page for the current price, available pack options, payment methods, and delivery information.\n",
+          "_id": "6aa7c87b67192dbffb93fb2e"
+        },
+        {
+          "question": "What is the best Ayurvedic Medicine for Migraine?",
+          "answer": "The right Ayurvedic formulation can vary depending on the individual and their health needs. Migraine by Karan Singh Vaidh is designed to provide traditional Ayurvedic wellness support for migraine and headache-related concerns.\n",
+          "_id": "6aa7c87b67192dbffb93fb2f"
+        },
+        {
+          "question": "Can Ayurvedic Medicine for Headache support stress management?",
+          "answer": "Stress can be associated with headache and migraine concerns in some people. An Ayurvedic wellness approach may include stress management, healthy digestion, adequate rest, and a balanced daily routine.\n",
+          "_id": "6aa7c87b67192dbffb93fb30"
+        },
+        {
+          "question": "Is Migraine Ayurvedic Medicine a replacement for medical treatment?",
+          "answer": "Ayurvedic products should not automatically be considered a replacement for prescribed medical treatment. If you experience severe, sudden, frequent, or unusual headaches, seek evaluation from a qualified healthcare professional.",
+          "_id": "6aa7c87b67192dbffb93fb31"
+        }
+      ],
+      "imageAltText": "Ayurvedic Migraine Medicine",
+      "numReviews": 0,
+      "primaryKeyword": "Ayurvedic Migraine Medicine",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "• Traditional Ayurvedic formulation\n• Carefully selected Ayurvedic ingredients\n• Manufactured with quality-focused processes\n• GMP-certified manufacturing facility\n• Suitable for a regular wellness routine when used as directed\n• Convenient pack options available\n• Secure payment and All-India delivery\n• Expert support available"
+    },
+    {
+      "_id": "69763271bd94a7bc32bec242",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Loose Motion",
+      "image": "/uploads/1774016573199-image-1769353721689.png",
+      "images": [
+        "/uploads/1774016573568-images-1772365980907.png",
+        "/uploads/1774016574189-images-1772365986261.png",
+        "/uploads/1774016574812-images-1772365991156.png"
+      ],
+      "shortDescription": "Karan Singh Vaidh's Ayurvedic Medicine for Loose Motion is formulated with traditionally used Ayurvedic ingredients to support digestive health, healthy bowel function, and digestive balance during loose stools and frequent bowel movements.",
+      "category": {
+        "_id": "69761f81bd94a7bc32beb998",
+        "name": "All products"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": false,
+      "isWellness": true,
+      "packs": [
+        {
+          "name": "Loose Motion Pack A",
+          "mrp": 1500,
+          "sellingPrice": 1200,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191495366_C_4RwMhpo"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69763271bd94a7bc32bec243"
+        },
+        {
+          "name": "Loose Motion Pack B",
+          "mrp": 2000,
+          "sellingPrice": 1800,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191503560_galQ3jgZu"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69763271bd94a7bc32bec244"
+        },
+        {
+          "name": "Loose Motion Pack C",
+          "mrp": 4000,
+          "sellingPrice": 3600,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191506612_4pwFkzK5P"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69763271bd94a7bc32bec245"
+        }
+      ],
+      "createdAt": "2026-01-25T15:10:41.981Z",
+      "updatedAt": "2026-09-14T10:08:27.916Z",
+      "__v": 10,
+      "slug": "loose-motion-ayurvedic-treatment",
+      "metaDescription": "Get fast relief from loose motion with Ayurvedic herbal formula. Helps control diarrhea, improve digestion & restore gut balance naturally. Order online now.",
+      "metaTitle": "Ayurvedic Medicine for Loose Motion & Diarrhea | Karan Singh Vaidh",
+      "faqs": [
+        {
+          "question": "What is Ayurvedic Medicine for Loose Motion?",
+          "answer": "Ayurvedic Medicine for Loose Motion refers to Ayurvedic formulations traditionally used to support digestive health, healthy bowel function, and digestive balance during loose stools. The appropriate product and usage depend on the individual's symptoms and health situation.\n",
+          "_id": "6aa7c79b67192dbffb93fb17"
+        },
+        {
+          "question": "Which Ayurvedic Medicine is good for loose motion?",
+          "answer": "An appropriate Ayurvedic formulation depends on the cause, severity, duration, age, and overall health of the person. Karan Singh Vaidh's formulation is designed to provide supportive digestive wellness and healthy bowel function.\n",
+          "_id": "6aa7c79b67192dbffb93fb18"
+        },
+        {
+          "question": "Can Ayurvedic Medicine for Diarrhea support digestive health?",
+          "answer": "Ayurvedic formulations may provide supportive digestive wellness. However, diarrhea can have many causes, so persistent or severe symptoms should be evaluated by a qualified healthcare professional.",
+          "_id": "6aa7c79b67192dbffb93fb19"
+        },
+        {
+          "question": "What is Loose Motion Ayurvedic Medicine used for?",
+          "answer": "Loose Motion Ayurvedic Medicine is intended to support digestive wellness, healthy bowel function, digestive balance, and gastrointestinal comfort during occasional loose stools.\n",
+          "_id": "6aa7c79b67192dbffb93fb1a"
+        },
+        {
+          "question": "Is Ayurvedic Medicine for Loose Stools suitable for everyone?",
+          "answer": "Not necessarily. Suitability can depend on age, health conditions, medicines being taken, pregnancy, and the cause of loose stools. Consult a qualified healthcare professional when unsure.\n",
+          "_id": "6aa7c79b67192dbffb93fb1b"
+        },
+        {
+          "question": "How often should Ayurvedic Medicine for Loose Motion be taken?",
+          "answer": "Follow the dosage guidance written on the website near the product or the directions provided by a qualified healthcare professional. Do not increase the recommended dosage without professional advice.\n",
+          "_id": "6aa7c79b67192dbffb93fb1c"
+        },
+        {
+          "question": "Can I Buy Ayurvedic Medicine for Loose Motion Online?",
+          "answer": "Yes. Karan Singh Vaidh's Loose Motion formulation can be purchased online through the official ecommerce website, subject to availability and applicable delivery options.\n",
+          "_id": "6aa7c79b67192dbffb93fb1d"
+        },
+        {
+          "question": "When should I see a doctor for loose motion?",
+          "answer": "Seek medical attention if loose motion is severe, persistent, recurrent, or accompanied by signs such as dehydration, blood in the stool, high fever, severe abdominal pain, repeated vomiting, or other concerning symptoms.",
+          "_id": "6aa7c79b67192dbffb93fb1e"
+        }
+      ],
+      "imageAltText": "Ayurvedic Medicine for Loose Motion by Karan Singh Vaidh",
+      "numReviews": 0,
+      "primaryKeyword": "Ayurvedic Medicine for Loose Motion",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "Traditional Ayurvedic formulation\nPrepared with selected Ayurvedic ingredients\nQuality-focused manufacturing\nGMP-certified manufacturing facility\nCarefully prepared for digestive wellness\nSupports healthy bowel and digestive function\nConvenient online ordering\nSecure payment options\nDelivery available across India\nExpert consultation support available"
+    },
+    {
+      "_id": "697631c6bd94a7bc32bec1e2",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Kidney Stone",
+      "image": "https://ik.imagekit.io/wjmididvj/ksv-products/main/ksv-1783596766263_NJ8Xz1I0e",
+      "images": [
+        "/uploads/1774016570944-images-1771949636968.png",
+        "https://ik.imagekit.io/wjmididvj/ksv-products/gallery/ksv-1783596705905_VolQ7DLlA",
+        "/uploads/1774016572643-images-1771949652509.png"
+      ],
+      "shortDescription": "Kidney Stone Ayurvedic Treatment is a traditional Ayurvedic formulation made with selected Ayurvedic ingredients to support kidney health, urinary health and overall urinary wellness. It is designed for people looking for Ayurvedic support for kidney and urinary system wellness.",
+      "category": {
+        "_id": "69760bf4f06a3c1381aab1a0",
+        "name": "Kidney Stone"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": true,
+      "isWellness": true,
+      "packs": [
+        {
+          "name": "Kidney Stone Pack A",
+          "mrp": 4000,
+          "sellingPrice": 3100,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191447128_1TTzGITVT"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "697631c6bd94a7bc32bec1e3"
+        },
+        {
+          "name": "Kidney Stone Pack B",
+          "mrp": 6000,
+          "sellingPrice": 5600,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191455127_MMBs_29xv"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "697631c6bd94a7bc32bec1e4"
+        },
+        {
+          "name": "Kidney Stone Pack C",
+          "mrp": 9000,
+          "sellingPrice": 8100,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191457810_4pdBNtpak"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "697631c6bd94a7bc32bec1e5"
+        }
+      ],
+      "createdAt": "2026-01-25T15:07:50.359Z",
+      "updatedAt": "2026-09-14T09:28:25.467Z",
+      "__v": 12,
+      "slug": "kidney-stone-ayurvedic-treatment",
+      "metaDescription": "Explore Kidney Stone Ayurvedic Treatment made with traditional Ayurvedic Ingredients to support kidney health, urinary wellness and healthy urinary function.",
+      "metaTitle": "Kidney Stone Ayurvedic Treatment | Buy Ayurvedic Medicine",
+      "faqs": [
+        {
+          "question": "What is Kidney Stone Ayurvedic Treatment?",
+          "answer": "It is a traditional Ayurvedic formulation made with selected Ayurvedic Ingredients to support kidney health, urinary health and overall urinary wellness.\n",
+          "_id": "6aa7be3967192dbffb93f756"
+        },
+        {
+          "question": "Which Ayurvedic Ingredients are used in this formulation?",
+          "answer": "The formulation includes selected Ayurvedic Ingredients such as Gokshru, Pashanbhed, Varuna and Haridra.\n",
+          "_id": "6aa7be3967192dbffb93f757"
+        },
+        {
+          "question": "How does Ayurvedic Medicine for Kidney Stone support kidney health?",
+          "answer": "This Ayurvedic formulation is designed to support kidney wellness, healthy urinary function and overall urinary system wellness as part of a healthy routine.\n",
+          "_id": "6aa7be3967192dbffb93f758"
+        },
+        {
+          "question": "How should Kidney Stone Ayurvedic Medicine be used?",
+          "answer": "Use the recommended quantity mentioned on the product label. Follow the provided directions and seek professional guidance if you have questions about usage.\n",
+          "_id": "6aa7be3967192dbffb93f759"
+        },
+        {
+          "question": "Can I use Ayurvedic Kidney Stone Medicine with other medicines?",
+          "answer": "If you are taking prescription medicines or have an existing health condition, consult your healthcare professional before adding a new product to your routine.\n",
+          "_id": "6aa7be3967192dbffb93f75a"
+        },
+        {
+          "question": "How long should I use this Ayurvedic Medicine for Kidney Stone Treatment?",
+          "answer": "The appropriate duration can vary from person to person. Follow the product directions and seek professional advice for personalized guidance.\n",
+          "_id": "6aa7be3967192dbffb93f75b"
+        },
+        {
+          "question": "Is this a natural Ayurvedic treatment for kidney stone wellness?",
+          "answer": "It is a traditional Ayurvedic formulation made with selected Ayurvedic Ingredients and intended to support kidney and urinary wellness.\n",
+          "_id": "6aa7be3967192dbffb93f75c"
+        },
+        {
+          "question": "When should I consult a doctor for a kidney stone?",
+          "answer": "Seek medical attention for severe or persistent pain, fever, vomiting, blood in the urine, difficulty passing urine or other concerning symptoms. Kidney stones can vary in size and severity and may require medical evaluation.",
+          "_id": "6aa7be3967192dbffb93f75d"
+        }
+      ],
+      "imageAltText": "Kidney Stone Ayurvedic Treatment product",
+      "numReviews": 0,
+      "primaryKeyword": "Kidney Stone Ayurvedic Treatment",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "Why Choose Kidney Stone Ayurvedic Medicine?\n\nTraditional Ayurvedic formulation\nMade with selected Ayurvedic Ingredients\nSupports kidney and urinary wellness\nDesigned to support urinary system health\nQuality-focused preparation\nEasy to include in a daily wellness routine\nAvailable for delivery across India\nExpert guidance available when required"
+    },
+    {
+      "_id": "6976303cbd94a7bc32bec188",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Jaundice",
+      "image": "/uploads/1774016565968-image-1769353104687.png",
+      "images": [
+        "/uploads/1774016566276-images-1772366070495.png",
+        "/uploads/1774016568381-images-1772366075993.png",
+        "/uploads/1774016569466-images-1772366082191.png"
+      ],
+      "shortDescription": "Jaundice Ayurvedic Medicine by Karan Singh Vaidh is a traditional Ayurvedic formulation designed to support liver health, liver wellness, digestive health, and overall internal wellness.",
+      "category": {
+        "_id": "69761f81bd94a7bc32beb998",
+        "name": "All products"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": false,
+      "isWellness": true,
+      "packs": [
+        {
+          "name": "Jaundice Pack A",
+          "mrp": 4000,
+          "sellingPrice": 3750,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191376061_r7Zx9DlgY",
+              "_id": "6999afd77dd7997858129ff9"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976303cbd94a7bc32bec189"
+        },
+        {
+          "name": "Jaundice Pack B",
+          "mrp": 6000,
+          "sellingPrice": 5700,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191381583_NXxCBXkcl"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976303cbd94a7bc32bec18a"
+        },
+        {
+          "name": "Jaundice Pack C",
+          "mrp": 7000,
+          "sellingPrice": 6600,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191383644_LsA3shChF"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976303cbd94a7bc32bec18b"
+        }
+      ],
+      "createdAt": "2026-01-25T15:01:16.027Z",
+      "updatedAt": "2026-09-14T09:23:58.236Z",
+      "__v": 14,
+      "slug": "jaundice-ayurvedic-treatment",
+      "metaDescription": "Jaundice Ayurvedic Medicine by Karan Singh Vaidh provides Ayurvedic support for liver wellness and digestive health. Explore traditional Ayurvedic care online.",
+      "metaTitle": "Jaundice Ayurvedic Medicine | Buy Online | Karan Singh Vaidh",
+      "faqs": [
+        {
+          "question": "What is Jaundice Ayurvedic Medicine?",
+          "answer": "Jaundice Ayurvedic Medicine refers to an Ayurvedic formulation intended to provide supportive wellness care related to liver and digestive health. It should be used according to the product directions and professional advice.\n",
+          "_id": "6aa7bd2e67192dbffb93f743"
+        },
+        {
+          "question": "What is Ayurvedic Medicine for Jaundice used for?",
+          "answer": "Ayurvedic Medicine for Jaundice may be used as supportive Ayurvedic wellness care for liver health, digestive wellness, and overall internal balance. Jaundice can have different causes, so proper medical evaluation is important.\n",
+          "_id": "6aa7bd2e67192dbffb93f744"
+        },
+        {
+          "question": "Is this Jaundice Ayurvedic Medicine suitable for everyone?",
+          "answer": "Not necessarily. Individual needs can differ. People with jaundice, existing health conditions, or those taking medicines should consult a qualified healthcare professional before using the product.\n",
+          "_id": "6aa7bd2e67192dbffb93f745"
+        },
+        {
+          "question": "Can Ayurvedic Jaundice Treatment replace medical treatment?",
+          "answer": "No. Ayurvedic Jaundice Treatment should not be presented as a replacement for diagnosis or treatment prescribed by a qualified healthcare professional. The cause of jaundice should be properly evaluated.\n",
+          "_id": "6aa7bd2e67192dbffb93f746"
+        },
+        {
+          "question": "How does Jaundice Ayurvedic Support help with liver wellness?",
+          "answer": "Jaundice Ayurvedic Support is intended to support liver wellness and digestive health as part of a balanced wellness routine. Individual results may vary.\n",
+          "_id": "6aa7bd2e67192dbffb93f747"
+        },
+        {
+          "question": "What ingredients are used in this Jaundice Ayurvedic Product?",
+          "answer": "The formulation includes selected Ayurvedic ingredients such as Bilva, Kutaja, Amalaki, Khadira, and Dadima. Please refer to the product packaging for the current formulation details.\n",
+          "_id": "6aa7bd2e67192dbffb93f748"
+        },
+        {
+          "question": "Can I buy Jaundice Ayurvedic Medicine online?",
+          "answer": "Yes, Jaundice Ayurvedic medicine online can be purchased through the official Karan Singh Vaidh website, subject to product availability. Consult a qualified professional if you are unsure whether the product is appropriate for you.\n",
+          "_id": "6aa7bd2e67192dbffb93f749"
+        },
+        {
+          "question": "What is the difference between Ayurvedic Liver Support and Jaundice medicine?",
+          "answer": "Ayurvedic Liver Support generally refers to supportive wellness products focused on liver health, while jaundice is a clinical sign that may have different underlying causes. Anyone with jaundice should seek appropriate medical evaluation rather than relying only on a wellness product.",
+          "_id": "6aa7bd2e67192dbffb93f74a"
+        }
+      ],
+      "imageAltText": "Jaundice Ayurvedic Medicine by Karan Singh Vaidh",
+      "numReviews": 0,
+      "primaryKeyword": "Jaundice Ayurvedic Medicine",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "Traditional Ayurvedic formulation\nSelected Ayurvedic ingredients\nPrepared with quality-focused processes\nSupports liver and digestive wellness\nBased on principles of Traditional Ayurveda\nFocused on overall internal wellness\nConvenient option for people seeking Jaundice Ayurvedic Medicine\nExpert consultation support available"
+    },
+    {
+      "_id": "69762f54bd94a7bc32bec134",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Hypertension (High Blood Pressure)",
+      "image": "https://ik.imagekit.io/wjmididvj/ksv-products/main/ksv-1784180855855_PbFA9_iSz",
+      "images": [
+        "https://ik.imagekit.io/wjmididvj/ksv-products/gallery/ksv-1784180865728_d7yV3xrr_",
+        "https://ik.imagekit.io/wjmididvj/ksv-products/gallery/ksv-1784180885809_F_4q7iOL1",
+        "https://ik.imagekit.io/wjmididvj/ksv-products/gallery/ksv-1784180897521_w5-xk_m6u"
+      ],
+      "shortDescription": "Hypertension (High Blood Pressure) is an Ayurvedic formulation designed to provide supportive care for healthy blood pressure levels. This Ayurvedic Medicine for High Blood Pressure offers traditional Ayurvedic support for maintaining healthy circulation and cardiovascular wellness while promoting overall well-being.",
+      "category": {
+        "_id": "69761f81bd94a7bc32beb998",
+        "name": "All products"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": false,
+      "isWellness": false,
+      "packs": [
+        {
+          "name": "Hypertension Pack A",
+          "mrp": 1500,
+          "sellingPrice": 1200,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191303740_mfzfSXo3X"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69762f54bd94a7bc32bec135"
+        },
+        {
+          "name": "Hypertension Pack B",
+          "mrp": 2500,
+          "sellingPrice": 2250,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191303740_cn5cf-9PH"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69762f54bd94a7bc32bec136"
+        },
+        {
+          "name": "Hypertension Pack C",
+          "mrp": 5000,
+          "sellingPrice": 4500,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191313311_4QbNWb8gn"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69762f54bd94a7bc32bec137"
+        }
+      ],
+      "createdAt": "2026-01-25T14:57:24.394Z",
+      "updatedAt": "2026-09-14T09:16:51.070Z",
+      "__v": 11,
+      "slug": "high-blood-pressure-ayurvedic-treatment",
+      "metaDescription": "Explore Ayurvedic Medicine for High Blood Pressure from Karan Singh Vaidh. Traditional Ayurvedic support for healthy blood pressure levels and overall cardiovascular wellness.",
+      "metaTitle": "Ayurvedic Medicine for High Blood Pressure | Karan Singh Vaidh",
+      "faqs": [
+        {
+          "question": "What is Ayurvedic Medicine for High Blood Pressure?",
+          "answer": "Ayurvedic Medicine for High Blood Pressure refers to Ayurveda-based formulations used as supportive wellness care for people concerned about healthy blood pressure levels. Individual needs can vary, so professional guidance and regular blood pressure monitoring are important.\n",
+          "_id": "6aa7bb8367192dbffb93f5b3"
+        },
+        {
+          "question": "Can Ayurvedic Medicine help support healthy blood pressure levels?",
+          "answer": "Ayurvedic formulations may be used as supportive wellness care alongside a healthy lifestyle. People with hypertension should regularly monitor their blood pressure and discuss their treatment plan with a qualified healthcare professional.\n",
+          "_id": "6aa7bb8367192dbffb93f5b4"
+        },
+        {
+          "question": "What is Ayurvedic support for hypertension and high blood pressure?",
+          "answer": "Ayurvedic support for hypertension and high blood pressure focuses on overall wellness through traditional Ayurvedic principles, healthy lifestyle habits, appropriate diet, stress management, and regular blood pressure monitoring.\n",
+          "_id": "6aa7bb8367192dbffb93f5b5"
+        },
+        {
+          "question": "Is Ayurvedic Medicine for Hypertension suitable for adults?",
+          "answer": "Adults looking for Ayurvedic Medicine for Hypertension should consider their individual health needs, current medicines, and blood pressure levels. It is advisable to consult a qualified healthcare professional before starting any new product.\n",
+          "_id": "6aa7bb8367192dbffb93f5b6"
+        },
+        {
+          "question": "Can I take Ayurvedic Blood Pressure Medicine with my regular BP medicine?",
+          "answer": "Do not combine or replace medicines without professional guidance. If you are taking prescribed blood-pressure medicine, consult your healthcare professional before using an Ayurvedic product because individual medicines and health conditions can differ.\n",
+          "_id": "6aa7bb8367192dbffb93f5b7"
+        },
+        {
+          "question": "How can I maintain healthy blood pressure levels naturally?",
+          "answer": "Healthy blood pressure management may include a balanced diet, regular physical activity, maintaining a healthy weight, limiting excess salt, managing stress, getting adequate sleep, and regularly monitoring blood pressure.\n",
+          "_id": "6aa7bb8367192dbffb93f5b8"
+        },
+        {
+          "question": "How often should I monitor my blood pressure?",
+          "answer": "The appropriate monitoring schedule depends on your blood pressure levels and individual health needs. People diagnosed with hypertension should follow the monitoring schedule recommended by their healthcare professional.\n",
+          "_id": "6aa7bb8367192dbffb93f5b9"
+        },
+        {
+          "question": "What is the best Ayurvedic medicine for high blood pressure?",
+          "answer": "There is no single best Ayurvedic medicine for high blood pressure for everyone. The appropriate approach depends on the person's health condition, blood pressure readings, current medicines, and individual needs. Professional guidance is recommended before starting any new treatment or wellness product.",
+          "_id": "6aa7bb8367192dbffb93f5ba"
+        }
+      ],
+      "imageAltText": "Ayurvedic Medicine for High Blood Pressure - Hypertension",
+      "numReviews": 0,
+      "primaryKeyword": "Ayurvedic Medicine for High Blood Pressure",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "Based on principles of Traditional Ayurveda\nCarefully prepared Ayurvedic formulation\nDesigned for supportive cardiovascular wellness\nFocuses on healthy blood pressure maintenance\nMade with selected Ayurvedic ingredients\nQuality-focused preparation\nSuitable for people seeking Ayurveda-based wellness support\nClear product information and usage guidance\nExpert consultation support available\nIndividual wellness needs can be discussed with a qualified professional"
+    },
+    {
+      "_id": "69762e8dbd94a7bc32bec05a",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Gastritis – Digestion",
+      "image": "/uploads/1774016559531-image-1769352683873.png",
+      "images": [
+        "/uploads/1774016560332-images-1772366310510.png",
+        "/uploads/1774016561183-images-1772366344160.png"
+      ],
+      "shortDescription": "Gastritis – Digestion is an Ayurvedic formulation designed to support digestive health, stomach comfort, bowel regularity and digestive balance. This Gastritis Ayurvedic Treatment is suitable for people looking for Ayurvedic support for gastritis, indigestion and everyday digestive wellness.",
+      "category": {
+        "_id": "69739e6df6c84d69035b1ff6",
+        "name": "Gastric"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": false,
+      "isWellness": true,
+      "packs": [
+        {
+          "name": "Gastritis & Indigestion Pack A",
+          "mrp": 1200,
+          "sellingPrice": 1050,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191178483_C4iUfiYIR"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69762e8dbd94a7bc32bec05b"
+        },
+        {
+          "name": "Gastritis & Indigestion Pack B",
+          "mrp": 2967,
+          "sellingPrice": 2700,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191186492_p_emdydeQ"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69762e8dbd94a7bc32bec05c"
+        },
+        {
+          "name": "Gastritis & Indigestion Pack C",
+          "mrp": 4600,
+          "sellingPrice": 4200,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191189006_3bKO5OPA6"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69762e8dbd94a7bc32bec05d"
+        }
+      ],
+      "createdAt": "2026-01-25T14:54:05.679Z",
+      "updatedAt": "2026-09-14T09:11:00.650Z",
+      "__v": 10,
+      "slug": "gastritis-ayurvedic-treatment",
+      "metaDescription": "Explore Gastritis Ayurvedic Treatment with traditional Ayurvedic ingredients to support digestion, stomach comfort, bowel regularity and digestive wellness.",
+      "metaTitle": "Gastritis Ayurvedic Treatment & Medicine | Karan Singh Vaidh",
+      "faqs": [
+        {
+          "question": "What is Gastritis – Digestion?",
+          "answer": "Gastritis – Digestion is an Ayurvedic formulation designed to support digestive health, stomach comfort, bowel regularity and overall digestive wellness. It contains traditionally used Ayurvedic ingredients and can be considered as part of an Ayurvedic Treatment for Gastritis and general digestive wellness approach.\n",
+          "_id": "6aa7ba2467192dbffb93f5a0"
+        },
+        {
+          "question": "Is this an Ayurvedic Medicine for Gastritis?",
+          "answer": "Gastritis – Digestion is a Gastritis Ayurvedic Medicine formulation designed to provide digestive and stomach wellness support. It may be considered by people looking for an Ayurvedic Treatment for Gastritis as part of a healthy lifestyle and personalized Ayurvedic care.\n",
+          "_id": "6aa7ba2467192dbffb93f5a1"
+        },
+        {
+          "question": "What ingredients are used in Gastritis – Digestion?",
+          "answer": "The formulation contains traditionally used Ayurvedic ingredients including Haritaki, Ajwain, Sunthi, Sandhav Namak and Sanay. These ingredients are traditionally used in Ayurveda as part of digestive wellness and may complement an Ayurvedic Medicine for Digestion routine.\n",
+          "_id": "6aa7ba2467192dbffb93f5a2"
+        },
+        {
+          "question": "Can this Ayurvedic Medicine help with Indigestion?",
+          "answer": "Gastritis – Digestion is designed to support healthy digestion, digestive balance and stomach comfort. It can be considered by people looking for an Ayurvedic Medicine for Digestion and everyday digestive wellness support.\n",
+          "_id": "6aa7ba2467192dbffb93f5a3"
+        },
+        {
+          "question": "How should Gastritis – Digestion be used?",
+          "answer": "The recommended usage is 1–2 pouches with water before bedtime, according to the product instructions. Always follow the dosage provided on the product label. If you are considering Gastritis Ayurvedic Treatment as part of your digestive wellness routine, follow the recommended usage instructions carefully.\n",
+          "_id": "6aa7ba2467192dbffb93f5a4"
+        },
+        {
+          "question": "Can I use Ayurvedic Medicine for Gastritis and Indigestion with other medicines?",
+          "answer": "If you are taking prescription medicines or have an ongoing health condition, speak with a qualified healthcare professional before adding a new product to your routine. This helps avoid possible interactions and ensures that an Ayurvedic Treatment for Gastritis or digestive wellness approach is suitable for you.\n",
+          "_id": "6aa7ba2467192dbffb93f5a5"
+        },
+        {
+          "question": "Can this product support stomach discomfort and digestive health?",
+          "answer": "Gastritis – Digestion is designed to support stomach comfort, digestive health, digestive balance and gut health. It can be considered as part of a Gastritis Ayurvedic Treatment and digestive wellness routine. Individual experiences can vary.\n",
+          "_id": "6aa7ba2467192dbffb93f5a6"
+        },
+        {
+          "question": "Is this the Best Ayurvedic Medicine for Gastritis?",
+          "answer": "There is no single product that is best for everyone. The right Gastritis Ayurvedic Medicine or Ayurvedic Treatment for Gastritis depends on individual needs, symptoms and overall health. A qualified Ayurvedic professional can help determine an appropriate approach.",
+          "_id": "6aa7ba2467192dbffb93f5a7"
+        }
+      ],
+      "imageAltText": "Gastritis Ayurvedic Treatment and Digestion Support ",
+      "numReviews": 0,
+      "primaryKeyword": "Gastritis Ayurvedic Treatment",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "Why Choose This Ayurvedic Formulation?\nTraditional Ayurvedic formulation\nDesigned for digestive wellness\nSupports stomach comfort and digestive balance\nSupports bowel regularity\nMade with traditionally used Ayurvedic ingredients\nSuitable for a regular digestive wellness routine\nQuality-focused manufacturing\nCarefully prepared and packaged\nConvenient to use\nDeveloped using traditional Ayurvedic knowledge"
+    },
+    {
+      "_id": "697628febd94a7bc32bebce1",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Gall-bladder",
+      "image": "https://ik.imagekit.io/wjmididvj/ksv-products/main/ksv-1783073126927_sr7H_q6b2",
+      "images": [
+        "/uploads/1774016558115-images-1771949394079.png",
+        "https://ik.imagekit.io/wjmididvj/ksv-products/gallery/ksv-1783073163484_TVSsgdY7K",
+        "/uploads/1774016559393-images-1771949408935.png"
+      ],
+      "shortDescription": "Gall-Bladder by Karan Singh Vaidh is an Ayurvedic Medicine for Gallbladder Stones designed to support gallbladder health, digestive wellness, healthy bile flow, and overall digestive balance. It is prepared according to traditional Ayurvedic principles using carefully selected ingredients.",
+      "category": {
+        "_id": "69739e5df6c84d69035b1fec",
+        "name": "Gall Bladder"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": true,
+      "isWellness": true,
+      "packs": [
+        {
+          "name": "Gall-Bladder Pack A (20 DAYS)",
+          "mrp": 4132,
+          "sellingPrice": 3700,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191127058_ayVMGJuCb"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "697628febd94a7bc32bebce2"
+        },
+        {
+          "name": "Gall-Bladder Pack B (40 DAYS)",
+          "mrp": 7800,
+          "sellingPrice": 7400,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191135676_qbzQfLh_I"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "697628febd94a7bc32bebce3"
+        },
+        {
+          "name": "Gall-Bladder Pack C (80 DAYS)",
+          "mrp": 15450,
+          "sellingPrice": 14200,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774515104524_8vwSNARrN"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "697628febd94a7bc32bebce4"
+        }
+      ],
+      "createdAt": "2026-01-25T14:30:22.598Z",
+      "updatedAt": "2026-09-14T09:06:34.826Z",
+      "__v": 14,
+      "slug": "gall-bladder",
+      "faqs": [
+        {
+          "question": "What is Ayurvedic Medicine for Gallbladder Stones?",
+          "answer": "Ayurvedic Medicine for Gallbladder Stones refers to Ayurvedic formulations traditionally used to support gallbladder wellness, digestion, and overall internal balance. The appropriate approach can vary depending on the individual's condition and medical history.\n",
+          "_id": "6aa7b91a67192dbffb93f3aa"
+        },
+        {
+          "question": "Is Gall-Bladder an Ayurvedic Gallbladder Stone Medicine?",
+          "answer": "Gall-Bladder is an Ayurvedic formulation designed to support gallbladder wellness, digestive health, and healthy bile flow. It can be considered as part of a personalized Ayurvedic wellness approach.\n",
+          "_id": "6aa7b91a67192dbffb93f3ab"
+        },
+        {
+          "question": "How is Ayurvedic Medicine for Gallbladder different from other medicines?",
+          "answer": "Ayurvedic formulations are prepared according to traditional Ayurvedic principles. Their ingredients and method of preparation may differ from conventional medicines. Anyone with a diagnosed condition should discuss appropriate treatment options with a qualified healthcare professional.\n",
+          "_id": "6aa7b91a67192dbffb93f3ac"
+        },
+        {
+          "question": "What are the common Gallbladder Stone symptoms?",
+          "answer": "Common symptoms can include abdominal discomfort or pain, especially after meals, nausea, vomiting, bloating, or digestive discomfort. Some people with gallstones may have no symptoms. Severe or persistent symptoms require medical evaluation.\n",
+          "_id": "6aa7b91a67192dbffb93f3ad"
+        },
+        {
+          "question": "Can I use Ayurvedic Medicine for Gallbladder Stone Without Surgery?",
+          "answer": "Whether gallstones can be managed without surgery depends on factors such as symptoms, stone size and location, complications, and overall health. Ayurvedic Medicine for Gallbladder Stone Without Surgery is a common search term, but no treatment should be assumed to replace medically recommended care. Consult a qualified healthcare professional for individual guidance.\n",
+          "_id": "6aa7b91a67192dbffb93f3ae"
+        },
+        {
+          "question": "What is the Best Ayurvedic Medicine for Gallbladder Stones?",
+          "answer": "People often search for the Best Ayurvedic Medicine for Gallbladder Stones, but there is no single formulation that is best for every person. The right approach depends on the individual's condition, symptoms, medical history, and professional assessment.\n",
+          "_id": "6aa7b91a67192dbffb93f3af"
+        },
+        {
+          "question": "Can Natural Ayurvedic Medicine for Gallbladder Stones support digestion?",
+          "answer": "Natural Ayurvedic Medicine for Gallbladder Stones is commonly searched by people looking for traditional wellness support. Ayurvedic formulations may be used to support digestive wellness and gallbladder health, but individual results can vary.\n",
+          "_id": "6aa7b91a67192dbffb93f3b0"
+        },
+        {
+          "question": "Can Ayurvedic Treatment and Medicine for Gallbladder Stones be used for everyone?",
+          "answer": "No. The suitability of Ayurvedic Treatment and Medicine for Gallbladder Stones can vary from person to person. People who are pregnant, taking prescription medicines, have other medical conditions, or have severe gallbladder symptoms should seek professional medical guidance before using a new formulation.",
+          "_id": "6aa7b91a67192dbffb93f3b1"
+        }
+      ],
+      "imageAltText": "Gall-Bladder Ayurvedic Medicine for Gallbladder Stones",
+      "metaDescription": "Ayurvedic medicine for gallbladder stones formulated to support gallbladder health, digestive wellness and healthy bile flow. Explore ingredients, usage and pack options.",
+      "metaTitle": "Ayurvedic Medicine for Gallbladder Stones | Karan Singh Vaidh",
+      "numReviews": 0,
+      "primaryKeyword": "Ayurvedic Medicine for Gallbladder Stones",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "Traditional Ayurvedic Formulation\n\nPrepared according to traditional Ayurvedic principles with carefully selected ingredients.\n\nFocused on Gallbladder Wellness\n\nThe formulation is designed specifically around gallbladder wellness, digestive health, and overall internal balance.\n\nQuality-Focused Manufacturing\n\nManufactured using quality-focused processes with attention to consistency, purity, and product standards.\n\nEasy to Use\n\nThe product is available in convenient pack options with clear usage directions.\n\nTrusted Ayurvedic Expertise\n\nPrepared under the Ayurvedic expertise of Karan Singh Vaidh, with more than 23 years of experience in Ayurveda.\n\nSuitable for a Wellness-Focused Routine\n\nThe formulation can be included as part of a balanced wellness routine when used according to the recommended directions."
+    },
+    {
+      "_id": "697627f3bd94a7bc32bebc9f",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Fibroid",
+      "image": "https://ik.imagekit.io/wjmididvj/ksv-products/main/ksv-1784181160444_l65V7n1ou",
+      "images": [
+        "https://ik.imagekit.io/wjmididvj/ksv-products/gallery/ksv-1784181169493_zEYmfsRjH",
+        "https://ik.imagekit.io/wjmididvj/ksv-products/gallery/ksv-1784181175556_DUFMm7SM-",
+        "https://ik.imagekit.io/wjmididvj/ksv-products/gallery/ksv-1784181181412_rAkj6Jw38"
+      ],
+      "shortDescription": "Ayurvedic Medicine for Fibroid by Karan Singh Vaidh is a traditional Ayurvedic formulation designed to support women’s wellness and uterine health. It contains carefully selected Ayurvedic ingredients and is prepared with quality-focused Ayurvedic methods. The formulation is intended to provide natural wellness support as part of a healthy lifestyle and appropriate professional guidance.",
+      "category": {
+        "_id": "69761f81bd94a7bc32beb998",
+        "name": "All products"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": false,
+      "isWellness": false,
+      "packs": [
+        {
+          "name": "Fibroids Pack A",
+          "mrp": 3000,
+          "sellingPrice": 2700,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774618255836_Nk48CZwvP"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "697627f3bd94a7bc32bebca0"
+        },
+        {
+          "name": "Fibroids Pack B",
+          "mrp": 4000,
+          "sellingPrice": 3600,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774618380915_VOFeU4U0J"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "697627f3bd94a7bc32bebca1"
+        },
+        {
+          "name": "Fibroids Pack C",
+          "mrp": 6000,
+          "sellingPrice": 5550,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774618388633_82IqSt4XB"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "697627f3bd94a7bc32bebca2"
+        }
+      ],
+      "createdAt": "2026-01-25T14:25:55.015Z",
+      "updatedAt": "2026-09-14T08:57:16.771Z",
+      "__v": 11,
+      "slug": "fibroid",
+      "faqs": [
+        {
+          "question": "What is an Ayurvedic Medicine for Fibroid?",
+          "answer": "Ayurvedic Medicine for Fibroid refers to an Ayurvedic formulation intended to support women's wellness and uterine health. Such products should be used according to professional guidance and should not replace proper medical evaluation.\n",
+          "_id": "6aa7b6ec67192dbffb93f1b1"
+        },
+        {
+          "question": "Is Ayurvedic Fibroid Treatment suitable for women?",
+          "answer": "Ayurvedic Fibroid Treatment may be considered as part of a personalized wellness approach for women. The right approach depends on the individual's health condition, symptoms, fibroid size, location, and medical history.\n",
+          "_id": "6aa7b6ec67192dbffb93f1b2"
+        },
+        {
+          "question": "What is Ayurvedic Medicine for Uterine Fibroids used for?",
+          "answer": "Ayurvedic Medicine for Uterine Fibroids can be used as part of a wellness plan focused on supporting uterine health, women's wellness, and overall well-being. It should not be promoted as a guaranteed cure for fibroids.\n",
+          "_id": "6aa7b6ec67192dbffb93f1b3"
+        },
+        {
+          "question": "What is Uterine Fibroid Ayurvedic Medicine?",
+          "answer": "Uterine Fibroid Ayurvedic Medicine is a traditional Ayurvedic formulation intended to provide wellness support for women concerned about uterine health and fibroids.\n",
+          "_id": "6aa7b6ec67192dbffb93f1b4"
+        },
+        {
+          "question": "Can I use Fibroid Ayurvedic Medicine with other medicines?",
+          "answer": "If you are taking prescription medicines or receiving treatment for fibroids or another medical condition, consult your healthcare professional before adding an Ayurvedic product to your routine.\n",
+          "_id": "6aa7b6ec67192dbffb93f1b5"
+        },
+        {
+          "question": "How should this Ayurvedic Medicine for Uterine Fibroid be taken?",
+          "answer": "The recommended usage is 4 grams, 2–3 times daily, or as directed by a qualified Ayurvedic healthcare professional. Always follow the instructions provided with the product.\n",
+          "_id": "6aa7b6ec67192dbffb93f1b6"
+        },
+        {
+          "question": "Is this the Best Ayurvedic Medicine for Fibroid?",
+          "answer": "The most suitable product can vary from person to person. Rather than choosing a product only because it is described as the Best Ayurvedic Medicine for Fibroid, women should consider the formulation, ingredients, quality standards, professional guidance, and their individual health needs.\n",
+          "_id": "6aa7b6ec67192dbffb93f1b7"
+        },
+        {
+          "question": "Can I buy Ayurvedic Medicine for Uterine Fibroids in India?",
+          "answer": "Yes, women looking for Ayurvedic Medicine for Uterine Fibroids in India can explore this formulation online. Before using any product, review the ingredients, usage instructions, precautions, and seek professional advice when required.",
+          "_id": "6aa7b6ec67192dbffb93f1b8"
+        }
+      ],
+      "imageAltText": "Ayurvedic Medicine for Fibroid by Karan Singh Vaidh",
+      "metaDescription": "Explore Ayurvedic medicine for fibroid made with traditional Ayurvedic ingredients to support uterine health, women’s wellness and overall well-being.",
+      "metaTitle": "Ayurvedic Medicine for Fibroid | Uterine Fibroid Support",
+      "numReviews": 0,
+      "primaryKeyword": "Ayurvedic Medicine for Fibroid",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "Why Choose This Fibroid Ayurvedic Medicine?\nTraditional Ayurvedic Formulation\n\nPrepared using traditionally used Ayurvedic ingredients and preparation methods.\n\nFocused on Women’s Wellness\n\nDesigned to support uterine health, female reproductive health, and overall women’s wellness.\n\nCarefully Selected Ingredients\n\nContains Amlaki, Dadima, Dhanyaka, Mishreya, and Sandhav Namak.\n\nQuality-Focused Preparation\n\nPrepared under quality-controlled manufacturing standards.\n\nNatural Wellness Approach\n\nSuitable for women looking for a natural approach to everyday wellness and uterine health support.\n\nTrusted Ayurvedic Expertise\n\nDeveloped with traditional Ayurvedic knowledge and a focus on personalized wellness support.\n\nResponsible Wellness Support\n\nThe formulation is intended to complement a healthy lifestyle and appropriate professional guidance rather than replace necessary medical care."
+    },
+    {
+      "_id": "697625f7bd94a7bc32bebc1a",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Fatty Liver",
+      "image": "/uploads/1774016549977-image-1769350446373.png",
+      "images": [
+        "/uploads/1774016551049-images-1772366609222.png",
+        "/uploads/1774016552300-images-1772366622152.png",
+        "/uploads/1774016552838-images-1772366631220.png"
+      ],
+      "shortDescription": "Ayurvedic Medicine for Fatty Liver made with traditional Ayurvedic ingredients to support liver health, digestive health, healthy metabolism, and overall liver wellness.",
+      "category": {
+        "_id": "69761f81bd94a7bc32beb998",
+        "name": "All products"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": false,
+      "isWellness": false,
+      "packs": [
+        {
+          "name": "Fatty Liver Pack A",
+          "mrp": 1800,
+          "sellingPrice": 1500,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191083301_z_E__ws6J"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "697625f7bd94a7bc32bebc1b"
+        },
+        {
+          "name": "Fatty Liver Pack B",
+          "mrp": 3350,
+          "sellingPrice": 3150,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191091414_xco750L8V"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "697625f7bd94a7bc32bebc1c"
+        },
+        {
+          "name": "Fatty Liver Pack C",
+          "mrp": 4300,
+          "sellingPrice": 4000,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774515187127_ibcZVUaGQ"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "697625f7bd94a7bc32bebc1d"
+        }
+      ],
+      "createdAt": "2026-01-25T14:17:27.556Z",
+      "updatedAt": "2026-11-07T07:18:21.883Z",
+      "__v": 13,
+      "slug": "fatty-liver",
+      "faqs": [
+        {
+          "question": "What is Ayurvedic Medicine for Fatty Liver?",
+          "answer": "Ayurvedic Medicine for Fatty Liver refers to Ayurvedic formulations traditionally used to provide support for liver wellness, digestion, and overall metabolic balance. This formulation is intended as supportive wellness care and should not replace professional medical diagnosis or treatment.\n",
+          "_id": "6aa7b49867192dbffb93f147"
+        },
+        {
+          "question": "What are the ingredients in this Fatty Liver Ayurvedic Medicine?",
+          "answer": "The formulation contains traditional Ayurvedic ingredients including Amlaki, Dadima, Dhanyaka, Mishreya, and Sandhav Namak.\n",
+          "_id": "6aa7b49867192dbffb93f148"
+        },
+        {
+          "question": "How does this Ayurvedic formulation support liver health?",
+          "answer": "The formulation is designed to support liver wellness, healthy liver function, digestive health, and metabolic wellness as part of a balanced lifestyle.\n",
+          "_id": "6aa7b49867192dbffb93f149"
+        },
+        {
+          "question": "Can I use Ayurvedic Medicine for Fatty Liver for digestive support?",
+          "answer": "This formulation provides Ayurvedic support for fatty liver and digestion. Its traditional ingredients are selected to support digestive comfort and overall internal wellness.\n",
+          "_id": "6aa7b49867192dbffb93f14a"
+        },
+        {
+          "question": "What is the recommended way to use this formulation?",
+          "answer": "The recommended use is 4 g two to three times daily with cold water. Always follow the product instructions and seek professional guidance when needed.\n",
+          "_id": "6aa7b49867192dbffb93f14b"
+        },
+        {
+          "question": "Is this the Best Ayurvedic Medicine for Fatty Liver?",
+          "answer": "The right Ayurvedic formulation can vary from person to person. This product is designed to provide Ayurvedic support for liver health, digestion, and overall wellness. A qualified professional can help determine whether it is appropriate for your individual needs.\n",
+          "_id": "6aa7b49867192dbffb93f14c"
+        },
+        {
+          "question": "Can Ayurvedic Fatty Liver Treatment be used with a healthy lifestyle?",
+          "answer": "Ayurvedic support is best considered alongside healthy lifestyle habits such as a balanced diet, regular physical activity, adequate sleep, and appropriate health monitoring.\n",
+          "_id": "6aa7b49867192dbffb93f14d"
+        },
+        {
+          "question": "Can this product replace medical treatment for fatty liver?",
+          "answer": "No. This product should not be considered a replacement for medical diagnosis, monitoring, or treatment. People diagnosed with fatty liver should follow appropriate professional guidance and recommended health checks.",
+          "_id": "6aa7b49867192dbffb93f14e"
+        }
+      ],
+      "imageAltText": "Ayurvedic Medicine for Fatty Liver",
+      "metaDescription": "Explore Ayurvedic Medicine for Fatty Liver made with traditional Ayurvedic ingredients to support liver health, digestion, healthy metabolism, and overall wellness.",
+      "metaTitle": "Ayurvedic Medicine for Fatty Liver | Karan Singh Vaidh",
+      "numReviews": 0,
+      "primaryKeyword": "Ayurvedic Medicine for Fatty Liver",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "Traditional Ayurvedic Approach\n\nThe formulation is prepared using traditional Ayurvedic ingredients selected for their role in supporting digestive health and overall wellness.\n\nFocus on Liver Wellness\n\nIt is designed to provide daily support for liver health, healthy liver function, and overall liver wellness.\n\nDigestive Support\n\nHealthy digestion is an important part of overall wellness. The formulation provides traditional Ayurvedic support for digestive comfort and balance.\n\nMetabolic Wellness\n\nThe formulation can be used as part of a healthy lifestyle focused on balanced nutrition, regular activity, and healthy metabolism.\n\nQuality-Focused Preparation\n\nPrepared using quality-focused Ayurvedic methods with carefully selected ingredients.\n\nEasy Daily Use\n\nThe recommended quantity can be easily included in a regular daily wellness routine."
+    },
+    {
+      "_id": "697624ebbd94a7bc32bebb1e",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Erectile Dysfunction",
+      "image": "/uploads/1774016546601-image-1769350239541.png",
+      "images": [
+        "/uploads/1774016548160-images-1772366744385.png",
+        "/uploads/1774016548880-images-1772366749769.png",
+        "/uploads/1774016549452-images-1772366759030.png"
+      ],
+      "shortDescription": "Ayurvedic Erectile Dysfunction Medicine prepared with traditional Ayurvedic ingredients to support male vitality, stamina, energy, physical strength, and overall men's sexual wellness. Designed for convenient daily wellness support as part of a healthy lifestyle.",
+      "category": {
+        "_id": "69761f81bd94a7bc32beb998",
+        "name": "All products"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": false,
+      "isWellness": false,
+      "packs": [
+        {
+          "name": "Erectile Dysfunction Pack A",
+          "mrp": 4400,
+          "sellingPrice": 4000,
+          "medicines": [],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "697624ebbd94a7bc32bebb1f"
+        },
+        {
+          "name": "Erectile Dysfunction Pack B",
+          "mrp": 6200,
+          "sellingPrice": 5800,
+          "medicines": [],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "697624ebbd94a7bc32bebb20"
+        },
+        {
+          "name": "Erectile Dysfunction Pack C",
+          "mrp": 8000,
+          "sellingPrice": 7500,
+          "medicines": [],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "697624ebbd94a7bc32bebb21"
+        }
+      ],
+      "createdAt": "2026-01-25T14:12:59.764Z",
+      "updatedAt": "2026-09-14T08:24:54.518Z",
+      "__v": 8,
+      "slug": "erectile-dysfunction",
+      "faqs": [
+        {
+          "question": "What is Ayurvedic Erectile Dysfunction Medicine?",
+          "answer": "Ayurvedic Erectile Dysfunction Medicine is a traditional wellness formulation designed to support men's vitality, stamina, energy, physical strength, and overall sexual wellness. It can be used as part of a balanced lifestyle and regular wellness routine.\n",
+          "_id": "6aa7af5667192dbffb93f134"
+        },
+        {
+          "question": "What is Ayurvedic Medicine for Erectile Dysfunction used for?",
+          "answer": "Ayurvedic Medicine for Erectile Dysfunction is used as wellness support for adult men who want to maintain male vitality, stamina, energy, and overall men's health. Individual experiences may vary.\n",
+          "_id": "6aa7af5667192dbffb93f135"
+        },
+        {
+          "question": "How does Erectile Dysfunction Ayurvedic Medicine support men's wellness?",
+          "answer": "Erectile Dysfunction Ayurvedic Medicine contains traditional Ayurvedic ingredients that are commonly used in wellness formulations. It is designed to support male vitality, physical strength, energy, stamina, and overall men's wellness.\n",
+          "_id": "6aa7af5667192dbffb93f136"
+        },
+        {
+          "question": "What ingredients are used in this Ayurvedic Erectile Dysfunction Treatment?",
+          "answer": "The formulation contains traditional Ayurvedic ingredients such as Kanchanara, Guggulu, Shunthi, Pippali, and Amalaki. Each ingredient has a traditional role in Ayurvedic wellness practices.\n",
+          "_id": "6aa7af5667192dbffb93f137"
+        },
+        {
+          "question": "How should I take this Ayurvedic Medicine for Male Sexual Wellness?",
+          "answer": "The recommended usage is 2 capsules twice daily with water, or according to the instructions provided on the product label. Do not exceed the recommended dosage.\n",
+          "_id": "6aa7af5667192dbffb93f138"
+        },
+        {
+          "question": "Is this Natural Ayurvedic Medicine for Erectile Dysfunction suitable for every man?",
+          "answer": "This product is intended as a wellness formulation for adult men, subject to the product label and individual circumstances. Men taking medicines or managing an existing health condition should consult a qualified healthcare professional before use.\n",
+          "_id": "6aa7af5667192dbffb93f139"
+        },
+        {
+          "question": "How long does it take to see results from Ayurvedic Erectile Dysfunction Medicine?",
+          "answer": "Individual experiences can vary. There is no fixed time that applies to everyone. Consistent use according to the recommended directions, along with a healthy lifestyle, is important for overall wellness.\n",
+          "_id": "6aa7af5667192dbffb93f13a"
+        },
+        {
+          "question": "Can Ayurvedic Medicine for Erectile Dysfunction be used with other medicines?",
+          "answer": "If you are taking prescription medicines, have an existing health condition, or are under medical care, consult a qualified healthcare professional before using the product. This helps ensure that the product is appropriate for your individual situation.",
+          "_id": "6aa7af5667192dbffb93f13b"
+        }
+      ],
+      "imageAltText": "Ayurvedic Erectile Dysfunction Medicine",
+      "metaDescription": "Explore Ayurvedic Erectile Dysfunction Medicine made with traditional Ayurvedic ingredients to support male vitality, stamina, energy, physical strength, and overall men's wellness.",
+      "metaTitle": "Buy Ayurvedic Erectile Dysfunction Medicine Online | Karan Singh Vaidh",
+      "numReviews": 0,
+      "primaryKeyword": "Ayurvedic Erectile Dysfunction Medicine",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "• Prepared using traditional Ayurvedic principles\n• Made with carefully selected Ayurvedic ingredients\n• GMP-certified manufacturing facility\n• Quality-focused formulation and preparation\n• Designed for convenient daily use\n• Supports men's vitality and overall wellness\n• Suitable as part of a healthy lifestyle\n• Focuses on traditional Ayurvedic wellness support"
+    },
+    {
+      "_id": "6976241fbd94a7bc32beba87",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Diabetes",
+      "image": "/uploads/1774016542944-image-1769350038453.png",
+      "images": [
+        "/uploads/1774016544098-images-1771949257201.png",
+        "/uploads/1774016544976-images-1771949264578.png",
+        "/uploads/1774016546013-images-1771949272765.png"
+      ],
+      "shortDescription": "Ayurvedic Diabetes Medicine prepared with traditional Ayurvedic ingredients to support blood sugar balance, metabolic wellness, healthy digestion and everyday energy as part of a balanced lifestyle.",
+      "category": {
+        "_id": "69739e78f6c84d69035b1ffd",
+        "name": "Diabetes"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": true,
+      "isWellness": false,
+      "packs": [
+        {
+          "name": "Diabetes Pack A",
+          "mrp": 3000,
+          "sellingPrice": 2400,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191032615_QtQSN3L07"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976241fbd94a7bc32beba88"
+        },
+        {
+          "name": "Diabetes Pack B",
+          "mrp": 3000,
+          "sellingPrice": 2850,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191040206_zOxsnduFc"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976241fbd94a7bc32beba89"
+        },
+        {
+          "name": "Diabetes Pack C",
+          "mrp": 6000,
+          "sellingPrice": 5566,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774191045720_nigXQ41c8"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "6976241fbd94a7bc32beba8a"
+        }
+      ],
+      "createdAt": "2026-01-25T14:09:35.479Z",
+      "updatedAt": "2026-09-14T07:25:02.320Z",
+      "__v": 9,
+      "slug": "diabetes",
+      "faqs": [
+        {
+          "question": "What is Ayurvedic Diabetes Medicine?",
+          "answer": "Ayurvedic Diabetes Medicine refers to Ayurvedic formulations prepared using traditionally used ingredients for wellness support related to metabolism and blood sugar balance. This product is intended as part of a healthy lifestyle and should not replace prescribed diabetes treatment.\n",
+          "_id": "6aa7a14e67192dbffb93e223"
+        },
+        {
+          "question": "What ingredients are used in this Ayurvedic Diabetes Support formula?",
+          "answer": "The formulation contains traditionally used ingredients including Vijaysar, Jamun, Gudmar, Karela, Bilva and Shuddh Shilajeet.\n",
+          "_id": "6aa7a14e67192dbffb93e224"
+        },
+        {
+          "question": "Can I use this Ayurvedic Medicine for Diabetes with my regular medicines?",
+          "answer": "If you take diabetes medicines or insulin, consult your healthcare professional before using a new Ayurvedic product. Do not stop or change prescribed medication without professional advice.\n",
+          "_id": "6aa7a14e67192dbffb93e225"
+        },
+        {
+          "question": "Does this product support Blood Sugar Balance?",
+          "answer": "The formulation is designed to provide traditional Ayurvedic Blood Sugar Support as part of a balanced wellness routine. It should not be considered a guaranteed treatment for diabetes or a substitute for medical care.\n",
+          "_id": "6aa7a14e67192dbffb93e226"
+        },
+        {
+          "question": "What is the role of Ayurvedic Ingredients for Diabetes in this formulation?",
+          "answer": "The formulation contains traditionally used Ayurvedic ingredients selected for their traditional association with metabolic, digestive and general wellness.\n",
+          "_id": "6aa7a14e67192dbffb93e227"
+        },
+        {
+          "question": "How should I use this Ayurvedic Diabetes Medicine?",
+          "answer": "Use the product according to the instructions provided on the product label or by your Ayurvedic practitioner. Maintain a balanced diet, regular physical activity and appropriate blood glucose monitoring.\n",
+          "_id": "6aa7a14e67192dbffb93e228"
+        },
+        {
+          "question": "Can this product replace insulin or prescribed diabetes medicine?",
+          "answer": "No. An Ayurvedic wellness product should not be used as a replacement for prescribed diabetes medicines or insulin. Any change to diabetes treatment should be discussed with a qualified healthcare professional.\n",
+          "_id": "6aa7a14e67192dbffb93e229"
+        },
+        {
+          "question": "How can I support diabetes wellness naturally?",
+          "answer": "A healthy lifestyle can include a balanced diet, regular physical activity, adequate sleep, appropriate blood glucose monitoring and professional healthcare guidance. An Ayurvedic Medicine for Diabetes and Blood Sugar Support may be considered as part of an overall wellness routine when appropriate.",
+          "_id": "6aa7a14e67192dbffb93e22a"
+        }
+      ],
+      "imageAltText": "Ayurvedic Diabetes Medicine for Blood Sugar Support",
+      "metaDescription": "Ayurvedic Diabetes Medicine made with traditional Ayurvedic ingredients to support blood sugar balance, metabolic wellness, digestion and everyday vitality.",
+      "metaTitle": "Ayurvedic Diabetes Medicine for Blood Sugar Support",
+      "numReviews": 0,
+      "primaryKeyword": "Ayurvedic Diabetes Medicine",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "Prepared using traditional Ayurvedic principles\nMade with carefully selected Ayurvedic ingredients\nManufactured under GMP-focused quality standards\nSupports a traditional approach to metabolic wellness\nDesigned for everyday wellness support\nFocuses on blood sugar and metabolic wellness\nSuitable for a balanced lifestyle approach\nQuality-focused Ayurvedic preparation\nTransparent product information and usage guidance\nBacked by Ayurvedic experience and traditional knowledge"
+    },
+    {
+      "_id": "69762372bd94a7bc32beba5d",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Cyst",
+      "image": "https://ik.imagekit.io/wjmididvj/ksv-products/main/ksv-1782907961443_bGqV4mYiR",
+      "images": [
+        "/uploads/1774016539826-images-1772366979834.png",
+        "https://ik.imagekit.io/wjmididvj/ksv-products/gallery/ksv-1782907982267_LbffNejde",
+        "/uploads/1774016542198-images-1772366989720.png"
+      ],
+      "shortDescription": "CYST is an Ayurvedic Cyst Medicine prepared with Amlaki, Bibhitaka, Haritaki, Dadima, and Guduchi. It is designed to support internal wellness and healthy body balance as part of a balanced lifestyle.",
+      "category": {
+        "_id": "69761f81bd94a7bc32beb998",
+        "name": "All products"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": false,
+      "isWellness": false,
+      "packs": [
+        {
+          "name": "Choose Your CYST Pack",
+          "mrp": 2600,
+          "sellingPrice": 2250,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774190965645_OAqXQr1GR"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69762372bd94a7bc32beba5e"
+        },
+        {
+          "name": "CYST Pack B",
+          "mrp": 4500,
+          "sellingPrice": 4050,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774190975198_-XsZ978-8"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69762372bd94a7bc32beba5f"
+        },
+        {
+          "name": "CYST Pack C",
+          "mrp": 5400,
+          "sellingPrice": 4950,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774190979465_qcXds56TT"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69762372bd94a7bc32beba60"
+        }
+      ],
+      "createdAt": "2026-01-25T14:06:42.477Z",
+      "updatedAt": "2026-09-14T06:47:34.737Z",
+      "__v": 12,
+      "slug": "cyst",
+      "faqs": [
+        {
+          "question": "What is Ayurvedic Cyst Medicine?",
+          "answer": "Ayurvedic Cyst Medicine refers to Ayurvedic formulations prepared with traditionally used ingredients for wellness support related to cyst concerns. The appropriate approach can depend on the type, size, location, and cause of the cyst.\n",
+          "_id": "6aa7988667192dbffb93dc82"
+        },
+        {
+          "question": "What is Cyst Ayurvedic Treatment?",
+          "answer": "Cyst Ayurvedic Treatment refers to an Ayurvedic approach that focuses on understanding the individual's condition and supporting overall balance through traditional Ayurvedic principles. Professional guidance is recommended before starting any treatment.\n",
+          "_id": "6aa7988667192dbffb93dc83"
+        },
+        {
+          "question": "Is CYST an Ayurvedic Medicine for Cyst?",
+          "answer": "CYST is an Ayurvedic wellness formulation prepared with traditional Ayurvedic ingredients. It is intended for internal wellness support. For a specific cyst condition, professional assessment is recommended before using any product.\n",
+          "_id": "6aa7988667192dbffb93dc84"
+        },
+        {
+          "question": "What ingredients are used in CYST?",
+          "answer": "CYST contains Amlaki, Bibhitaka, Haritaki, Dadima, and Guduchi. These are traditional Ayurvedic ingredients used in different Ayurvedic formulations.\n",
+          "_id": "6aa7988667192dbffb93dc85"
+        },
+        {
+          "question": "Is CYST a Cyst Medicine?",
+          "answer": "CYST is a traditional Ayurvedic formulation prepared with selected plant-based Ayurvedic ingredients. It is intended to support overall internal wellness and should be used according to the recommended directions.\n",
+          "_id": "6aa7988667192dbffb93dc86"
+        },
+        {
+          "question": "What is the Best Ayurvedic Medicine for Cyst?",
+          "answer": "There is no single product that is suitable for every type of cyst. The best Ayurvedic approach can depend on the cyst's location, size, type, symptoms, and individual health condition. Professional guidance can help determine an appropriate approach.\n",
+          "_id": "6aa7988667192dbffb93dc87"
+        },
+        {
+          "question": "Can Natural Ayurvedic Medicine for Cyst be used without surgery?",
+          "answer": "Whether a cyst requires surgery or can be managed through other approaches depends on its type, size, location, symptoms, and medical assessment. Ayurvedic care should not be presented as a guaranteed alternative to surgery. Consult an appropriate healthcare professional when required.\n",
+          "_id": "6aa7988667192dbffb93dc88"
+        },
+        {
+          "question": "How should CYST be used?",
+          "answer": "The recommended usage is 1 pouch two to three times daily, with water, or according to the product label or professional guidance. Do not exceed the recommended quantity.",
+          "_id": "6aa7988667192dbffb93dc89"
+        }
+      ],
+      "imageAltText": "CYST Ayurvedic Cyst Medicine",
+      "metaDescription": "Explore CYST Ayurvedic Cyst Medicine made with traditional Ayurvedic ingredients. Learn about its formulation, benefits, usage, and wellness support.",
+      "metaTitle": "Ayurvedic Cyst Medicine | Cyst Ayurvedic Treatment",
+      "numReviews": 0,
+      "primaryKeyword": "Ayurvedic Cyst Medicine",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "Traditional Ayurvedic formulation\nMade with selected Ayurvedic ingredients\nPrepared using traditional Ayurvedic practices\nQuality-focused manufacturing\nSuitable for daily wellness support\nFocused on internal wellness and body balance\nConvenient pack format\nDeveloped with Ayurvedic wellness expertise"
+    },
+    {
+      "_id": "69762299bd94a7bc32beba08",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Constipation",
+      "image": "https://ik.imagekit.io/wjmididvj/ksv-products/main/ksv-1782908111083_rrs2JPTZ1",
+      "images": [
+        "/uploads/1774016536393-images-1772370933358.png",
+        "https://ik.imagekit.io/wjmididvj/ksv-products/gallery/ksv-1782908153505_tqNoDv4JV",
+        "/uploads/1774016538697-images-1772370950955.png"
+      ],
+      "shortDescription": "Ayurvedic Medicine for Constipation made with traditional Ayurvedic ingredients to support regular bowel movement, healthy digestion, bowel regularity, and daily digestive comfort.",
+      "category": {
+        "_id": "69761f81bd94a7bc32beb998",
+        "name": "All products"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": false,
+      "isWellness": false,
+      "packs": [
+        {
+          "name": "Constipation Pack A",
+          "mrp": 1050,
+          "sellingPrice": 900,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774515503122_K7yW32Vg3"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69762299bd94a7bc32beba09"
+        },
+        {
+          "name": "Constipation Pack B",
+          "mrp": 2200,
+          "sellingPrice": 1950,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774190869960_gJsdAfeGE"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69762299bd94a7bc32beba0a"
+        },
+        {
+          "name": "Constipation Pack C",
+          "mrp": 2700,
+          "sellingPrice": 2400,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774190880789_AqN20Pjie"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69762299bd94a7bc32beba0b"
+        }
+      ],
+      "createdAt": "2026-01-25T14:03:05.366Z",
+      "updatedAt": "2026-09-14T06:02:08.881Z",
+      "__v": 16,
+      "slug": "constipation",
+      "faqs": [
+        {
+          "question": "What is Ayurvedic Medicine for Constipation?",
+          "answer": "Ayurvedic Medicine for Constipation is a traditional Ayurvedic formulation designed to support digestive health, bowel regularity, and regular bowel movement. It contains selected Ayurvedic ingredients such as Amlaki, Bibhitaka, Haritaki, Dadima, and Guduchi.",
+          "_id": "6aa78de067192dbffb93c994"
+        },
+        {
+          "question": "How does Ayurvedic Constipation Medicine support digestion?",
+          "answer": "Ayurvedic Constipation Medicine is formulated with traditional Ayurvedic ingredients that are used to support healthy digestion, digestive comfort, and normal bowel function. A balanced diet, enough water, and regular physical activity can also support digestive wellness.",
+          "_id": "6aa78de067192dbffb93c995"
+        },
+        {
+          "question": "Can this Constipation Ayurvedic Medicine be used regularly?",
+          "answer": "Use the product according to the instructions provided on the product label or as advised by a qualified healthcare professional. If constipation continues or keeps coming back, professional guidance is recommended.",
+          "_id": "6aa78de067192dbffb93c996"
+        },
+        {
+          "question": "Is this an Ayurvedic Medicine for Constipation Relief?",
+          "answer": "The formulation is intended to support bowel regularity and digestive comfort. Individual experiences can vary, and it should be used according to the recommended directions.",
+          "_id": "6aa78de067192dbffb93c997"
+        },
+        {
+          "question": "What ingredients are used in this Ayurvedic Constipation Medicine?",
+          "answer": "The formulation contains Amlaki, Bibhitaka, Haritaki, Dadima, and Guduchi. These ingredients have traditional uses in Ayurveda related to digestive wellness and overall balance.\n",
+          "_id": "6aa78de067192dbffb93c998"
+        },
+        {
+          "question": "Can it be used for chronic constipation?",
+          "answer": "People experiencing chronic constipation should first consider professional medical guidance to identify the possible cause. An Ayurvedic Medicine for Chronic Constipation should be used according to professional advice and product directions.\n",
+          "_id": "6aa78de067192dbffb93c999"
+        },
+        {
+          "question": "What can support regular bowel movement naturally?",
+          "answer": "Adequate water intake, a balanced diet containing appropriate fiber, regular physical activity, and a consistent daily routine can support regular bowel movement and healthy digestion.\n",
+          "_id": "6aa78de067192dbffb93c99a"
+        },
+        {
+          "question": "When should I consult a healthcare professional for constipation?",
+          "answer": "Seek professional medical advice if constipation is persistent, keeps returning, or occurs with severe abdominal pain, vomiting, blood in the stool, unexplained weight loss, fever, or difficulty passing stool or gas.",
+          "_id": "6aa78de067192dbffb93c99b"
+        }
+      ],
+      "imageAltText": "Ayurvedic Medicine for Constipation",
+      "metaDescription": "Ayurvedic Medicine for Constipation made with traditional Ayurvedic ingredients to support regular bowel movement, digestive comfort, and healthy digestion.",
+      "metaTitle": "Ayurvedic Medicine for Constipation | Bowel & Digestive Support",
+      "numReviews": 0,
+      "primaryKeyword": "Ayurvedic Medicine for Constipation",
+      "rating": 5,
+      "reviews": [],
+      "whyChooseUs": "Traditional Ayurvedic Formulation\n\nMade with carefully selected ingredients traditionally used in Ayurveda for digestive wellness and bowel regularity.\n\nSupports Digestive Wellness\n\nDesigned to support healthy digestion, digestive comfort, gut health, and regular bowel movement.\n\nQuality-Focused Manufacturing\n\nPrepared in a GMP-certified manufacturing facility with a focus on quality and consistency.\n\nSelected Ayurvedic Ingredients\n\nContains Amlaki, Bibhitaka, Haritaki, Dadima, and Guduchi.\n\nEasy Daily Use\n\nDesigned for convenient use as part of a regular wellness routine.\n\nTrusted Ayurvedic Experience\n\nDeveloped with traditional Ayurvedic knowledge and a focus on everyday digestive wellness."
+    },
+    {
+      "_id": "69761e95bd94a7bc32beb945",
+      "user": "696fa6a5d3615a25eddc9bb9",
+      "name": "Asthma",
+      "image": "/uploads/1774016526775-image-1772376172473.png",
+      "images": [
+        "/uploads/1774016528269-images-1771949138816.png",
+        "/uploads/1774016529674-images-1771949147395.png",
+        "/uploads/1774016529802-images-1771949154984.png"
+      ],
+      "shortDescription": "Ayurvedic Asthma Medicine designed to support breathing comfort, respiratory health, lung wellness, and healthy breathing as part of a balanced daily wellness routine.",
+      "category": {
+        "_id": "696fa8160b6f6dc6db28bd16",
+        "name": "Asthma"
+      },
+      "discount": 0,
+      "countInStock": 100,
+      "isActive": true,
+      "isBestSeller": true,
+      "isWellness": false,
+      "packs": [
+        {
+          "name": "Asthma Pack A",
+          "mrp": 2700,
+          "sellingPrice": 2400,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774188960972_Mv9f8fnw8"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69761e95bd94a7bc32beb946"
+        },
+        {
+          "name": "Asthma Pack B",
+          "mrp": 5000,
+          "sellingPrice": 4400,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774188968901_akYmvPCUe"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69761e95bd94a7bc32beb947"
+        },
+        {
+          "name": "Asthma Pack C",
+          "mrp": 6000,
+          "sellingPrice": 5400,
+          "medicines": [
+            {
+              "name": "",
+              "image": "https://ik.imagekit.io/wjmididvj/ksv-products/medicines/ksv-1774188981880_AMM2f3nAP"
+            }
+          ],
+          "isDefault": false,
+          "isActive": true,
+          "_id": "69761e95bd94a7bc32beb948"
+        }
+      ],
+      "createdAt": "2026-01-25T13:45:57.675Z",
+      "updatedAt": "2026-09-14T05:40:53.070Z",
+      "__v": 20,
+      "slug": "asthma-ayurvedic-treatment",
+      "faqs": [
+        {
+          "question": "1. What is Ayurvedic Asthma Medicine?",
+          "answer": "Ayurvedic Asthma Medicine refers to Ayurvedic formulations intended to support respiratory wellness and healthy breathing. These products are generally used as part of a broader wellness routine and should be used according to the product instructions and professional guidance.",
+          "_id": "6a967aedc7378eba041731ed"
+        },
+        {
+          "question": "2. Is Ayurvedic Medicine good for asthma?",
+          "answer": "Ayurvedic formulations may be used as supportive wellness products for respiratory health. However, asthma can require medical diagnosis and ongoing management. Ayurvedic products should not be used as a replacement for prescribed asthma medicines without guidance from a qualified healthcare professional.",
+          "_id": "6a967aedc7378eba041731ee"
+        },
+        {
+          "question": "3. How does Ayurvedic Asthma Support help?",
+          "answer": "Ayurvedic Asthma Support is intended to support respiratory wellness, breathing comfort, healthy lung function, and overall respiratory health. Individual experiences may vary depending on the person and their health condition.",
+          "_id": "6a967aedc7378eba041731ef"
+        },
+        {
+          "question": "4. Can I buy Ayurvedic Asthma Medicine online in India?",
+          "answer": "Yes, you can buy Ayurvedic Asthma Medicine online through a reliable and legitimate Ayurvedic product website. Before purchasing, check the product information, ingredients, manufacturer details, usage instructions, and applicable quality or certification information.",
+          "_id": "6a967aedc7378eba041731f0"
+        },
+        {
+          "question": "5. How should Ayurvedic Asthma Medicine be used?",
+          "answer": "Use the product according to the dosage and instructions provided on its label or by the qualified practitioner. Do not exceed the recommended quantity, and seek professional guidance if you take other medicines or have specific health concerns.",
+          "_id": "6a967aedc7378eba041731f1"
+        },
+        {
+          "question": "6. Can Ayurvedic Asthma Medicine replace an inhaler?",
+          "answer": "No. You should not stop or replace a prescribed inhaler or other asthma medicine without advice from your healthcare professional. This product should not be considered a replacement for emergency asthma treatment.",
+          "_id": "6a967aedc7378eba041731f2"
+        },
+        {
+          "question": "7. Is Ayurvedic Asthma Medicine suitable for everyone?",
+          "answer": "Not necessarily. Suitability can depend on age, health condition, medicines being taken, and other individual factors. Children, pregnant or breastfeeding individuals, and people taking regular medicines should seek appropriate professional guidance before use.",
+          "_id": "6a967aedc7378eba041731f3"
+        },
+        {
+          "question": "8. Where can I buy the Best Ayurvedic Medicine for Asthma in India?",
+          "answer": "When choosing an Ayurvedic product, look for clear ingredient information, proper manufacturer details, quality-focused manufacturing, usage instructions, transparent policies, and access to professional guidance. Avoid choosing a product only because it claims to be the “best” or promises guaranteed results.",
+          "_id": "6a967aedc7378eba041731f4"
+        }
+      ],
+      "imageAlt": "Ayurvedic Asthma Medicine for Respiratory Support",
+      "longTailKeywords": [
+        "Best Ayurvedic Medicine for Asthma in India",
+        "Ayurvedic Asthma Medicine for Breathing Support",
+        "Natural Ayurvedic Asthma Support for Respiratory Wellness",
+        "Buy Ayurvedic Asthma Medicine Online"
+      ],
+      "metaDescription": "Buy Ayurvedic Asthma Medicine for breathing support and respiratory wellness. A traditional Ayurvedic formulation designed to support healthy breathing and lung wellness.",
+      "metaTitle": "Ayurvedic Asthma Medicine for Breathing Support | Karan Singh Vaidh",
+      "primaryKeyword": "Ayurvedic Asthma Medicine",
+      "reviews": [
+        {
+          "title": "Product Quality",
+          "comment": "The product arrived safely and the packaging was good. My overall experience with the product and ordering process was positive.",
+          "rating": 5,
+          "_id": "6a954b5d371a2f4890281aa5",
+          "createdAt": "2026-09-01T06:07:42.660Z",
+          "name": "Verified Customer",
+          "updatedAt": "2026-09-01T06:07:42.660Z"
+        },
+        {
+          "title": "Ordering Experience",
+          "comment": "The ordering process was simple and the product was delivered on time. The packaging was secure.",
+          "rating": 5,
+          "_id": "6a954b5d371a2f4890281aa6",
+          "createdAt": "2026-09-01T06:07:42.660Z",
+          "name": "Verified Customer",
+          "updatedAt": "2026-09-01T06:07:42.660Z"
+        },
+        {
+          "title": "Consultation Experience",
+          "comment": "I liked the Ayurvedic approach and found the consultation support helpful. The product information was easy to understand.",
+          "rating": 5,
+          "_id": "6a954b5d371a2f4890281aa7",
+          "createdAt": "2026-09-01T06:07:42.660Z",
+          "name": "Verified Customer",
+          "updatedAt": "2026-09-01T06:07:42.660Z"
+        },
+        {
+          "title": "Product Experience",
+          "comment": "I have been using the product as directed. I liked the packaging and overall product presentation.",
+          "rating": 5,
+          "_id": "6a954b5d371a2f4890281aa8",
+          "createdAt": "2026-09-01T06:07:42.660Z",
+          "name": "Verified Customer",
+          "updatedAt": "2026-09-01T06:07:42.660Z"
+        },
+        {
+          "title": "Customer Support",
+          "comment": "Customer support was helpful when I had questions about my order. The product arrived properly packed.",
+          "rating": 5,
+          "_id": "6a954b5d371a2f4890281aa9",
+          "createdAt": "2026-09-01T06:07:42.660Z",
+          "name": "Verified Customer",
+          "updatedAt": "2026-09-01T06:07:42.660Z"
+        },
+        {
+          "title": "Product Packaging",
+          "comment": "The packaging was neat and the product arrived in good condition. Overall, I had a good purchasing experience.",
+          "rating": 5,
+          "_id": "6a954b5d371a2f4890281aaa",
+          "createdAt": "2026-09-01T06:07:42.660Z",
+          "name": "Verified Customer",
+          "updatedAt": "2026-09-01T06:07:42.660Z"
+        },
+        {
+          "title": "Overall Experience",
+          "comment": "The ordering process was smooth and the product information was clear. My overall experience has been positive.",
+          "rating": 5,
+          "_id": "6a954b5d371a2f4890281aab",
+          "createdAt": "2026-09-01T06:07:42.661Z",
+          "name": "Verified Customer",
+          "updatedAt": "2026-09-01T06:07:42.661Z"
+        }
+      ],
+      "secondaryKeywords": [
+        "Ayurvedic Medicine for Asthma",
+        "Asthma Ayurvedic Treatment",
+        "Ayurvedic Asthma Support",
+        "Natural Asthma Medicine",
+        "Ayurvedic Respiratory Support"
+      ],
+      "semanticTerms": [
+        "Respiratory Wellness",
+        "Breathing Comfort",
+        "Lung Wellness",
+        "Respiratory Health",
+        "Respiratory Support",
+        "Healthy Breathing",
+        "Lung Function",
+        "Airway Wellness",
+        "Immune Support",
+        "Traditional Ayurveda",
+        "Ayurvedic Formulation",
+        "Natural Ingredients"
+      ],
+      "whyChoose": [
+        "Made according to traditional Ayurvedic principles",
+        "Designed for respiratory wellness",
+        "Supports healthy breathing and lung wellness",
+        "Quality-focused manufacturing",
+        "Prepared using selected ingredients",
+        "Suitable for daily wellness support when used as directed",
+        "Transparent product information",
+        "Expert Ayurvedic consultation available",
+        "Convenient online ordering across India",
+        "Secure payment and delivery options"
+      ],
+      "imageAltText": "Ayurvedic Asthma Medicine for Respiratory Support",
+      "numReviews": 0,
+      "rating": 5,
+      "whyChooseUs": "Made according to traditional Ayurvedic principles\nDesigned for respiratory wellness\nSupports healthy breathing and lung wellness\nQuality-focused manufacturing\nPrepared using selected ingredients\nSuitable for daily wellness support when used as directed\nTransparent product information\nExpert Ayurvedic consultation available\nConvenient online ordering across India\nSecure payment and delivery options"
+    }
+  ],
+  "blogs": [
+    {
+      "_id": "6ad3acaf7448f6bb0c93a814",
+      "title": "How to Choose an Ayurvedic Medicine for Constipation: A Practical Guide",
+      "slug": "how-to-choose-an-ayurvedic-medicine-for-constipation-a-practical-guide",
+      "excerpt": "Constipation",
+      "content": "<p>Constipation can cause hard or dry stools, straining during bowel movements, and a feeling of incomplete emptying. If you are dealing with this, you may have searched online and found many herbal powders, tablets, and churns, all promising relief. So how do you choose one?</p><br>\n\n<p>This guide explains what to check before buying Ayurvedic medicine for constipation so that you can choose with confidence.</p><br>\n\n<p>Choose a medicine with a clear ingredient list, a proper label, an identifiable manufacturer, and easy directions. Check that it suits your age, health condition, and any medicines you already take. If constipation is severe or lasts for weeks, speak to a healthcare professional first.</p>\n\n<h2>What Is Constipation, and How Can It Affect Daily Life?\n</h2><br>\n<p>Constipation means passing stools less often than usual, or passing hard, dry stools with effort. What is normal differs from person to person.</p><br>\n\n<p>It can also make you feel bloated, heavy, or uncomfortable. Common causes include low fiber intake, not drinking enough water, irregular meals, stress, travel, and lack of movement.</p><br>\n\n<h2>Why Do People Choose Ayurvedic Medicines for Constipation?\n</h2><br>\n<p>Many people like plant-based options and the whole-body approach of Ayurveda. This makes herbal remedies for constipation a popular choice.</p><br>\n\n<p>However, “natural” does not always mean “right for everyone.” That is why it is important to choose carefully.</p>\n\n<h2>How to Choose the Right Ayurvedic Medicine for Constipation</h2><br>\n\n<p>Follow these simple steps:</p><br>\n\n<p>1.\t<strong>Understand your situation:</strong> Is it occasional or ongoing?</p><br>\n\n<p>2.\t<strong>Read the ingredient list:</strong> Look for named ingredients, not vague words like “herbal blend.”</p><br>\n\n<p>3.\t<strong>Check the form:</strong> It may be a powder, tablet, capsule, or syrup.</p><br>\n\n<p>4.\t<strong>Read the directions:</strong> Dose, timing, and duration should be clear.</p><br>\n\n<p>5.\t<strong>Check the maker:</strong> Choose a brand or practitioner you can identify and contact.</p><br>\n\n<p>6.\t<strong>Read the cautions:</strong> The label should say who should avoid the medicine.</p><br>\n\n<h3>Common Ingredients to Know</h3>\n\n<p>These ingredients are often seen in Ayurvedic constipation medicines:</p>\n\n<p>•\t<strong>Haritaki:</strong> commonly used in traditional digestive formulas.</p><br>\n\n<p>•\t<strong>Triphala:</strong> a classic mix of three fruits, used for digestive support.</p><br>\n\n<p>•\t<strong>Senna (Sonamukhi):</strong> may cause stomach cramps or diarrhea. Do not use it for a long time without professional advice. If you are pregnant, breastfeeding, or have a medical condition, use it only if a healthcare professional says it is suitable.</p><br>\n\n<p>•\t<strong>Isabgol (psyllium husk):</strong> must be taken with enough water. Without enough water, it can cause discomfort or, rarely, a blockage. Follow the label directions, and ask a professional if you have swallowing or bowel problems.</p><br>\n\n<p>•\t<strong>Ginger, fennel, and ajwain:</strong> often used in digestive blends.</p><br>\n\n<p>Each ingredient works differently, so do not assume that all constipation ingredients are the same.</p>\n\n<h2>What to Check Before Buying</h2><br>\n\n<p>Use this quick checklist:</p>\n\n<p>•\tComplete ingredient list</p><br>\n\n<p>•\tManufacturer name, address, and contact details</p><br>\n\n<p>•\tBatch number, manufacturing date, and expiry date</p><br>\n\n<p>•\tClear directions and cautions</p><br>\n\n<p>•\tSealed, undamaged packaging</p><br>\n\n<p>•\tA seller whose identity and contact details you can verify</p><br>\n\n<p>•\tLicense or certification details, only if the brand provides them</p><br>\n\n<p>Be careful with products that promise an “instant cure,” “guaranteed results,” or “no side effects for everyone.” No product can honestly promise these.</p><br>\n\n<h2>Common Buying Mistakes to Avoid</h2><br>\n\n<p>•\tChoosing only by name or discount</p><br>\n\n<p>•\tIgnoring the ingredient list</p><br>\n\n<p>•\tBuying from sellers you cannot verify</p><br>\n\n<p>•\tUsing several laxative products together</p><br>\n\n<p>•\tIgnoring water, fiber, and daily routine</p><br>\n\n<p>•\tUsing a product for a long time without guidance</p><br>\n\n<p>•\tStopping prescribed medicine on your own. Never do this without your doctor’s advice.</p><br>\n\n<h2>When Should You See a Healthcare Professional?</h2><br>\n\n<p>Consult a healthcare professional if constipation:</p><br>\n\n<p>•\tLasts for more than a few weeks</p><br>\n\n<p>•\tKeeps returning</p><br>\n\n<p>•\tGets worse</p><br>\n\n<p>•\tStarts after a sudden change in your bowel habits</p><br>\n\n<p>Get urgent medical help if you have:</p><br>\n\n<p>•\tSevere stomach pain</p><br>\n\n<p>•\tVomiting</p><br>\n\n<p>•\tInability to pass stool or gas</p><br>\n\n<p>•\tBlood in the stool</p><br>\n\n<p>•\tUnexplained weight loss</p><br>\n\n<p>If you take prescribed medicine, talk to your doctor before adding any herbal medicine.</p><br>\n\n<h2>Karan Singh Vaidh’s Constipation Ayurvedic Treatment</h2>\n\n<p>Karan Singh Vaidh is an Ayurvedic practice based in Solan, Himachal Pradesh, offering natural treatments for chronic disorders. One of its offerings is the Constipation Ayurvedic Treatment.</p><br>\n\n<p>When you open the product page, use the checklist above:</p><br>\n\n<p>•\t<strong>Ingredients:</strong> Compare the listed ingredients with the ingredients in this guide.</p><br>\n\n<p>•\tDirections and cautions: Check the usage, duration, and any precautions.</p><br>\n\n<p>•\tContact details: Look for a way to ask questions before ordering.</p><br>\n\n<p>•\tYour needs: Match the details with your age, health, and current medicines. If unsure, ask a healthcare professional.</p><br>\n\n<h2>How to Make an Informed Buying Decision</h2><br>\n\n<p>Before you buy, confirm that:</p><br>\n\n<p>1.\tYou understand what the medicine contains.</p><br>\n<p>2.\tYou have read the directions and cautions.</p><br>\n<p>3.\tYou know who makes it and where you are buying from.</p><br>\n<p>4.\tYou have checked it against your health and current medicines.</p><br>\n<p>5.\tYou will also drink enough water, eat fiber, and stay active.</p><br>\n\n<p>Choosing the right Ayurvedic medicine for constipation is about making a careful, informed decision.</p><br>\n\n<p><strong>Ready to look closer?</strong> Review the ingredients, directions, and details here: <a href=\"https://thekaransinghvaidh.com/product/constipation-ayurvedic-treatment\">https://thekaransinghvaidh.com/product/constipation-ayurvedic-treatment</a></p><br>\n\n<h3>Frequently Asked Questions</h3><br>\n\n<p><strong>1. How do I choose Ayurvedic medicine for constipation?</strong></p><br>\n\n<p>Look for a clear ingredient list, clear directions and cautions, and an identifiable manufacturer. Make sure it suits your health. If you are unsure, ask a healthcare professional.</p><br>\n\n<p><strong>2. What should I check before buying Ayurvedic constipation medicine?</strong></p><br>\n\n<p>Check the ingredients, batch and expiry dates, manufacturer details, directions, cautions, and the seller’s identity.</p><br>\n\n<p><strong>3. Which ingredients are commonly used for constipation?</strong></p><br>\n\n<p>Haritaki, triphala, senna, isabgol, ginger, fennel, and ajwain are common. Senna can cause cramps or diarrhea and should not be used for long without professional advice. Isabgol must be taken with enough water.</p><br>\n\n<p><strong>4. Are Ayurvedic products suitable for everyone?</strong></p><br>\n\n<p>No, Pregnancy, breastfeeding, age, health conditions, allergies, and other medicines can affect suitability. Consult a qualified healthcare professional first.</p><br>\n\n<p><strong>5. How can I check the quality and safety of an Ayurvedic product?</strong></p><br>\n\n<p>Check the label, batch number, expiry date, packaging, and manufacturer details. Buy from a seller you can verify. If you notice a reaction, stop using it and consult a healthcare professional.</p><br>\n\n<p><strong>6. Is it safe to use Ayurvedic products for constipation daily?</strong></p><br>\n\n<p>It depends on the product and its ingredients. Ingredients like senna are not meant for long-term use without professional advice, and fiber products need plenty of water. If you feel you need a product every day, speak to a healthcare professional.</p><br>\n\n<p><strong>7. How long does constipation treatment take to work?</strong></p><br>\n\n<p>It varies from person to person, so no exact time can be promised. If there is no improvement or symptoms get worse, see a doctor.</p><br>\n\n<p><strong>8. Can diet and lifestyle changes help relieve constipation?</strong></p><br>\n\n<p>Yes, Drinking enough water, eating fiber-rich foods, having regular meals, staying active, and keeping a regular toilet routine can support natural constipation relief.</p><br>\n\n<p><strong>9. When should I consult a doctor for constipation?</strong></p><br>\n\n<p>See a doctor if constipation lasts for weeks, keeps returning, or gets worse. Get urgent help for severe stomach pain, vomiting, inability to pass stool or gas, or blood in the stool.</p>\n\n<p><strong>10. Where can I find the constipation Ayurvedic medicine from Karan Singh Vaidh?</strong></p><br>\n\n<p>You can view it on the official product page: https://thekaransinghvaidh.com/product/constipation-ayurvedic-treatment</p>\n\n<p><strong>Medical disclaimer:</strong> This article gives general information only. It does not replace personalised medical advice, diagnosis, or treatment. Consult a qualified healthcare professional before starting any product, especially if you have a health condition, are pregnant or breastfeeding, or take medication. Do not stop prescribed medicine without your doctor’s advice.</p>",
+      "coverImage": "https://ik.imagekit.io/wjmididvj/ksv-blogs/ksv-1792597450659_sVCNFJUrE",
+      "category": "Digestive Care",
+      "tags": [
+        "Asthma",
+        "Ayurveda",
+        "Wellness"
+      ],
+      "author": "Karan Singh Vaidh",
+      "readTime": "5 min read",
+      "views": 71,
+      "isPublished": true,
+      "isFeatured": false,
+      "metaTitle": "How to Choose an Ayurvedic Medicine for Constipation",
+      "metaDescription": "Not sure which Ayurvedic medicine for constipation to buy? Learn how to check ingredients, labels, quality and safety, and when to see a doctor. Simple guide.",
+      "keywords": [
+        "Ayurveda",
+        "Health Care",
+        "Chronic Disease Care"
+      ],
+      "createdAt": "2026-10-17T17:13:19.405Z",
+      "updatedAt": "2026-11-16T09:50:38.938Z",
+      "__v": 0
+    }
+  ],
+  "updatedAt": "2026-11-17T05:29:34.807Z"
+}

@@ -1,0 +1,36 @@
+name: React + Vite SSG Auto-Regeneration
+
+on:
+  push:
+    branches: [ main ]
+  repository_dispatch:
+    types: [ ssg_content_updated ]
+  workflow_dispatch:
+
+jobs:
+  build-ssg:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Client Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Run Vite Build + Static Site Generation (SSG)
+        env:
+          VITE_API_URL: https://server-pevq.onrender.com
+        run: npm run build
+
+      - name: Upload Pre-rendered Static HTML Bundle (dist)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ksv-ssg-dist-build
+          path: dist/
+          include-hidden-files: true
