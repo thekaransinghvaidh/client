@@ -8,8 +8,14 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
+dist/*.zip
+dist/*.pdf
+dist/*.png
+dist/*.webp
+dist/*.jpeg
+dist/uploads
 dist-ssr
+scripts/.chrome-ssg-profile-*
 *.local
 
 # Editor directories and files
