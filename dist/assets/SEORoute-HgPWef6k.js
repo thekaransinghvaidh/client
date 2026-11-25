@@ -1,1 +1,0 @@
-import{j as o}from"./vendor-animation-CO_6hlwc.js";import"./vendor-icons-C15T-yh5.js";import{O as r,N as s}from"./index-DN-B8x1N.js";const u=()=>{const t=localStorage.getItem("seoUserInfo")||localStorage.getItem("userInfo");let e=null;try{t&&(e=JSON.parse(t))}catch{}return e&&(e.isSEO||e.isAdmin||e.token)?o.jsx(r,{}):o.jsx(s,{to:"/seo/login",replace:!0})};export{u as default};

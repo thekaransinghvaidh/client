@@ -1,0 +1,1 @@
+import{j as e}from"./vendor-animation-Dc4xcr6c.js";import"./vendor-icons-DSeBxscR.js";import{N as r,O as o}from"./index-B2dMvuvu.js";const m=()=>{let t=null;try{t=JSON.parse(localStorage.getItem("userInfo"))}catch{}return t&&t.isSEO&&!t.isAdmin?e.jsx(r,{to:"/seo/dashboard",replace:!0}):t&&t.isAdmin?e.jsx(o,{}):e.jsx(r,{to:"/admin/login",replace:!0})};export{m as default};

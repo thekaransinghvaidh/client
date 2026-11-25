@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import SEO from '../components/seo/SEO';
 import { Link } from 'react-router-dom';
 import api from '../api/api';
-import { Clock, ArrowRight, BookOpen, Loader2 } from 'lucide-react';
+import { Clock, ArrowRight, BookOpen, Loader2, Calendar } from 'lucide-react';
 
 const BlogsPage = () => {
     const [blogs, setBlogs] = useState([]);
@@ -11,7 +11,6 @@ const BlogsPage = () => {
     const [totalPages, setTotalPages] = useState(1);
 
     useEffect(() => {
-        // SEO Title & Meta
         document.title = 'Ayurvedic Health Blogs & Remedies | Dr. Karan Singh Vaidh';
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {
@@ -44,84 +43,310 @@ const BlogsPage = () => {
         }
     };
 
+    const getCleanExcerpt = (blog) => {
+        if (blog.excerpt && blog.excerpt.trim().split(/\s+/).length > 4) {
+            return blog.excerpt;
+        }
+        return (
+            blog.metaDescription ||
+            'A practical Ayurvedic guide by Karan Singh Vaidh explaining traditional principles, herbal ingredients, and safe daily care.'
+        );
+    };
+
     return (
-        <div className="min-h-screen bg-[#FDFBF7] font-sans selection:bg-ayur-green/10 selection:text-ayur-green pb-20">
+        <div style={{ minHeight: '100vh', background: '#FBF7EE', color: '#2A2A24', fontFamily: 'Inter, system-ui, sans-serif', paddingBottom: 80 }}>
             <SEO
                 title="Ayurvedic Health Blogs & Remedies | Dr. Karan Singh Vaidh"
                 description="Read authentic Ayurvedic health blogs, herbal remedies for chronic care, asthma, high blood pressure, and kidney stones by Dr. Karan Singh Vaidh."
                 url="/blogs"
                 exact={true}
             />
-            {/* Main Content Area - 4 Blogs Per Row */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 space-y-12">
+
+            {/* Editorial Header Banner */}
+            <div style={{ borderBottom: '1px solid #E6DECB', background: '#F5EFE1', padding: '44px 24px 40px' }}>
+                <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+                    <nav aria-label="Breadcrumb" style={{ fontSize: 14, color: '#5A5A50', display: 'flex', gap: 8, marginBottom: 16 }}>
+                        <Link to="/" style={{ color: '#5A5A50', textDecoration: 'none' }}>Home</Link>
+                        <span>/</span>
+                        <span style={{ color: '#173A1D', fontWeight: 600 }}>Blogs</span>
+                    </nav>
+                    <span
+                        style={{
+                            display: 'inline-block',
+                            background: '#E3EED5',
+                            color: '#1E4D26',
+                            fontSize: 12,
+                            fontWeight: 700,
+                            letterSpacing: 1,
+                            textTransform: 'uppercase',
+                            padding: '5px 14px',
+                            borderRadius: 999,
+                            marginBottom: 12
+                        }}
+                    >
+                        Ayurvedic Knowledge Library
+                    </span>
+                    <h1
+                        style={{
+                            fontFamily: "'Playfair Display', Georgia, serif",
+                            fontSize: 'clamp(32px, 4.5vw, 48px)',
+                            lineHeight: 1.15,
+                            color: '#173A1D',
+                            margin: '0 0 12px',
+                            fontWeight: 700
+                        }}
+                    >
+                        Authentic Ayurvedic Health Guides &amp; Vaidh Insights
+                    </h1>
+                    <p style={{ fontSize: 18, lineHeight: 1.6, color: '#4A4A40', maxWidth: 740, margin: 0 }}>
+                        Clinically reviewed articles on classical Ayurveda, herbal remedies, digestive &amp; respiratory care, and holistic lifestyle guidance by Karan Singh Vaidh.
+                    </p>
+                </div>
+            </div>
+
+            {/* Main Content Area */}
+            <div style={{ maxWidth: 1200, margin: '0 auto', padding: '40px 24px 0' }}>
                 {loading ? (
-                    <div className="min-h-[40vh] flex flex-col items-center justify-center">
-                        <Loader2 size={36} className="text-ayur-green animate-spin mb-3" />
-                        <p className="text-gray-400 font-medium text-sm">Loading articles...</p>
+                    <div style={{ minHeight: '40vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                        <Loader2 size={36} className="animate-spin mb-3" style={{ color: '#1E4D26' }} />
+                        <p style={{ color: '#5A5A50', fontWeight: 500, fontSize: 15 }}>Loading Ayurvedic articles...</p>
                     </div>
                 ) : (
                     <>
-                        {/* 4 COLUMNS GRID: 1 on mobile, 2 on tablet, 4 on desktop */}
+                        {/* Featured Lead Blog Card (if only 1 blog or first blog) */}
+                        {blogs.length > 0 && (
+                            <div style={{ marginBottom: 40 }}>
+                                <Link
+                                    to={`/blog/${blogs[0].slug}`}
+                                    style={{
+                                        display: 'grid',
+                                        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                                        gap: 32,
+                                        background: '#FFFFFF',
+                                        border: '1px solid #E6DECB',
+                                        borderRadius: 20,
+                                        padding: 24,
+                                        textDecoration: 'none',
+                                        color: 'inherit',
+                                        alignItems: 'center',
+                                        boxShadow: '0 8px 24px rgba(23, 58, 29, 0.05)'
+                                    }}
+                                >
+                                    <div style={{ aspectRatio: '16/10', borderRadius: 14, overflow: 'hidden', background: '#F5EFE1', border: '1px solid #E6DECB' }}>
+                                        <img
+                                            src={blogs[0].coverImage || '/logo.png'}
+                                            alt={blogs[0].title}
+                                            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                                            onError={(e) => {
+                                                e.target.src = '/logo.png';
+                                            }}
+                                        />
+                                    </div>
+
+                                    <div style={{ padding: '4px 8px' }}>
+                                        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+                                            <span
+                                                style={{
+                                                    background: '#E3EED5',
+                                                    color: '#1E4D26',
+                                                    fontSize: 12,
+                                                    fontWeight: 700,
+                                                    letterSpacing: 1,
+                                                    textTransform: 'uppercase',
+                                                    padding: '5px 12px',
+                                                    borderRadius: 999
+                                                }}
+                                            >
+                                                {blogs[0].category || 'Ayurveda Basics'}
+                                            </span>
+                                            <span style={{ fontSize: 13, color: '#5A5A50', display: 'inline-flex', alignItems: 'center', gap: 5 }}>
+                                                <Clock size={14} style={{ color: '#1E4D26' }} />
+                                                {blogs[0].readTime || '5 min read'}
+                                            </span>
+                                            <span style={{ fontSize: 13, color: '#5A5A50', display: 'inline-flex', alignItems: 'center', gap: 5 }}>
+                                                <Calendar size={14} style={{ color: '#1E4D26' }} />
+                                                {new Date(blogs[0].createdAt).toLocaleDateString('en-IN', {
+                                                    day: 'numeric',
+                                                    month: 'short',
+                                                    year: 'numeric'
+                                                })}
+                                            </span>
+                                        </div>
+
+                                        <h2
+                                            style={{
+                                                fontFamily: "'Playfair Display', Georgia, serif",
+                                                fontSize: 'clamp(24px, 3vw, 34px)',
+                                                lineHeight: 1.22,
+                                                color: '#173A1D',
+                                                margin: '0 0 14px',
+                                                fontWeight: 700
+                                            }}
+                                        >
+                                            {blogs[0].title}
+                                        </h2>
+
+                                        <p style={{ fontSize: 17, lineHeight: 1.65, color: '#4A4A40', margin: '0 0 22px' }}>
+                                            {getCleanExcerpt(blogs[0])}
+                                        </p>
+
+                                        <div
+                                            style={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'space-between',
+                                                paddingTop: 16,
+                                                borderTop: '1px solid #E6DECB'
+                                            }}
+                                        >
+                                            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                                                <div
+                                                    style={{
+                                                        width: 38,
+                                                        height: 38,
+                                                        borderRadius: '50%',
+                                                        background: '#1E4D26',
+                                                        color: '#FFFFFF',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                        fontFamily: "'Playfair Display', serif",
+                                                        fontWeight: 700,
+                                                        fontSize: 15
+                                                    }}
+                                                >
+                                                    KS
+                                                </div>
+                                                <div>
+                                                    <div style={{ fontSize: 14, fontWeight: 700, color: '#173A1D' }}>
+                                                        {blogs[0].author || 'Karan Singh Vaidh'}
+                                                    </div>
+                                                    <div style={{ fontSize: 12, color: '#5A5A50' }}>Ayurvedic Practitioner, Solan</div>
+                                                </div>
+                                            </div>
+
+                                            <span
+                                                style={{
+                                                    display: 'inline-flex',
+                                                    alignItems: 'center',
+                                                    gap: 6,
+                                                    background: '#1E4D26',
+                                                    color: '#FFFFFF',
+                                                    padding: '10px 18px',
+                                                    borderRadius: 999,
+                                                    fontSize: 14,
+                                                    fontWeight: 600
+                                                }}
+                                            >
+                                                Read Full Guide
+                                                <ArrowRight size={15} />
+                                            </span>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+                        )}
+
+                        {/* All Articles Grid */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                             {blogs.map((blog) => (
                                 <Link
                                     key={blog._id}
                                     to={`/blog/${blog.slug}`}
-                                    className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden group cursor-pointer"
+                                    style={{
+                                        background: '#FFFFFF',
+                                        borderRadius: 16,
+                                        border: '1px solid #E6DECB',
+                                        overflow: 'hidden',
+                                        textDecoration: 'none',
+                                        color: 'inherit',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        justifyContent: 'space-between',
+                                        transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                                    }}
+                                    className="hover:-translate-y-1 hover:shadow-lg"
                                 >
                                     <div>
-                                        {/* Image Cover */}
-                                        <div className="relative aspect-[16/10] bg-gray-100 overflow-hidden">
+                                        <div style={{ position: 'relative', aspectRatio: '16/10', background: '#F5EFE1', overflow: 'hidden' }}>
                                             <img
                                                 src={blog.coverImage || '/logo.png'}
                                                 alt={blog.title}
-                                                className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
+                                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                                 onError={(e) => {
                                                     e.target.src = '/logo.png';
                                                 }}
                                             />
-                                            <span className="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-ayur-green px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm">
+                                            <span
+                                                style={{
+                                                    position: 'absolute',
+                                                    top: 12,
+                                                    left: 12,
+                                                    background: '#E3EED5',
+                                                    color: '#1E4D26',
+                                                    padding: '4px 12px',
+                                                    borderRadius: 999,
+                                                    fontSize: 11,
+                                                    fontWeight: 700,
+                                                    textTransform: 'uppercase',
+                                                    letterSpacing: 0.8
+                                                }}
+                                            >
                                                 {blog.category || 'Ayurveda'}
                                             </span>
                                         </div>
 
-                                        {/* Card Content */}
-                                        <div className="p-5 space-y-2.5">
-                                            {/* Meta Header */}
-                                            <div className="flex items-center gap-2 text-[11px] font-medium text-gray-400">
-                                                <span className="flex items-center gap-1">
-                                                    <Clock size={11} className="text-ayur-green" />
+                                        <div style={{ padding: 20 }}>
+                                            <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12, color: '#5A5A50', marginBottom: 10 }}>
+                                                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                                                    <Clock size={12} style={{ color: '#1E4D26' }} />
                                                     {blog.readTime || '5 min read'}
                                                 </span>
                                                 <span>•</span>
                                                 <span>
-                                                    {new Date(blog.createdAt).toLocaleDateString('en-US', {
+                                                    {new Date(blog.createdAt).toLocaleDateString('en-IN', {
                                                         month: 'short',
-                                                        day: 'numeric'
+                                                        day: 'numeric',
+                                                        year: 'numeric'
                                                     })}
                                                 </span>
                                             </div>
 
-                                            {/* Blog Title */}
-                                            <h3 className="text-base font-serif font-bold text-gray-900 group-hover:text-ayur-green transition-colors line-clamp-2 leading-snug">
+                                            <h3
+                                                style={{
+                                                    fontFamily: "'Playfair Display', Georgia, serif",
+                                                    fontSize: 19,
+                                                    fontWeight: 700,
+                                                    color: '#173A1D',
+                                                    lineHeight: 1.35,
+                                                    margin: '0 0 10px'
+                                                }}
+                                                className="line-clamp-2"
+                                            >
                                                 {blog.title}
                                             </h3>
 
-                                            {/* Excerpt */}
-                                            <p className="text-gray-500 text-xs leading-relaxed line-clamp-2">
-                                                {blog.excerpt}
+                                            <p style={{ fontSize: 14, lineHeight: 1.6, color: '#4A4A40', margin: 0 }} className="line-clamp-3">
+                                                {getCleanExcerpt(blog)}
                                             </p>
                                         </div>
                                     </div>
 
-                                    {/* Card Footer */}
-                                    <div className="px-5 pb-5 pt-2 border-t border-gray-50 flex items-center justify-between mt-auto">
-                                        <span className="text-[11px] font-bold text-gray-500 truncate max-w-[120px]">
-                                            {blog.author || 'Dr. Karan Singh Vaidh'}
+                                    <div
+                                        style={{
+                                            padding: '14px 20px',
+                                            borderTop: '1px solid #F0E9D8',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'space-between',
+                                            background: '#FDFBF7'
+                                        }}
+                                    >
+                                        <span style={{ fontSize: 12, fontWeight: 700, color: '#5A5A50' }}>
+                                            {blog.author || 'Karan Singh Vaidh'}
                                         </span>
-
-                                        <span className="text-ayur-green font-bold text-xs flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                                            <span>Read</span>
+                                        <span style={{ fontSize: 13, fontWeight: 700, color: '#1E4D26', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                                            Read Guide
                                             <ArrowRight size={13} />
                                         </span>
                                     </div>
@@ -129,29 +354,35 @@ const BlogsPage = () => {
                             ))}
                         </div>
 
-                        {/* Empty State */}
                         {blogs.length === 0 && (
-                            <div className="text-center py-20 bg-white rounded-3xl border border-gray-100 p-8 max-w-lg mx-auto">
-                                <BookOpen size={44} className="text-gray-300 mx-auto mb-3" />
-                                <h3 className="text-lg font-bold text-gray-800">No Articles Found</h3>
-                                <p className="text-gray-400 text-xs mt-1">
-                                    Try searching with a different term or select another category above.
+                            <div style={{ textAlign: 'center', padding: 64, background: '#FFFFFF', borderRadius: 20, border: '1px solid #E6DECB', maxWidth: 520, margin: '0 auto' }}>
+                                <BookOpen size={44} style={{ color: '#C5BBA3', margin: '0 auto 12px' }} />
+                                <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 22, fontWeight: 700, color: '#173A1D', margin: '0 0 8px' }}>
+                                    No Articles Found
+                                </h3>
+                                <p style={{ color: '#5A5A50', fontSize: 14, margin: 0 }}>
+                                    New Ayurvedic health guides are being prepared by our clinical team.
                                 </p>
                             </div>
                         )}
 
-                        {/* Pagination */}
                         {totalPages > 1 && (
-                            <div className="flex justify-center items-center gap-2 pt-6">
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8, paddingTop: 32 }}>
                                 {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
                                     <button
                                         key={p}
                                         onClick={() => setPage(p)}
-                                        className={`w-9 h-9 rounded-xl font-bold text-xs transition-all ${
-                                            page === p
-                                                ? 'bg-ayur-green text-white shadow-md scale-105'
-                                                : 'bg-white text-gray-600 border border-gray-200 hover:border-ayur-green'
-                                        }`}
+                                        style={{
+                                            width: 38,
+                                            height: 38,
+                                            borderRadius: 10,
+                                            fontWeight: 700,
+                                            fontSize: 13,
+                                            cursor: 'pointer',
+                                            background: page === p ? '#1E4D26' : '#FFFFFF',
+                                            color: page === p ? '#FFFFFF' : '#2A2A24',
+                                            border: '1px solid #E6DECB'
+                                        }}
                                     >
                                         {p}
                                     </button>
@@ -160,7 +391,6 @@ const BlogsPage = () => {
                         )}
                     </>
                 )}
-
             </div>
         </div>
     );
