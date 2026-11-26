@@ -349,17 +349,25 @@ async function runSSGPrerender() {
     const browserPath = findBrowserExecutable();
     const realDomMap = new Map();
 
-    if (fs.existsSync(DOM_CACHE_FILE)) {
+    const forceRefreshAll = process.argv.includes('--refresh-dom');
+    const forceRefreshBlogs = process.argv.includes('--refresh-blogs');
+
+    if (fs.existsSync(DOM_CACHE_FILE) && !forceRefreshAll) {
         try {
             const cachedDom = JSON.parse(fs.readFileSync(DOM_CACHE_FILE, 'utf8'));
             for (const [k, v] of Object.entries(cachedDom)) {
+                if (forceRefreshBlogs && (k === '/blogs' || k.startsWith('/blog/') || k.startsWith('/blogs/') || k.startsWith('/ayurvedic-blog/'))) {
+                    continue;
+                }
                 realDomMap.set(k, v);
             }
         } catch {}
     }
 
-    if (browserPath && typeof WebSocket !== 'undefined') {
-        console.log(`[SSG] Rendering real React DOM for ${routes.length} routes via Headless Browser...`);
+    const routesToCapture = routes.filter((r) => !realDomMap.has(r));
+
+    if (browserPath && typeof WebSocket !== 'undefined' && routesToCapture.length > 0) {
+        console.log(`[SSG] Rendering real React DOM for ${routesToCapture.length} route(s) via Headless Browser...`);
         const { server, port } = await startLocalSSGServer(baseTemplate, { products, blogs });
         const cdpPort = 9333 + Math.floor(Math.random() * 500);
         const userDataDir = path.join(__dirname, `.chrome-ssg-profile-${cdpPort}`);
@@ -379,7 +387,6 @@ async function runSSGPrerender() {
             { stdio: 'ignore' }
         );
 
-        // Wait for CDP endpoint to become ready
         let cdpReady = false;
         for (let i = 0; i < 30; i++) {
             try {
@@ -394,8 +401,8 @@ async function runSSGPrerender() {
 
         if (cdpReady) {
             const concurrency = 6;
-            for (let i = 0; i < routes.length; i += concurrency) {
-                const batch = routes.slice(i, i + concurrency);
+            for (let i = 0; i < routesToCapture.length; i += concurrency) {
+                const batch = routesToCapture.slice(i, i + concurrency);
                 const results = await Promise.all(
                     batch.map((r) => renderRouteViaCDP(cdpPort, port, r))
                 );
@@ -415,10 +422,8 @@ async function runSSGPrerender() {
         }
 
         try { chromeProc.kill(); } catch {}
-        server.close();
-        setTimeout(() => {
-            try { fs.rmSync(userDataDir, { recursive: true, force: true }); } catch {}
-        }, 1000);
+        try { server.close(); } catch {}
+        try { fs.rmSync(userDataDir, { recursive: true, force: true }); } catch {}
     }
 
     let generatedCount = 0;
@@ -496,6 +501,7 @@ ${Array.from(canonicalRoutes).map((r) => {
 
     console.log(`[SSG] Pre-rendered ${generatedCount} static HTML pages into dist/<route>/index.html`);
     console.log(`[SSG] Updated sitemap.xml with ${canonicalRoutes.size} canonical URLs.\n`);
+    process.exit(0);
 }
 
 runSSGPrerender().catch((err) => {
