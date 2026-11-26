@@ -584,24 +584,6 @@ const BlogDetailPage = () => {
                         </div>
                     </div>
 
-                    {/* Author Bio Box */}
-                    <div className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-xl shadow-gray-200/30 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
-                        <div className="w-20 h-20 rounded-full bg-ayur-green text-white font-serif font-bold text-2xl flex items-center justify-center shadow-xl shadow-ayur-green/20 flex-shrink-0">
-                            KS
-                        </div>
-                        <div className="space-y-2">
-                            <h4 className="text-lg font-serif font-bold text-gray-900">
-                                {blog.author || 'Karan Singh Vaidh'}
-                            </h4>
-                            <p className="text-xs text-ayur-gold font-bold uppercase tracking-wider">
-                                Master Ayurvedic Physician • 23+ Years Clinical Experience
-                            </p>
-                            <p className="text-xs text-gray-500 leading-relaxed">
-                                Specialized in chronic lifestyle disorder management, respiratory care, metabolic health, and authentic rasayana formulations in Solan, Himachal Pradesh.
-                            </p>
-                        </div>
-                    </div>
-
                     {/* CTA Prescription Banner */}
                     <div className="bg-gradient-to-r from-ayur-green via-[#143d25] to-ayur-green p-8 sm:p-10 rounded-[2.5rem] text-white shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
                         <div className="space-y-2 text-center sm:text-left">
