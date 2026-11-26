@@ -18,7 +18,7 @@ const MainLayout = ({ children }) => {
     }
 
     return (
-        <div className="flex flex-col min-h-screen bg-ayur-beige/30 overflow-x-hidden w-full font-sans">
+        <div className="flex flex-col min-h-screen bg-ayur-beige/30 [overflow-x:clip] w-full font-sans">
             <Header />
             <main className="flex-grow pt-20 bg-white min-h-[calc(100vh-80px)]">
                 {children}

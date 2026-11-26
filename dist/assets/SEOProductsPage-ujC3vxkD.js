@@ -1,0 +1,1 @@
+import{j as t}from"./vendor-animation-CO_6hlwc.js";import"./vendor-icons-C15T-yh5.js";import r from"./SEOManagement-BE6NDa7x.js";import"./index-BPxqLTHn.js";const a=()=>t.jsx(r,{});export{a as default};
