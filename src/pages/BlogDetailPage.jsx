@@ -587,7 +587,9 @@ const BlogDetailPage = () => {
                     {/* CTA Prescription Banner */}
                     <div className="bg-gradient-to-r from-ayur-green via-[#143d25] to-ayur-green p-8 sm:p-10 rounded-[2.5rem] text-white shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
                         <div className="space-y-2 text-center sm:text-left">
-                            <h3 className="text-2xl font-serif font-bold italic">Need Personalized Health Guidance?</h3>
+                            <h3 className="text-2xl font-serif font-bold italic !text-white" style={{ color: '#FFFFFF' }}>
+                                Need Personalized Health Guidance?
+                            </h3>
                             <p className="text-xs sm:text-sm text-gray-200 font-light">
                                 Book a direct video/telephonic consultation with Dr. Karan Singh Vaidh.
                             </p>
