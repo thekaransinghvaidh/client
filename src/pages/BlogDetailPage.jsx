@@ -157,7 +157,17 @@ const BlogDetailPage = () => {
             setLoading(false);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } catch (err) {
-            console.error('Failed to fetch blog post:', err);
+            try {
+                const res = await fetch('/blogs-fallback.json');
+                if (res.ok) {
+                    const fallback = await res.json();
+                    const found = (fallback.blogs || []).find((b) => b.slug === slug || String(b._id) === slug) || (fallback.blogs || [])[0];
+                    if (found) {
+                        setBlog(found);
+                        setRelatedBlogs((fallback.blogs || []).filter((b) => b.slug !== found.slug));
+                    }
+                }
+            } catch {}
             setLoading(false);
         }
     };

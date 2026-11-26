@@ -4,7 +4,14 @@ import { Upload, X, Check, Loader2 } from 'lucide-react';
 
 const getUploadBaseURL = () => {
   const envUrl = import.meta.env.VITE_API_URL;
-  if (envUrl && envUrl !== "/" && envUrl !== "" && !envUrl.includes("thekaransinghvaidh.com")) return envUrl;
+  if (
+    envUrl &&
+    envUrl !== "/" &&
+    envUrl !== "" &&
+    !envUrl.includes("thekaransinghvaidh.com") &&
+    !envUrl.includes("the-karan-singh-vaidh.onrender.com") &&
+    !envUrl.includes("the-karan-singh-vaidh-1.onrender.com")
+  ) return envUrl;
   if (typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")) {
     return window.location.origin;
   }

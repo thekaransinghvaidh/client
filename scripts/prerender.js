@@ -498,6 +498,8 @@ ${Array.from(canonicalRoutes).map((r) => {
 
     fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemapXml, 'utf8');
     fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), sitemapXml, 'utf8');
+    fs.writeFileSync(path.join(DIST_DIR, 'blogs-fallback.json'), JSON.stringify({ blogs }), 'utf8');
+    fs.writeFileSync(path.join(PUBLIC_DIR, 'blogs-fallback.json'), JSON.stringify({ blogs }), 'utf8');
 
     console.log(`[SSG] Pre-rendered ${generatedCount} static HTML pages into dist/<route>/index.html`);
     console.log(`[SSG] Updated sitemap.xml with ${canonicalRoutes.size} canonical URLs.\n`);

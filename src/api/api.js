@@ -8,7 +8,14 @@ const getBaseURL = () => {
     }
 
     const envUrl = import.meta.env.VITE_API_URL;
-    if (envUrl && envUrl !== "/" && envUrl !== "" && !envUrl.includes("thekaransinghvaidh.com")) {
+    if (
+        envUrl &&
+        envUrl !== "/" &&
+        envUrl !== "" &&
+        !envUrl.includes("thekaransinghvaidh.com") &&
+        !envUrl.includes("the-karan-singh-vaidh.onrender.com") &&
+        !envUrl.includes("the-karan-singh-vaidh-1.onrender.com")
+    ) {
         return envUrl.replace(/\/$/, "");
     }
 

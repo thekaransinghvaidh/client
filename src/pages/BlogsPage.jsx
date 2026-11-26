@@ -38,7 +38,14 @@ const BlogsPage = () => {
             setTotalPages(data.pages || 1);
             setLoading(false);
         } catch (err) {
-            console.error('Failed to fetch public blogs:', err);
+            try {
+                const res = await fetch('/blogs-fallback.json');
+                if (res.ok) {
+                    const fallback = await res.json();
+                    setBlogs(fallback.blogs || []);
+                    setTotalPages(1);
+                }
+            } catch {}
             setLoading(false);
         }
     };
