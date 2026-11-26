@@ -148,7 +148,7 @@ function startLocalSSGServer(baseTemplate, { products, blogs }) {
             const urlObj = new URL(req.url, 'http://localhost');
             const pathname = decodeURIComponent(urlObj.pathname);
 
-            // 1. Mock API endpoints for instant <1ms response during pre-rendering
+Mock API endpoints for instant <1ms response during pre-rendering
             if (pathname === '/api/products') {
                 res.writeHead(200, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
                 res.end(JSON.stringify(products));
@@ -198,7 +198,7 @@ function startLocalSSGServer(baseTemplate, { products, blogs }) {
                 return;
             }
 
-            // 2. Serve static files from dist/
+Serve static files from dist/
             const filePath = path.join(DIST_DIR, pathname);
             if (pathname !== '/' && fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
                 const ext = path.extname(filePath).toLowerCase();
@@ -207,7 +207,7 @@ function startLocalSSGServer(baseTemplate, { products, blogs }) {
                 return;
             }
 
-            // 3. Otherwise serve clean SPA base template so React Router renders the route
+Otherwise serve clean SPA base template so React Router renders the route
             res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
             res.end(baseTemplate);
         });
@@ -304,11 +304,11 @@ async function renderRouteViaCDP(cdpPort, serverPort, route) {
 }
 
 async function runSSGPrerender() {
-    console.log('\n🚀 [SSG] Starting React + Vite Full DOM Static Site Generation (SSG)...');
+    console.log('\n[SSG] Starting React + Vite Full DOM Static Site Generation (SSG)...');
 
     const distIndexPath = path.join(DIST_DIR, 'index.html');
     if (!fs.existsSync(distIndexPath)) {
-        console.error('❌ [SSG] dist/index.html not found! Run `vite build` first.');
+        console.error('[SSG] dist/index.html not found! Run `vite build` first.');
         process.exit(1);
     }
 
@@ -320,7 +320,7 @@ async function runSSGPrerender() {
 
     // Fetch live products & blogs from backend (or cache fallback)
     const { products, blogs } = await fetchSSGData();
-    console.log(`📦 [SSG] Loaded ${products.length} products and ${blogs.length} blogs from API/cache.`);
+    console.log(`[SSG] Loaded ${products.length} products and ${blogs.length} blogs from API/cache.`);
 
     // Build complete list of public routes to pre-render
     const routesSet = new Set([
@@ -359,7 +359,7 @@ async function runSSGPrerender() {
     }
 
     if (browserPath && typeof WebSocket !== 'undefined') {
-        console.log(`🌐 [SSG] Rendering real React DOM for ${routes.length} routes via Headless Browser...`);
+        console.log(`[SSG] Rendering real React DOM for ${routes.length} routes via Headless Browser...`);
         const { server, port } = await startLocalSSGServer(baseTemplate, { products, blogs });
         const cdpPort = 9333 + Math.floor(Math.random() * 500);
         const userDataDir = path.join(__dirname, `.chrome-ssg-profile-${cdpPort}`);
@@ -408,7 +408,7 @@ async function runSSGPrerender() {
                     }
                 });
             }
-            console.log(`✨ [SSG] Captured full React DOM for ${realDomMap.size}/${routes.length} routes.`);
+            console.log(`[SSG] Captured full React DOM for ${realDomMap.size}/${routes.length} routes.`);
             try {
                 fs.writeFileSync(DOM_CACHE_FILE, JSON.stringify(Object.fromEntries(realDomMap), null, 2), 'utf8');
             } catch {}
@@ -494,11 +494,11 @@ ${Array.from(canonicalRoutes).map((r) => {
     fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemapXml, 'utf8');
     fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), sitemapXml, 'utf8');
 
-    console.log(`✅ [SSG] Pre-rendered ${generatedCount} static HTML pages into dist/<route>/index.html`);
-    console.log(`🗺️  [SSG] Updated sitemap.xml with ${canonicalRoutes.size} canonical URLs.\n`);
+    console.log(`[SSG] Pre-rendered ${generatedCount} static HTML pages into dist/<route>/index.html`);
+    console.log(`[SSG] Updated sitemap.xml with ${canonicalRoutes.size} canonical URLs.\n`);
 }
 
 runSSGPrerender().catch((err) => {
-    console.error('❌ [SSG] Error during pre-render:', err);
+    console.error('[SSG] Error during pre-render:', err);
     process.exit(1);
 });

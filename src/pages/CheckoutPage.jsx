@@ -65,7 +65,7 @@ const CheckoutPage = () => {
 
     const handleRazorpayPayment = async (orderData) => {
         try {
-            // 1. Create Razorpay Order on server
+Create Razorpay Order on server
             const { data: razorpayOrder } = await api.post('/payment/order', {
                 amount: total
             });
@@ -79,7 +79,7 @@ const CheckoutPage = () => {
                 order_id: razorpayOrder.id,
                 handler: async function (response) {
                     try {
-                        // 2. Create the MongoDB order first (so we have a mongo_order_id)
+Create the MongoDB order first (so we have a mongo_order_id)
                         const { data: createdOrder } = await api.post('/orders', {
                             ...orderData,
                             paymentMethod: 'Online Payment (Razorpay)',
@@ -93,7 +93,7 @@ const CheckoutPage = () => {
                             }
                         });
 
-                        // 3. Verify Payment — pass mongo_order_id so backend auto-creates shipment
+Verify Payment — pass mongo_order_id so backend auto-creates shipment
                         const { data: verifyData } = await api.post('/payment/verify', {
                             razorpay_order_id: response.razorpay_order_id,
                             razorpay_payment_id: response.razorpay_payment_id,
@@ -102,7 +102,7 @@ const CheckoutPage = () => {
                         });
 
                         if (verifyData.success) {
-                            // 4. If shipment wasn't auto-created via verify, call create explicitly
+If shipment wasn't auto-created via verify, call create explicitly
                             if (!verifyData.shiprocket?.awb_code) {
                                 try {
                                     await api.post('/shipment/create', {

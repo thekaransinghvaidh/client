@@ -333,8 +333,8 @@ const CACHE_KEY = 'ksv_instant_products_cache_v1';
 
 /**
  * Get instant products catalog:
- * 1. Checks localStorage for latest DB products if cached
- * 2. Falls back to pre-bundled STATIC_PRODUCTS (Instant 0ms load)
+ - Checks localStorage for latest DB products if cached
+ - Falls back to pre-bundled STATIC_PRODUCTS (Instant 0ms load)
  */
 export const getInstantProducts = () => {
     try {

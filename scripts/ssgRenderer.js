@@ -424,7 +424,7 @@ export async function fetchSSGData() {
         }
     };
 
-    // 1. Fetch Products (Try Local first, then Remote Render API)
+Fetch Products (Try Local first, then Remote Render API)
     let prodRes = await tryFetchJson(`${LOCAL_API}/products`);
     if (!Array.isArray(prodRes) || prodRes.length === 0) {
         prodRes = await tryFetchJson(`${REMOTE_API}/products`);
@@ -433,7 +433,7 @@ export async function fetchSSGData() {
         products = prodRes;
     }
 
-    // 2. Fetch Blogs (Try Local first, then Remote Render API)
+Fetch Blogs (Try Local first, then Remote Render API)
     let blogRes = await tryFetchJson(`${LOCAL_API}/blogs?pageSize=100`);
     if (!blogRes || !Array.isArray(blogRes.blogs)) {
         blogRes = await tryFetchJson(`${REMOTE_API}/blogs?pageSize=100`);
@@ -442,7 +442,7 @@ export async function fetchSSGData() {
         blogs = blogRes.blogs;
     }
 
-    // 3. Save or load from cache file
+Save or load from cache file
     if (products.length > 0) {
         try {
             fs.writeFileSync(CACHE_FILE, JSON.stringify({ products, blogs, updatedAt: new Date().toISOString() }, null, 2), 'utf8');
@@ -816,7 +816,7 @@ export function renderRouteToHtml(templateHtml, rawPath, { products = [], blogs 
     let bodyHtml = '';
     const schemaGraph = [...getBaseSchemaGraph()];
 
-    // 1. Check if Product Route (/product/:slug)
+Check if Product Route (/product/:slug)
     if (normalizedPath.startsWith('/product/')) {
         const rawSlug = normalizedPath.replace(/^\/product\//, '').replace(/\/+$/, '');
         const resolvedSlug = SLUG_ALIASES[rawSlug] || rawSlug;
@@ -884,7 +884,7 @@ export function renderRouteToHtml(templateHtml, rawPath, { products = [], blogs 
             }
         }
     }
-    // 2. Check if Blog Detail Route (/blog/:slug, /blogs/:slug, /ayurvedic-blog/:slug)
+Check if Blog Detail Route (/blog/:slug, /blogs/:slug, /ayurvedic-blog/:slug)
     else if (
         normalizedPath.startsWith('/blog/') ||
         normalizedPath.startsWith('/blogs/') ||
@@ -915,7 +915,7 @@ export function renderRouteToHtml(templateHtml, rawPath, { products = [], blogs 
             });
         }
     }
-    // 3. Check if Category / Treatment Route
+Check if Category / Treatment Route
     else if (CATEGORY_SEO_ROUTES[normalizedPath]) {
         const catSeo = CATEGORY_SEO_ROUTES[normalizedPath];
         title = catSeo.title;
@@ -924,7 +924,7 @@ export function renderRouteToHtml(templateHtml, rawPath, { products = [], blogs 
         canonicalPath = catSeo.canonical || normalizedPath;
         bodyHtml = renderCatalogBodyHtml(catSeo, products, catSeo.category);
     }
-    // 4. Check if Blogs Listing Route
+Check if Blogs Listing Route
     else if (normalizedPath === '/blogs' || normalizedPath === '/ayurvedic-blogs') {
         const blogSeo = STATIC_PAGE_SEO['/blogs'];
         title = blogSeo.title;
@@ -933,7 +933,7 @@ export function renderRouteToHtml(templateHtml, rawPath, { products = [], blogs 
         canonicalPath = '/blogs';
         bodyHtml = renderBlogsListBodyHtml(blogs, products);
     }
-    // 5. Check if Homepage
+Check if Homepage
     else if (normalizedPath === '/') {
         const homeSeo = STATIC_PAGE_SEO['/'];
         title = homeSeo.title;
@@ -942,7 +942,7 @@ export function renderRouteToHtml(templateHtml, rawPath, { products = [], blogs 
         canonicalPath = '/';
         bodyHtml = renderHomeBodyHtml(products, blogs);
     }
-    // 6. Other Static Pages
+Other Static Pages
     else if (STATIC_PAGE_SEO[normalizedPath]) {
         const pageSeo = STATIC_PAGE_SEO[normalizedPath];
         title = pageSeo.title;

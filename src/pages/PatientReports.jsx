@@ -47,7 +47,7 @@ const PatientReports = () => {
                 exact={true}
             />
 
-            {/* 1. Real People's Real Stories Hero Section */}
+            {/- Real People's Real Stories Hero Section */}
             <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden font-sans">
                 {/* Background Image & Overlay */}
                 <div className="absolute inset-0 z-0">
@@ -127,7 +127,7 @@ const PatientReports = () => {
                 </div>
             </section>
 
-            {/* 2. Documented Medical Reports Section */}
+            {/- Documented Medical Reports Section */}
             <section className="py-16 md:py-20">
                 <div className="container mx-auto px-6 max-w-6xl">
                     <div className="text-center mb-12">

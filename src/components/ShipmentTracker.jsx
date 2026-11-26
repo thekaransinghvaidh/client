@@ -45,7 +45,7 @@ const ShipmentTracker = ({ orderId, initialData = {} }) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [orderId]);
 
-    // ── Skeleton loader ───────────────────────────────────────────────────────
+    // Skeleton loader 
     if (loading) {
         return (
             <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 animate-pulse">
@@ -56,7 +56,7 @@ const ShipmentTracker = ({ orderId, initialData = {} }) => {
         );
     }
 
-    // ── No AWB yet ────────────────────────────────────────────────────────────
+    // No AWB yet 
     if (!tracking?.awb_code) {
         return (
             <div className="bg-white rounded-lg p-6 shadow-sm border border-amber-100">
@@ -79,7 +79,7 @@ const ShipmentTracker = ({ orderId, initialData = {} }) => {
         );
     }
 
-    // ── Full tracking card ────────────────────────────────────────────────────
+    // Full tracking card 
     return (
         <div className="bg-white rounded-lg p-6 shadow-sm border border-emerald-100">
             {/* Header */}

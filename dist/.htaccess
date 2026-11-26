@@ -1,9 +1,5 @@
 <IfModule mod_headers.c>
-  # ── HSTS (HTTP Strict Transport Security) Support ──
-  # Informs browsers & SEO crawlers that the website must only be accessed over HTTPS
   Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
-
-  # ── SSL & Security Hardening Headers ──
   Header always set Content-Security-Policy "upgrade-insecure-requests"
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "SAMEORIGIN"
@@ -20,23 +16,21 @@
   RewriteEngine On
   RewriteBase /
 
-  # ── 0. Force SSL (HTTPS) First, Then Canonical Non-WWW Domain (HSTS RFC 6797 Compliant 301) ──
+  # Enforce HTTPS and non-www host
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
   RewriteCond %{HTTP_HOST} ^www\.thekaransinghvaidh\.com$ [NC]
   RewriteRule ^(.*)$ https://thekaransinghvaidh.com/$1 [R=301,L]
 
-  # ── 1. Redirect legacy index.php & spam query parameters to clean homepage ──
-  # Fixes https://thekaransinghvaidh.com/index.php/?_g=1086240 etc.
+  # Legacy index.php and query param cleanup
   RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+index\.php [NC]
   RewriteRule ^index\.php.*$ https://thekaransinghvaidh.com/? [R=301,L]
 
-  # Strip spam _g= query parameters from any URL
   RewriteCond %{QUERY_STRING} (^|&)_g=[0-9]+(&|$) [NC]
   RewriteRule ^(.*)$ https://thekaransinghvaidh.com/$1? [R=301,L]
 
-  # ── 2. 301 Permanent Redirects for Products (including -2 WordPress duplicates) ──
+  # Product slug redirects
   RewriteRule ^product/polyps(-[0-9]+)?/?$ /product/polyps-ayurvedic-treatment [R=301,L,NC]
   RewriteRule ^product/asthma(-[0-9]+)?/?$ /product/asthma-ayurvedic-treatment [R=301,L,NC]
   RewriteRule ^product/cirrhosis-hepatitis(-[0-9]+)?/?$ /product/cirrhosis-hepatitis-ayurvedic-treatment [R=301,L,NC]
@@ -63,27 +57,26 @@
   RewriteRule ^product/tbtuberculosis(-[0-9]+)?/?$ /product/tbtuberculosis-ayurvedic-treatment [R=301,L,NC]
   RewriteRule ^product/thyroid(-[0-9]+)?/?$ /product/thyroid-ayurvedic-treatment [R=301,L,NC]
 
-  # ── 3. 301 Redirects for moved pages & appointments ──
+  # Legacy page redirects
   RewriteRule ^shop/?$ /ayurvedic-products [R=301,L,NC]
   RewriteRule ^about/?$ /about-ayurvedic-doctor-in-solan [R=301,L,NC]
   RewriteRule ^book-an-appointment/?$ /book-appointment [R=301,L,NC]
   RewriteRule ^appointment/?$ /book-appointment [R=301,L,NC]
 
-  # Redirect old treatment URLs (if they were indexed)
   RewriteRule ^asthma-treatment/?$ /ayurvedic-asthma-treatment [R=301,L,NC]
   RewriteRule ^diabetes-treatment/?$ /ayurvedic-diabetes-treatment [R=301,L,NC]
   RewriteRule ^piles-treatment/?$ /ayurvedic-piles-treatment [R=301,L,NC]
 
-  # ── 4. Fallback for missing uploads to active Render backend ──
+  # Remote uploads fallback
   RewriteCond %{REQUEST_URI} ^/uploads/ [NC]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule ^uploads/(.*)$ https://server-pevq.onrender.com/uploads/$1 [R=301,L]
 
-  # ── 5. SSG Pre-rendered Route Resolution (Serves dist/<route>/index.html directly) ──
+  # Pre-rendered static route lookup
   RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
   RewriteRule ^(.+?)/?$ /$1/index.html [L]
 
-  # ── 6. SPA Client Routing Fallback for Dynamic Routes (/cart, /checkout, /admin/*) ──
+  # SPA fallback
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
