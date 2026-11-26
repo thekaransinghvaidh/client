@@ -297,17 +297,17 @@ const ProductDetails = () => {
         if (!product || !product.packs || product.packs.length === 0) return;
         const pack = product.packs[selectedPackIndex];
 
-Log click
+        // Log click
         console.log('[Meta Pixel] AddToCart button clicked');
 
-Update Cart State
+        // Update Cart State
         addToCart(product, pack, qty);
         console.log('[Meta Pixel] Cart updated successfully');
 
-Track Action
+        // Track Action
         metaPixelService.trackAddToCart(product, qty, pack.sellingPrice);
 
-Navigate
+        // Navigate
         navigate('/cart');
     };
 

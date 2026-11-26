@@ -148,7 +148,7 @@ function startLocalSSGServer(baseTemplate, { products, blogs }) {
             const urlObj = new URL(req.url, 'http://localhost');
             const pathname = decodeURIComponent(urlObj.pathname);
 
-Mock API endpoints for instant <1ms response during pre-rendering
+            // Mock API endpoints for instant <1ms response during pre-rendering
             if (pathname === '/api/products') {
                 res.writeHead(200, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
                 res.end(JSON.stringify(products));
@@ -198,7 +198,7 @@ Mock API endpoints for instant <1ms response during pre-rendering
                 return;
             }
 
-Serve static files from dist/
+            // Serve static files from dist/
             const filePath = path.join(DIST_DIR, pathname);
             if (pathname !== '/' && fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
                 const ext = path.extname(filePath).toLowerCase();
@@ -207,7 +207,7 @@ Serve static files from dist/
                 return;
             }
 
-Otherwise serve clean SPA base template so React Router renders the route
+            // Otherwise serve clean SPA base template so React Router renders the route
             res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
             res.end(baseTemplate);
         });

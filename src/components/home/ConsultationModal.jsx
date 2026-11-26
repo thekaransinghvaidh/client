@@ -48,10 +48,10 @@ const ConsultationModal = ({ isOpen, onClose }) => {
             };
             const selectedAmount = amounts[formData.duration] || 999;
 
-Create Razorpay Order
+            // Create Razorpay Order
             const { data: order } = await api.post('/appointments/create-payment', { amount: selectedAmount });
 
-Configure Razorpay options
+            // Configure Razorpay options
             const options = {
                 key: import.meta.env.VITE_RAZORPAY_KEY_ID || 'rzp_live_SL5SABtfYmhkMp',
                 amount: order.amount,
@@ -69,7 +69,7 @@ Configure Razorpay options
                 },
                 handler: async function (response) {
                     try {
-Verify Payment & Create Appointment
+                        // Verify Payment & Create Appointment
                         const appointmentPayload = {
                             ...formData,
                             razorpay_order_id: response.razorpay_order_id,

@@ -18,22 +18,22 @@ const slugifyHeading = (text = '') =>
 
 /**
  * Enhances raw blog HTML from database into rich editorial HTML:
- - Removes redundant <br> tags between block elements
- - Converts <p>• ...</p> into semantic <ul><li>...</li></ul>
- - Converts <p>1. ...</p> step paragraphs into semantic <ol><li>...</li></ol>
- - Converts numbered FAQ paragraphs under "Frequently Asked Questions" into <details> accordions
- - Adds anchor IDs to all <h2> headings and returns extracted Table of Contents items
+ * 1. Removes redundant <br> tags between block elements
+ * 2. Converts <p>• ...</p> into semantic <ul><li>...</li></ul>
+ * 3. Converts <p>1. ...</p> step paragraphs into semantic <ol><li>...</li></ol>
+ * 4. Converts numbered FAQ paragraphs under "Frequently Asked Questions" into <details> accordions
+ * 5. Adds anchor IDs to all <h2> headings and returns extracted Table of Contents items
  */
 function transformBlogContent(rawHtml = '') {
     if (!rawHtml) return { html: '', toc: [], disclaimer: '', quickSummary: '' };
 
-Clean excessive <br> between block elements
+    // Clean excessive <br> between block elements
     let cleaned = rawHtml
         .replace(/<\/p>\s*(?:<br\s*\/?>\s*)+/gi, '</p>\n')
         .replace(/<\/h([1-6])>\s*(?:<br\s*\/?>\s*)+/gi, '</h$1>\n')
         .replace(/(?:<br\s*\/?>\s*)+<h([1-6])/gi, '<h$1');
 
-Extract Medical Disclaimer paragraph if present
+    // Extract Medical Disclaimer paragraph if present
     let disclaimer = '';
     cleaned = cleaned.replace(
         /<p>\s*<strong>\s*Medical disclaimer:\s*<\/strong>([\s\S]*?)<\/p>/i,
@@ -43,13 +43,13 @@ Extract Medical Disclaimer paragraph if present
         }
     );
 
-Auto-link bare https://thekaransinghvaidh.com/... URLs that aren't already inside href="" or <a>
+    // Auto-link bare https://thekaransinghvaidh.com/... URLs that aren't already inside href="" or <a>
     cleaned = cleaned.replace(
         /(^|[^"'>])(https:\/\/thekaransinghvaidh\.com\/[^\s<"]+)/g,
         '$1<a href="$2">$2</a>'
     );
 
-Split out Frequently Asked Questions section if written as <p><strong>1. ...</strong></p><p>...</p>
+    // Split out Frequently Asked Questions section if written as <p><strong>1. ...</strong></p><p>...</p>
     const faqSplitRegex = /<h[23][^>]*>\s*Frequently Asked Questions\s*<\/h[23]>/i;
     if (faqSplitRegex.test(cleaned)) {
         const parts = cleaned.split(faqSplitRegex);
@@ -86,7 +86,7 @@ Split out Frequently Asked Questions section if written as <p><strong>1. ...</st
         }
     }
 
-Convert consecutive <p>• ...</p> into <ul><li>...</li></ul>
+    // Convert consecutive <p>• ...</p> into <ul><li>...</li></ul>
     cleaned = cleaned.replace(
         /(?:<p>\s*[•·]\s*[\s\S]*?<\/p>\s*)+/gi,
         (block) => {
@@ -100,7 +100,7 @@ Convert consecutive <p>• ...</p> into <ul><li>...</li></ul>
         }
     );
 
-Convert consecutive <p>1. ...</p> into <ol><li>...</li></ol>
+    // Convert consecutive <p>1. ...</p> into <ol><li>...</li></ol>
     cleaned = cleaned.replace(
         /(?:<p>\s*\d+\.\s+[\s\S]*?<\/p>\s*){2,}/gi,
         (block) => {
@@ -114,10 +114,10 @@ Convert consecutive <p>1. ...</p> into <ol><li>...</li></ol>
         }
     );
 
-Ensure any <table> has class="tbl"
+    // Ensure any <table> has class="tbl"
     cleaned = cleaned.replace(/<table(?![^>]*class=)/gi, '<table class="tbl"');
 
-Extract TOC from <h2> headings and add id attributes
+    // Extract TOC from <h2> headings and add id attributes
     const toc = [];
     let h2Index = 0;
     cleaned = cleaned.replace(/<h2([^>]*)>([\s\S]*?)<\/h2>/gi, (full, attrs, inner) => {
