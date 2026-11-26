@@ -178,6 +178,41 @@ const BlogDetailPage = () => {
     );
 
     useEffect(() => {
+        const removeCustomHeadNodes = () => {
+            document.head
+                .querySelectorAll('[data-ksv-blog-schema="true"]')
+                .forEach((node) => node.remove());
+        };
+
+        removeCustomHeadNodes();
+
+        const rawSchema = blog?.customSchema ? String(blog.customSchema).trim() : '';
+        if (!rawSchema) return removeCustomHeadNodes;
+
+        if (rawSchema.startsWith('<')) {
+            const temp = document.createElement('div');
+            temp.innerHTML = rawSchema;
+            Array.from(temp.children).forEach((child) => {
+                const clone = document.createElement(child.tagName.toLowerCase());
+                Array.from(child.attributes).forEach((attr) => {
+                    clone.setAttribute(attr.name, attr.value);
+                });
+                clone.setAttribute('data-ksv-blog-schema', 'true');
+                clone.textContent = child.textContent;
+                document.head.appendChild(clone);
+            });
+        } else {
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.setAttribute('data-ksv-blog-schema', 'true');
+            script.textContent = rawSchema;
+            document.head.appendChild(script);
+        }
+
+        return removeCustomHeadNodes;
+    }, [blog?.customSchema, slug]);
+
+    useEffect(() => {
         if (!toc || toc.length === 0) return;
         setActiveSection(toc[0].id);
 

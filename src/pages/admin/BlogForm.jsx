@@ -37,6 +37,7 @@ const BlogForm = () => {
     const [metaTitle, setMetaTitle] = useState('');
     const [metaDescription, setMetaDescription] = useState('');
     const [keywords, setKeywords] = useState('Ayurveda, Health Care, Chronic Disease Care');
+    const [customSchema, setCustomSchema] = useState('');
 
     const categoriesList = [
         'Ayurveda Care',
@@ -76,6 +77,7 @@ const BlogForm = () => {
             setIsFeatured(blog.isFeatured || false);
             setMetaTitle(blog.metaTitle || '');
             setMetaDescription(blog.metaDescription || '');
+            setCustomSchema(blog.customSchema || '');
 
             if (blog.tags && Array.isArray(blog.tags)) {
                 setTags(blog.tags.join(', '));
@@ -205,7 +207,8 @@ const BlogForm = () => {
             isFeatured: Boolean(isFeatured),
             metaTitle: metaTitle.trim() || title.trim(),
             metaDescription: metaDescription.trim() || excerpt.trim(),
-            keywords
+            keywords,
+            customSchema: customSchema.trim()
         };
 
         try {
@@ -520,6 +523,27 @@ const BlogForm = () => {
                                         onChange={(e) => setMetaDescription(e.target.value)}
                                         className="w-full px-5 py-3.5 bg-gray-50 border-none rounded-2xl focus:ring-2 focus:ring-ayur-green/20 text-xs font-medium transition-all"
                                     />
+                                </div>
+
+                                <div className="space-y-2 pt-3 border-t border-gray-100">
+                                    <div className="flex items-center justify-between px-1">
+                                        <label className="text-[10px] font-bold text-ayur-green uppercase tracking-widest">
+                                            Custom Blog Schema / Header Code (&lt;head&gt;)
+                                        </label>
+                                        <span className="text-[10px] text-gray-400 font-medium">
+                                            Auto-injected into page &lt;head&gt;
+                                        </span>
+                                    </div>
+                                    <textarea
+                                        rows="8"
+                                        placeholder={'Paste custom JSON-LD Schema or <script type="application/ld+json">...</script> here.\nExample:\n<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "BlogPosting",\n  "headline": "..."\n}\n</script>'}
+                                        value={customSchema}
+                                        onChange={(e) => setCustomSchema(e.target.value)}
+                                        className="w-full px-5 py-4 bg-gray-50 border-none rounded-2xl focus:ring-2 focus:ring-ayur-green/20 font-mono text-xs leading-relaxed text-gray-800 transition-all placeholder:text-gray-300"
+                                    />
+                                    <p className="text-[11px] text-gray-400 px-1">
+                                        Jo bhi Schema ya Header code aap yahan likhoge, wo is blog page ke <code>&lt;head&gt;</code> section me automatically lag jayega.
+                                    </p>
                                 </div>
                             </div>
                         </div>

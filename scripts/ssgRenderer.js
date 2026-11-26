@@ -814,6 +814,7 @@ export function renderRouteToHtml(templateHtml, rawPath, { products = [], blogs 
     let ogImage = `${SITE_URL}/logo.png`;
     let ogType = 'website';
     let bodyHtml = '';
+    let customBlogHeadBlock = '';
     const schemaGraph = [...getBaseSchemaGraph()];
 
     // Check if Product Route (/product/:slug)
@@ -913,6 +914,13 @@ export function renderRouteToHtml(templateHtml, rawPath, { products = [], blogs 
                 datePublished: blog.createdAt || new Date().toISOString(),
                 dateModified: blog.updatedAt || new Date().toISOString()
             });
+
+            if (blog.customSchema && String(blog.customSchema).trim()) {
+                const trimmedSchema = String(blog.customSchema).trim();
+                customBlogHeadBlock = trimmedSchema.startsWith('<')
+                    ? `\n  ${trimmedSchema}`
+                    : `\n  <script type="application/ld+json">${trimmedSchema}</script>`;
+            }
         }
     }
     // Check if Category / Treatment Route
@@ -990,7 +998,7 @@ export function renderRouteToHtml(templateHtml, rawPath, { products = [], blogs 
   <meta name="twitter:image" content="${escapeHtml(ogImage)}" />
 
   <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': schemaGraph })}</script>
+  <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': schemaGraph })}</script>${customBlogHeadBlock}
   <!-- /SSG Pre-rendered SEO Meta -->`;
 
     // Remove any existing <title>, <meta name="description">, <link rel="canonical"> from template to prevent duplicates
