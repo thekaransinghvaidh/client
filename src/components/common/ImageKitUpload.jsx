@@ -24,13 +24,21 @@ const API_ORIGIN = BASE_URL.replace(/\/$/, "");
 const publicKey = 'public_4c8twCaRhq67pmSzubBwraeuJvQ=';
 const urlEndpoint = 'https://ik.imagekit.io/wjmididvj';
 
+const REMOTE_IK_AUTH_URL = "https://server-pevq.onrender.com/api/imagekit/auth";
+
 const authenticator = async () => {
   try {
-    // Full path used to avoid confusion between frontend and backend domains
-    const response = await fetch(`${API_ORIGIN}/api/imagekit/auth`);
+    let response;
+    try {
+      response = await fetch(REMOTE_IK_AUTH_URL);
+    } catch {
+      response = null;
+    }
+    if (!response || !response.ok) {
+      response = await fetch(`${API_ORIGIN}/api/imagekit/auth`);
+    }
 
     if (!response.ok) {
-      const errorText = await response.text();
       throw new Error(`Auth failed: ${response.status}`);
     }
 

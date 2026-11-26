@@ -4,9 +4,62 @@ import api from '../../api/api';
 import {
     ArrowLeft, Save, Eye, Edit3, Image as ImageIcon,
     Tag, Globe, Clock, User, Check, Loader2, Upload,
-    Sparkles, Heading1, Heading2, Bold, List, Quote, AlertCircle
+    Sparkles, Bold, List, Quote, AlertCircle, Plus, Trash2
 } from 'lucide-react';
 import ImageKitUpload from '../../components/common/ImageKitUpload';
+
+const REMOTE_SERVER_ORIGIN = 'https://server-pevq.onrender.com';
+const IK_PUBLIC_KEY = 'public_4c8twCaRhq67pmSzubBwraeuJvQ=';
+
+async function uploadImageUniversal(file) {
+    // 1. Primary: Direct upload to ImageKit CDN using Render server's real NTP clock auth
+    try {
+        let authRes;
+        try {
+            authRes = await fetch(`${REMOTE_SERVER_ORIGIN}/api/imagekit/auth`);
+        } catch {
+            authRes = null;
+        }
+        if (!authRes || !authRes.ok) {
+            const { data } = await api.get('/imagekit/auth');
+            authRes = { ok: true, json: async () => data };
+        }
+        const auth = await authRes.json();
+        if (auth && auth.signature && auth.token && auth.expire) {
+            const ikForm = new FormData();
+            ikForm.append('file', file);
+            ikForm.append('fileName', file.name || `blog-image-${Date.now()}.jpg`);
+            ikForm.append('publicKey', IK_PUBLIC_KEY);
+            ikForm.append('signature', auth.signature);
+            ikForm.append('expire', String(auth.expire));
+            ikForm.append('token', auth.token);
+            ikForm.append('folder', '/ksv-blogs');
+
+            const uploadRes = await fetch('https://upload.imagekit.io/api/v1/files/upload', {
+                method: 'POST',
+                body: ikForm
+            });
+            if (uploadRes.ok) {
+                const ikData = await uploadRes.json();
+                if (ikData && ikData.url) {
+                    return ikData.url;
+                }
+            }
+        }
+    } catch (e) {
+        console.warn('Direct ImageKit upload fallback:', e.message);
+    }
+
+    // 2. Fallback: Backend /api/upload endpoint
+    const formData = new FormData();
+    formData.append('image', file);
+    const { data } = await api.post('/upload', formData);
+    const rawUrl = data?.imageUrl || data?.url || data;
+    if (typeof rawUrl === 'string' && rawUrl.startsWith('/uploads/')) {
+        return `${REMOTE_SERVER_ORIGIN}${rawUrl}`;
+    }
+    return rawUrl;
+}
 
 const BlogForm = () => {
     const { id } = useParams();
@@ -27,6 +80,13 @@ const BlogForm = () => {
     const [excerpt, setExcerpt] = useState('');
     const [content, setContent] = useState('');
     const [coverImage, setCoverImage] = useState('');
+    const [coverImageAlt, setCoverImageAlt] = useState('');
+    const [blogImages, setBlogImages] = useState([]);
+    const [inlineImgUrl, setInlineImgUrl] = useState('');
+    const [inlineImgAlt, setInlineImgAlt] = useState('');
+    const [inlineImgCaption, setInlineImgCaption] = useState('');
+    const [uploadingInlineImg, setUploadingInlineImg] = useState(false);
+    const [uploadingGalleryIdx, setUploadingGalleryIdx] = useState(null);
     const [category, setCategory] = useState('Ayurveda Care');
     const [customCategory, setCustomCategory] = useState('');
     const [author, setAuthor] = useState('Dr. Karan Singh Vaidh');
@@ -71,6 +131,8 @@ const BlogForm = () => {
             setExcerpt(blog.excerpt || '');
             setContent(blog.content || '');
             setCoverImage(blog.coverImage || '');
+            setCoverImageAlt(blog.coverImageAlt || blog.title || '');
+            setBlogImages(Array.isArray(blog.images) ? blog.images : []);
             setAuthor(blog.author || 'Dr. Karan Singh Vaidh');
             setReadTime(blog.readTime || '5 min read');
             setIsPublished(blog.isPublished !== undefined ? blog.isPublished : true);
@@ -123,18 +185,105 @@ const BlogForm = () => {
         const file = e.target.files[0];
         if (!file) return;
 
-        const formData = new FormData();
-        formData.append('image', file);
-
         try {
             setUploadingImage(true);
-            const { data } = await api.post('/upload', formData);
-            setCoverImage(data.imageUrl || data.url || data);
+            setStatusError('');
+            const uploadedUrl = await uploadImageUniversal(file);
+            setCoverImage(uploadedUrl);
+            if (!coverImageAlt && title) {
+                setCoverImageAlt(title);
+            }
             setUploadingImage(false);
         } catch (err) {
             setStatusError('Image upload failed: ' + (err.response?.data?.message || err.message));
             setUploadingImage(false);
         }
+    };
+
+    const handleInlineImageFileUpload = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        try {
+            setUploadingInlineImg(true);
+            setStatusError('');
+            const uploadedUrl = await uploadImageUniversal(file);
+            setInlineImgUrl(uploadedUrl);
+            if (!inlineImgAlt && title) {
+                setInlineImgAlt(title);
+            }
+            setUploadingInlineImg(false);
+        } catch (err) {
+            setStatusError('Content image upload failed: ' + (err.response?.data?.message || err.message));
+            setUploadingInlineImg(false);
+        }
+    };
+
+    const insertImageIntoContent = (imgUrl, imgAlt, imgCaption = '') => {
+        const cleanUrl = (imgUrl || '').trim();
+        if (!cleanUrl) {
+            setStatusError('⚠️ Please upload an image or enter an Image URL first.');
+            return;
+        }
+        const cleanAlt = (imgAlt || title || 'Ayurvedic health guide image').trim().replace(/"/g, '&quot;');
+        const cleanCaption = (imgCaption || '').trim();
+        const figureHtml = cleanCaption
+            ? `\n<figure class="ksv-blog-figure">\n  <img src="${cleanUrl}" alt="${cleanAlt}" />\n  <figcaption>${cleanCaption}</figcaption>\n</figure>\n`
+            : `\n<figure class="ksv-blog-figure">\n  <img src="${cleanUrl}" alt="${cleanAlt}" />\n</figure>\n`;
+
+        const textarea = document.getElementById('blog-content-textarea');
+        if (textarea) {
+            const start = textarea.selectionStart ?? content.length;
+            const end = textarea.selectionEnd ?? content.length;
+            const nextContent = content.substring(0, start) + figureHtml + content.substring(end);
+            setContent(nextContent);
+        } else {
+            setContent((prev) => `${prev}\n${figureHtml}`);
+        }
+
+        // Also keep in blogImages array if not already present
+        setBlogImages((prev) => {
+            if (prev.some((item) => item.url === cleanUrl)) return prev;
+            return [...prev, { url: cleanUrl, alt: imgAlt || title || '', caption: cleanCaption }];
+        });
+
+        setInlineImgUrl('');
+        setInlineImgAlt('');
+        setInlineImgCaption('');
+    };
+
+    const handleAddGalleryImageFile = async (e) => {
+        const files = Array.from(e.target.files || []);
+        if (files.length === 0) return;
+
+        try {
+            setUploadingGalleryIdx('new');
+            setStatusError('');
+            const uploadedItems = [];
+            for (const file of files) {
+                const url = await uploadImageUniversal(file);
+                uploadedItems.push({
+                    url,
+                    alt: title || file.name.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' '),
+                    caption: ''
+                });
+            }
+            setBlogImages((prev) => [...prev, ...uploadedItems]);
+            setUploadingGalleryIdx(null);
+        } catch (err) {
+            setStatusError('Gallery image upload failed: ' + (err.response?.data?.message || err.message));
+            setUploadingGalleryIdx(null);
+        }
+    };
+
+    const updateGalleryImageField = (index, field, value) => {
+        setBlogImages((prev) =>
+            prev.map((item, idx) => (idx === index ? { ...item, [field]: value } : item))
+        );
+    };
+
+    const removeGalleryImage = (index) => {
+        setBlogImages((prev) => prev.filter((_, idx) => idx !== index));
     };
 
     // Quick formatting helper inside editor textarea
@@ -199,6 +348,8 @@ const BlogForm = () => {
             excerpt: excerpt.trim(),
             content: content.trim(),
             coverImage: coverImage.trim() || '/logo.png',
+            coverImageAlt: coverImageAlt.trim() || title.trim(),
+            images: blogImages.filter((img) => img && img.url && img.url.trim()),
             category: finalCategory,
             author: author.trim() || 'Dr. Karan Singh Vaidh',
             readTime: readTime.trim() || '5 min read',
@@ -475,6 +626,231 @@ const BlogForm = () => {
                                         className="w-full px-6 py-5 bg-gray-50 border-none rounded-2xl focus:ring-2 focus:ring-ayur-green/20 font-mono text-sm leading-relaxed text-gray-800 transition-all placeholder:text-gray-300"
                                     />
                                 </div>
+
+                                {/* Inline Content Image Uploader with Alt Text */}
+                                <div className="p-5 bg-emerald-50/50 border border-ayur-green/20 rounded-2xl space-y-4">
+                                    <div className="flex flex-wrap items-center justify-between gap-2">
+                                        <div className="flex items-center gap-2">
+                                            <ImageIcon size={16} className="text-ayur-green" />
+                                            <span className="text-xs font-bold text-ayur-green uppercase tracking-wider">
+                                                Upload &amp; Insert Image Inside Blog Content (With Alt Text)
+                                            </span>
+                                        </div>
+                                        <span className="text-[11px] text-gray-500">
+                                            Inserts <code>&lt;img src="..." alt="..." /&gt;</code> at cursor position in Article Body
+                                        </span>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-12 gap-3 items-end">
+                                        <div className="md:col-span-4 space-y-1">
+                                            <label className="text-[10px] font-bold text-gray-500 uppercase tracking-wider block">
+                                                1. Upload Image or Paste URL
+                                            </label>
+                                            <div className="flex gap-2">
+                                                <label className="px-3 py-2.5 bg-ayur-green text-white hover:bg-ayur-olive rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer transition-colors flex-shrink-0 shadow-xs">
+                                                    <Upload size={13} />
+                                                    <span>{uploadingInlineImg ? 'Uploading...' : 'Choose File'}</span>
+                                                    <input
+                                                        type="file"
+                                                        accept="image/*"
+                                                        onChange={handleInlineImageFileUpload}
+                                                        disabled={uploadingInlineImg}
+                                                        className="hidden"
+                                                    />
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    placeholder="Or paste image URL..."
+                                                    value={inlineImgUrl}
+                                                    onChange={(e) => setInlineImgUrl(e.target.value)}
+                                                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-xs font-medium text-gray-800"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div className="md:col-span-4 space-y-1">
+                                            <label className="text-[10px] font-bold text-gray-500 uppercase tracking-wider block">
+                                                2. Image Alt Text (SEO) *
+                                            </label>
+                                            <input
+                                                type="text"
+                                                placeholder="e.g. Ayurvedic herbs for constipation relief"
+                                                value={inlineImgAlt}
+                                                onChange={(e) => setInlineImgAlt(e.target.value)}
+                                                className="w-full px-3 py-2.5 bg-white border border-gray-200 rounded-xl text-xs font-medium text-gray-800"
+                                            />
+                                        </div>
+
+                                        <div className="md:col-span-2 space-y-1">
+                                            <label className="text-[10px] font-bold text-gray-500 uppercase tracking-wider block">
+                                                3. Caption (Optional)
+                                            </label>
+                                            <input
+                                                type="text"
+                                                placeholder="Optional caption"
+                                                value={inlineImgCaption}
+                                                onChange={(e) => setInlineImgCaption(e.target.value)}
+                                                className="w-full px-3 py-2.5 bg-white border border-gray-200 rounded-xl text-xs font-medium text-gray-800"
+                                            />
+                                        </div>
+
+                                        <div className="md:col-span-2">
+                                            <button
+                                                type="button"
+                                                onClick={() => insertImageIntoContent(inlineImgUrl, inlineImgAlt, inlineImgCaption)}
+                                                className="w-full py-2.5 px-3 bg-ayur-green text-white font-bold text-xs rounded-xl hover:bg-ayur-olive transition-colors shadow-sm flex items-center justify-center gap-1.5"
+                                            >
+                                                <Plus size={14} />
+                                                <span>Insert in Blog</span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    {inlineImgUrl && (
+                                        <div className="flex items-center gap-3 pt-2">
+                                            <img
+                                                src={inlineImgUrl}
+                                                alt={inlineImgAlt || 'Preview'}
+                                                className="w-16 h-12 object-cover rounded-lg border border-gray-200 bg-white"
+                                            />
+                                            <div className="text-xs text-gray-600 truncate">
+                                                Ready to insert: <strong className="text-ayur-green">{inlineImgUrl}</strong>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* Card 2B: Multiple Blog Images & Alt Text Manager */}
+                            <div className="bg-white p-8 rounded-[2.5rem] shadow-xl shadow-gray-200/40 border border-gray-100 space-y-6">
+                                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-gray-50">
+                                    <div className="flex items-center gap-3">
+                                        <ImageIcon size={20} className="text-ayur-green" />
+                                        <div>
+                                            <h3 className="text-lg font-serif font-bold text-gray-900 italic">
+                                                Blog Images &amp; Alt Text Manager (Multiple Images)
+                                            </h3>
+                                            <p className="text-xs text-gray-400">
+                                                Upload multiple images for this blog, set SEO Alt Text for each image, and insert them anywhere or show in the article.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-center gap-2">
+                                        <label className="px-4 py-2.5 bg-ayur-green text-white rounded-xl text-xs font-bold flex items-center gap-2 cursor-pointer hover:bg-ayur-olive transition-colors shadow-sm">
+                                            <Upload size={14} />
+                                            <span>{uploadingGalleryIdx === 'new' ? 'Uploading Images...' : '+ Upload Multiple Images'}</span>
+                                            <input
+                                                type="file"
+                                                accept="image/*"
+                                                multiple
+                                                onChange={handleAddGalleryImageFile}
+                                                disabled={uploadingGalleryIdx === 'new'}
+                                                className="hidden"
+                                            />
+                                        </label>
+                                        <button
+                                            type="button"
+                                            onClick={() => setBlogImages((prev) => [...prev, { url: '', alt: title || '', caption: '' }])}
+                                            className="px-3.5 py-2.5 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors"
+                                        >
+                                            <Plus size={14} />
+                                            <span>Add by URL</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                {blogImages.length === 0 ? (
+                                    <div className="text-center py-8 bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+                                        <ImageIcon size={32} className="text-gray-300 mx-auto mb-2" />
+                                        <p className="text-xs font-semibold text-gray-500">
+                                            No additional blog images added yet. Click &ldquo;+ Upload Multiple Images&rdquo; above to add images with custom Alt Text.
+                                        </p>
+                                    </div>
+                                ) : (
+                                    <div className="space-y-4">
+                                        {blogImages.map((imgItem, idx) => (
+                                            <div
+                                                key={idx}
+                                                className="p-4 bg-gray-50 rounded-2xl border border-gray-200/80 flex flex-col sm:flex-row items-start sm:items-center gap-4"
+                                            >
+                                                <div className="w-24 h-20 rounded-xl overflow-hidden bg-white border border-gray-200 flex-shrink-0 flex items-center justify-center">
+                                                    {imgItem.url ? (
+                                                        <img
+                                                            src={imgItem.url}
+                                                            alt={imgItem.alt || `Blog Image ${idx + 1}`}
+                                                            className="w-full h-full object-cover"
+                                                            onError={(e) => (e.target.src = '/logo.png')}
+                                                        />
+                                                    ) : (
+                                                        <ImageIcon size={22} className="text-gray-300" />
+                                                    )}
+                                                </div>
+
+                                                <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-3 w-full">
+                                                    <div className="space-y-1">
+                                                        <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
+                                                            Image URL #{idx + 1}
+                                                        </label>
+                                                        <input
+                                                            type="text"
+                                                            placeholder="https://ik.imagekit.io/..."
+                                                            value={imgItem.url || ''}
+                                                            onChange={(e) => updateGalleryImageField(idx, 'url', e.target.value)}
+                                                            className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-xs font-medium text-gray-800"
+                                                        />
+                                                    </div>
+
+                                                    <div className="space-y-1">
+                                                        <label className="text-[10px] font-bold text-ayur-green uppercase tracking-wider">
+                                                            Alt Text (SEO) *
+                                                        </label>
+                                                        <input
+                                                            type="text"
+                                                            placeholder="Describe this image for SEO..."
+                                                            value={imgItem.alt || ''}
+                                                            onChange={(e) => updateGalleryImageField(idx, 'alt', e.target.value)}
+                                                            className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-xs font-medium text-gray-800"
+                                                        />
+                                                    </div>
+
+                                                    <div className="space-y-1">
+                                                        <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
+                                                            Caption (Optional)
+                                                        </label>
+                                                        <input
+                                                            type="text"
+                                                            placeholder="Optional caption below image"
+                                                            value={imgItem.caption || ''}
+                                                            onChange={(e) => updateGalleryImageField(idx, 'caption', e.target.value)}
+                                                            className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-xs font-medium text-gray-800"
+                                                        />
+                                                    </div>
+                                                </div>
+
+                                                <div className="flex sm:flex-col gap-2 flex-shrink-0">
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => insertImageIntoContent(imgItem.url, imgItem.alt, imgItem.caption)}
+                                                        className="px-3 py-1.5 bg-ayur-green/10 text-ayur-green hover:bg-ayur-green hover:text-white rounded-xl text-[11px] font-bold transition-colors"
+                                                        title="Insert this image into article body"
+                                                    >
+                                                        Insert in Text
+                                                    </button>
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => removeGalleryImage(idx)}
+                                                        className="px-3 py-1.5 bg-red-50 text-red-600 hover:bg-red-600 hover:text-white rounded-xl text-[11px] font-bold transition-colors flex items-center justify-center gap-1"
+                                                        title="Remove image"
+                                                    >
+                                                        <Trash2 size={12} />
+                                                        <span>Remove</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
 
                             {/* Card 3: SEO Meta Configuration */}
@@ -613,10 +989,23 @@ const BlogForm = () => {
                                     </label>
                                     <input
                                         type="text"
-                                        placeholder="e.g. /VIDHUVADHA-ASTHMA-Care-Pouch-Formulation.webp"
+                                        placeholder="e.g. https://ik.imagekit.io/..."
                                         value={coverImage}
                                         onChange={(e) => setCoverImage(e.target.value)}
                                         className="w-full px-4 py-3 bg-gray-50 border-none rounded-xl text-xs font-medium text-gray-800 transition-all"
+                                    />
+                                </div>
+
+                                <div className="space-y-2">
+                                    <label className="text-[10px] font-bold text-ayur-green uppercase tracking-widest px-1">
+                                        Featured / Cover Image Alt Text (SEO) *
+                                    </label>
+                                    <input
+                                        type="text"
+                                        placeholder="e.g. How to choose Ayurvedic medicine for constipation guide"
+                                        value={coverImageAlt}
+                                        onChange={(e) => setCoverImageAlt(e.target.value)}
+                                        className="w-full px-4 py-3 bg-gray-50 border-none rounded-xl text-xs font-medium text-gray-800 focus:ring-2 focus:ring-ayur-green/20 transition-all"
                                     />
                                 </div>
 

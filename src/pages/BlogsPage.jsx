@@ -88,8 +88,12 @@ const BlogsPage = () => {
                                     <div>
                                         <div className="relative aspect-[16/10] bg-gray-100 overflow-hidden">
                                             <img
-                                                src={blog.coverImage || '/logo.png'}
-                                                alt={blog.title}
+                                                src={
+                                                    (blog.coverImage || '/logo.png').startsWith('/uploads/')
+                                                        ? `https://server-pevq.onrender.com${blog.coverImage}`
+                                                        : blog.coverImage || '/logo.png'
+                                                }
+                                                alt={blog.coverImageAlt || blog.title}
                                                 className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
                                                 onError={(e) => {
                                                     e.target.src = '/logo.png';

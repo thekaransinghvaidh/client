@@ -362,6 +362,31 @@ const BlogDetailPage = () => {
                 .ksv-article-prose strong { color: #111827; font-weight: 700; }
                 .ksv-article-prose a { color: #1E4D2B; text-decoration: underline; font-weight: 600; }
                 .ksv-article-prose a:hover { color: #143d25; }
+                .ksv-article-prose img {
+                    max-width: 100%;
+                    height: auto;
+                    border-radius: 1rem;
+                    margin: 1.5rem 0;
+                    display: block;
+                }
+                .ksv-article-prose .ksv-blog-figure {
+                    margin: 1.75rem 0;
+                }
+                .ksv-article-prose .ksv-blog-figure img {
+                    margin: 0;
+                    width: 100%;
+                    max-height: 480px;
+                    object-fit: cover;
+                    border-radius: 1rem;
+                    border: 1px solid #E5E7EB;
+                }
+                .ksv-article-prose .ksv-blog-figure figcaption {
+                    font-size: 0.85rem;
+                    color: #6B7280;
+                    text-align: center;
+                    margin-top: 0.5rem;
+                    font-style: italic;
+                }
                 .ksv-article-prose .tbl {
                     width: 100%;
                     border-collapse: collapse;
@@ -539,8 +564,8 @@ const BlogDetailPage = () => {
                     {blog.coverImage && blog.coverImage !== '/logo.png' && (
                         <div className="rounded-3xl overflow-hidden shadow-xl aspect-video bg-gray-100 border border-gray-100 max-h-[440px]">
                             <img
-                                src={blog.coverImage}
-                                alt={blog.title}
+                                src={blog.coverImage.startsWith('/uploads/') ? `https://server-pevq.onrender.com${blog.coverImage}` : blog.coverImage}
+                                alt={blog.coverImageAlt || blog.title}
                                 className="w-full h-full object-cover"
                                 onError={(e) => {
                                     e.target.style.display = 'none';
@@ -582,6 +607,32 @@ const BlogDetailPage = () => {
                         className="ksv-article-prose bg-white p-6 sm:p-10 rounded-3xl border border-gray-100 shadow-sm"
                         dangerouslySetInnerHTML={{ __html: processedHtml }}
                     />
+
+                    {/* Additional Blog Images (if added in Blog Images Manager and not already in content HTML) */}
+                    {Array.isArray(blog.images) &&
+                        blog.images.filter((img) => img && img.url && !(blog.content || '').includes(img.url)).length > 0 && (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                {blog.images
+                                    .filter((img) => img && img.url && !(blog.content || '').includes(img.url))
+                                    .map((img, idx) => (
+                                        <figure
+                                            key={idx}
+                                            className="bg-white p-3 rounded-3xl border border-gray-100 shadow-sm overflow-hidden"
+                                        >
+                                            <img
+                                                src={img.url.startsWith('/uploads/') ? `https://server-pevq.onrender.com${img.url}` : img.url}
+                                                alt={img.alt || blog.title}
+                                                className="w-full h-64 object-cover rounded-2xl"
+                                            />
+                                            {img.caption && (
+                                                <figcaption className="text-xs text-gray-500 text-center mt-2 italic">
+                                                    {img.caption}
+                                                </figcaption>
+                                            )}
+                                        </figure>
+                                    ))}
+                            </div>
+                        )}
 
                     {/* Medical Disclaimer Box */}
                     <div className="bg-white border border-gray-200 rounded-2xl p-5 text-xs sm:text-sm text-gray-600 leading-relaxed">
